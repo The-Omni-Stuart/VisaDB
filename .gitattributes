@@ -2,3 +2,4 @@
 # stats, and collapse its diffs in PRs (the weekly refresh rewrites it).
 data/*.csv linguist-generated
 data/*.json linguist-generated
+data/*.db  linguist-generated
