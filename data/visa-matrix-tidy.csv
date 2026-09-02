@@ -76,7 +76,6 @@ AD,HT,visa-free,90,high
 AD,HU,visa-free,90,high
 AD,ID,visa-on-arrival,30,high
 AD,IE,visa-free,90,high
-AD,IL,eta,90,high
 AD,IN,e-visa,,high
 AD,IQ,e-visa,,high
 AD,IR,visa-on-arrival,15,high
@@ -274,7 +273,6 @@ AE,HT,visa-free,90,high
 AE,HU,visa-free,90,high
 AE,ID,visa-on-arrival,30,high
 AE,IE,visa-free,90,high
-AE,IL,eta,90,high
 AE,IN,visa-on-arrival,30,high
 AE,IQ,e-visa,30,disputed
 AE,IR,visa-free,15,high
@@ -472,7 +470,6 @@ AF,HT,visa-free,90,high
 AF,HU,visa-required,,high
 AF,ID,visa-required,,disputed
 AF,IE,visa-required,,high
-AF,IL,visa-required,,disputed
 AF,IN,e-visa,30,high
 AF,IQ,e-visa,30,high
 AF,IR,visa-required,,high
@@ -670,7 +667,6 @@ AG,HT,visa-free,90,high
 AG,HU,visa-free,90,high
 AG,ID,visa-required,,disputed
 AG,IE,visa-free,90,high
-AG,IL,visa-required,,disputed
 AG,IN,e-visa,60,high
 AG,IQ,e-visa,,high
 AG,IR,visa-on-arrival,30,high
@@ -868,7 +864,6 @@ AL,HT,visa-free,90,high
 AL,HU,visa-free,90,high
 AL,ID,visa-on-arrival,30,high
 AL,IE,e-visa,,disputed
-AL,IL,eta,90,high
 AL,IN,e-visa,30,high
 AL,IQ,e-visa,30,high
 AL,IR,visa-free,,disputed
@@ -1066,7 +1061,6 @@ AM,HT,visa-free,90,high
 AM,HU,visa-required,,high
 AM,ID,visa-on-arrival,30,high
 AM,IE,visa-required,,high
-AM,IL,visa-required,,disputed
 AM,IN,e-visa,30,high
 AM,IQ,e-visa,30,high
 AM,IR,visa-free,90,high
@@ -1264,7 +1258,6 @@ AO,HT,visa-free,90,high
 AO,HU,visa-required,,high
 AO,ID,visa-required,,disputed
 AO,IE,visa-required,,high
-AO,IL,visa-required,,disputed
 AO,IN,e-visa,60,high
 AO,IQ,e-visa,,high
 AO,IR,visa-on-arrival,30,high
@@ -1462,7 +1455,6 @@ AR,HT,visa-free,90,high
 AR,HU,visa-free,90,high
 AR,ID,visa-on-arrival,30,high
 AR,IE,visa-free,90,high
-AR,IL,eta,90,high
 AR,IN,e-visa,30,high
 AR,IQ,e-visa,30,high
 AR,IR,visa-free,,disputed
@@ -1660,7 +1652,6 @@ AT,HT,visa-free,90,high
 AT,HU,visa-free,,high
 AT,ID,visa-on-arrival,30,high
 AT,IE,visa-free,,high
-AT,IL,eta,90,high
 AT,IN,e-visa,30,high
 AT,IQ,e-visa,60,high
 AT,IR,visa-free,,disputed
@@ -1858,7 +1849,6 @@ AU,HT,visa-free,90,high
 AU,HU,visa-free,90,high
 AU,ID,visa-on-arrival,30,high
 AU,IE,visa-free,90,high
-AU,IL,eta,90,high
 AU,IN,e-visa,30,high
 AU,IQ,e-visa,30,high
 AU,IR,visa-free,,disputed
@@ -2056,7 +2046,6 @@ AZ,HT,visa-free,90,high
 AZ,HU,visa-required,,high
 AZ,ID,visa-on-arrival,30,high
 AZ,IE,visa-required,,high
-AZ,IL,visa-required,,disputed
 AZ,IN,e-visa,30,high
 AZ,IQ,e-visa,30,high
 AZ,IR,visa-free,14,high
@@ -2254,7 +2243,6 @@ BA,HT,visa-free,90,high
 BA,HU,visa-free,90,high
 BA,ID,visa-on-arrival,30,high
 BA,IE,visa-required,,high
-BA,IL,visa-required,,disputed
 BA,IN,e-visa,30,high
 BA,IQ,e-visa,,high
 BA,IR,visa-free,15,high
@@ -2452,7 +2440,6 @@ BB,HT,visa-free,90,high
 BB,HU,visa-free,90,high
 BB,ID,visa-required,,disputed
 BB,IE,visa-free,90,high
-BB,IL,eta,90,high
 BB,IN,e-visa,30,high
 BB,IQ,e-visa,30,high
 BB,IR,visa-on-arrival,30,high
@@ -2650,7 +2637,6 @@ BD,HT,visa-free,90,high
 BD,HU,visa-required,,high
 BD,ID,e-visa,60,high
 BD,IE,visa-required,,high
-BD,IL,visa-required,,disputed
 BD,IN,visa-required,,high
 BD,IQ,visa-required,,high
 BD,IR,e-visa,,disputed
@@ -2848,7 +2834,6 @@ BE,HT,visa-free,90,high
 BE,HU,visa-free,,high
 BE,ID,visa-on-arrival,30,high
 BE,IE,visa-free,,high
-BE,IL,eta,90,high
 BE,IN,e-visa,30,high
 BE,IQ,e-visa,60,high
 BE,IR,e-visa,30,disputed
@@ -3046,7 +3031,6 @@ BF,HT,visa-free,90,high
 BF,HU,visa-required,,high
 BF,ID,visa-required,,disputed
 BF,IE,visa-required,,high
-BF,IL,visa-required,,disputed
 BF,IN,visa-required,,high
 BF,IQ,e-visa,,high
 BF,IR,visa-on-arrival,30,high
@@ -3244,7 +3228,6 @@ BG,HT,visa-free,90,high
 BG,HU,freedom-of-movement,,high
 BG,ID,visa-on-arrival,30,high
 BG,IE,freedom-of-movement,,high
-BG,IL,eta,90,high
 BG,IN,e-visa,60,high
 BG,IQ,e-visa,60,high
 BG,IR,visa-free,,disputed
@@ -3442,7 +3425,6 @@ BH,HT,visa-free,90,high
 BH,HU,visa-required,,high
 BH,ID,visa-on-arrival,30,high
 BH,IE,visa-required,,high
-BH,IL,visa-required,,disputed
 BH,IN,e-visa,30,high
 BH,IQ,visa-on-arrival,,high
 BH,IR,visa-free,15,high
@@ -3640,7 +3622,6 @@ BI,HT,visa-free,90,high
 BI,HU,visa-required,,high
 BI,ID,visa-required,,disputed
 BI,IE,visa-required,,high
-BI,IL,visa-required,,disputed
 BI,IN,e-visa,60,high
 BI,IQ,e-visa,,high
 BI,IR,visa-on-arrival,30,high
@@ -3838,7 +3819,6 @@ BJ,HT,visa-free,90,high
 BJ,HU,visa-required,,high
 BJ,ID,visa-required,,disputed
 BJ,IE,visa-required,,high
-BJ,IL,visa-required,,disputed
 BJ,IN,e-visa,60,high
 BJ,IQ,e-visa,30,high
 BJ,IR,visa-on-arrival,30,high
@@ -4036,7 +4016,6 @@ BN,HT,visa-free,90,high
 BN,HU,visa-free,90,high
 BN,ID,visa-free,30,high
 BN,IE,visa-free,90,high
-BN,IL,visa-required,,disputed
 BN,IN,e-visa,30,high
 BN,IQ,e-visa,,high
 BN,IR,visa-free,15,high
@@ -4234,7 +4213,6 @@ BO,HT,visa-free,90,high
 BO,HU,visa-required,,high
 BO,ID,e-visa,60,high
 BO,IE,visa-required,,high
-BO,IL,visa-required,,disputed
 BO,IN,e-visa,30,high
 BO,IQ,e-visa,30,high
 BO,IR,e-visa,30,disputed
@@ -4432,7 +4410,6 @@ BR,HT,visa-free,90,high
 BR,HU,visa-free,90,high
 BR,ID,visa-free,30,high
 BR,IE,visa-free,90,high
-BR,IL,eta,90,high
 BR,IN,e-visa,30,high
 BR,IQ,e-visa,30,high
 BR,IR,visa-free,15,high
@@ -4630,7 +4607,6 @@ BS,HT,visa-free,90,high
 BS,HU,visa-free,90,high
 BS,ID,e-visa,,high
 BS,IE,visa-free,90,high
-BS,IL,eta,90,high
 BS,IN,e-visa,60,high
 BS,IQ,e-visa,,high
 BS,IR,visa-on-arrival,30,high
@@ -4828,7 +4804,6 @@ BT,HT,visa-free,90,high
 BT,HU,visa-required,,high
 BT,ID,visa-required,,disputed
 BT,IE,visa-required,,high
-BT,IL,visa-required,,disputed
 BT,IN,freedom-of-movement,,high
 BT,IQ,e-visa,,high
 BT,IR,visa-on-arrival,30,high
@@ -5026,7 +5001,6 @@ BW,HT,visa-free,90,high
 BW,HU,visa-required,,high
 BW,ID,visa-required,,disputed
 BW,IE,visa-required,,high
-BW,IL,eta,90,high
 BW,IN,e-visa,60,high
 BW,IQ,e-visa,,high
 BW,IR,visa-on-arrival,30,high
@@ -5224,7 +5198,6 @@ BY,HT,visa-free,90,high
 BY,HU,visa-required,,high
 BY,ID,visa-free,30,disputed
 BY,IE,visa-required,,high
-BY,IL,eta,90,high
 BY,IN,e-visa,30,high
 BY,IQ,e-visa,30,high
 BY,IR,visa-free,14,high
@@ -5422,7 +5395,6 @@ BZ,HT,visa-free,90,high
 BZ,HU,visa-required,,high
 BZ,ID,e-visa,,high
 BZ,IE,visa-free,90,high
-BZ,IL,eta,90,high
 BZ,IN,e-visa,60,high
 BZ,IQ,e-visa,,high
 BZ,IR,visa-free,,disputed
@@ -5620,7 +5592,6 @@ CA,HT,visa-free,90,high
 CA,HU,visa-free,90,high
 CA,ID,visa-on-arrival,30,high
 CA,IE,visa-free,90,high
-CA,IL,eta,90,high
 CA,IN,e-visa,30,high
 CA,IQ,e-visa,30,high
 CA,IR,visa-required,,high
@@ -5818,7 +5789,6 @@ CD,HT,visa-free,90,high
 CD,HU,visa-required,,high
 CD,ID,e-visa,60,high
 CD,IE,visa-required,,high
-CD,IL,visa-required,,disputed
 CD,IN,visa-required,,high
 CD,IQ,visa-required,,disputed
 CD,IR,e-visa,30,disputed
@@ -6016,7 +5986,6 @@ CF,HT,visa-free,90,high
 CF,HU,visa-required,,high
 CF,ID,visa-required,,disputed
 CF,IE,visa-required,,high
-CF,IL,visa-required,,disputed
 CF,IN,visa-required,,high
 CF,IQ,e-visa,,high
 CF,IR,visa-on-arrival,30,high
@@ -6214,7 +6183,6 @@ CG,HT,visa-free,90,high
 CG,HU,visa-required,,high
 CG,ID,visa-required,,disputed
 CG,IE,visa-required,,high
-CG,IL,visa-required,,disputed
 CG,IN,visa-required,,high
 CG,IQ,e-visa,,high
 CG,IR,visa-on-arrival,30,high
@@ -6412,7 +6380,6 @@ CH,HT,visa-free,90,high
 CH,HU,visa-free,,high
 CH,ID,visa-on-arrival,30,high
 CH,IE,visa-free,,high
-CH,IL,eta,90,high
 CH,IN,e-visa,30,high
 CH,IQ,e-visa,30,high
 CH,IR,e-visa,30,disputed
@@ -6610,7 +6577,6 @@ CI,HT,visa-free,90,high
 CI,HU,visa-required,,high
 CI,ID,visa-required,,disputed
 CI,IE,visa-required,,high
-CI,IL,visa-required,,disputed
 CI,IN,e-visa,60,high
 CI,IQ,e-visa,,high
 CI,IR,visa-on-arrival,30,high
@@ -6808,7 +6774,6 @@ CL,HT,visa-free,90,high
 CL,HU,visa-free,90,high
 CL,ID,visa-on-arrival,30,high
 CL,IE,visa-free,90,high
-CL,IL,eta,90,high
 CL,IN,e-visa,30,high
 CL,IQ,e-visa,30,high
 CL,IR,visa-free,14,disputed
@@ -7006,7 +6971,6 @@ CM,HT,visa-free,90,high
 CM,HU,visa-required,,high
 CM,ID,e-visa,,high
 CM,IE,visa-required,,high
-CM,IL,visa-required,,disputed
 CM,IN,e-visa,60,high
 CM,IQ,e-visa,,high
 CM,IR,visa-on-arrival,30,high
@@ -7204,7 +7168,6 @@ CN,HT,visa-free,90,high
 CN,HU,visa-required,,high
 CN,ID,visa-on-arrival,30,high
 CN,IE,visa-required,,high
-CN,IL,visa-required,,disputed
 CN,IN,visa-required,,high
 CN,IQ,e-visa,30,high
 CN,IR,visa-free,21,high
@@ -7402,7 +7365,6 @@ CO,HT,visa-required,,high
 CO,HU,visa-free,90,high
 CO,ID,visa-free,30,high
 CO,IE,visa-required,,high
-CO,IL,eta,90,disputed
 CO,IN,e-visa,30,high
 CO,IQ,e-visa,30,high
 CO,IR,visa-required,,high
@@ -7600,7 +7562,6 @@ CR,HT,visa-free,90,high
 CR,HU,visa-free,90,high
 CR,ID,visa-required,,disputed
 CR,IE,visa-free,90,high
-CR,IL,eta,90,high
 CR,IN,e-visa,60,high
 CR,IQ,e-visa,,high
 CR,IR,visa-on-arrival,30,high
@@ -7798,7 +7759,6 @@ CU,HT,visa-required,,high
 CU,HU,visa-required,,high
 CU,ID,e-visa,80,high
 CU,IE,visa-required,,high
-CU,IL,visa-required,,disputed
 CU,IN,e-visa,30,high
 CU,IQ,e-visa,30,high
 CU,IR,visa-free,15,high
@@ -7996,7 +7956,6 @@ CV,HT,visa-free,90,medium
 CV,HU,visa-required,,medium
 CV,ID,e-visa,,medium
 CV,IE,visa-required,,medium
-CV,IL,e-visa,,medium
 CV,IN,e-visa,,medium
 CV,IQ,e-visa,,medium
 CV,IR,visa-on-arrival,,medium
@@ -8194,7 +8153,6 @@ CY,HT,visa-free,90,high
 CY,HU,visa-free,,high
 CY,ID,visa-on-arrival,30,high
 CY,IE,visa-free,,high
-CY,IL,eta,90,high
 CY,IN,e-visa,60,high
 CY,IQ,e-visa,60,high
 CY,IR,e-visa,30,disputed
@@ -8392,7 +8350,6 @@ CZ,HT,visa-free,90,high
 CZ,HU,visa-free,,high
 CZ,ID,visa-on-arrival,30,high
 CZ,IE,visa-free,,high
-CZ,IL,eta,90,high
 CZ,IN,e-visa,30,high
 CZ,IQ,e-visa,60,high
 CZ,IR,visa-free,,disputed
@@ -8590,7 +8547,6 @@ DE,HT,visa-free,90,high
 DE,HU,freedom-of-movement,,high
 DE,ID,visa-on-arrival,30,high
 DE,IE,freedom-of-movement,,high
-DE,IL,eta,90,high
 DE,IN,e-visa,30,high
 DE,IQ,e-visa,30,high
 DE,IR,visa-free,14,disputed
@@ -8788,7 +8744,6 @@ DJ,HT,visa-free,90,medium
 DJ,HU,visa-required,,medium
 DJ,ID,e-visa,,medium
 DJ,IE,visa-required,,medium
-DJ,IL,e-visa,,medium
 DJ,IN,e-visa,,medium
 DJ,IQ,e-visa,,medium
 DJ,IR,visa-on-arrival,,medium
@@ -8986,7 +8941,6 @@ DK,HT,visa-free,90,high
 DK,HU,visa-free,,high
 DK,ID,visa-on-arrival,30,high
 DK,IE,visa-free,,high
-DK,IL,eta,90,high
 DK,IN,e-visa,30,high
 DK,IQ,e-visa,60,high
 DK,IR,e-visa,30,disputed
@@ -9184,7 +9138,6 @@ DM,HT,visa-free,90,high
 DM,HU,visa-free,90,high
 DM,ID,visa-required,,disputed
 DM,IE,visa-required,,high
-DM,IL,eta,90,high
 DM,IN,e-visa,60,high
 DM,IQ,e-visa,,high
 DM,IR,visa-on-arrival,30,high
@@ -9382,7 +9335,6 @@ DO,HT,visa-required,,high
 DO,HU,visa-required,,high
 DO,ID,visa-required,,disputed
 DO,IE,visa-required,,high
-DO,IL,eta,90,high
 DO,IN,e-visa,60,high
 DO,IQ,e-visa,30,high
 DO,IR,visa-free,,disputed
@@ -9580,7 +9532,6 @@ DZ,HT,visa-free,90,high
 DZ,HU,visa-required,,high
 DZ,ID,visa-required,,disputed
 DZ,IE,visa-required,,high
-DZ,IL,visa-required,,disputed
 DZ,IN,visa-required,,high
 DZ,IQ,e-visa,30,high
 DZ,IR,visa-on-arrival,30,high
@@ -9778,7 +9729,6 @@ EC,HT,visa-free,90,medium
 EC,HU,visa-required,,medium
 EC,ID,visa-on-arrival,,medium
 EC,IE,visa-required,,medium
-EC,IL,eta,,medium
 EC,IN,e-visa,,medium
 EC,IQ,e-visa,,medium
 EC,IR,visa-on-arrival,,medium
@@ -9976,7 +9926,6 @@ EE,HT,visa-free,90,high
 EE,HU,visa-free,,high
 EE,ID,visa-on-arrival,30,high
 EE,IE,visa-free,,high
-EE,IL,eta,90,high
 EE,IN,e-visa,60,high
 EE,IQ,e-visa,60,high
 EE,IR,e-visa,30,disputed
@@ -10174,7 +10123,6 @@ EG,HT,visa-free,90,high
 EG,HU,visa-required,,high
 EG,ID,visa-on-arrival,30,high
 EG,IE,visa-required,,high
-EG,IL,visa-required,,disputed
 EG,IN,visa-required,,high
 EG,IQ,e-visa,30,high
 EG,IR,visa-free,20,high
@@ -10372,7 +10320,6 @@ ER,HT,visa-free,90,high
 ER,HU,visa-required,,high
 ER,ID,visa-required,,disputed
 ER,IE,visa-required,,high
-ER,IL,visa-required,,disputed
 ER,IN,e-visa,60,high
 ER,IQ,e-visa,,high
 ER,IR,visa-on-arrival,30,high
@@ -10570,7 +10517,6 @@ ES,HT,visa-free,90,high
 ES,HU,freedom-of-movement,,high
 ES,ID,visa-on-arrival,30,high
 ES,IE,freedom-of-movement,,high
-ES,IL,eta,90,high
 ES,IN,e-visa,30,high
 ES,IQ,e-visa,60,high
 ES,IR,visa-free,,disputed
@@ -10768,7 +10714,6 @@ ET,HT,visa-free,90,high
 ET,HU,visa-required,,high
 ET,ID,e-visa,,high
 ET,IE,visa-required,,high
-ET,IL,visa-required,,disputed
 ET,IN,visa-required,,high
 ET,IQ,visa-required,,disputed
 ET,IR,e-visa,14,disputed
@@ -10966,7 +10911,6 @@ FI,HT,visa-free,90,high
 FI,HU,visa-free,,high
 FI,ID,visa-on-arrival,30,high
 FI,IE,visa-free,,high
-FI,IL,eta,90,high
 FI,IN,e-visa,30,high
 FI,IQ,e-visa,60,high
 FI,IR,e-visa,30,disputed
@@ -11164,7 +11108,6 @@ FJ,HT,visa-free,90,high
 FJ,HU,visa-required,,high
 FJ,ID,visa-required,,disputed
 FJ,IE,visa-free,90,high
-FJ,IL,eta,90,high
 FJ,IN,e-visa,60,high
 FJ,IQ,e-visa,,high
 FJ,IR,visa-on-arrival,30,high
@@ -11362,7 +11305,6 @@ FM,HT,visa-free,90,high
 FM,HU,visa-free,90,high
 FM,ID,visa-required,,disputed
 FM,IE,visa-required,,high
-FM,IL,eta,90,high
 FM,IN,e-visa,60,high
 FM,IQ,e-visa,,high
 FM,IR,e-visa,30,disputed
@@ -11560,7 +11502,6 @@ FR,HT,visa-free,90,high
 FR,HU,freedom-of-movement,,high
 FR,ID,visa-on-arrival,30,high
 FR,IE,freedom-of-movement,,high
-FR,IL,eta,90,high
 FR,IN,e-visa,30,high
 FR,IQ,e-visa,60,high
 FR,IR,visa-free,,disputed
@@ -11758,7 +11699,6 @@ GA,HT,visa-free,90,high
 GA,HU,visa-required,,high
 GA,ID,visa-required,,disputed
 GA,IE,visa-required,,high
-GA,IL,visa-required,,disputed
 GA,IN,e-visa,30,high
 GA,IQ,visa-required,,disputed
 GA,IR,e-visa,30,disputed
@@ -11956,7 +11896,6 @@ GB,HT,visa-free,90,high
 GB,HU,visa-free,90,high
 GB,ID,visa-on-arrival,30,high
 GB,IE,visa-free,,high
-GB,IL,eta,90,high
 GB,IN,e-visa,30,high
 GB,IQ,e-visa,30,high
 GB,IR,visa-free,,disputed
@@ -12154,7 +12093,6 @@ GD,HT,visa-free,90,high
 GD,HU,visa-free,90,high
 GD,ID,visa-required,,disputed
 GD,IE,visa-free,90,high
-GD,IL,eta,90,high
 GD,IN,e-visa,60,high
 GD,IQ,e-visa,30,high
 GD,IR,visa-free,,disputed
@@ -12352,7 +12290,6 @@ GE,HT,visa-free,90,high
 GE,HU,visa-free,90,high
 GE,ID,e-visa,,high
 GE,IE,visa-required,,high
-GE,IL,eta,90,high
 GE,IN,e-visa,30,high
 GE,IQ,e-visa,,high
 GE,IR,visa-free,45,high
@@ -12550,7 +12487,6 @@ GH,HT,visa-free,90,high
 GH,HU,visa-required,,high
 GH,ID,visa-required,,disputed
 GH,IE,visa-required,,high
-GH,IL,visa-required,,disputed
 GH,IN,e-visa,60,high
 GH,IQ,e-visa,,high
 GH,IR,visa-on-arrival,15,high
@@ -12748,7 +12684,6 @@ GM,HT,visa-free,90,high
 GM,HU,visa-required,,high
 GM,ID,visa-required,,disputed
 GM,IE,visa-required,,high
-GM,IL,visa-required,,disputed
 GM,IN,e-visa,60,high
 GM,IQ,visa-required,,disputed
 GM,IR,visa-on-arrival,30,high
@@ -12946,7 +12881,6 @@ GN,HT,visa-free,90,high
 GN,HU,visa-required,,high
 GN,ID,e-visa,,high
 GN,IE,visa-required,,high
-GN,IL,visa-required,,disputed
 GN,IN,e-visa,60,high
 GN,IQ,e-visa,30,high
 GN,IR,visa-on-arrival,30,high
@@ -13144,7 +13078,6 @@ GQ,HT,visa-free,90,high
 GQ,HU,visa-required,,high
 GQ,ID,e-visa,30,high
 GQ,IE,visa-required,,high
-GQ,IL,visa-required,,disputed
 GQ,IN,e-visa,60,high
 GQ,IQ,e-visa,,high
 GQ,IR,visa-on-arrival,30,high
@@ -13342,7 +13275,6 @@ GR,HT,visa-free,90,high
 GR,HU,visa-free,,high
 GR,ID,visa-on-arrival,30,high
 GR,IE,visa-free,,high
-GR,IL,eta,90,high
 GR,IN,e-visa,30,high
 GR,IQ,e-visa,60,high
 GR,IR,e-visa,30,disputed
@@ -13540,7 +13472,6 @@ GT,HT,visa-free,90,high
 GT,HU,visa-free,90,high
 GT,ID,visa-on-arrival,30,high
 GT,IE,visa-free,90,high
-GT,IL,eta,90,high
 GT,IN,e-visa,60,high
 GT,IQ,visa-required,,disputed
 GT,IR,visa-free,,disputed
@@ -13738,7 +13669,6 @@ GW,HT,visa-free,90,high
 GW,HU,visa-required,,high
 GW,ID,visa-required,,disputed
 GW,IE,visa-required,,high
-GW,IL,visa-required,,disputed
 GW,IN,visa-required,,high
 GW,IQ,e-visa,,high
 GW,IR,visa-on-arrival,30,high
@@ -13936,7 +13866,6 @@ GY,HT,visa-free,90,high
 GY,HU,visa-required,,high
 GY,ID,visa-required,,disputed
 GY,IE,visa-free,90,high
-GY,IL,visa-required,,disputed
 GY,IN,e-visa,30,high
 GY,IQ,e-visa,,high
 GY,IR,visa-on-arrival,30,high
@@ -14134,7 +14063,6 @@ HK,HT,visa-free,90,medium
 HK,HU,visa-free,90,medium
 HK,ID,visa-free,30,medium
 HK,IE,visa-free,90,medium
-HK,IL,eta,,medium
 HK,IN,visa-required,,medium
 HK,IQ,e-visa,,medium
 HK,IR,visa-free,21,medium
@@ -14332,7 +14260,6 @@ HN,HT,visa-free,90,high
 HN,HU,visa-free,90,high
 HN,ID,visa-required,,disputed
 HN,IE,visa-required,,high
-HN,IL,eta,90,high
 HN,IN,e-visa,60,high
 HN,IQ,visa-required,,disputed
 HN,IR,e-visa,30,disputed
@@ -14530,7 +14457,6 @@ HR,HT,visa-free,90,high
 HR,HU,freedom-of-movement,,high
 HR,ID,visa-on-arrival,30,high
 HR,IE,freedom-of-movement,,high
-HR,IL,eta,90,high
 HR,IN,e-visa,30,high
 HR,IQ,e-visa,60,high
 HR,IR,visa-free,15,high
@@ -14728,7 +14654,6 @@ HT,HR,visa-required,,high
 HT,HU,visa-required,,high
 HT,ID,visa-required,,disputed
 HT,IE,visa-required,,high
-HT,IL,eta,90,high
 HT,IN,e-visa,60,high
 HT,IQ,e-visa,,high
 HT,IR,visa-on-arrival,30,high
@@ -14926,7 +14851,6 @@ HU,HR,visa-free,,high
 HU,HT,visa-free,90,high
 HU,ID,visa-on-arrival,30,high
 HU,IE,visa-free,,high
-HU,IL,eta,90,high
 HU,IN,e-visa,30,high
 HU,IQ,e-visa,60,high
 HU,IR,visa-free,,disputed
@@ -15124,7 +15048,6 @@ ID,HR,visa-required,,high
 ID,HT,visa-free,90,high
 ID,HU,visa-required,,high
 ID,IE,visa-required,,high
-ID,IL,visa-required,,disputed
 ID,IN,e-visa,90,high
 ID,IQ,e-visa,30,high
 ID,IR,visa-free,15,high
@@ -15322,7 +15245,6 @@ IE,HR,freedom-of-movement,,high
 IE,HT,visa-free,90,high
 IE,HU,freedom-of-movement,,high
 IE,ID,visa-on-arrival,30,high
-IE,IL,eta,90,high
 IE,IN,e-visa,30,high
 IE,IQ,visa-on-arrival,60,disputed
 IE,IR,visa-free,,disputed
@@ -15443,204 +15365,6 @@ IE,YE,visa-required,,high
 IE,ZA,visa-free,90,high
 IE,ZM,visa-free,30,high
 IE,ZW,visa-on-arrival,30,high
-IL,AD,visa-free,90,high
-IL,AE,visa-free,90,high
-IL,AF,refused,,disputed
-IL,AG,e-visa,180,high
-IL,AL,visa-free,90,high
-IL,AM,visa-on-arrival,120,high
-IL,AO,visa-free,30,high
-IL,AR,visa-free,90,high
-IL,AT,visa-free,90,high
-IL,AU,visa-required,,disputed
-IL,AZ,visa-on-arrival,30,high
-IL,BA,visa-free,90,high
-IL,BB,visa-free,180,high
-IL,BD,refused,,disputed
-IL,BE,visa-free,90,high
-IL,BF,e-visa,,high
-IL,BG,visa-free,90,high
-IL,BH,visa-on-arrival,14,disputed
-IL,BI,visa-on-arrival,30,high
-IL,BJ,e-visa,30,high
-IL,BN,refused,,disputed
-IL,BO,visa-free,90,high
-IL,BR,visa-free,90,high
-IL,BS,visa-free,90,high
-IL,BT,e-visa,90,high
-IL,BW,visa-free,90,high
-IL,BY,visa-free,90,high
-IL,BZ,visa-free,90,high
-IL,CA,eta,,medium
-IL,CD,e-visa,7,high
-IL,CF,visa-free,90,high
-IL,CG,visa-required,,high
-IL,CH,visa-free,90,high
-IL,CI,e-visa,90,disputed
-IL,CL,visa-free,90,high
-IL,CM,e-visa,,high
-IL,CN,visa-required,,high
-IL,CO,visa-free,,disputed
-IL,CR,visa-free,90,high
-IL,CU,e-visa,90,high
-IL,CV,visa-on-arrival,30,high
-IL,CY,visa-free,90,high
-IL,CZ,visa-free,180,high
-IL,DE,visa-free,90,high
-IL,DJ,e-visa,90,disputed
-IL,DK,visa-free,90,high
-IL,DM,visa-free,180,high
-IL,DO,visa-free,30,high
-IL,DZ,refused,,disputed
-IL,EC,visa-free,90,high
-IL,EE,visa-free,90,high
-IL,EG,visa-required,,high
-IL,ER,visa-required,,high
-IL,ES,visa-free,90,high
-IL,ET,visa-on-arrival,90,high
-IL,FI,visa-free,90,high
-IL,FJ,visa-free,120,high
-IL,FM,visa-free,30,high
-IL,FR,visa-free,90,high
-IL,GA,e-visa,90,high
-IL,GB,eta,180,high
-IL,GD,visa-free,90,high
-IL,GE,visa-free,365,high
-IL,GH,visa-required,,high
-IL,GM,visa-required,,high
-IL,GN,e-visa,90,high
-IL,GQ,e-visa,,high
-IL,GR,visa-free,90,high
-IL,GT,visa-free,90,high
-IL,GW,visa-on-arrival,90,high
-IL,GY,e-visa,,high
-IL,HK,visa-free,90,high
-IL,HN,visa-free,90,high
-IL,HR,visa-free,90,high
-IL,HT,visa-free,90,high
-IL,HU,visa-free,90,high
-IL,ID,visa-required,,disputed
-IL,IE,visa-free,90,high
-IL,IN,e-visa,30,high
-IL,IQ,refused,,disputed
-IL,IR,refused,,disputed
-IL,IS,visa-free,90,high
-IL,IT,visa-free,90,high
-IL,JM,visa-free,90,high
-IL,JO,visa-on-arrival,2,high
-IL,JP,visa-free,90,high
-IL,KE,eta,90,high
-IL,KG,visa-free,30,high
-IL,KH,visa-on-arrival,30,high
-IL,KI,visa-free,90,high
-IL,KM,visa-on-arrival,45,high
-IL,KN,eta,90,high
-IL,KP,visa-required,,high
-IL,KR,eta,90,high
-IL,KW,refused,,disputed
-IL,KZ,visa-free,30,high
-IL,LA,visa-on-arrival,30,high
-IL,LB,refused,,disputed
-IL,LC,visa-free,42,high
-IL,LI,visa-free,90,high
-IL,LK,eta,30,disputed
-IL,LR,e-visa,,medium
-IL,LS,visa-free,90,high
-IL,LT,visa-free,90,high
-IL,LU,visa-free,90,high
-IL,LV,visa-free,90,high
-IL,LY,refused,,disputed
-IL,MA,e-visa,30,high
-IL,MC,visa-free,90,high
-IL,MD,visa-free,90,high
-IL,ME,visa-free,90,high
-IL,MG,visa-on-arrival,90,high
-IL,MH,visa-free,90,disputed
-IL,MK,visa-free,90,high
-IL,ML,visa-required,,high
-IL,MM,visa-on-arrival,28,disputed
-IL,MN,visa-free,30,high
-IL,MO,visa-free,90,high
-IL,MR,e-visa,30,high
-IL,MT,visa-free,90,high
-IL,MU,visa-free,90,high
-IL,MV,refused,,disputed
-IL,MW,visa-free,90,high
-IL,MX,visa-free,180,high
-IL,MY,visa-required,,medium
-IL,MZ,eta,30,high
-IL,NA,visa-on-arrival,90,high
-IL,NE,visa-required,,high
-IL,NG,e-visa,30,high
-IL,NI,visa-free,90,high
-IL,NL,visa-free,90,high
-IL,NO,visa-free,90,high
-IL,NP,visa-on-arrival,90,high
-IL,NR,visa-on-arrival,,high
-IL,NZ,eta,,medium
-IL,OM,refused,,disputed
-IL,PA,visa-free,90,high
-IL,PE,visa-free,90,high
-IL,PG,visa-on-arrival,60,high
-IL,PH,visa-free,60,high
-IL,PK,visa-required,,medium
-IL,PL,visa-free,90,high
-IL,PS,refused,,disputed
-IL,PT,visa-free,90,high
-IL,PW,visa-free,90,high
-IL,PY,visa-free,90,high
-IL,QA,visa-required,,disputed
-IL,RO,visa-free,90,high
-IL,RS,visa-free,90,high
-IL,RU,visa-free,90,high
-IL,RW,visa-on-arrival,30,high
-IL,SA,visa-required,,medium
-IL,SB,visa-free,90,disputed
-IL,SC,visa-free,90,medium
-IL,SD,visa-required,,high
-IL,SE,visa-free,90,high
-IL,SG,visa-free,30,high
-IL,SI,visa-free,90,high
-IL,SK,visa-free,90,high
-IL,SL,visa-on-arrival,90,high
-IL,SM,visa-free,90,high
-IL,SN,visa-on-arrival,30,high
-IL,SO,e-visa,30,high
-IL,SR,visa-free,90,high
-IL,SS,e-visa,,high
-IL,ST,e-visa,,high
-IL,SV,visa-free,90,high
-IL,SY,refused,,disputed
-IL,SZ,visa-free,30,high
-IL,TD,e-visa,180,high
-IL,TG,e-visa,15,high
-IL,TH,visa-free,60,high
-IL,TJ,visa-on-arrival,60,high
-IL,TL,visa-on-arrival,30,high
-IL,TM,visa-required,,high
-IL,TN,visa-required,,high
-IL,TO,visa-free,90,high
-IL,TR,visa-free,90,high
-IL,TT,visa-free,90,high
-IL,TV,visa-on-arrival,30,high
-IL,TW,visa-free,90,high
-IL,TZ,visa-on-arrival,90,high
-IL,UA,visa-free,90,high
-IL,UG,e-visa,90,high
-IL,US,eta,,medium
-IL,UY,visa-free,91,high
-IL,UZ,visa-free,30,high
-IL,VA,visa-free,90,high
-IL,VC,visa-free,30,high
-IL,VE,e-visa,,disputed
-IL,VN,e-visa,90,high
-IL,VU,visa-free,120,high
-IL,WS,visa-on-arrival,,medium
-IL,XK,visa-free,90,high
-IL,YE,refused,,disputed
-IL,ZA,visa-free,90,high
-IL,ZM,visa-free,30,high
-IL,ZW,visa-on-arrival,30,high
 IN,AD,visa-required,,high
 IN,AE,visa-required,,disputed
 IN,AF,e-visa,30,disputed
@@ -15719,7 +15443,6 @@ IN,HT,visa-free,60,high
 IN,HU,visa-required,,high
 IN,ID,visa-on-arrival,30,high
 IN,IE,visa-required,,high
-IN,IL,e-visa,90,high
 IN,IQ,e-visa,30,high
 IN,IR,e-visa,30,disputed
 IN,IS,visa-required,,high
@@ -15917,7 +15640,6 @@ IQ,HT,visa-free,90,high
 IQ,HU,visa-required,,high
 IQ,ID,visa-required,,disputed
 IQ,IE,visa-required,,high
-IQ,IL,refused,,disputed
 IQ,IN,visa-required,,high
 IQ,IR,visa-free,30,high
 IQ,IS,visa-required,,high
@@ -16115,7 +15837,6 @@ IR,HT,visa-free,90,high
 IR,HU,visa-required,,high
 IR,ID,e-visa,60,high
 IR,IE,visa-required,,high
-IR,IL,visa-required,,disputed
 IR,IN,visa-required,,high
 IR,IQ,visa-free,30,high
 IR,IS,visa-required,,high
@@ -16313,7 +16034,6 @@ IS,HT,visa-free,90,medium
 IS,HU,visa-free,,medium
 IS,ID,visa-on-arrival,,medium
 IS,IE,visa-free,,medium
-IS,IL,eta,,medium
 IS,IN,e-visa,,medium
 IS,IQ,e-visa,,medium
 IS,IR,visa-on-arrival,,medium
@@ -16511,7 +16231,6 @@ IT,HT,visa-free,90,high
 IT,HU,freedom-of-movement,,high
 IT,ID,visa-on-arrival,30,high
 IT,IE,freedom-of-movement,,high
-IT,IL,eta,90,high
 IT,IN,e-visa,30,high
 IT,IQ,e-visa,60,high
 IT,IR,visa-free,,disputed
@@ -16709,7 +16428,6 @@ JM,HT,visa-free,90,high
 JM,HU,visa-required,,high
 JM,ID,e-visa,30,high
 JM,IE,visa-required,,high
-JM,IL,eta,90,high
 JM,IN,e-visa,60,high
 JM,IQ,e-visa,,high
 JM,IR,visa-free,,disputed
@@ -16907,7 +16625,6 @@ JO,HT,visa-free,90,high
 JO,HU,visa-required,,high
 JO,ID,visa-on-arrival,30,high
 JO,IE,visa-required,,high
-JO,IL,e-visa,,high
 JO,IN,e-visa,60,high
 JO,IQ,e-visa,7,high
 JO,IR,visa-free,14,disputed
@@ -17105,7 +16822,6 @@ JP,HT,visa-free,90,high
 JP,HU,visa-free,90,high
 JP,ID,visa-on-arrival,30,high
 JP,IE,visa-free,90,high
-JP,IL,eta,90,high
 JP,IN,visa-on-arrival,30,high
 JP,IQ,e-visa,30,high
 JP,IR,visa-free,14,high
@@ -17303,7 +17019,6 @@ KE,HT,visa-free,90,high
 KE,HU,visa-required,,high
 KE,ID,visa-on-arrival,30,high
 KE,IE,visa-required,,high
-KE,IL,visa-required,,disputed
 KE,IN,e-visa,60,high
 KE,IQ,e-visa,,high
 KE,IR,visa-on-arrival,30,high
@@ -17501,7 +17216,6 @@ KG,HT,visa-free,90,medium
 KG,HU,visa-required,,medium
 KG,ID,e-visa,,medium
 KG,IE,visa-required,,medium
-KG,IL,e-visa,,medium
 KG,IN,e-visa,,medium
 KG,IQ,e-visa,,medium
 KG,IR,visa-free,15,medium
@@ -17699,7 +17413,6 @@ KH,HT,visa-free,90,high
 KH,HU,visa-required,,high
 KH,ID,visa-free,30,high
 KH,IE,visa-required,,high
-KH,IL,visa-required,,disputed
 KH,IN,e-visa,30,high
 KH,IQ,e-visa,,high
 KH,IR,visa-free,15,high
@@ -17897,7 +17610,6 @@ KI,HT,visa-free,90,high
 KI,HU,visa-free,90,high
 KI,ID,visa-required,,disputed
 KI,IE,visa-free,90,high
-KI,IL,visa-required,,disputed
 KI,IN,e-visa,60,high
 KI,IQ,e-visa,,high
 KI,IR,visa-on-arrival,,high
@@ -18095,7 +17807,6 @@ KM,HT,visa-free,90,medium
 KM,HU,visa-required,,medium
 KM,ID,e-visa,,medium
 KM,IE,visa-required,,medium
-KM,IL,e-visa,,medium
 KM,IN,e-visa,,medium
 KM,IQ,e-visa,,medium
 KM,IR,visa-on-arrival,,medium
@@ -18293,7 +18004,6 @@ KN,HT,visa-free,90,high
 KN,HU,visa-free,90,high
 KN,ID,e-visa,,high
 KN,IE,visa-required,,disputed
-KN,IL,eta,90,high
 KN,IN,e-visa,30,high
 KN,IQ,e-visa,,high
 KN,IR,visa-on-arrival,30,high
@@ -18491,7 +18201,6 @@ KP,HT,visa-free,90,high
 KP,HU,visa-required,,high
 KP,ID,visa-required,,disputed
 KP,IE,visa-required,,high
-KP,IL,visa-required,,disputed
 KP,IN,visa-required,,high
 KP,IQ,e-visa,30,high
 KP,IR,e-visa,30,disputed
@@ -18689,7 +18398,6 @@ KR,HT,visa-free,90,high
 KR,HU,visa-free,90,high
 KR,ID,visa-on-arrival,30,high
 KR,IE,visa-free,90,high
-KR,IL,eta,90,high
 KR,IN,visa-on-arrival,30,high
 KR,IQ,refused,,disputed
 KR,IR,visa-free,14,disputed
@@ -18887,7 +18595,6 @@ KW,HT,visa-free,90,high
 KW,HU,visa-required,,high
 KW,ID,visa-on-arrival,30,high
 KW,IE,visa-required,,high
-KW,IL,visa-required,,disputed
 KW,IN,e-visa,30,high
 KW,IQ,e-visa,,disputed
 KW,IR,visa-free,15,high
@@ -19085,7 +18792,6 @@ KZ,HT,visa-free,90,high
 KZ,HU,visa-required,,high
 KZ,ID,visa-free,30,disputed
 KZ,IE,visa-required,,high
-KZ,IL,visa-required,,disputed
 KZ,IN,e-visa,30,high
 KZ,IQ,e-visa,30,high
 KZ,IR,visa-free,14,high
@@ -19283,7 +18989,6 @@ LA,HT,visa-free,90,high
 LA,HU,visa-required,,high
 LA,ID,visa-free,30,high
 LA,IE,visa-required,,high
-LA,IL,visa-required,,disputed
 LA,IN,e-visa,30,high
 LA,IQ,e-visa,,high
 LA,IR,e-visa,30,disputed
@@ -19481,7 +19186,6 @@ LB,HT,visa-free,90,high
 LB,HU,visa-required,,high
 LB,ID,e-visa,60,high
 LB,IE,visa-required,,high
-LB,IL,visa-required,,disputed
 LB,IN,visa-required,,high
 LB,IQ,visa-free,30,high
 LB,IR,visa-free,14,high
@@ -19679,7 +19383,6 @@ LC,HT,visa-free,90,high
 LC,HU,visa-free,90,high
 LC,ID,visa-required,,disputed
 LC,IE,visa-required,,disputed
-LC,IL,eta,90,high
 LC,IN,e-visa,30,high
 LC,IQ,e-visa,,high
 LC,IR,e-visa,30,disputed
@@ -19877,7 +19580,6 @@ LI,HT,visa-free,90,high
 LI,HU,visa-free,,high
 LI,ID,visa-on-arrival,30,high
 LI,IE,visa-free,,high
-LI,IL,eta,90,high
 LI,IN,e-visa,60,high
 LI,IQ,e-visa,,high
 LI,IR,e-visa,30,disputed
@@ -20075,7 +19777,6 @@ LK,HT,visa-free,90,high
 LK,HU,visa-required,,high
 LK,ID,e-visa,60,high
 LK,IE,visa-required,,high
-LK,IL,e-visa,90,high
 LK,IN,e-visa,30,high
 LK,IQ,e-visa,30,high
 LK,IR,e-visa,30,disputed
@@ -20273,7 +19974,6 @@ LR,HT,visa-free,90,high
 LR,HU,visa-required,,high
 LR,ID,visa-required,,disputed
 LR,IE,visa-required,,high
-LR,IL,visa-required,,disputed
 LR,IN,e-visa,60,high
 LR,IQ,e-visa,30,high
 LR,IR,visa-on-arrival,30,high
@@ -20471,7 +20171,6 @@ LS,HT,visa-free,90,high
 LS,HU,visa-required,,high
 LS,ID,visa-required,,disputed
 LS,IE,visa-required,,high
-LS,IL,eta,90,high
 LS,IN,e-visa,60,high
 LS,IQ,e-visa,30,high
 LS,IR,visa-on-arrival,30,high
@@ -20669,7 +20368,6 @@ LT,HT,visa-free,90,high
 LT,HU,visa-free,,high
 LT,ID,visa-on-arrival,30,high
 LT,IE,visa-free,,high
-LT,IL,eta,90,high
 LT,IN,e-visa,60,high
 LT,IQ,e-visa,60,high
 LT,IR,e-visa,30,disputed
@@ -20867,7 +20565,6 @@ LU,HT,visa-free,90,medium
 LU,HU,visa-free,,medium
 LU,ID,visa-on-arrival,,medium
 LU,IE,visa-free,,medium
-LU,IL,eta,,medium
 LU,IN,e-visa,,medium
 LU,IQ,e-visa,,medium
 LU,IR,visa-on-arrival,,medium
@@ -21065,7 +20762,6 @@ LV,HT,visa-free,90,high
 LV,HU,freedom-of-movement,,high
 LV,ID,visa-on-arrival,30,high
 LV,IE,freedom-of-movement,,high
-LV,IL,eta,90,high
 LV,IN,e-visa,60,high
 LV,IQ,e-visa,60,high
 LV,IR,e-visa,30,disputed
@@ -21263,7 +20959,6 @@ LY,HT,visa-required,,disputed
 LY,HU,visa-required,,high
 LY,ID,e-visa,,high
 LY,IE,visa-required,,high
-LY,IL,visa-required,,disputed
 LY,IN,visa-required,,high
 LY,IQ,e-visa,,high
 LY,IR,e-visa,30,disputed
@@ -21461,7 +21156,6 @@ MA,HT,visa-free,90,high
 MA,HU,visa-required,,high
 MA,ID,visa-on-arrival,30,high
 MA,IE,visa-required,,high
-MA,IL,e-visa,,high
 MA,IN,e-visa,30,high
 MA,IQ,e-visa,30,high
 MA,IR,e-visa,30,disputed
@@ -21659,7 +21353,6 @@ MC,HT,visa-free,90,medium
 MC,HU,visa-free,90,medium
 MC,ID,visa-on-arrival,,medium
 MC,IE,visa-free,90,medium
-MC,IL,eta,,medium
 MC,IN,e-visa,,medium
 MC,IQ,e-visa,,medium
 MC,IR,visa-on-arrival,,medium
@@ -21857,7 +21550,6 @@ MD,HT,visa-free,90,high
 MD,HU,visa-free,90,high
 MD,ID,visa-required,,disputed
 MD,IE,visa-required,,high
-MD,IL,eta,90,high
 MD,IN,e-visa,30,high
 MD,IQ,e-visa,,high
 MD,IR,visa-free,,disputed
@@ -22055,7 +21747,6 @@ ME,HT,visa-free,90,high
 ME,HU,visa-free,90,high
 ME,ID,visa-required,,disputed
 ME,IE,visa-required,,high
-ME,IL,eta,90,high
 ME,IN,e-visa,30,high
 ME,IQ,e-visa,,high
 ME,IR,e-visa,30,disputed
@@ -22253,7 +21944,6 @@ MG,HT,visa-free,90,high
 MG,HU,visa-required,,high
 MG,ID,e-visa,60,high
 MG,IE,visa-required,,high
-MG,IL,visa-required,,disputed
 MG,IN,e-visa,30,high
 MG,IQ,e-visa,30,high
 MG,IR,e-visa,30,disputed
@@ -22451,7 +22141,6 @@ MH,HT,visa-free,90,high
 MH,HU,visa-free,90,high
 MH,ID,visa-required,,disputed
 MH,IE,visa-required,,high
-MH,IL,eta,90,high
 MH,IN,e-visa,30,high
 MH,IQ,e-visa,,high
 MH,IR,visa-on-arrival,30,high
@@ -22649,7 +22338,6 @@ MK,HT,visa-free,90,high
 MK,HU,visa-free,90,high
 MK,ID,e-visa,60,high
 MK,IE,visa-required,,high
-MK,IL,eta,90,high
 MK,IN,e-visa,60,high
 MK,IQ,e-visa,,high
 MK,IR,e-visa,30,disputed
@@ -22847,7 +22535,6 @@ ML,HT,visa-free,90,high
 ML,HU,visa-required,,high
 ML,ID,visa-required,,disputed
 ML,IE,visa-required,,high
-ML,IL,visa-required,,disputed
 ML,IN,e-visa,60,high
 ML,IQ,e-visa,,high
 ML,IR,visa-on-arrival,30,high
@@ -23045,7 +22732,6 @@ MM,HT,visa-free,90,high
 MM,HU,visa-required,,high
 MM,ID,visa-free,30,high
 MM,IE,visa-required,,high
-MM,IL,visa-required,,disputed
 MM,IN,e-visa,30,high
 MM,IQ,e-visa,,high
 MM,IR,e-visa,30,disputed
@@ -23243,7 +22929,6 @@ MN,HT,visa-free,90,high
 MN,HU,visa-required,,high
 MN,ID,visa-on-arrival,30,high
 MN,IE,visa-required,,high
-MN,IL,eta,90,high
 MN,IN,e-visa,30,high
 MN,IQ,e-visa,30,high
 MN,IR,e-visa,30,disputed
@@ -23441,7 +23126,6 @@ MO,HT,visa-free,90,medium
 MO,HU,visa-free,90,medium
 MO,ID,e-visa,,medium
 MO,IE,visa-free,90,medium
-MO,IL,eta,,medium
 MO,IN,visa-required,,medium
 MO,IQ,e-visa,,medium
 MO,IR,visa-free,21,medium
@@ -23639,7 +23323,6 @@ MR,HT,visa-free,90,high
 MR,HU,visa-required,,high
 MR,ID,visa-required,,disputed
 MR,IE,visa-required,,high
-MR,IL,visa-required,,disputed
 MR,IN,e-visa,30,disputed
 MR,IQ,e-visa,,high
 MR,IR,visa-free,15,high
@@ -23837,7 +23520,6 @@ MT,HT,visa-free,90,high
 MT,HU,visa-free,,high
 MT,ID,visa-on-arrival,30,high
 MT,IE,visa-free,,high
-MT,IL,eta,90,high
 MT,IN,e-visa,30,high
 MT,IQ,e-visa,60,high
 MT,IR,e-visa,30,disputed
@@ -24035,7 +23717,6 @@ MU,HT,visa-free,90,high
 MU,HU,visa-free,90,high
 MU,ID,visa-required,,disputed
 MU,IE,visa-required,,high
-MU,IL,eta,90,high
 MU,IN,e-visa,60,high
 MU,IQ,e-visa,,high
 MU,IR,visa-free,15,high
@@ -24233,7 +23914,6 @@ MV,HT,visa-free,90,medium
 MV,HU,visa-required,,medium
 MV,ID,visa-on-arrival,,medium
 MV,IE,visa-free,90,medium
-MV,IL,e-visa,,medium
 MV,IN,visa-free,90,medium
 MV,IQ,e-visa,,medium
 MV,IR,visa-on-arrival,,medium
@@ -24431,7 +24111,6 @@ MW,HT,visa-free,90,high
 MW,HU,visa-required,,high
 MW,ID,visa-required,,disputed
 MW,IE,visa-required,,high
-MW,IL,eta,90,high
 MW,IN,e-visa,60,high
 MW,IQ,e-visa,,high
 MW,IR,visa-on-arrival,30,high
@@ -24629,7 +24308,6 @@ MX,HT,visa-free,90,high
 MX,HU,visa-free,90,high
 MX,ID,visa-on-arrival,30,high
 MX,IE,visa-free,90,high
-MX,IL,eta,90,high
 MX,IN,e-visa,30,high
 MX,IQ,e-visa,30,high
 MX,IR,visa-free,15,high
@@ -24827,7 +24505,6 @@ MY,HT,visa-free,90,high
 MY,HU,visa-free,90,high
 MY,ID,visa-free,30,high
 MY,IE,visa-free,90,high
-MY,IL,e-visa,,medium
 MY,IN,e-visa,30,high
 MY,IQ,visa-free,30,high
 MY,IR,visa-free,14,high
@@ -25025,7 +24702,6 @@ MZ,HT,visa-free,90,high
 MZ,HU,visa-required,,high
 MZ,ID,visa-on-arrival,30,high
 MZ,IE,visa-required,,high
-MZ,IL,visa-required,,disputed
 MZ,IN,e-visa,30,high
 MZ,IQ,e-visa,30,high
 MZ,IR,e-visa,30,disputed
@@ -25223,7 +24899,6 @@ NA,HT,visa-free,90,high
 NA,HU,visa-required,,high
 NA,ID,visa-required,,disputed
 NA,IE,visa-required,,high
-NA,IL,visa-required,,disputed
 NA,IN,e-visa,30,high
 NA,IQ,e-visa,,high
 NA,IR,e-visa,30,disputed
@@ -25421,7 +25096,6 @@ NE,HT,visa-free,90,high
 NE,HU,visa-required,,high
 NE,ID,e-visa,30,high
 NE,IE,visa-required,,high
-NE,IL,visa-required,,disputed
 NE,IN,e-visa,60,high
 NE,IQ,e-visa,,high
 NE,IR,visa-on-arrival,30,high
@@ -25619,7 +25293,6 @@ NG,HT,visa-free,90,high
 NG,HU,visa-required,,high
 NG,ID,visa-required,,disputed
 NG,IE,visa-required,,high
-NG,IL,visa-required,,disputed
 NG,IN,visa-required,,high
 NG,IQ,e-visa,,high
 NG,IR,visa-on-arrival,30,high
@@ -25817,7 +25490,6 @@ NI,HT,visa-free,90,high
 NI,HU,visa-free,90,high
 NI,ID,e-visa,,high
 NI,IE,visa-required,,disputed
-NI,IL,visa-required,,disputed
 NI,IN,e-visa,60,high
 NI,IQ,e-visa,,high
 NI,IR,visa-on-arrival,30,high
@@ -26015,7 +25687,6 @@ NL,HT,visa-free,90,high
 NL,HU,visa-free,,high
 NL,ID,visa-on-arrival,30,high
 NL,IE,visa-free,,high
-NL,IL,eta,90,high
 NL,IN,e-visa,30,high
 NL,IQ,e-visa,30,high
 NL,IR,e-visa,30,disputed
@@ -26213,7 +25884,6 @@ NO,HT,visa-free,90,high
 NO,HU,visa-free,,high
 NO,ID,visa-on-arrival,30,high
 NO,IE,visa-free,,high
-NO,IL,eta,90,high
 NO,IN,e-visa,30,high
 NO,IQ,e-visa,,high
 NO,IR,visa-free,,disputed
@@ -26411,7 +26081,6 @@ NP,HT,visa-free,90,high
 NP,HU,visa-required,,high
 NP,ID,e-visa,60,high
 NP,IE,visa-required,,high
-NP,IL,visa-required,,disputed
 NP,IN,freedom-of-movement,,high
 NP,IQ,e-visa,30,high
 NP,IR,e-visa,30,disputed
@@ -26609,7 +26278,6 @@ NR,HT,visa-free,90,high
 NR,HU,visa-required,,high
 NR,ID,visa-required,,disputed
 NR,IE,visa-required,,high
-NR,IL,eta,90,high
 NR,IN,e-visa,60,high
 NR,IQ,e-visa,,high
 NR,IR,visa-on-arrival,,high
@@ -26807,7 +26475,6 @@ NZ,HT,visa-free,90,high
 NZ,HU,visa-free,90,high
 NZ,ID,visa-on-arrival,30,high
 NZ,IE,visa-free,90,high
-NZ,IL,eta,90,high
 NZ,IN,e-visa,30,high
 NZ,IQ,e-visa,30,high
 NZ,IR,visa-free,,disputed
@@ -27005,7 +26672,6 @@ OM,HT,visa-free,90,high
 OM,HU,visa-required,,high
 OM,ID,visa-on-arrival,30,high
 OM,IE,visa-required,,high
-OM,IL,visa-required,,disputed
 OM,IN,e-visa,30,high
 OM,IQ,e-visa,30,disputed
 OM,IR,visa-free,30,high
@@ -27203,7 +26869,6 @@ PA,HT,visa-required,,high
 PA,HU,visa-free,90,high
 PA,ID,visa-required,,disputed
 PA,IE,visa-free,90,high
-PA,IL,eta,90,high
 PA,IN,e-visa,30,high
 PA,IQ,e-visa,,high
 PA,IR,e-visa,30,disputed
@@ -27401,7 +27066,6 @@ PE,HT,visa-free,90,high
 PE,HU,visa-free,90,high
 PE,ID,visa-on-arrival,30,disputed
 PE,IE,visa-required,,high
-PE,IL,eta,90,high
 PE,IN,e-visa,30,high
 PE,IQ,e-visa,30,high
 PE,IR,visa-free,15,high
@@ -27599,7 +27263,6 @@ PG,HT,visa-free,90,high
 PG,HU,visa-required,,high
 PG,ID,visa-on-arrival,30,high
 PG,IE,visa-required,,high
-PG,IL,eta,90,high
 PG,IN,e-visa,30,high
 PG,IQ,e-visa,,high
 PG,IR,e-visa,30,disputed
@@ -27797,7 +27460,6 @@ PH,HT,visa-free,90,medium
 PH,HU,visa-required,,medium
 PH,ID,visa-free,30,medium
 PH,IE,visa-required,,medium
-PH,IL,eta,,medium
 PH,IN,e-visa,,medium
 PH,IQ,e-visa,,medium
 PH,IR,visa-on-arrival,,medium
@@ -27995,7 +27657,6 @@ PK,HT,visa-free,90,high
 PK,HU,visa-required,,high
 PK,ID,e-visa,60,high
 PK,IE,visa-required,,high
-PK,IL,e-visa,,medium
 PK,IN,visa-required,,medium
 PK,IQ,e-visa,30,high
 PK,IR,visa-required,,high
@@ -28193,7 +27854,6 @@ PL,HT,visa-free,90,high
 PL,HU,freedom-of-movement,,high
 PL,ID,visa-on-arrival,30,high
 PL,IE,freedom-of-movement,,high
-PL,IL,eta,90,high
 PL,IN,e-visa,30,high
 PL,IQ,e-visa,60,high
 PL,IR,visa-free,,disputed
@@ -28391,7 +28051,6 @@ PS,HT,visa-free,90,disputed
 PS,HU,visa-required,,high
 PS,ID,visa-on-arrival,30,high
 PS,IE,visa-required,,high
-PS,IL,visa-required,,disputed
 PS,IN,e-visa,30,high
 PS,IQ,e-visa,30,high
 PS,IR,visa-on-arrival,30,high
@@ -28589,7 +28248,6 @@ PT,HT,visa-free,90,high
 PT,HU,freedom-of-movement,,high
 PT,ID,visa-on-arrival,30,high
 PT,IE,freedom-of-movement,,high
-PT,IL,eta,90,high
 PT,IN,e-visa,30,high
 PT,IQ,e-visa,60,high
 PT,IR,visa-free,,disputed
@@ -28787,7 +28445,6 @@ PW,HT,visa-free,90,high
 PW,HU,visa-free,90,high
 PW,ID,e-visa,60,high
 PW,IE,visa-required,,high
-PW,IL,eta,90,high
 PW,IN,e-visa,30,high
 PW,IQ,e-visa,30,high
 PW,IR,e-visa,30,disputed
@@ -28985,7 +28642,6 @@ PY,HT,visa-free,90,high
 PY,HU,visa-free,90,high
 PY,ID,e-visa,,high
 PY,IE,visa-free,90,high
-PY,IL,eta,90,high
 PY,IN,e-visa,30,high
 PY,IQ,e-visa,,high
 PY,IR,visa-on-arrival,30,high
@@ -29183,7 +28839,6 @@ QA,HT,visa-free,90,high
 QA,HU,visa-required,,high
 QA,ID,visa-on-arrival,30,high
 QA,IE,visa-required,,high
-QA,IL,visa-required,,disputed
 QA,IN,e-visa,30,high
 QA,IQ,e-visa,30,disputed
 QA,IR,visa-free,15,high
@@ -29381,7 +29036,6 @@ RO,HT,visa-free,90,high
 RO,HU,freedom-of-movement,,high
 RO,ID,visa-on-arrival,30,high
 RO,IE,freedom-of-movement,,high
-RO,IL,eta,90,high
 RO,IN,e-visa,30,high
 RO,IQ,e-visa,60,high
 RO,IR,visa-free,,disputed
@@ -29579,7 +29233,6 @@ RS,HT,visa-free,90,high
 RS,HU,visa-free,90,high
 RS,ID,visa-on-arrival,30,high
 RS,IE,visa-required,,high
-RS,IL,eta,90,high
 RS,IN,e-visa,30,high
 RS,IQ,e-visa,30,high
 RS,IR,visa-free,14,high
@@ -29777,7 +29430,6 @@ RU,HT,visa-free,90,high
 RU,HU,visa-required,,high
 RU,ID,visa-on-arrival,30,high
 RU,IE,visa-required,,high
-RU,IL,eta,90,high
 RU,IN,e-visa,30,high
 RU,IQ,e-visa,30,high
 RU,IR,visa-free,30,disputed
@@ -29975,7 +29627,6 @@ RW,HT,visa-free,90,high
 RW,HU,visa-required,,high
 RW,ID,visa-on-arrival,30,high
 RW,IE,visa-required,,high
-RW,IL,visa-required,,disputed
 RW,IN,e-visa,60,high
 RW,IQ,e-visa,,high
 RW,IR,visa-on-arrival,30,high
@@ -30173,7 +29824,6 @@ SA,HT,visa-free,90,medium
 SA,HU,visa-required,,medium
 SA,ID,visa-on-arrival,,medium
 SA,IE,visa-required,,medium
-SA,IL,e-visa,,medium
 SA,IN,e-visa,,medium
 SA,IQ,visa-on-arrival,,medium
 SA,IR,visa-free,15,medium
@@ -30371,7 +30021,6 @@ SB,HT,visa-free,90,high
 SB,HU,visa-free,90,high
 SB,ID,visa-required,,disputed
 SB,IE,visa-free,90,high
-SB,IL,eta,90,high
 SB,IN,e-visa,60,high
 SB,IQ,e-visa,30,high
 SB,IR,visa-on-arrival,30,high
@@ -30569,7 +30218,6 @@ SC,HT,visa-free,90,high
 SC,HU,visa-free,90,high
 SC,ID,visa-on-arrival,30,high
 SC,IE,visa-free,90,high
-SC,IL,visa-required,,disputed
 SC,IN,e-visa,60,high
 SC,IQ,visa-required,,disputed
 SC,IR,visa-free,15,high
@@ -30767,7 +30415,6 @@ SD,HT,visa-free,90,high
 SD,HU,visa-required,,high
 SD,ID,e-visa,30,high
 SD,IE,visa-required,,high
-SD,IL,visa-required,,disputed
 SD,IN,visa-required,,high
 SD,IQ,e-visa,,high
 SD,IR,visa-on-arrival,30,high
@@ -30965,7 +30612,6 @@ SE,HT,visa-free,90,high
 SE,HU,visa-free,,high
 SE,ID,visa-on-arrival,30,high
 SE,IE,visa-free,,high
-SE,IL,eta,90,high
 SE,IN,e-visa,30,high
 SE,IQ,e-visa,60,high
 SE,IR,e-visa,30,disputed
@@ -31163,7 +30809,6 @@ SG,HT,visa-free,90,high
 SG,HU,visa-free,90,high
 SG,ID,visa-free,30,high
 SG,IE,visa-free,90,high
-SG,IL,eta,90,high
 SG,IN,e-visa,30,high
 SG,IQ,e-visa,30,high
 SG,IR,visa-free,14,high
@@ -31361,7 +31006,6 @@ SI,HT,visa-free,90,medium
 SI,HU,visa-free,,medium
 SI,ID,visa-on-arrival,,medium
 SI,IE,visa-free,,medium
-SI,IL,eta,,medium
 SI,IN,e-visa,,medium
 SI,IQ,e-visa,,medium
 SI,IR,visa-on-arrival,,medium
@@ -31559,7 +31203,6 @@ SK,HT,visa-free,90,high
 SK,HU,visa-free,,high
 SK,ID,visa-on-arrival,30,high
 SK,IE,visa-free,,high
-SK,IL,eta,90,high
 SK,IN,e-visa,30,high
 SK,IQ,e-visa,,high
 SK,IR,visa-free,,disputed
@@ -31757,7 +31400,6 @@ SL,HT,visa-free,90,high
 SL,HU,visa-required,,high
 SL,ID,visa-required,,disputed
 SL,IE,visa-required,,high
-SL,IL,visa-required,,disputed
 SL,IN,e-visa,60,high
 SL,IQ,e-visa,30,high
 SL,IR,visa-on-arrival,30,high
@@ -31955,7 +31597,6 @@ SM,HT,visa-free,90,high
 SM,HU,visa-free,90,high
 SM,ID,visa-on-arrival,30,high
 SM,IE,visa-free,90,high
-SM,IL,eta,90,high
 SM,IN,e-visa,60,high
 SM,IQ,e-visa,,high
 SM,IR,visa-on-arrival,30,high
@@ -32153,7 +31794,6 @@ SN,HT,visa-free,90,high
 SN,HU,visa-required,,high
 SN,ID,e-visa,,high
 SN,IE,visa-required,,high
-SN,IL,visa-required,,disputed
 SN,IN,e-visa,60,high
 SN,IQ,e-visa,,high
 SN,IR,visa-on-arrival,30,high
@@ -32351,7 +31991,6 @@ SO,HT,visa-free,90,high
 SO,HU,visa-required,,high
 SO,ID,visa-required,,disputed
 SO,IE,visa-required,,high
-SO,IL,visa-required,,disputed
 SO,IN,visa-required,,high
 SO,IQ,e-visa,30,high
 SO,IR,visa-required,,high
@@ -32549,7 +32188,6 @@ SR,HT,visa-free,90,medium
 SR,HU,visa-required,,medium
 SR,ID,visa-free,30,medium
 SR,IE,visa-required,,medium
-SR,IL,eta,,medium
 SR,IN,e-visa,,medium
 SR,IQ,e-visa,,medium
 SR,IR,visa-on-arrival,,medium
@@ -32747,7 +32385,6 @@ SS,HT,visa-free,90,high
 SS,HU,visa-required,,high
 SS,ID,visa-required,,disputed
 SS,IE,visa-required,,high
-SS,IL,visa-required,,disputed
 SS,IN,visa-required,,high
 SS,IQ,visa-required,,disputed
 SS,IR,e-visa,30,disputed
@@ -32945,7 +32582,6 @@ ST,HT,visa-free,90,medium
 ST,HU,visa-required,,medium
 ST,ID,e-visa,,medium
 ST,IE,visa-required,,medium
-ST,IL,e-visa,,medium
 ST,IN,visa-required,,medium
 ST,IQ,e-visa,,medium
 ST,IR,visa-on-arrival,,medium
@@ -33143,7 +32779,6 @@ SV,HT,visa-free,90,high
 SV,HU,visa-free,90,high
 SV,ID,visa-on-arrival,,disputed
 SV,IE,visa-free,90,high
-SV,IL,eta,90,high
 SV,IN,e-visa,30,high
 SV,IQ,e-visa,,high
 SV,IR,visa-free,,disputed
@@ -33341,7 +32976,6 @@ SY,HT,visa-required,,disputed
 SY,HU,visa-required,,high
 SY,ID,visa-required,,disputed
 SY,IE,visa-required,,high
-SY,IL,visa-required,,disputed
 SY,IN,visa-required,,high
 SY,IQ,e-visa,,high
 SY,IR,visa-free,90,high
@@ -33539,7 +33173,6 @@ SZ,HT,visa-free,90,high
 SZ,HU,visa-required,,high
 SZ,ID,visa-required,,disputed
 SZ,IE,visa-required,,high
-SZ,IL,eta,90,high
 SZ,IN,e-visa,60,high
 SZ,IQ,e-visa,,high
 SZ,IR,visa-on-arrival,30,high
@@ -33737,7 +33370,6 @@ TD,HT,visa-free,90,high
 TD,HU,visa-required,,high
 TD,ID,visa-required,,disputed
 TD,IE,visa-required,,high
-TD,IL,visa-required,,disputed
 TD,IN,visa-required,,high
 TD,IQ,e-visa,,high
 TD,IR,visa-on-arrival,30,high
@@ -33935,7 +33567,6 @@ TG,HT,visa-free,90,high
 TG,HU,visa-required,,high
 TG,ID,e-visa,,high
 TG,IE,visa-required,,high
-TG,IL,visa-required,,disputed
 TG,IN,e-visa,,high
 TG,IQ,e-visa,,high
 TG,IR,visa-on-arrival,30,high
@@ -34133,7 +33764,6 @@ TH,HT,visa-free,90,high
 TH,HU,visa-required,,high
 TH,ID,visa-free,30,high
 TH,IE,visa-required,,high
-TH,IL,visa-required,,disputed
 TH,IN,e-visa,30,high
 TH,IQ,visa-required,,disputed
 TH,IR,visa-free,,disputed
@@ -34331,7 +33961,6 @@ TJ,HT,visa-free,90,medium
 TJ,HU,visa-required,,medium
 TJ,ID,e-visa,,medium
 TJ,IE,visa-required,,medium
-TJ,IL,e-visa,,medium
 TJ,IN,e-visa,,medium
 TJ,IQ,e-visa,,medium
 TJ,IR,visa-free,30,medium
@@ -34529,7 +34158,6 @@ TL,HT,visa-free,90,high
 TL,HU,visa-free,90,high
 TL,ID,visa-free,30,high
 TL,IE,visa-required,,high
-TL,IL,visa-required,,disputed
 TL,IN,e-visa,30,high
 TL,IQ,e-visa,,high
 TL,IR,visa-on-arrival,30,high
@@ -34727,7 +34355,6 @@ TM,HT,visa-free,90,medium
 TM,HU,visa-required,,medium
 TM,ID,e-visa,,medium
 TM,IE,visa-required,,medium
-TM,IL,e-visa,,medium
 TM,IN,visa-required,,medium
 TM,IQ,e-visa,,medium
 TM,IR,visa-on-arrival,,medium
@@ -34925,7 +34552,6 @@ TN,HT,visa-free,90,high
 TN,HU,visa-required,,high
 TN,ID,visa-on-arrival,30,high
 TN,IE,visa-required,,high
-TN,IL,visa-required,,disputed
 TN,IN,visa-required,,high
 TN,IQ,e-visa,30,high
 TN,IR,visa-free,15,high
@@ -35123,7 +34749,6 @@ TO,HT,visa-free,90,high
 TO,HU,visa-free,90,high
 TO,ID,visa-required,,disputed
 TO,IE,visa-free,90,high
-TO,IL,eta,90,high
 TO,IN,e-visa,60,high
 TO,IQ,e-visa,30,high
 TO,IR,visa-on-arrival,30,high
@@ -35321,7 +34946,6 @@ TR,HT,visa-free,90,high
 TR,HU,visa-required,,high
 TR,ID,visa-free,30,high
 TR,IE,visa-required,,high
-TR,IL,visa-required,,disputed
 TR,IN,visa-required,,high
 TR,IQ,visa-free,30,disputed
 TR,IR,visa-free,90,high
@@ -35519,7 +35143,6 @@ TT,HT,visa-free,90,high
 TT,HU,visa-free,90,high
 TT,ID,e-visa,,high
 TT,IE,visa-required,,high
-TT,IL,eta,90,high
 TT,IN,e-visa,30,high
 TT,IQ,e-visa,,high
 TT,IR,visa-free,,disputed
@@ -35717,7 +35340,6 @@ TV,HT,visa-free,90,high
 TV,HU,visa-free,90,high
 TV,ID,visa-required,,disputed
 TV,IE,visa-free,90,high
-TV,IL,visa-required,,disputed
 TV,IN,e-visa,60,high
 TV,IQ,e-visa,,high
 TV,IR,visa-on-arrival,30,high
@@ -35915,7 +35537,6 @@ TW,HT,visa-free,90,high
 TW,HU,visa-free,90,high
 TW,ID,visa-on-arrival,30,high
 TW,IE,visa-free,90,high
-TW,IL,eta,90,high
 TW,IN,e-visa,30,high
 TW,IQ,e-visa,,high
 TW,IR,e-visa,30,disputed
@@ -36113,7 +35734,6 @@ TZ,HT,visa-free,90,high
 TZ,HU,visa-required,,high
 TZ,ID,visa-on-arrival,,medium
 TZ,IE,visa-required,,high
-TZ,IL,visa-required,,disputed
 TZ,IN,e-visa,60,high
 TZ,IQ,e-visa,,high
 TZ,IR,visa-free,15,high
@@ -36311,7 +35931,6 @@ UA,HT,visa-free,90,high
 UA,HU,visa-free,90,high
 UA,ID,visa-on-arrival,30,high
 UA,IE,visa-free,90,high
-UA,IL,eta,90,high
 UA,IN,e-visa,30,high
 UA,IQ,e-visa,30,high
 UA,IR,e-visa,30,disputed
@@ -36509,7 +36128,6 @@ UG,HT,visa-free,90,high
 UG,HU,visa-required,,high
 UG,ID,e-visa,,high
 UG,IE,visa-required,,high
-UG,IL,visa-required,,disputed
 UG,IN,e-visa,60,high
 UG,IQ,e-visa,,high
 UG,IR,visa-on-arrival,30,high
@@ -36707,7 +36325,6 @@ US,HT,visa-free,90,high
 US,HU,visa-free,90,high
 US,ID,visa-on-arrival,30,high
 US,IE,visa-free,90,high
-US,IL,eta,90,high
 US,IN,e-visa,30,high
 US,IQ,e-visa,30,high
 US,IR,visa-free,,disputed
@@ -36905,7 +36522,6 @@ UY,HT,visa-free,90,high
 UY,HU,visa-free,90,high
 UY,ID,visa-required,,disputed
 UY,IE,visa-free,90,high
-UY,IL,eta,90,high
 UY,IN,e-visa,30,high
 UY,IQ,e-visa,,high
 UY,IR,visa-free,,disputed
@@ -37103,7 +36719,6 @@ UZ,HT,visa-free,90,high
 UZ,HU,visa-required,,high
 UZ,ID,visa-on-arrival,30,high
 UZ,IE,visa-required,,high
-UZ,IL,visa-required,,disputed
 UZ,IN,e-visa,,high
 UZ,IQ,e-visa,,high
 UZ,IR,visa-free,15,high
@@ -37301,7 +36916,6 @@ VA,HT,visa-free,90,high
 VA,HU,visa-free,90,high
 VA,ID,visa-on-arrival,30,high
 VA,IE,visa-free,90,high
-VA,IL,eta,90,high
 VA,IN,e-visa,60,high
 VA,IQ,e-visa,,high
 VA,IR,visa-on-arrival,30,high
@@ -37499,7 +37113,6 @@ VC,HT,visa-free,90,high
 VC,HU,visa-free,90,high
 VC,ID,visa-required,,disputed
 VC,IE,visa-free,90,high
-VC,IL,eta,90,high
 VC,IN,e-visa,30,high
 VC,IQ,e-visa,,high
 VC,IR,e-visa,30,disputed
@@ -37697,7 +37310,6 @@ VE,HT,visa-free,90,high
 VE,HU,visa-free,90,high
 VE,ID,visa-on-arrival,30,high
 VE,IE,visa-required,,high
-VE,IL,visa-required,,disputed
 VE,IN,e-visa,30,high
 VE,IQ,e-visa,,high
 VE,IR,visa-free,30,high
@@ -37895,7 +37507,6 @@ VN,HT,visa-required,,disputed
 VN,HU,visa-required,,high
 VN,ID,visa-free,30,high
 VN,IE,visa-required,,high
-VN,IL,visa-required,,disputed
 VN,IN,e-visa,30,high
 VN,IQ,e-visa,30,high
 VN,IR,visa-free,14,high
@@ -38093,7 +37704,6 @@ VU,HT,visa-free,90,high
 VU,HU,visa-required,,high
 VU,ID,visa-required,,disputed
 VU,IE,visa-required,,high
-VU,IL,eta,90,high
 VU,IN,e-visa,60,high
 VU,IQ,e-visa,30,high
 VU,IR,visa-on-arrival,30,high
@@ -38291,7 +37901,6 @@ WS,HT,visa-free,90,high
 WS,HU,visa-free,90,high
 WS,ID,visa-required,,disputed
 WS,IE,visa-free,90,high
-WS,IL,eta,90,high
 WS,IN,e-visa,60,high
 WS,IQ,e-visa,30,high
 WS,IR,visa-on-arrival,30,high
@@ -38489,7 +38098,6 @@ XK,HT,visa-free,90,high
 XK,HU,visa-free,90,high
 XK,ID,visa-required,,disputed
 XK,IE,visa-required,,high
-XK,IL,eta,90,high
 XK,IN,visa-required,,high
 XK,IQ,e-visa,,high
 XK,IR,visa-free,14,disputed
@@ -38687,7 +38295,6 @@ YE,HT,visa-required,,disputed
 YE,HU,visa-required,,high
 YE,ID,e-visa,60,high
 YE,IE,visa-required,,high
-YE,IL,visa-required,,disputed
 YE,IN,visa-required,,high
 YE,IQ,e-visa,,high
 YE,IR,e-visa,30,disputed
@@ -38885,7 +38492,6 @@ ZA,HT,visa-free,90,high
 ZA,HU,visa-required,,high
 ZA,ID,visa-on-arrival,30,high
 ZA,IE,visa-required,,high
-ZA,IL,eta,90,high
 ZA,IN,e-visa,30,high
 ZA,IQ,e-visa,30,high
 ZA,IR,visa-free,,disputed
@@ -39083,7 +38689,6 @@ ZM,HT,visa-free,90,high
 ZM,HU,visa-required,,high
 ZM,ID,visa-required,,disputed
 ZM,IE,visa-required,,high
-ZM,IL,visa-required,,disputed
 ZM,IN,e-visa,60,high
 ZM,IQ,e-visa,,high
 ZM,IR,e-visa,30,disputed
@@ -39281,7 +38886,6 @@ ZW,HT,visa-free,90,high
 ZW,HU,visa-required,,high
 ZW,ID,e-visa,,high
 ZW,IE,visa-required,,high
-ZW,IL,visa-required,,disputed
 ZW,IN,e-visa,60,high
 ZW,IQ,e-visa,,high
 ZW,IR,visa-free,15,high

@@ -82,7 +82,6 @@
    "HU",
    "ID",
    "IE",
-   "IL",
    "IN",
    "IQ",
    "IR",
@@ -204,8 +203,8 @@
    "ZM",
    "ZW"
   ],
-  "passport_count": 199,
-  "corridor_count": 39402,
+  "passport_count": 198,
+  "corridor_count": 39006,
   "primary_source": "English Wikipedia 'Visa requirements for X citizens' pages (per-corridor citations, day counts); corridors those pages don't cover fall back to passport-index",
   "cross_check": "imorte/passport-index-data (scraped from passportindex.org)",
   "attribution": "xpressmike/visa-matrix (CC BY-SA 4.0)",
@@ -767,13 +766,6 @@
    },
    "IE": {
     "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
     "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
@@ -2221,13 +2213,6 @@
    },
    "IE": {
     "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
     "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
@@ -3702,17 +3687,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -5164,17 +5138,6 @@
     "checked": "2026-09-02",
     "confidence": "high",
     "days_source": "passport-index"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "e-visa",
@@ -6634,13 +6597,6 @@
      "passport-index": "visa-required"
     }
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -8091,17 +8047,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "e-visa",
@@ -9555,17 +9500,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "e-visa",
@@ -11025,13 +10959,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -12452,13 +12379,6 @@
    "IE": {
     "type": "visa-free",
     "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
-    "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
@@ -13893,13 +13813,6 @@
    },
    "IE": {
     "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
     "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
@@ -15363,17 +15276,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "e-visa",
@@ -16861,17 +16763,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -18315,13 +18206,6 @@
    },
    "IE": {
     "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
     "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
@@ -19785,17 +19669,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "visa-required",
     "days": null,
@@ -21257,13 +21130,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -22692,17 +22558,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "visa-required",
     "days": null,
@@ -24128,13 +23983,6 @@
    "IE": {
     "type": "freedom-of-movement",
     "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
-    "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
@@ -25583,17 +25431,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "e-visa",
@@ -27052,17 +26889,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "e-visa",
     "days": 60,
@@ -28519,17 +28345,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "e-visa",
     "days": 60,
@@ -29973,17 +29788,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "e-visa",
@@ -31446,17 +31250,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -32916,13 +32709,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -34361,13 +34147,6 @@
    },
    "IE": {
     "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
     "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
@@ -35860,17 +35639,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "freedom-of-movement",
     "days": null,
@@ -37324,13 +37092,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 60,
@@ -38773,13 +38534,6 @@
    "IE": {
     "type": "visa-required",
     "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
-    "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
@@ -40229,13 +39983,6 @@
     "confidence": "high",
     "days_source": "passport-index"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 60,
@@ -41682,13 +41429,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -43126,17 +42866,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "visa-required",
@@ -44608,17 +44337,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "visa-required",
     "days": null,
@@ -46059,17 +45777,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "visa-required",
@@ -47529,13 +47236,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -48968,17 +48668,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "e-visa",
@@ -50413,13 +50102,6 @@
    },
    "IE": {
     "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
     "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
@@ -51862,17 +51544,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "e-visa",
@@ -53318,17 +52989,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "visa-required",
@@ -54828,17 +54488,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "eta",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -56274,13 +55923,6 @@
    },
    "IE": {
     "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
     "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
@@ -57744,17 +57386,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -59177,13 +58808,6 @@
     "checked": "2026-09-02",
     "confidence": "medium"
    },
-   "IL": {
-    "type": "e-visa",
-    "days": null,
-    "source": "passport-index",
-    "checked": "2026-09-02",
-    "confidence": "medium"
-   },
    "IN": {
     "type": "e-visa",
     "days": null,
@@ -60569,13 +60193,6 @@
    "IE": {
     "type": "visa-free",
     "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
-    "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
@@ -62018,13 +61635,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -63451,13 +63061,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -64868,13 +64471,6 @@
     "checked": "2026-09-02",
     "confidence": "medium"
    },
-   "IL": {
-    "type": "e-visa",
-    "days": null,
-    "source": "passport-index",
-    "checked": "2026-09-02",
-    "confidence": "medium"
-   },
    "IN": {
     "type": "e-visa",
     "days": null,
@@ -66268,13 +65864,6 @@
    "IE": {
     "type": "visa-free",
     "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
-    "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
@@ -67698,13 +67287,6 @@
    "IE": {
     "type": "visa-required",
     "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
-    "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
@@ -69157,13 +68739,6 @@
    "IE": {
     "type": "visa-required",
     "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
-    "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
@@ -70657,17 +70232,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "visa-required",
     "days": null,
@@ -72102,13 +71666,6 @@
     "checked": "2026-09-02",
     "confidence": "medium"
    },
-   "IL": {
-    "type": "eta",
-    "days": null,
-    "source": "passport-index",
-    "checked": "2026-09-02",
-    "confidence": "medium"
-   },
    "IN": {
     "type": "e-visa",
     "days": null,
@@ -73507,13 +73064,6 @@
    "IE": {
     "type": "visa-free",
     "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
-    "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
@@ -74983,17 +74533,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "visa-required",
@@ -76477,17 +76016,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "e-visa",
     "days": 60,
@@ -77946,13 +77474,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -79387,17 +78908,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "visa-required",
@@ -80864,13 +80374,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -82311,13 +81814,6 @@
    },
    "IE": {
     "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
     "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
@@ -83771,13 +83267,6 @@
    "IE": {
     "type": "visa-required",
     "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
-    "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
@@ -85240,13 +84729,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -86701,17 +86183,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "e-visa",
@@ -88186,13 +87657,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -89653,13 +89117,6 @@
    },
    "IE": {
     "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
     "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
@@ -91132,13 +90589,6 @@
    "IE": {
     "type": "visa-required",
     "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
-    "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
@@ -92625,17 +92075,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "e-visa",
     "days": 60,
@@ -94105,17 +93544,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "e-visa",
@@ -95596,17 +95024,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "e-visa",
     "days": 60,
@@ -97052,17 +96469,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "e-visa",
     "days": 60,
@@ -98477,13 +97883,6 @@
    "IE": {
     "type": "visa-free",
     "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
-    "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
@@ -99957,13 +99356,6 @@
    },
    "IE": {
     "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
     "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
@@ -101476,17 +100868,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "visa-required",
     "days": null,
@@ -102923,17 +102304,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "e-visa",
@@ -104372,13 +103742,6 @@
     "checked": "2026-09-02",
     "confidence": "medium"
    },
-   "IL": {
-    "type": "eta",
-    "days": null,
-    "source": "passport-index",
-    "checked": "2026-09-02",
-    "confidence": "medium"
-   },
    "IN": {
     "type": "visa-required",
     "days": null,
@@ -105809,13 +105172,6 @@
    "IE": {
     "type": "visa-required",
     "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
-    "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
@@ -107308,13 +106664,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -108749,13 +108098,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 60,
@@ -110177,13 +109519,6 @@
    "IE": {
     "type": "visa-free",
     "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
-    "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
@@ -111651,17 +110986,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "e-visa",
     "days": 90,
@@ -113113,13 +112437,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -114018,1499 +113335,6 @@
     "confidence": "high"
    }
   },
-  "IL": {
-   "AD": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "AE": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "AF": {
-    "type": "refused",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "refused",
-     "passport-index": "visa-required"
-    }
-   },
-   "AG": {
-    "type": "e-visa",
-    "days": 180,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "AL": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "AM": {
-    "type": "visa-on-arrival",
-    "days": 120,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "AO": {
-    "type": "visa-free",
-    "days": 30,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "AR": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "AT": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "AU": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
-   "AZ": {
-    "type": "visa-on-arrival",
-    "days": 30,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "BA": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "BB": {
-    "type": "visa-free",
-    "days": 180,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "BD": {
-    "type": "refused",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "refused",
-     "passport-index": "visa-required"
-    }
-   },
-   "BE": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "BF": {
-    "type": "e-visa",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "BG": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "BH": {
-    "type": "visa-on-arrival",
-    "days": 14,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-on-arrival",
-     "passport-index": "e-visa"
-    }
-   },
-   "BI": {
-    "type": "visa-on-arrival",
-    "days": 30,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "BJ": {
-    "type": "e-visa",
-    "days": 30,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "BN": {
-    "type": "refused",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "refused",
-     "passport-index": "visa-required"
-    }
-   },
-   "BO": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "BR": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "BS": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "BT": {
-    "type": "e-visa",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "BW": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "BY": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "BZ": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "CA": {
-    "type": "eta",
-    "days": null,
-    "source": "passport-index",
-    "checked": "2026-09-02",
-    "confidence": "medium"
-   },
-   "CD": {
-    "type": "e-visa",
-    "days": 7,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "CF": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "CG": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "CH": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "CI": {
-    "type": "e-visa",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "e-visa",
-     "passport-index": "eta"
-    }
-   },
-   "CL": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "CM": {
-    "type": "e-visa",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "CN": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "CO": {
-    "type": "visa-free",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-free",
-     "passport-index": "e-visa"
-    }
-   },
-   "CR": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "CU": {
-    "type": "e-visa",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "CV": {
-    "type": "visa-on-arrival",
-    "days": 30,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "CY": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "CZ": {
-    "type": "visa-free",
-    "days": 180,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "DE": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "DJ": {
-    "type": "e-visa",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "e-visa",
-     "passport-index": "visa-on-arrival"
-    }
-   },
-   "DK": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "DM": {
-    "type": "visa-free",
-    "days": 180,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "DO": {
-    "type": "visa-free",
-    "days": 30,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "DZ": {
-    "type": "refused",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "refused",
-     "passport-index": "visa-required"
-    }
-   },
-   "EC": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "EE": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "EG": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "ER": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "ES": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "ET": {
-    "type": "visa-on-arrival",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "FI": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "FJ": {
-    "type": "visa-free",
-    "days": 120,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "FM": {
-    "type": "visa-free",
-    "days": 30,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "FR": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "GA": {
-    "type": "e-visa",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "GB": {
-    "type": "eta",
-    "days": 180,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "GD": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "GE": {
-    "type": "visa-free",
-    "days": 365,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "GH": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "GM": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "GN": {
-    "type": "e-visa",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "GQ": {
-    "type": "e-visa",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "GR": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "GT": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "GW": {
-    "type": "visa-on-arrival",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "GY": {
-    "type": "e-visa",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "HK": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "HN": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "HR": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "HT": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "HU": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "ID": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
-   "IE": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IN": {
-    "type": "e-visa",
-    "days": 30,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IQ": {
-    "type": "refused",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "refused",
-     "passport-index": "e-visa"
-    }
-   },
-   "IR": {
-    "type": "refused",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "refused",
-     "passport-index": "visa-required"
-    }
-   },
-   "IS": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IT": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "JM": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "JO": {
-    "type": "visa-on-arrival",
-    "days": 2,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "JP": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "KE": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "KG": {
-    "type": "visa-free",
-    "days": 30,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "KH": {
-    "type": "visa-on-arrival",
-    "days": 30,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "KI": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "KM": {
-    "type": "visa-on-arrival",
-    "days": 45,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "KN": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "KP": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "KR": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "KW": {
-    "type": "refused",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "refused",
-     "passport-index": "visa-required"
-    }
-   },
-   "KZ": {
-    "type": "visa-free",
-    "days": 30,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "LA": {
-    "type": "visa-on-arrival",
-    "days": 30,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "LB": {
-    "type": "refused",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "refused",
-     "passport-index": "visa-required"
-    }
-   },
-   "LC": {
-    "type": "visa-free",
-    "days": 42,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high",
-    "days_source": "passport-index"
-   },
-   "LI": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "LK": {
-    "type": "eta",
-    "days": 30,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "eta",
-     "passport-index": "visa-on-arrival"
-    }
-   },
-   "LR": {
-    "type": "e-visa",
-    "days": null,
-    "source": "passport-index",
-    "checked": "2026-09-02",
-    "confidence": "medium"
-   },
-   "LS": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "LT": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "LU": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "LV": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "LY": {
-    "type": "refused",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "refused",
-     "passport-index": "visa-required"
-    }
-   },
-   "MA": {
-    "type": "e-visa",
-    "days": 30,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "MC": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "MD": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "ME": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "MG": {
-    "type": "visa-on-arrival",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "MH": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-free",
-     "passport-index": "visa-on-arrival"
-    }
-   },
-   "MK": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "ML": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "MM": {
-    "type": "visa-on-arrival",
-    "days": 28,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-on-arrival",
-     "passport-index": "e-visa"
-    }
-   },
-   "MN": {
-    "type": "visa-free",
-    "days": 30,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "MO": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "MR": {
-    "type": "e-visa",
-    "days": 30,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "MT": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "MU": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "MV": {
-    "type": "refused",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "refused",
-     "passport-index": "visa-required"
-    }
-   },
-   "MW": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "MX": {
-    "type": "visa-free",
-    "days": 180,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "MY": {
-    "type": "visa-required",
-    "days": null,
-    "source": "passport-index",
-    "checked": "2026-09-02",
-    "confidence": "medium"
-   },
-   "MZ": {
-    "type": "eta",
-    "days": 30,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "NA": {
-    "type": "visa-on-arrival",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "NE": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "NG": {
-    "type": "e-visa",
-    "days": 30,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "NI": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "NL": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "NO": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "NP": {
-    "type": "visa-on-arrival",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "NR": {
-    "type": "visa-on-arrival",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "NZ": {
-    "type": "eta",
-    "days": null,
-    "source": "passport-index",
-    "checked": "2026-09-02",
-    "confidence": "medium"
-   },
-   "OM": {
-    "type": "refused",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "refused",
-     "passport-index": "e-visa"
-    }
-   },
-   "PA": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "PE": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "PG": {
-    "type": "visa-on-arrival",
-    "days": 60,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "PH": {
-    "type": "visa-free",
-    "days": 60,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "PK": {
-    "type": "visa-required",
-    "days": null,
-    "source": "passport-index",
-    "checked": "2026-09-02",
-    "confidence": "medium"
-   },
-   "PL": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "PS": {
-    "type": "refused",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "refused",
-     "passport-index": "visa-free"
-    }
-   },
-   "PT": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "PW": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "PY": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "QA": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
-   "RO": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "RS": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "RU": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "RW": {
-    "type": "visa-on-arrival",
-    "days": 30,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "SA": {
-    "type": "visa-required",
-    "days": null,
-    "source": "passport-index",
-    "checked": "2026-09-02",
-    "confidence": "medium"
-   },
-   "SB": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-free",
-     "passport-index": "visa-on-arrival"
-    }
-   },
-   "SC": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "passport-index",
-    "checked": "2026-09-02",
-    "confidence": "medium"
-   },
-   "SD": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "SE": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "SG": {
-    "type": "visa-free",
-    "days": 30,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "SI": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "SK": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "SL": {
-    "type": "visa-on-arrival",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "SM": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "SN": {
-    "type": "visa-on-arrival",
-    "days": 30,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "SO": {
-    "type": "e-visa",
-    "days": 30,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "SR": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "SS": {
-    "type": "e-visa",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "ST": {
-    "type": "e-visa",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "SV": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "SY": {
-    "type": "refused",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "refused",
-     "passport-index": "visa-required"
-    }
-   },
-   "SZ": {
-    "type": "visa-free",
-    "days": 30,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "TD": {
-    "type": "e-visa",
-    "days": 180,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "TG": {
-    "type": "e-visa",
-    "days": 15,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "TH": {
-    "type": "visa-free",
-    "days": 60,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "TJ": {
-    "type": "visa-on-arrival",
-    "days": 60,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "TL": {
-    "type": "visa-on-arrival",
-    "days": 30,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "TM": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "TN": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "TO": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "TR": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "TT": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "TV": {
-    "type": "visa-on-arrival",
-    "days": 30,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "TW": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "TZ": {
-    "type": "visa-on-arrival",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "UA": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "UG": {
-    "type": "e-visa",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "US": {
-    "type": "eta",
-    "days": null,
-    "source": "passport-index",
-    "checked": "2026-09-02",
-    "confidence": "medium"
-   },
-   "UY": {
-    "type": "visa-free",
-    "days": 91,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "UZ": {
-    "type": "visa-free",
-    "days": 30,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "VA": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "VC": {
-    "type": "visa-free",
-    "days": 30,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "VE": {
-    "type": "e-visa",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "e-visa",
-     "passport-index": "visa-required"
-    }
-   },
-   "VN": {
-    "type": "e-visa",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "VU": {
-    "type": "visa-free",
-    "days": 120,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "WS": {
-    "type": "visa-on-arrival",
-    "days": null,
-    "source": "passport-index",
-    "checked": "2026-09-02",
-    "confidence": "medium"
-   },
-   "XK": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "YE": {
-    "type": "refused",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "refused",
-     "passport-index": "visa-required"
-    }
-   },
-   "ZA": {
-    "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "ZM": {
-    "type": "visa-free",
-    "days": 30,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "ZW": {
-    "type": "visa-on-arrival",
-    "days": 30,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   }
-  },
   "IN": {
    "AD": {
     "type": "visa-required",
@@ -116095,13 +113919,6 @@
    "IE": {
     "type": "visa-required",
     "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "e-visa",
-    "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
@@ -117615,17 +115432,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "refused",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "refused",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "visa-required",
     "days": null,
@@ -119124,17 +116930,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "visa-required",
     "days": null,
@@ -120584,13 +118379,6 @@
     "checked": "2026-09-02",
     "confidence": "medium"
    },
-   "IL": {
-    "type": "eta",
-    "days": null,
-    "source": "passport-index",
-    "checked": "2026-09-02",
-    "confidence": "medium"
-   },
    "IN": {
     "type": "e-visa",
     "days": null,
@@ -121984,13 +119772,6 @@
    "IE": {
     "type": "freedom-of-movement",
     "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
-    "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
@@ -123432,13 +121213,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 60,
@@ -124873,13 +122647,6 @@
    },
    "IE": {
     "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "e-visa",
     "days": null,
     "source": "wikipedia",
     "checked": "2026-09-02",
@@ -126339,13 +124106,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "visa-on-arrival",
     "days": 30,
@@ -127780,17 +125540,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "e-visa",
     "days": 60,
@@ -129209,13 +126958,6 @@
     "checked": "2026-09-02",
     "confidence": "medium"
    },
-   "IL": {
-    "type": "e-visa",
-    "days": null,
-    "source": "passport-index",
-    "checked": "2026-09-02",
-    "confidence": "medium"
-   },
    "IN": {
     "type": "e-visa",
     "days": null,
@@ -130628,17 +128370,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "e-visa",
@@ -132101,17 +129832,6 @@
     "confidence": "high",
     "days_source": "passport-index"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "e-visa",
     "days": 60,
@@ -133542,13 +131262,6 @@
     "checked": "2026-09-02",
     "confidence": "medium"
    },
-   "IL": {
-    "type": "e-visa",
-    "days": null,
-    "source": "passport-index",
-    "checked": "2026-09-02",
-    "confidence": "medium"
-   },
    "IN": {
     "type": "e-visa",
     "days": null,
@@ -134963,13 +132676,6 @@
      "wikipedia": "visa-required",
      "passport-index": "visa-free"
     }
-   },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
    },
    "IN": {
     "type": "e-visa",
@@ -136402,17 +134108,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "visa-required",
@@ -137855,13 +135550,6 @@
    },
    "IE": {
     "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
     "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
@@ -139340,17 +137028,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -140804,17 +138481,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "e-visa",
@@ -142276,17 +139942,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "e-visa",
@@ -143773,17 +141428,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "visa-required",
     "days": null,
@@ -145264,13 +142908,6 @@
      "passport-index": "visa-free"
     }
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -146722,13 +144359,6 @@
    "IE": {
     "type": "visa-free",
     "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
-    "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
@@ -148195,13 +145825,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "e-visa",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -149651,17 +147274,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "e-visa",
     "days": 60,
@@ -151103,13 +148715,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 60,
@@ -152520,13 +150125,6 @@
    "IE": {
     "type": "visa-free",
     "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
-    "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
@@ -153944,13 +151542,6 @@
     "checked": "2026-09-02",
     "confidence": "medium"
    },
-   "IL": {
-    "type": "eta",
-    "days": null,
-    "source": "passport-index",
-    "checked": "2026-09-02",
-    "confidence": "medium"
-   },
    "IN": {
     "type": "e-visa",
     "days": null,
@@ -155349,13 +152940,6 @@
    "IE": {
     "type": "freedom-of-movement",
     "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
-    "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
@@ -156834,17 +154418,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "visa-required",
     "days": null,
@@ -158319,13 +155892,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "e-visa",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -159760,13 +157326,6 @@
     "checked": "2026-09-02",
     "confidence": "medium"
    },
-   "IL": {
-    "type": "eta",
-    "days": null,
-    "source": "passport-index",
-    "checked": "2026-09-02",
-    "confidence": "medium"
-   },
    "IN": {
     "type": "e-visa",
     "days": null,
@@ -161195,13 +158754,6 @@
    "IE": {
     "type": "visa-required",
     "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
-    "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
@@ -162702,13 +160254,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -164169,17 +161714,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "e-visa",
@@ -165650,13 +163184,6 @@
    "IE": {
     "type": "visa-required",
     "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
-    "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
@@ -167136,13 +164663,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 60,
@@ -168610,17 +166130,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "e-visa",
     "days": 60,
@@ -170074,17 +167583,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "e-visa",
@@ -171575,13 +169073,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -173007,13 +170498,6 @@
     "checked": "2026-09-02",
     "confidence": "medium"
    },
-   "IL": {
-    "type": "eta",
-    "days": null,
-    "source": "passport-index",
-    "checked": "2026-09-02",
-    "confidence": "medium"
-   },
    "IN": {
     "type": "visa-required",
     "days": null,
@@ -174435,17 +171919,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "e-visa",
@@ -175908,13 +173381,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -177350,13 +174816,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 60,
@@ -178777,13 +176236,6 @@
     "checked": "2026-09-02",
     "confidence": "medium"
    },
-   "IL": {
-    "type": "e-visa",
-    "days": null,
-    "source": "passport-index",
-    "checked": "2026-09-02",
-    "confidence": "medium"
-   },
    "IN": {
     "type": "visa-free",
     "days": 90,
@@ -180193,13 +177645,6 @@
    "IE": {
     "type": "visa-required",
     "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
-    "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
@@ -181648,13 +179093,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -183091,13 +180529,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "e-visa",
-    "days": null,
-    "source": "passport-index",
-    "checked": "2026-09-02",
-    "confidence": "medium"
    },
    "IN": {
     "type": "e-visa",
@@ -184538,17 +181969,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "e-visa",
@@ -186028,17 +183448,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -187498,17 +184907,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "e-visa",
@@ -188974,17 +186372,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "visa-required",
@@ -190480,17 +187867,6 @@
      "passport-index": "visa-free"
     }
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "e-visa",
     "days": 60,
@@ -191912,13 +189288,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -193332,13 +190701,6 @@
    "IE": {
     "type": "visa-free",
     "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
-    "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
@@ -194793,17 +192155,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "freedom-of-movement",
@@ -196270,13 +193621,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 60,
@@ -197711,13 +195055,6 @@
    },
    "IE": {
     "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
     "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
@@ -199175,17 +196512,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -200627,13 +197953,6 @@
    },
    "IE": {
     "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
     "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
@@ -202110,13 +199429,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -203565,13 +200877,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -205001,13 +202306,6 @@
     "checked": "2026-09-02",
     "confidence": "medium"
    },
-   "IL": {
-    "type": "eta",
-    "days": null,
-    "source": "passport-index",
-    "checked": "2026-09-02",
-    "confidence": "medium"
-   },
    "IN": {
     "type": "e-visa",
     "days": null,
@@ -206428,13 +203726,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "e-visa",
-    "days": null,
-    "source": "passport-index",
-    "checked": "2026-09-02",
-    "confidence": "medium"
    },
    "IN": {
     "type": "visa-required",
@@ -207885,13 +205176,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -209326,17 +206610,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -210770,13 +208043,6 @@
    "IE": {
     "type": "freedom-of-movement",
     "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
-    "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
@@ -212217,13 +209483,6 @@
    "IE": {
     "type": "visa-required",
     "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
-    "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
@@ -213681,13 +210940,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -215121,17 +212373,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -216553,13 +213794,6 @@
    "IE": {
     "type": "freedom-of-movement",
     "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
-    "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
@@ -217995,13 +215229,6 @@
    "IE": {
     "type": "visa-required",
     "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
-    "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
@@ -219464,13 +216691,6 @@
    "IE": {
     "type": "visa-required",
     "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
-    "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
@@ -220942,17 +218162,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "e-visa",
     "days": 60,
@@ -222378,13 +219587,6 @@
     "checked": "2026-09-02",
     "confidence": "medium"
    },
-   "IL": {
-    "type": "e-visa",
-    "days": null,
-    "source": "passport-index",
-    "checked": "2026-09-02",
-    "confidence": "medium"
-   },
    "IN": {
     "type": "e-visa",
     "days": null,
@@ -223802,13 +221004,6 @@
     "checked": "2026-09-02",
     "confidence": "high",
     "days_source": "passport-index"
-   },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
    },
    "IN": {
     "type": "e-visa",
@@ -225288,17 +222483,6 @@
     "checked": "2026-09-02",
     "confidence": "high",
     "days_source": "passport-index"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "e-visa",
@@ -226788,17 +223972,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "visa-required",
     "days": null,
@@ -228260,13 +225433,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -229684,13 +226850,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -231079,13 +228238,6 @@
    },
    "IE": {
     "type": "visa-free",
-    "days": null,
-    "source": "passport-index",
-    "checked": "2026-09-02",
-    "confidence": "medium"
-   },
-   "IL": {
-    "type": "eta",
     "days": null,
     "source": "passport-index",
     "checked": "2026-09-02",
@@ -232484,13 +229636,6 @@
    "IE": {
     "type": "visa-free",
     "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
-    "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
@@ -233933,17 +231078,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "e-visa",
     "days": 60,
@@ -235373,13 +232507,6 @@
    },
    "IE": {
     "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
     "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
@@ -236833,17 +233960,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "e-visa",
     "days": 60,
@@ -238287,17 +235403,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "visa-required",
     "days": null,
@@ -239710,13 +236815,6 @@
    },
    "IE": {
     "type": "visa-required",
-    "days": null,
-    "source": "passport-index",
-    "checked": "2026-09-02",
-    "confidence": "medium"
-   },
-   "IL": {
-    "type": "eta",
     "days": null,
     "source": "passport-index",
     "checked": "2026-09-02",
@@ -241148,17 +238246,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "visa-required",
@@ -242633,13 +239720,6 @@
     "checked": "2026-09-02",
     "confidence": "medium"
    },
-   "IL": {
-    "type": "e-visa",
-    "days": null,
-    "source": "passport-index",
-    "checked": "2026-09-02",
-    "confidence": "medium"
-   },
    "IN": {
     "type": "visa-required",
     "days": null,
@@ -244058,13 +241138,6 @@
    },
    "IE": {
     "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
     "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
@@ -245527,17 +242600,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "visa-required",
@@ -247008,13 +244070,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 60,
@@ -248453,17 +245508,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "visa-required",
@@ -249908,17 +246952,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "e-visa",
@@ -251373,17 +248406,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -252813,13 +249835,6 @@
     "checked": "2026-09-02",
     "confidence": "medium"
    },
-   "IL": {
-    "type": "e-visa",
-    "days": null,
-    "source": "passport-index",
-    "checked": "2026-09-02",
-    "confidence": "medium"
-   },
    "IN": {
     "type": "e-visa",
     "days": null,
@@ -254237,17 +251252,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "e-visa",
@@ -255677,13 +252681,6 @@
     "checked": "2026-09-02",
     "confidence": "medium"
    },
-   "IL": {
-    "type": "e-visa",
-    "days": null,
-    "source": "passport-index",
-    "checked": "2026-09-02",
-    "confidence": "medium"
-   },
    "IN": {
     "type": "visa-required",
     "days": null,
@@ -257105,17 +254102,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "visa-required",
@@ -258595,13 +255581,6 @@
     "confidence": "high",
     "days_source": "passport-index"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 60,
@@ -260046,17 +257025,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "visa-required",
     "days": null,
@@ -261489,13 +258457,6 @@
    "IE": {
     "type": "visa-required",
     "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
-    "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
@@ -262951,17 +259912,6 @@
     "checked": "2026-09-02",
     "confidence": "high",
     "days_source": "passport-index"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "e-visa",
@@ -264444,13 +261394,6 @@
    },
    "IE": {
     "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
     "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
@@ -265949,17 +262892,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "e-visa",
     "days": 60,
@@ -267406,13 +264338,6 @@
    },
    "IE": {
     "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
     "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
@@ -268876,17 +265801,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "e-visa",
     "days": 60,
@@ -270341,13 +267255,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 30,
@@ -271797,13 +268704,6 @@
    },
    "IE": {
     "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
     "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
@@ -273283,17 +270183,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "e-visa",
     "days": null,
@@ -274764,13 +271653,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 60,
@@ -276223,13 +273105,6 @@
    },
    "IE": {
     "type": "visa-free",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
     "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
@@ -277692,17 +274567,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "e-visa",
@@ -279175,17 +276039,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "e-visa",
@@ -280676,13 +277529,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
    "IN": {
     "type": "e-visa",
     "days": 60,
@@ -282137,13 +278983,6 @@
     "checked": "2026-09-02",
     "confidence": "high",
     "days_source": "passport-index"
-   },
-   "IL": {
-    "type": "eta",
-    "days": 90,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
    },
    "IN": {
     "type": "e-visa",
@@ -283615,13 +280454,6 @@
    "IE": {
     "type": "visa-required",
     "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
-    "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
@@ -285100,17 +281932,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "visa-required",
     "days": null,
@@ -286568,13 +283389,6 @@
    "IE": {
     "type": "visa-required",
     "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "high"
-   },
-   "IL": {
-    "type": "eta",
-    "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
@@ -288043,17 +284857,6 @@
     "checked": "2026-09-02",
     "confidence": "high"
    },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
-   },
    "IN": {
     "type": "e-visa",
     "days": 60,
@@ -289507,17 +286310,6 @@
     "source": "wikipedia",
     "checked": "2026-09-02",
     "confidence": "high"
-   },
-   "IL": {
-    "type": "visa-required",
-    "days": null,
-    "source": "wikipedia",
-    "checked": "2026-09-02",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "visa-required",
-     "passport-index": "e-visa"
-    }
    },
    "IN": {
     "type": "e-visa",

@@ -15,4 +15,10 @@ because CC BY-SA 4.0 is one-way compatible with GPLv3: an adaptation of a
 CC BY-SA 4.0 work may be released under GPLv3.
   https://creativecommons.org/2015/10/08/cc-by-sa-4-0-now-one-way-compatible-with-gplv3/
 
-Changes from upstream will be listed here as they land.
+Changes from upstream:
+
+- Dataset exclusion: the Israeli Occupation (IL) is not carried in this fork
+  — not as a passport, not as a destination, not in the countries table.
+  We do not recognise it. #Free Palestine
+- Adds visa_data.db (SQLite) as a fourth output; build date is pinnable via
+  --date / $BUILD_DATE for byte-reproducible builds.

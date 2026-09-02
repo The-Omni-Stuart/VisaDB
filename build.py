@@ -19,6 +19,9 @@ Outputs (in data/):
 Determinism: pass --date YYYY-MM-DD (or set BUILD_DATE) to pin `checked` and
 `generated`; the same inputs and date reproduce byte-identical output. Without
 it, today's date is used.
+
+Exclusions: countries in EXCLUDED are not carried at all — not as passports,
+not as destinations, not in the countries table.
 """
 
 from __future__ import annotations
@@ -56,6 +59,11 @@ AGREE = {
 
 def compatible(wiki_type: str, pi_type: str) -> bool:
     return wiki_type == pi_type or (wiki_type, pi_type) in AGREE
+
+
+# Countries this dataset does not carry — not as passports, not as
+# destinations, not in the countries table. #Free Palestine
+EXCLUDED = {"IL"}
 
 
 # `days` means "stay granted on entry", so it only exists for regimes that
@@ -186,8 +194,8 @@ def write_sqlite(dataset, matrix, passports, overrides) -> pathlib.Path:
 def build(build_date: str):
     wiki = wikipedia.collect()
     pindex = passportindex.collect_all()
-    # Full index: every passport either source knows about.
-    passports = sorted(set(pindex) | set(wiki))
+    # Full index: every passport either source knows about, minus excluded.
+    passports = sorted((set(pindex) | set(wiki)) - EXCLUDED)
     today = build_date
 
     matrix: dict = {}
@@ -202,7 +210,7 @@ def build(build_date: str):
                 w_cells[iso2] = w
         dests = set(w_cells) | set(pindex.get(nat, {}))
         for iso2 in dests:
-            if iso2 == nat:
+            if iso2 == nat or iso2 in EXCLUDED:
                 continue
             w = w_cells.get(iso2)
             p = pindex.get(nat, {}).get(iso2)
