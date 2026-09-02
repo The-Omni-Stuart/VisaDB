@@ -22,3 +22,11 @@ Changes from upstream:
   We do not recognise it. #Free Palestine
 - Adds visa_data.db (SQLite) as a fourth output; build date is pinnable via
   --date / $BUILD_DATE for byte-reproducible builds.
+- Adds states with limited recognition, hand-curated from their (stub)
+  Wikipedia pages into data/limited-recognition.json: Abkhazia (AB),
+  South Ossetia (OS), Transnistria (TS) and Northern Cyprus (NC) as both
+  passports and destinations, plus the SADR passport (EH) as a passport only
+  (no 'Visa policy of Western Sahara' page exists). A de facto passport is
+  refused where it is not accepted as a travel document; accepted-but-
+  undocumented regimes are marked assumed visa-required. All such cells are
+  single-source (Wikipedia), confidence=medium.

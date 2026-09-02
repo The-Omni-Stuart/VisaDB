@@ -22,6 +22,11 @@ it, today's date is used.
 
 Exclusions: countries in EXCLUDED are not carried at all — not as passports,
 not as destinations, not in the countries table.
+
+Limited recognition: Abkhazia, South Ossetia, Transnistria, Northern Cyprus
+and the SADR have no full Wikipedia visa matrix — their pages are stubs.
+Their rules are hand-curated in data/limited-recognition.json and merged in
+by merge_limited_recognition() after the scrape and overrides.
 """
 
 from __future__ import annotations
@@ -109,7 +114,74 @@ def canonical_country_names() -> dict[str, str]:
     return out
 
 
-def write_sqlite(dataset, matrix, passports, overrides) -> pathlib.Path:
+def merge_limited_recognition(matrix, passports, build_date):
+    """Merge hand-curated rules for states that have no full Wikipedia visa
+    matrix (data/limited-recognition.json): Abkhazia (AB), South Ossetia (OS),
+    Transnistria (TS), Northern Cyprus (NC) and the SADR (EH).
+
+    Their 'Visa requirements for X citizens' pages are stubs: a short list of
+    where the passport is accepted — everywhere else it is simply not accepted
+    (refused). Their 'Visa policy of X' pages give a simple destination regime:
+    explicit exemptions plus a default. All cells are single-source (Wikipedia),
+    so confidence is "medium" throughout.
+
+    The SADR (EH) is passport-only: no 'Visa policy of Western Sahara' page
+    exists, so it is not a destination.
+
+    Returns the extended passport list and iso2 -> name for the new entries.
+    """
+    path = DATA / "limited-recognition.json"
+    if not path.exists():
+        return passports, {}
+    spec = json.load(open(path))
+    today = build_date
+
+    def cell(c):
+        out = {
+            "type": c["type"],
+            "days": c.get("days"),
+            "source": "wikipedia",
+            "checked": today,
+            "confidence": "medium",
+        }
+        if c.get("note"):
+            out["note"] = c["note"]
+        return out
+
+    new_passports = set(spec)
+    new_dests = {code for code, e in spec.items() if e.get("destination")}
+
+    # Destination columns: one cell for every passport, minus self.
+    for code, e in spec.items():
+        if not e.get("destination"):
+            continue
+        default = e["destination_default"]
+        explicit = e.get("destination_row", {})
+        for nat in sorted(set(passports) | new_passports):
+            if nat == code:
+                continue
+            matrix.setdefault(nat, {})[code] = cell(explicit.get(nat, default))
+
+    # Passport rows: one cell for every destination, minus self.
+    all_dests = new_dests | {d for cells in matrix.values() for d in cells}
+    for code, e in spec.items():
+        default = e["passport_default"]
+        explicit = e.get("passport_row", {})
+        row = {}
+        for dest in sorted(all_dests):
+            if dest == code:
+                continue
+            row[dest] = cell(explicit.get(dest, default))
+        matrix[code] = dict(sorted(row.items()))
+
+    passports = sorted(set(passports) | new_passports)
+    for nat in matrix:
+        matrix[nat] = dict(sorted(matrix[nat].items()))
+    names = {code: e["name"] for code, e in spec.items()}
+    return passports, names
+
+
+def write_sqlite(dataset, matrix, passports, overrides, extra_names=None) -> pathlib.Path:
     """Write the 4-table SQLite form: meta, countries, visa_rules, corrections."""
     db_path = DATA / "visa_data.db"
     if db_path.exists():
@@ -153,11 +225,14 @@ def write_sqlite(dataset, matrix, passports, overrides) -> pathlib.Path:
 
     meta = dataset["meta"]
     for k in ("name", "version", "generated", "passport_count", "corridor_count",
-              "primary_source", "cross_check", "attribution", "license", "disclaimer"):
+              "primary_source", "cross_check", "limited_recognition",
+              "attribution", "license", "disclaimer"):
         if k in meta:
             cur.execute("INSERT INTO meta(key, value) VALUES (?, ?)", (k, str(meta[k])))
 
     names = canonical_country_names()
+    if extra_names:
+        names.update(extra_names)
     iso2s = set(passports)
     for cells in matrix.values():
         iso2s.update(cells)
@@ -277,6 +352,12 @@ def build(build_date: str):
         applied += 1
     print(f"overrides applied: {applied}/{len(overrides)}")
 
+    # States with limited recognition — hand-curated from Wikipedia stub
+    # pages; applied after the scrape and overrides (see the module docstring).
+    passports, lr_names = merge_limited_recognition(matrix, passports, today)
+    if lr_names:
+        print(f"limited-recognition entities merged: {', '.join(sorted(lr_names))}")
+
     total_corridors = sum(len(c) for c in matrix.values())
     dataset = {
         "meta": {
@@ -292,6 +373,15 @@ def build(build_date: str):
                 "don't cover fall back to passport-index"
             ),
             "cross_check": "imorte/passport-index-data (scraped from passportindex.org)",
+            "limited_recognition": (
+                "Abkhazia (AB), South Ossetia (OS), Transnistria (TS) and "
+                "Northern Cyprus (NC) plus the SADR passport (EH, not a "
+                "destination — no visa policy page exists) are hand-curated "
+                "from Wikipedia stub pages in data/limited-recognition.json. "
+                "A de facto passport is refused where it is not accepted as a "
+                "travel document; accepted-but-undocumented regimes are marked "
+                "assumed visa-required. Single-source: confidence=medium."
+            ),
             "attribution": "xpressmike/visa-matrix (CC BY-SA 4.0)",
             "license": "GPLv3 — VisaDB fork of visa-matrix; see LICENSE and NOTICE",
             "disclaimer": (
@@ -333,7 +423,7 @@ def build(build_date: str):
                 w.writerow([nat, d, c["type"], c["days"] or "", c["confidence"]])
 
     # SQLite: the machine-readable form the app consumes.
-    write_sqlite(dataset, matrix, passports, overrides)
+    write_sqlite(dataset, matrix, passports, overrides, lr_names)
 
     print(f"passports: {len(passports)}  corridors: {total_corridors}  disputed: {disputes}")
     print(f"wrote {DATA / 'visa_data.db'}")

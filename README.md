@@ -12,8 +12,8 @@ Attribution: see [NOTICE](NOTICE).
 # visa-matrix
 
 Machine-readable visa requirements for **every passport × every destination**
-(~199 × ~198 corridors) — with provenance, check date and cross-source
-verification on every cell.
+(203 passports × 202 destinations = 40,804 corridors) — with provenance, check
+date and cross-source verification on every cell.
 
 Most visa datasets copy one aggregator and hope it is right. This one records
 *where each value came from* and *whether an independent source agrees*:
@@ -38,7 +38,10 @@ When sources disagree, the cell says so instead of silently picking a winner.
 | `data/visa-matrix.json` | canonical nested form with full provenance |
 | `data/visa-matrix-iso2.csv` | matrix: one row per passport, one column per destination |
 | `data/visa-matrix-tidy.csv` | long form: `passport,destination,type,days,confidence` |
+| `data/visa_data.db` | SQLite form (the shape the app consumes): `meta`, `countries`, `visa_rules`, `corrections` |
 | `data/countries-iso2.json`, `data/demonyms-iso2.json` | inputs: country/demonym → ISO2 maps used to join the sources |
+| `data/overrides.json` | manual corrections applied after the scrape (confirmed policy changes the sources still lag) |
+| `data/limited-recognition.json` | hand-curated rules for states with limited recognition (Abkhazia, South Ossetia, Transnistria, Northern Cyprus, SADR passport) — their Wikipedia pages are stubs, not full matrices |
 
 Status vocabulary: `visa-free` · `freedom-of-movement` · `eta` (electronic
 travel authorisation: ESTA, eTA, K-ETA…) · `visa-on-arrival` · `e-visa` ·
@@ -63,6 +66,15 @@ page (~180) get Wikipedia as the primary source with passport-index as the
 cross-check; the rest are covered by passport-index alone (and read
 `"source": "passport-index", "confidence": "medium"` until a second source
 confirms them).
+
+States with **limited recognition** (Abkhazia, South Ossetia, Transnistria,
+Northern Cyprus) are carried as both passports and destinations, and the SADR
+passport as a passport only — none has a full Wikipedia visa matrix, so their
+rules are hand-curated in `data/limited-recognition.json` and merged after the
+scrape. A de facto passport is `refused` where it is not accepted as a travel
+document (the app shows this grey); accepted-but-undocumented regimes are
+marked assumed `visa-required`. All such cells are single-source (Wikipedia),
+`confidence: "medium"`.
 
 ## Sources
 
