@@ -38,14 +38,16 @@ When sources disagree, the cell says so instead of silently picking a winner.
 | `data/visa-matrix.json` | canonical nested form with full provenance |
 | `data/visa-matrix-iso2.csv` | matrix: one row per passport, one column per destination |
 | `data/visa-matrix-tidy.csv` | long form: `passport,destination,type,days,confidence` |
-| `data/visa_data.db` | SQLite form (the shape the app consumes): `meta`, `countries`, `visa_rules`, `corrections` |
+| `data/visa_data.db` | SQLite form (the shape the app consumes): `meta`, `countries`, `visa_rules`, `corrections`, `visa_holdings`, `visa_benefits` |
 | `data/countries-iso2.json`, `data/demonyms-iso2.json` | inputs: country/demonym → ISO2 maps used to join the sources |
 | `data/overrides.json` | manual corrections applied after the scrape (confirmed policy changes the sources still lag) |
 | `data/limited-recognition.json` | hand-curated rules for states with limited recognition (Abkhazia, South Ossetia, Transnistria, Northern Cyprus, SADR passport) — their Wikipedia pages are stubs, not full matrices |
+| `data/visa-benefits.json` | hand-curated visa/residency **permit layer**: 13 common foreign holdings and the destinations each unlocks, verified against Wikipedia (see below) |
 
 Status vocabulary: `visa-free` · `freedom-of-movement` · `eta` (electronic
 travel authorisation: ESTA, eTA, K-ETA…) · `visa-on-arrival` · `e-visa` ·
-`visa-required` · `refused`.
+`visa-required` · `refused`. (The permit layer also uses `transit-free` for
+visa-free transit / airside connection only.)
 
 Confidence: `high` (sources agree — an ETA is treated as compatible with a
 bare "visa free" claim, since sources label that regime either way) ·
@@ -75,6 +77,41 @@ scrape. A de facto passport is `refused` where it is not accepted as a travel
 document (the app shows this grey); accepted-but-undocumented regimes are
 marked assumed `visa-required`. All such cells are single-source (Wikipedia),
 `confidence: "medium"`.
+
+## Visa & residency holdings (permit layer)
+
+A passport is not the only travel document that changes what you can enter.
+If you hold a foreign visa or residence permit — a US green card, a Schengen
+residence card, a UK BRP, an APEC Business Travel Card, GCC residence, etc. —
+several destinations let you in on that alone, or relax the rule your bare
+passport would get. VisaDB models this as a second layer in
+`data/visa-benefits.json`, written to two tables:
+
+- `visa_holdings` — the 13 holdings (`us-green-card`, `us-visa`,
+  `schengen-visa`, `schengen-residence`, `uk-visa`, `ca-pr`, `ca-visa`,
+  `au-pr`, `uae-residence`, `jp-visa`, `gcc-residence`, `sg-visa`,
+  `apec-card`), each with a `category` (residency / short_term_visa /
+  long_term_visa / special_permit) and `issuing_country`.
+- `visa_benefits` — one row per (holding, destination): the `type`, `days`,
+  `confidence`, `source`, `checked` and a `note` with the Wikipedia quote that
+  backs it.
+
+The holdings were seeded from the Passport Power Index visa-checker's list
+(250 entries) and **verified against the destination's own Wikipedia row**
+before being kept. A note in another country's row (e.g. the "US citizens"
+row) is that other country's policy, not the destination's — so an entry is
+only `confidence: "high"` when the destination's row documents it. That check
+dropped ~27 VisaCheck entries (wrong direction, non-matrix territories,
+duplicates) and corrected the rest.
+
+Two things to remember:
+
+- **A benefit only relaxes the underlying passport rule.** It never waives the
+  need for a valid passport or the destination's normal admissibility checks
+  (proof of funds, onward ticket, etc.).
+- **The app still merges.** Each benefit is re-merged against the traveller's
+  passport result and the better outcome wins — a green card can't make a
+  `refused` corridor enterable.
 
 ## Sources
 

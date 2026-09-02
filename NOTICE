@@ -30,3 +30,12 @@ Changes from upstream:
   refused where it is not accepted as a travel document; accepted-but-
   undocumented regimes are marked assumed visa-required. All such cells are
   single-source (Wikipedia), confidence=medium.
+- Adds a visa/residency permit layer (data/visa-benefits.json, written to the
+  visa_holdings + visa_benefits tables): 13 common foreign visa/residency
+  holdings and the destinations each unlocks. Seeded from the Passport Power
+  Index visa-checker's holdings list (jasurshukurov/Passport-Power-Index-Visa-
+  Checker) and re-verified against each destination's own English Wikipedia row
+  before being kept; ~27 of the 250 seed entries were dropped or corrected on
+  that basis (wrong direction, non-matrix territories, duplicates). A benefit
+  only relaxes the underlying passport rule — it never waives a valid passport
+  or the destination's normal admissibility checks.

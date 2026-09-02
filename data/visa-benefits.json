@@ -1,0 +1,1691 @@
+{
+ "source": "Curated from VisaCheck (jasurshukurov/Passport-Power-Index-Visa-Checker, visaBenefits.ts, 13 holdings / 250 entries, single 2026-02-15 commit, co-authored with an LLM — no per-entry provenance) and verified against English Wikipedia 'Visa requirements for X citizens' pages. The destination's own table row is the authoritative note (a note in another country's row is that other country's policy, not the destination's).",
+ "checked": "2026-09-02",
+ "confidence_key": {
+  "high": "destination's own Wikipedia row documents the benefit (may still override VisaCheck's day count where Wikipedia is more current)",
+  "medium": "fits the known 'foreign visa/residence accepted' pattern but is not row-documented, or Wikipedia rows conflict — kept at a conservative value"
+ },
+ "golden_rule": "The passport still matters. These holdings relax (never eliminate) the underlying passport rule: the traveller must still hold a valid passport, meet normal admissibility checks, and the holding only helps where the destination's own row documents it.",
+ "holdings": [
+  {
+   "id": "us-green-card",
+   "name": "US Permanent Residency (Green Card)",
+   "category": "residency",
+   "issuing_country": "US",
+   "note": "US Lawful Permanent Resident (green card)"
+  },
+  {
+   "id": "us-visa",
+   "name": "Valid US Visa (B1/B2, F1, H1B, etc.)",
+   "category": "short_term_visa",
+   "issuing_country": "US",
+   "note": "Any valid, unexpired US visa"
+  },
+  {
+   "id": "schengen-visa",
+   "name": "Schengen Visa",
+   "category": "short_term_visa",
+   "issuing_country": "EU",
+   "note": "Valid Schengen Area short-stay (Type C) visa"
+  },
+  {
+   "id": "schengen-residence",
+   "name": "Schengen/EU Residence Permit",
+   "category": "residency",
+   "issuing_country": "EU",
+   "note": "Residence permit from a Schengen/EU member state"
+  },
+  {
+   "id": "uk-visa",
+   "name": "Valid UK Visa / BRP",
+   "category": "short_term_visa",
+   "issuing_country": "GB",
+   "note": "Valid UK visa or Biometric Residence Permit"
+  },
+  {
+   "id": "ca-pr",
+   "name": "Canadian Permanent Residency",
+   "category": "residency",
+   "issuing_country": "CA",
+   "note": "Canadian Permanent Resident card"
+  },
+  {
+   "id": "ca-visa",
+   "name": "Valid Canadian Visa",
+   "category": "short_term_visa",
+   "issuing_country": "CA",
+   "note": "Valid Canadian temporary resident visa"
+  },
+  {
+   "id": "au-pr",
+   "name": "Australian Permanent Residency",
+   "category": "residency",
+   "issuing_country": "AU",
+   "note": "Australian Permanent Resident visa"
+  },
+  {
+   "id": "uae-residence",
+   "name": "UAE Residence Visa",
+   "category": "residency",
+   "issuing_country": "AE",
+   "note": "UAE residence visa / permit"
+  },
+  {
+   "id": "jp-visa",
+   "name": "Valid Japanese Visa",
+   "category": "short_term_visa",
+   "issuing_country": "JP",
+   "note": "Valid Japanese visa or residence card"
+  },
+  {
+   "id": "gcc-residence",
+   "name": "GCC Residency (SA/QA/OM/BH/KW)",
+   "category": "residency",
+   "issuing_country": "SA",
+   "note": "Residence permit from a GCC member state"
+  },
+  {
+   "id": "sg-visa",
+   "name": "Singapore Work/Residence Permit",
+   "category": "long_term_visa",
+   "issuing_country": "SG",
+   "note": "Singapore Employment Pass, S Pass, or PR"
+  },
+  {
+   "id": "apec-card",
+   "name": "APEC Business Travel Card",
+   "category": "special_permit",
+   "issuing_country": "XX",
+   "note": "APEC Business Travel Card (ABTC) for expedited border crossing"
+  }
+ ],
+ "benefits": {
+  "us-green-card": [
+   {
+    "destination": "MX",
+    "type": "visa-free",
+    "days": 180,
+    "confidence": "high",
+    "note": "FMM tourist card on arrival; US permanent residence accepted"
+   },
+   {
+    "destination": "CA",
+    "type": "visa-free",
+    "days": 180,
+    "confidence": "high",
+    "note": "US LPRs enter Canada visa-free; up to 6 months at officer discretion"
+   },
+   {
+    "destination": "CR",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Wikipedia: 90 days for US permanent residence permit (VisaCheck lists 30)"
+   },
+   {
+    "destination": "PA",
+    "type": "visa-free",
+    "days": 30,
+    "confidence": "medium",
+    "note": "Valid US residency document required (unverified)"
+   },
+   {
+    "destination": "BS",
+    "type": "visa-free",
+    "days": 30,
+    "confidence": "high",
+    "note": "Valid passport and green card required"
+   },
+   {
+    "destination": "BZ",
+    "type": "visa-free",
+    "days": 30,
+    "confidence": "medium",
+    "note": "Wikipedia rows conflict (visa-free 30 vs visa-on-arrival); verify"
+   },
+   {
+    "destination": "SV",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid passport and green card"
+   },
+   {
+    "destination": "GT",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "CA-4 Central American agreement; 90 days shared with HN/SV/NI"
+   },
+   {
+    "destination": "HN",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "medium",
+    "note": "CA-4 Central American agreement; 90 days shared with GT/SV/NI (unverified)"
+   },
+   {
+    "destination": "NI",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "CA-4 Central American agreement"
+   },
+   {
+    "destination": "JM",
+    "type": "visa-free",
+    "days": 30,
+    "confidence": "high",
+    "note": "Valid passport and return ticket required"
+   },
+   {
+    "destination": "AG",
+    "type": "visa-free",
+    "days": 30,
+    "confidence": "high",
+    "note": "Valid passport required"
+   },
+   {
+    "destination": "GE",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid green card must be presented"
+   },
+   {
+    "destination": "AL",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Multiple-entry green card qualifies"
+   },
+   {
+    "destination": "BA",
+    "type": "visa-free",
+    "days": 30,
+    "confidence": "medium",
+    "note": "Wikipedia: 15 days (ID page) vs 30 days; valid green card required"
+   },
+   {
+    "destination": "ME",
+    "type": "visa-free",
+    "days": 30,
+    "confidence": "medium",
+    "note": "Valid green card required (unverified)"
+   },
+   {
+    "destination": "RS",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid green card required"
+   },
+   {
+    "destination": "TR",
+    "type": "e-visa",
+    "days": 30,
+    "confidence": "high",
+    "note": "Simplified e-visa for US permanent residence"
+   },
+   {
+    "destination": "MA",
+    "type": "e-visa",
+    "days": 30,
+    "confidence": "high",
+    "note": "Wikipedia: e-Visa 30 days (VisaCheck lists visa-free 90)"
+   },
+   {
+    "destination": "TW",
+    "type": "visa-free",
+    "days": 14,
+    "confidence": "high",
+    "note": "Wikipedia: ETA form gives 14 days visa-free (VisaCheck lists 30)"
+   },
+   {
+    "destination": "SG",
+    "type": "e-visa",
+    "days": null,
+    "confidence": "medium",
+    "note": "Not visa-free: e-Service via local sponsor/agent required; also 96h visa-free transit"
+   },
+   {
+    "destination": "MY",
+    "type": "visa-free",
+    "days": 30,
+    "confidence": "medium",
+    "note": "Valid green card and passport required (not documented on Wikipedia)"
+   },
+   {
+    "destination": "AM",
+    "type": "visa-on-arrival",
+    "days": 120,
+    "confidence": "high",
+    "note": "Wikipedia: VoA 120 days for US permanent resident permit (VisaCheck lists visa-free 180)"
+   },
+   {
+    "destination": "BH",
+    "type": "visa-on-arrival",
+    "days": 14,
+    "confidence": "high",
+    "note": "US green card among accepted documents for VoA"
+   },
+   {
+    "destination": "QA",
+    "type": "visa-on-arrival",
+    "days": 30,
+    "confidence": "medium",
+    "note": "Valid green card required (not documented on Wikipedia)"
+   },
+   {
+    "destination": "OM",
+    "type": "visa-on-arrival",
+    "days": 14,
+    "confidence": "medium",
+    "note": "14-day e-Visa / VoA for US residence (Wikipedia rows vary 14 visa-free vs e-Visa)"
+   },
+   {
+    "destination": "AE",
+    "type": "visa-on-arrival",
+    "days": 14,
+    "confidence": "high",
+    "note": "Wikipedia: VoA 14 days (100 AED) + 14-day extension, or 60-day option (VisaCheck lists visa-free 30)"
+   },
+   {
+    "destination": "CL",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "medium",
+    "note": "Green card substitutes the Chilean national visa (6+ months validity)"
+   }
+  ],
+  "us-visa": [
+   {
+    "destination": "MX",
+    "type": "visa-free",
+    "days": 180,
+    "confidence": "high",
+    "note": "Used/unused multiple-entry US visas accepted; FMM tourist card required"
+   },
+   {
+    "destination": "CA",
+    "type": "eta",
+    "days": 180,
+    "confidence": "high",
+    "note": "eTA required by air (US non-immigrant B/F/M/J/H/L visa); visa required by land/sea"
+   },
+   {
+    "destination": "PA",
+    "type": "visa-free",
+    "days": 30,
+    "confidence": "high",
+    "note": "Valid US visa with 2+ prior US entries"
+   },
+   {
+    "destination": "CR",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Wikipedia: 90 days for multiple-entry US visa (VisaCheck lists 30)"
+   },
+   {
+    "destination": "AL",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Multiple-entry US visa used at least once before arrival"
+   },
+   {
+    "destination": "GE",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid US visa required"
+   },
+   {
+    "destination": "TR",
+    "type": "e-visa",
+    "days": 30,
+    "confidence": "high",
+    "note": "E-visa available online for valid US visa"
+   },
+   {
+    "destination": "CO",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "US visa substitutes the Colombian national visa"
+   },
+   {
+    "destination": "GT",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "CA-4 agreement; valid US visa required"
+   },
+   {
+    "destination": "HN",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "medium",
+    "note": "CA-4 agreement; valid US visa required (unverified)"
+   },
+   {
+    "destination": "SV",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "CA-4 agreement; valid US visa required"
+   },
+   {
+    "destination": "NI",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "CA-4 agreement; valid US visa required"
+   },
+   {
+    "destination": "BS",
+    "type": "visa-free",
+    "days": 30,
+    "confidence": "medium",
+    "note": "Valid US visa required (unverified)"
+   },
+   {
+    "destination": "BA",
+    "type": "visa-free",
+    "days": 30,
+    "confidence": "medium",
+    "note": "Wikipedia: 15 days (ID page) vs 30 days; multiple-entry US visa required"
+   },
+   {
+    "destination": "ME",
+    "type": "visa-free",
+    "days": 30,
+    "confidence": "high",
+    "note": "Valid US visa required"
+   },
+   {
+    "destination": "RS",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid US visa required"
+   },
+   {
+    "destination": "MK",
+    "type": "visa-free",
+    "days": 15,
+    "confidence": "medium",
+    "note": "Multiple-entry US visa required (unverified)"
+   },
+   {
+    "destination": "AE",
+    "type": "visa-on-arrival",
+    "days": 14,
+    "confidence": "high",
+    "note": "Wikipedia: VoA 14 days (or 60-day option) for US visa; nationality restrictions apply"
+   },
+   {
+    "destination": "SG",
+    "type": "transit-free",
+    "days": 4,
+    "confidence": "high",
+    "note": "96-hour Visa Free Transit Facility (Chinese/Indian nationals transiting by air with US visa)"
+   }
+  ],
+  "schengen-visa": [
+   {
+    "destination": "AT",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Within the 90/180-day rule"
+   },
+   {
+    "destination": "BE",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Within the 90/180-day rule"
+   },
+   {
+    "destination": "BG",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Within the 90/180-day rule"
+   },
+   {
+    "destination": "HR",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Within the 90/180-day rule"
+   },
+   {
+    "destination": "CZ",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Within the 90/180-day rule"
+   },
+   {
+    "destination": "DK",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Within the 90/180-day rule"
+   },
+   {
+    "destination": "EE",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Within the 90/180-day rule"
+   },
+   {
+    "destination": "FI",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Within the 90/180-day rule"
+   },
+   {
+    "destination": "FR",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Within the 90/180-day rule"
+   },
+   {
+    "destination": "DE",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Within the 90/180-day rule"
+   },
+   {
+    "destination": "GR",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Within the 90/180-day rule"
+   },
+   {
+    "destination": "HU",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Within the 90/180-day rule"
+   },
+   {
+    "destination": "IS",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Within the 90/180-day rule"
+   },
+   {
+    "destination": "IT",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Within the 90/180-day rule"
+   },
+   {
+    "destination": "LV",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Within the 90/180-day rule"
+   },
+   {
+    "destination": "LT",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Within the 90/180-day rule"
+   },
+   {
+    "destination": "LU",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Within the 90/180-day rule"
+   },
+   {
+    "destination": "MT",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Within the 90/180-day rule"
+   },
+   {
+    "destination": "NL",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Within the 90/180-day rule"
+   },
+   {
+    "destination": "NO",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Within the 90/180-day rule"
+   },
+   {
+    "destination": "PL",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Within the 90/180-day rule"
+   },
+   {
+    "destination": "PT",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Within the 90/180-day rule"
+   },
+   {
+    "destination": "RO",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Within the 90/180-day rule"
+   },
+   {
+    "destination": "SK",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Within the 90/180-day rule"
+   },
+   {
+    "destination": "SI",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Within the 90/180-day rule"
+   },
+   {
+    "destination": "ES",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Within the 90/180-day rule"
+   },
+   {
+    "destination": "SE",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Within the 90/180-day rule"
+   },
+   {
+    "destination": "CH",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Within the 90/180-day rule"
+   },
+   {
+    "destination": "LI",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Within the 90/180-day rule"
+   },
+   {
+    "destination": "AL",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Multiple-entry Schengen visa used at least once in Schengen before arrival"
+   },
+   {
+    "destination": "BA",
+    "type": "visa-free",
+    "days": 30,
+    "confidence": "medium",
+    "note": "Wikipedia: 15 days (ID page) vs 30 days; multiple-entry Schengen visa required"
+   },
+   {
+    "destination": "ME",
+    "type": "visa-free",
+    "days": 30,
+    "confidence": "high",
+    "note": "Valid Schengen visa required"
+   },
+   {
+    "destination": "MK",
+    "type": "visa-free",
+    "days": 15,
+    "confidence": "high",
+    "note": "Valid Schengen visa required"
+   },
+   {
+    "destination": "RS",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid Schengen visa required"
+   },
+   {
+    "destination": "XK",
+    "type": "visa-free",
+    "days": 15,
+    "confidence": "high",
+    "note": "Valid Schengen visa required"
+   },
+   {
+    "destination": "GE",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid Schengen visa or residence permit required"
+   },
+   {
+    "destination": "TR",
+    "type": "e-visa",
+    "days": 30,
+    "confidence": "high",
+    "note": "E-visa available online; valid Schengen visa simplifies it"
+   },
+   {
+    "destination": "CO",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Schengen visa with 180+ days validity on arrival"
+   },
+   {
+    "destination": "PA",
+    "type": "visa-free",
+    "days": 30,
+    "confidence": "high",
+    "note": "Valid Schengen visa required"
+   },
+   {
+    "destination": "CR",
+    "type": "visa-free",
+    "days": 30,
+    "confidence": "medium",
+    "note": "Valid multiple-entry Schengen visa required (unverified)"
+   },
+   {
+    "destination": "CY",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Cyprus (EU, non-Schengen) accepts multiple-entry Schengen visa; does not count against 90/180"
+   },
+   {
+    "destination": "AM",
+    "type": "visa-on-arrival",
+    "days": 120,
+    "confidence": "high",
+    "note": "Wikipedia: VoA 120 days for valid Schengen visa (VisaCheck lists visa-free 180)"
+   }
+  ],
+  "schengen-residence": [
+   {
+    "destination": "AT",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+   },
+   {
+    "destination": "BE",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+   },
+   {
+    "destination": "BG",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+   },
+   {
+    "destination": "HR",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+   },
+   {
+    "destination": "CZ",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+   },
+   {
+    "destination": "DK",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+   },
+   {
+    "destination": "EE",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+   },
+   {
+    "destination": "FI",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+   },
+   {
+    "destination": "FR",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+   },
+   {
+    "destination": "DE",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+   },
+   {
+    "destination": "GR",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+   },
+   {
+    "destination": "HU",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+   },
+   {
+    "destination": "IS",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+   },
+   {
+    "destination": "IT",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+   },
+   {
+    "destination": "LV",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+   },
+   {
+    "destination": "LT",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+   },
+   {
+    "destination": "LU",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+   },
+   {
+    "destination": "MT",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+   },
+   {
+    "destination": "NL",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+   },
+   {
+    "destination": "NO",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+   },
+   {
+    "destination": "PL",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+   },
+   {
+    "destination": "PT",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+   },
+   {
+    "destination": "RO",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+   },
+   {
+    "destination": "SK",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+   },
+   {
+    "destination": "SI",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+   },
+   {
+    "destination": "ES",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+   },
+   {
+    "destination": "SE",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+   },
+   {
+    "destination": "CH",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+   },
+   {
+    "destination": "LI",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+   },
+   {
+    "destination": "AL",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid Schengen residence permit required"
+   },
+   {
+    "destination": "BA",
+    "type": "visa-free",
+    "days": 30,
+    "confidence": "medium",
+    "note": "Wikipedia: 15 days (ID page) vs 30 days; valid Schengen residence permit required"
+   },
+   {
+    "destination": "ME",
+    "type": "visa-free",
+    "days": 30,
+    "confidence": "high",
+    "note": "Valid Schengen residence permit required"
+   },
+   {
+    "destination": "RS",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid Schengen residence permit required"
+   },
+   {
+    "destination": "MK",
+    "type": "visa-free",
+    "days": 15,
+    "confidence": "high",
+    "note": "Valid Schengen residence permit required"
+   },
+   {
+    "destination": "GE",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid Schengen residence permit required"
+   },
+   {
+    "destination": "CO",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Accepts both temporary and permanent Schengen residence permits"
+   },
+   {
+    "destination": "MX",
+    "type": "visa-free",
+    "days": 180,
+    "confidence": "high",
+    "note": "Wikipedia: 180 days for PERMANENT residence permits only (temporary permits may be refused)"
+   },
+   {
+    "destination": "TR",
+    "type": "e-visa",
+    "days": 30,
+    "confidence": "high",
+    "note": "E-visa available online with valid Schengen residence permit"
+   },
+   {
+    "destination": "PA",
+    "type": "visa-free",
+    "days": 30,
+    "confidence": "medium",
+    "note": "Valid Schengen residence permit required (unverified)"
+   },
+   {
+    "destination": "CR",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Wikipedia: 90 days for residence permits (VisaCheck lists 30)"
+   },
+   {
+    "destination": "CY",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Cyprus (EU, non-Schengen) accepts EU/Schengen residence permits"
+   },
+   {
+    "destination": "AM",
+    "type": "visa-on-arrival",
+    "days": 120,
+    "confidence": "high",
+    "note": "Wikipedia: VoA 120 days for Schengen/EU residence permit (VisaCheck lists visa-free 180)"
+   },
+   {
+    "destination": "IE",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "medium",
+    "note": "Ireland Short Stay Visa Waiver for some nationalities with EU residence (not row-documented; verify)"
+   }
+  ],
+  "uk-visa": [
+   {
+    "destination": "AL",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "UK visa used once in issuing country before arrival"
+   },
+   {
+    "destination": "GE",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid UK visa / residence permit required"
+   },
+   {
+    "destination": "ME",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "medium",
+    "note": "Valid UK BRP / eVisa required (unverified)"
+   },
+   {
+    "destination": "RS",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "medium",
+    "note": "Valid UK BRP / eVisa required (unverified)"
+   },
+   {
+    "destination": "MK",
+    "type": "visa-free",
+    "days": 15,
+    "confidence": "medium",
+    "note": "Valid UK BRP / eVisa required (unverified)"
+   },
+   {
+    "destination": "MX",
+    "type": "visa-free",
+    "days": 180,
+    "confidence": "high",
+    "note": "FMM form required; one of the longest visa-free stays"
+   },
+   {
+    "destination": "PA",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "medium",
+    "note": "Valid UK BRP / eVisa required (unverified)"
+   },
+   {
+    "destination": "BB",
+    "type": "visa-free",
+    "days": 180,
+    "confidence": "medium",
+    "note": "Tourism only (unverified)"
+   },
+   {
+    "destination": "AG",
+    "type": "visa-free",
+    "days": 30,
+    "confidence": "medium",
+    "note": "Tourism only; proof of accommodation required (unverified)"
+   },
+   {
+    "destination": "BS",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "medium",
+    "note": "Tourism/business; return ticket required (unverified)"
+   },
+   {
+    "destination": "JM",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "medium",
+    "note": "Tourism only; return ticket required (unverified)"
+   },
+   {
+    "destination": "AM",
+    "type": "visa-on-arrival",
+    "days": 120,
+    "confidence": "medium",
+    "note": "Wikipedia: VoA 120 days (UK in the accepted list); nationality must not separately require a visa"
+   },
+   {
+    "destination": "TR",
+    "type": "e-visa",
+    "days": 30,
+    "confidence": "high",
+    "note": "E-visa required; apply online"
+   },
+   {
+    "destination": "BH",
+    "type": "e-visa",
+    "days": 14,
+    "confidence": "high",
+    "note": "e-Visa for UK visa holders (VisaCheck lists 14 days)"
+   },
+   {
+    "destination": "AE",
+    "type": "visa-on-arrival",
+    "days": 14,
+    "confidence": "high",
+    "note": "Wikipedia: VoA 14 days (or 60-day option) for UK visa; some nationalities excluded"
+   },
+   {
+    "destination": "IE",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "medium",
+    "note": "British-Irish Visa Scheme (BIVS) — select nationalities"
+   }
+  ],
+  "ca-pr": [
+   {
+    "destination": "MX",
+    "type": "visa-free",
+    "days": 180,
+    "confidence": "high",
+    "note": "FMM tourist card required; valid Canadian PR card and passport"
+   },
+   {
+    "destination": "CR",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "medium",
+    "note": "Wikipedia: 90 days for residence permits (VisaCheck lists 30)"
+   },
+   {
+    "destination": "PA",
+    "type": "visa-free",
+    "days": 30,
+    "confidence": "medium",
+    "note": "Valid Canadian PR card required (unverified)"
+   },
+   {
+    "destination": "BS",
+    "type": "visa-free",
+    "days": 30,
+    "confidence": "high",
+    "note": "Valid passport and PR card"
+   },
+   {
+    "destination": "AG",
+    "type": "visa-free",
+    "days": 30,
+    "confidence": "high",
+    "note": "Valid passport and PR card"
+   },
+   {
+    "destination": "BZ",
+    "type": "visa-free",
+    "days": 30,
+    "confidence": "medium",
+    "note": "Valid passport and PR card (unverified)"
+   },
+   {
+    "destination": "AM",
+    "type": "visa-on-arrival",
+    "days": 120,
+    "confidence": "high",
+    "note": "Wikipedia: VoA 120 days for Canadian permanent resident permit (VisaCheck lists visa-free 90)"
+   },
+   {
+    "destination": "GE",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid Canadian PR card required"
+   },
+   {
+    "destination": "MD",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "medium",
+    "note": "Valid Canadian PR card required (unverified)"
+   }
+  ],
+  "ca-visa": [
+   {
+    "destination": "MX",
+    "type": "visa-free",
+    "days": 180,
+    "confidence": "high",
+    "note": "Valid Canadian visa"
+   },
+   {
+    "destination": "CR",
+    "type": "visa-free",
+    "days": 30,
+    "confidence": "medium",
+    "note": "Valid Canadian visa (unverified)"
+   },
+   {
+    "destination": "PA",
+    "type": "visa-free",
+    "days": 30,
+    "confidence": "high",
+    "note": "Valid Canadian visa"
+   },
+   {
+    "destination": "GE",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Valid Canadian visa"
+   },
+   {
+    "destination": "GT",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "medium",
+    "note": "CA-4 agreement; valid Canadian visa (unverified)"
+   },
+   {
+    "destination": "HN",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "medium",
+    "note": "CA-4 agreement; valid Canadian visa (unverified)"
+   },
+   {
+    "destination": "SV",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "medium",
+    "note": "CA-4 agreement; valid Canadian visa (unverified)"
+   },
+   {
+    "destination": "NI",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "medium",
+    "note": "CA-4 agreement; valid Canadian visa (unverified)"
+   },
+   {
+    "destination": "AL",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "medium",
+    "note": "Valid Canadian visa (unverified)"
+   },
+   {
+    "destination": "DO",
+    "type": "visa-free",
+    "days": 30,
+    "confidence": "medium",
+    "note": "Valid Canadian visa (not row-documented; verify)"
+   }
+  ],
+  "au-pr": [
+   {
+    "destination": "NZ",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Trans-Tasman: NZ Resident Visa on arrival possible; NZeTA required for non-Australian passports"
+   },
+   {
+    "destination": "SG",
+    "type": "transit-free",
+    "days": 4,
+    "confidence": "high",
+    "note": "96-hour Visa Free Transit Facility (Chinese/Indian nationals with Australian visa, transiting by air)"
+   },
+   {
+    "destination": "AL",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "medium",
+    "note": "Multiple-entry Australian visa used at least once (unverified)"
+   },
+   {
+    "destination": "GE",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "medium",
+    "note": "Valid Australian visa or residence permit required (unverified)"
+   },
+   {
+    "destination": "TR",
+    "type": "e-visa",
+    "days": 30,
+    "confidence": "medium",
+    "note": "E-visa available for valid Australian visa (unverified)"
+   },
+   {
+    "destination": "MX",
+    "type": "visa-free",
+    "days": 180,
+    "confidence": "medium",
+    "note": "Valid Australian PR accepted; FMM tourist card required (unverified)"
+   }
+  ],
+  "uae-residence": [
+   {
+    "destination": "GE",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Multiple-entry UAE residence permit valid 1+ year on entry (stricter rules from May 2025)"
+   },
+   {
+    "destination": "OM",
+    "type": "visa-free",
+    "days": 14,
+    "confidence": "high",
+    "note": "GCC member — UAE residents enter Oman visa-free"
+   },
+   {
+    "destination": "TR",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "UAE residents enjoy visa-free access, 90/180"
+   },
+   {
+    "destination": "AL",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Wikipedia: 90 days for 10-year UAE residence permit"
+   },
+   {
+    "destination": "BA",
+    "type": "visa-free",
+    "days": 30,
+    "confidence": "medium",
+    "note": "Valid UAE residence permit required (unverified)"
+   },
+   {
+    "destination": "RS",
+    "type": "visa-free",
+    "days": 30,
+    "confidence": "medium",
+    "note": "Valid UAE residence permit required (unverified)"
+   },
+   {
+    "destination": "ME",
+    "type": "visa-free",
+    "days": 10,
+    "confidence": "medium",
+    "note": "Wikipedia: 10 days for UAE residence (VisaCheck lists 30)"
+   },
+   {
+    "destination": "AM",
+    "type": "visa-on-arrival",
+    "days": 120,
+    "confidence": "high",
+    "note": "Wikipedia: VoA 120 days for GCC/UAE residence permit (VisaCheck lists visa-free 90)"
+   },
+   {
+    "destination": "AZ",
+    "type": "visa-on-arrival",
+    "days": 30,
+    "confidence": "high",
+    "note": "Wikipedia: 30-day tourist visa on arrival for UAE residents"
+   },
+   {
+    "destination": "BH",
+    "type": "visa-free",
+    "days": 14,
+    "confidence": "high",
+    "note": "GCC member — inter-GCC travel facilitated"
+   },
+   {
+    "destination": "KW",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "GCC member — some profession restrictions may apply"
+   },
+   {
+    "destination": "QA",
+    "type": "visa-free",
+    "days": 30,
+    "confidence": "high",
+    "note": "GCC member — inter-GCC travel facilitated"
+   },
+   {
+    "destination": "SA",
+    "type": "e-visa",
+    "days": 90,
+    "confidence": "high",
+    "note": "GCC member — e-Visa available for GCC residents"
+   }
+  ],
+  "jp-visa": [
+   {
+    "destination": "AL",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "medium",
+    "note": "Multiple-entry Japan visa used at least once (unverified)"
+   },
+   {
+    "destination": "GE",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "medium",
+    "note": "Valid Japan visa or residence permit required (unverified)"
+   },
+   {
+    "destination": "TR",
+    "type": "e-visa",
+    "days": 30,
+    "confidence": "medium",
+    "note": "E-visa available for Japan visa holders (unverified)"
+   },
+   {
+    "destination": "SG",
+    "type": "transit-free",
+    "days": 4,
+    "confidence": "high",
+    "note": "96-hour Visa Free Transit Facility (Chinese/Indian nationals with Japan visa, transiting by air)"
+   }
+  ],
+  "gcc-residence": [
+   {
+    "destination": "GE",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Wikipedia: 90 days for GCC residence valid 1+ year (VisaCheck lists 365)"
+   },
+   {
+    "destination": "TR",
+    "type": "e-visa",
+    "days": 30,
+    "confidence": "high",
+    "note": "E-visa available online for GCC residents"
+   },
+   {
+    "destination": "AL",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "medium",
+    "note": "Valid GCC residence permit required; must have been used (unverified)"
+   },
+   {
+    "destination": "BA",
+    "type": "visa-free",
+    "days": 30,
+    "confidence": "medium",
+    "note": "Valid GCC residence permit required (unverified)"
+   },
+   {
+    "destination": "AE",
+    "type": "visa-free",
+    "days": 30,
+    "confidence": "high",
+    "note": "Inter-GCC travel — GCC residents from other GCC states can enter"
+   },
+   {
+    "destination": "BH",
+    "type": "visa-free",
+    "days": 14,
+    "confidence": "high",
+    "note": "Inter-GCC travel facilitated"
+   },
+   {
+    "destination": "KW",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Inter-GCC travel; some profession restrictions"
+   },
+   {
+    "destination": "OM",
+    "type": "visa-free",
+    "days": 14,
+    "confidence": "medium",
+    "note": "Inter-GCC travel; approved-professions list may apply"
+   },
+   {
+    "destination": "QA",
+    "type": "visa-free",
+    "days": 30,
+    "confidence": "high",
+    "note": "Inter-GCC travel facilitated"
+   },
+   {
+    "destination": "SA",
+    "type": "e-visa",
+    "days": 90,
+    "confidence": "high",
+    "note": "Inter-GCC travel; e-Visa available (profession/salary requirements may apply)"
+   },
+   {
+    "destination": "EG",
+    "type": "visa-on-arrival",
+    "days": 30,
+    "confidence": "medium",
+    "note": "Wikipedia: VoA 30 days for GCC residents (VisaCheck lists 30)"
+   }
+  ],
+  "sg-visa": [
+   {
+    "destination": "KR",
+    "type": "transit-free",
+    "days": 30,
+    "confidence": "medium",
+    "note": "Transit with Singapore work permit (unverified)"
+   },
+   {
+    "destination": "GE",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "medium",
+    "note": "Singapore residence permit (unverified)"
+   },
+   {
+    "destination": "TR",
+    "type": "e-visa",
+    "days": 30,
+    "confidence": "medium",
+    "note": "Singapore permit enables e-Visa (unverified)"
+   }
+  ],
+  "apec-card": [
+   {
+    "destination": "AU",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Pre-cleared ABTC holders; business purposes; fast-track lanes"
+   },
+   {
+    "destination": "BN",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Pre-cleared ABTC holders; business purposes"
+   },
+   {
+    "destination": "CL",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Pre-cleared ABTC holders; business purposes (not row-documented)"
+   },
+   {
+    "destination": "CN",
+    "type": "visa-free",
+    "days": 60,
+    "confidence": "high",
+    "note": "Pre-cleared ABTC holders; business purposes"
+   },
+   {
+    "destination": "HK",
+    "type": "visa-free",
+    "days": 60,
+    "confidence": "high",
+    "note": "Pre-cleared ABTC holders; business purposes (not row-documented)"
+   },
+   {
+    "destination": "ID",
+    "type": "visa-free",
+    "days": 60,
+    "confidence": "high",
+    "note": "Pre-cleared ABTC holders; business purposes"
+   },
+   {
+    "destination": "JP",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Pre-cleared ABTC holders; fast-track lanes (not row-documented)"
+   },
+   {
+    "destination": "KR",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Pre-cleared ABTC holders; business purposes (not row-documented)"
+   },
+   {
+    "destination": "MY",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Wikipedia: up to 90 days for ABTC with pre-clearance (VisaCheck lists 60)"
+   },
+   {
+    "destination": "MX",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Pre-cleared ABTC holders; business purposes"
+   },
+   {
+    "destination": "NZ",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Pre-cleared ABTC holders; business purposes (not row-documented)"
+   },
+   {
+    "destination": "PG",
+    "type": "visa-free",
+    "days": 60,
+    "confidence": "high",
+    "note": "Pre-cleared ABTC holders; business purposes"
+   },
+   {
+    "destination": "PE",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Pre-cleared ABTC holders; business purposes (not row-documented)"
+   },
+   {
+    "destination": "PH",
+    "type": "visa-free",
+    "days": 59,
+    "confidence": "high",
+    "note": "Pre-cleared ABTC holders; business purposes (not row-documented)"
+   },
+   {
+    "destination": "RU",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "medium",
+    "note": "Pre-cleared ABTC holders; participation may be affected by sanctions — verify current status"
+   },
+   {
+    "destination": "SG",
+    "type": "visa-free",
+    "days": 60,
+    "confidence": "high",
+    "note": "Wikipedia: up to 60 days for ABTC with pre-clearance"
+   },
+   {
+    "destination": "TW",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Wikipedia: up to 90 days for ABTC with pre-clearance"
+   },
+   {
+    "destination": "TH",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Pre-cleared ABTC holders; business purposes"
+   },
+   {
+    "destination": "VN",
+    "type": "visa-free",
+    "days": 90,
+    "confidence": "high",
+    "note": "Wikipedia: up to 90 days for ABTC with pre-clearance (VisaCheck lists 60)"
+   }
+  ]
+ }
+}

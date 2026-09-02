@@ -14,7 +14,8 @@ Outputs (in data/):
   visa-matrix.json        canonical nested form with provenance
   visa-matrix-iso2.csv    matrix form  (passports x destinations)
   visa-matrix-tidy.csv    long form    (passport,destination,type,days,confidence)
-  visa_data.db            SQLite form  (meta, countries, visa_rules, corrections)
+  visa_data.db            SQLite form  (meta, countries, visa_rules, corrections,
+                                        visa_holdings, visa_benefits)
 
 Determinism: pass --date YYYY-MM-DD (or set BUILD_DATE) to pin `checked` and
 `generated`; the same inputs and date reproduce byte-identical output. Without
@@ -27,6 +28,18 @@ Limited recognition: Abkhazia, South Ossetia, Transnistria, Northern Cyprus
 and the SADR have no full Wikipedia visa matrix — their pages are stubs.
 Their rules are hand-curated in data/limited-recognition.json and merged in
 by merge_limited_recognition() after the scrape and overrides.
+
+Visa/residency holdings: a separate "permit" layer for the common situation
+where a traveller holds a foreign visa or residence permit (US green card,
+Schengen visa/residence, UK BRP, APEC card, ...) that relaxes the passport
+rule in some destinations. Hand-curated in data/visa-benefits.json from
+VisaCheck's holdings list and verified against the destination's own Wikipedia
+row (a note in another country's row is that other country's policy, not the
+destination's). Written to the visa_holdings + visa_benefits tables by
+merge_visa_benefits() after the scrape and overrides. A benefit only ever
+RELAXES the underlying passport rule — it never removes the need for a valid
+passport or normal admissibility checks — so the app still merges each benefit
+against the passport result and keeps the better outcome.
 """
 
 from __future__ import annotations
@@ -181,8 +194,50 @@ def merge_limited_recognition(matrix, passports, build_date):
     return passports, names
 
 
+def merge_visa_benefits(cur, known_iso2):
+    """Load the curated holdings/benefits and write the two permit-layer tables.
+
+    Benefits whose destination is not a known country in this build (e.g. a
+    British Overseas Territory that the matrix does not carry) are skipped. A
+    benefit only relaxes the passport rule — the app re-merges it against the
+    passport result and keeps the better outcome — so it is safe to store it
+    for every destination that documents it.
+    """
+    path = DATA / "visa-benefits.json"
+    if not path.exists():
+        return 0, 0
+    spec = json.load(open(path))
+    checked = spec.get("checked")
+    n_holdings = 0
+    n_benefits = 0
+    for h in spec.get("holdings", []):
+        cur.execute(
+            "INSERT OR REPLACE INTO visa_holdings"
+            "(id, name, category, issuing_country, note) VALUES (?, ?, ?, ?, ?)",
+            (h["id"], h["name"], h["category"], h.get("issuing_country"), h.get("note")),
+        )
+        n_holdings += 1
+    for holding in sorted(spec.get("benefits", {})):
+        for b in spec["benefits"][holding]:
+            dest = b["destination"]
+            if dest not in known_iso2:
+                continue
+            src = "wikipedia" if b.get("confidence") == "high" else "visa-check"
+            cur.execute(
+                "INSERT OR REPLACE INTO visa_benefits"
+                "(holding, destination, type, days, confidence, source, checked, note)"
+                " VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+                (holding, dest, b["type"], b.get("days"), b.get("confidence"),
+                 src, checked, b.get("note")),
+            )
+            n_benefits += 1
+    print(f"visa holdings: {n_holdings}  visa benefits: {n_benefits}")
+    return n_holdings, n_benefits
+
+
 def write_sqlite(dataset, matrix, passports, overrides, extra_names=None) -> pathlib.Path:
-    """Write the 4-table SQLite form: meta, countries, visa_rules, corrections."""
+    """Write the 6-table SQLite form: meta, countries, visa_rules, corrections,
+    visa_holdings, visa_benefits."""
     db_path = DATA / "visa_data.db"
     if db_path.exists():
         db_path.unlink()
@@ -219,14 +274,34 @@ def write_sqlite(dataset, matrix, passports, overrides, extra_names=None) -> pat
             note        TEXT,
             PRIMARY KEY (passport, destination)
         );
-        CREATE INDEX idx_visa_rules_destination ON visa_rules(destination);
-        CREATE INDEX idx_visa_rules_type        ON visa_rules(type);
+        CREATE TABLE visa_holdings (
+            id               TEXT PRIMARY KEY,
+            name             TEXT NOT NULL,
+            category         TEXT NOT NULL,
+            issuing_country  TEXT,
+            note             TEXT
+        );
+        CREATE TABLE visa_benefits (
+            holding     TEXT NOT NULL,
+            destination TEXT NOT NULL,
+            type        TEXT NOT NULL,
+            days        INTEGER,
+            confidence  TEXT,
+            source      TEXT,
+            checked     TEXT,
+            note        TEXT,
+            PRIMARY KEY (holding, destination)
+        );
+        CREATE INDEX idx_visa_rules_destination  ON visa_rules(destination);
+        CREATE INDEX idx_visa_rules_type         ON visa_rules(type);
+        CREATE INDEX idx_visa_benefits_holding   ON visa_benefits(holding);
+        CREATE INDEX idx_visa_benefits_dest      ON visa_benefits(destination);
     """)
 
     meta = dataset["meta"]
     for k in ("name", "version", "generated", "passport_count", "corridor_count",
               "primary_source", "cross_check", "limited_recognition",
-              "attribution", "license", "disclaimer"):
+              "visa_benefits", "attribution", "license", "disclaimer"):
         if k in meta:
             cur.execute("INSERT INTO meta(key, value) VALUES (?, ?)", (k, str(meta[k])))
 
@@ -260,6 +335,8 @@ def write_sqlite(dataset, matrix, passports, overrides, extra_names=None) -> pat
             (o.get("nat"), o.get("dest"), o.get("type"), o.get("days"),
              o.get("since"), o.get("note")),
         )
+
+    merge_visa_benefits(cur, iso2s)
 
     con.commit()
     con.close()
@@ -381,6 +458,24 @@ def build(build_date: str):
                 "A de facto passport is refused where it is not accepted as a "
                 "travel document; accepted-but-undocumented regimes are marked "
                 "assumed visa-required. Single-source: confidence=medium."
+            ),
+            "visa_benefits": (
+                "visa_holdings + visa_benefits (from data/visa-benefits.json) "
+                "are a permit layer: 13 common foreign visa/residency holdings "
+                "(US green card, US visa, Schengen visa/residence, UK BRP, "
+                "Canada PR/visa, Australia PR, UAE residence, Japan visa, GCC "
+                "residence, Singapore permit, APEC card) and the destinations "
+                "each one unlocks. Curated from VisaCheck and verified against "
+                "the destination's own Wikipedia row (a note in another "
+                "country's row is that other country's policy, not the "
+                "destination's — several VisaCheck entries were dropped or "
+                "corrected on that basis). confidence=high means the "
+                "destination's row documents it; medium means it fits the "
+                "'foreign visa/residence accepted' pattern but is not row-"
+                "documented. A benefit only RELAXES the underlying passport "
+                "rule (passport + admissibility still required); the app "
+                "re-merges each against the passport result and keeps the "
+                "better outcome."
             ),
             "attribution": "xpressmike/visa-matrix (CC BY-SA 4.0)",
             "license": "GPLv3 — VisaDB fork of visa-matrix; see LICENSE and NOTICE",
