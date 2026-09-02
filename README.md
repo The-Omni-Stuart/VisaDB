@@ -1,3 +1,14 @@
+# VisaDB
+
+Machine-readable visa requirements for every passport × every destination — the dataset behind the Visa Vole app.
+
+VisaDB is a fork of [xpressmike/visa-matrix](https://github.com/xpressmike/visa-matrix),
+relicensed from CC BY-SA 4.0 to [GPLv3](LICENSE) under the
+[CC BY-SA 4.0 → GPLv3 one-way compatibility declaration](https://creativecommons.org/2015/10/08/cc-by-sa-4-0-now-one-way-compatible-with-gplv3/).
+Attribution: see [NOTICE](NOTICE).
+
+---
+
 # visa-matrix
 
 Machine-readable visa requirements for **every passport × every destination**
@@ -72,7 +83,7 @@ destination's official government source before booking anything.
 
 ## License
 
-[CC BY-SA 4.0](LICENSE) — inherited from Wikipedia, the primary source for
+[CC BY-SA 4.0](LICENSE-CC-BY-SA-4.0.txt) — inherited from Wikipedia, the primary source for
 most corridors (the remainder come from the MIT-licensed passport-index data,
 and CC BY-SA is the stricter of the two).
 Attribution: link to this repository. Derived datasets must be shared alike.

@@ -1,0 +1,18 @@
+VisaDB — Attribution & License
+
+VisaDB is a fork of visa-matrix, created and maintained by xpressmike.
+
+  Original:  https://github.com/xpressmike/visa-matrix
+  Author:    xpressmike
+  License:   CC BY-SA 4.0 (original text kept in LICENSE-CC-BY-SA-4.0.txt)
+
+Thanks to xpressmike for building and openly sharing visa-matrix — the
+provenance-tracked, every-passport × every-destination visa-requirements
+dataset that this project starts from.
+
+This fork is relicensed under the GNU GPL v3 (see LICENSE). That is permitted
+because CC BY-SA 4.0 is one-way compatible with GPLv3: an adaptation of a
+CC BY-SA 4.0 work may be released under GPLv3.
+  https://creativecommons.org/2015/10/08/cc-by-sa-4-0-now-one-way-compatible-with-gplv3/
+
+Changes from upstream will be listed here as they land.
