@@ -16,6 +16,54 @@
       "days": null,
       "since": "2026-06-07",
       "note": "Thailand reverted its 2024 visa-exemption expansion on 2026-05-19; Morocco dropped from the exempt lists, e-visa required from 2026-06-07. Sources: Thai MFA lists; Royal Thai Embassy Rabat advisory."
+    },
+    {
+      "nat": "GB",
+      "dest": "BY",
+      "type": "visa-free",
+      "days": 30,
+      "since": null,
+      "note": "British citizens get a 30-day visa-free stay in Belarus (dataset previously said 10). The waiver is time-limited: valid until 2026-12-31. Note: UK FCDO advises against travel to Belarus on safety grounds. Sources: Timatic GB->BY; UK gov.uk 'Belarus: entry requirements'; Wikipedia 'Visa requirements for British citizens'."
+    },
+    {
+      "nat": "RU",
+      "dest": "AU",
+      "type": "visa-required",
+      "days": null,
+      "since": null,
+      "note": "Russian citizens need an Australian visitor visa (subclass 600), applied online via ImmiAccount - not visa-free. Sources: Timatic RU->AU; Australian Department of Home Affairs 'Visitor (subclass 600)'; Wikipedia 'Visa requirements for Russian citizens'."
+    },
+    {
+      "nat": "RU",
+      "dest": "CR",
+      "type": "visa-free",
+      "days": 90,
+      "since": null,
+      "note": "Russian citizens get up to 90 days visa-free in Costa Rica (dataset previously said 30). Sources: Timatic RU->CR; Wikipedia 'Visa requirements for Russian citizens'."
+    },
+    {
+      "nat": "RU",
+      "dest": "PE",
+      "type": "visa-free",
+      "days": 183,
+      "since": null,
+      "note": "Russian citizens get up to 183 days visa-free in Peru (dataset previously said 90). Sources: Timatic RU->PE; Wikipedia 'Visa requirements for Russian citizens'."
+    },
+    {
+      "nat": "AR",
+      "dest": "VN",
+      "type": "e-visa",
+      "days": 90,
+      "since": null,
+      "note": "Argentine citizens need a Vietnam eVisa for 90 days for general entry; the visa-free 30-day option applies to Phu Quoc Island only. Sources: Timatic AR->VN; Vietnam eVisa (evisa.gov.vn); Wikipedia 'Visa requirements for Argentine citizens'."
+    },
+    {
+      "nat": "AR",
+      "dest": "RU",
+      "type": "eta",
+      "days": 90,
+      "since": "2025-06-30",
+      "note": "Argentine citizens: 90-day visa-free stay in Russia (within any 180-day period), but since 2025-06-30 a pre-travel ETA is mandatory - pre-register in the Gosuslugi RuID app and obtain a digital code at least 72 hours before entry. Sources: Timatic AR->RU; gosuslugi.ru; ruID app; Wikipedia 'Visa requirements for Argentine citizens'."
     }
   ]
 }
