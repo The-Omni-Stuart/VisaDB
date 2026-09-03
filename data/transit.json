@@ -1,0 +1,11 @@
+{
+ "source": "Transit axis. The base rule is COMPUTED in build.py (not stored here): transit is 'free' wherever the entry type is visa-free or freedom-of-movement, because airside transit is strictly less privileged than entry — if you can enter a country without a visa, you can always remain in its international transit area. Every other corridor defaults to 'unknown'.",
+ "checked": "2026-09-03",
+ "values": [
+  "free",
+  "required",
+  "unknown"
+ ],
+ "note": "This file holds ONLY the exceptions to the base rule: corridors where a cited source confirms transit is 'free' despite a non-visa-free entry requirement, or 'required' (a transit visa is needed even for airside connections). It is curated by hand, one corridor at a time, because the Wikipedia transit notes are inconsistent — mostly yellow-fever health notes, and the two largest transit-visa hubs (the United States and the United Kingdom) are not in the captured page set — so a bulk scrape is not reliable. Each override must carry a source_page + source_url citation.",
+ "overrides": []
+}

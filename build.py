@@ -46,8 +46,12 @@ page) — so any row can be re-verified with one click.
 
 Transit: a separate axis stored on visa_rules (transit, transit_note) with
 values free | required | unknown. It is distinct from the entry status ladder —
-"no visa to enter" does not imply "no visa to transit" and vice versa — and is
-left unknown until a curated transit overlay (data/transit.json) is populated.
+a visa-free corridor is always transit-free, but a visa-required corridor may
+allow airside transit or require a transit visa. The base rule is computed, not
+scraped: transit is "free" wherever the entry type is visa-free or
+freedom-of-movement (airside transit is strictly less privileged than entry)
+and "unknown" otherwise; cited exceptions live in data/transit.json and are
+applied by merge_transit().
 """
 
 from __future__ import annotations
@@ -245,6 +249,34 @@ def merge_visa_benefits(cur, known_iso2):
     return n_holdings, n_benefits
 
 
+def merge_transit(cur):
+    """Apply the curated, cited transit overrides from data/transit.json.
+
+    The base rule (free for visa-free / freedom-of-movement, else unknown) is
+    already set on each visa_rules row during the insert; this only overrides
+    the corridors named in data/transit.json (a confirmed 'free' or 'required'
+    with a note). Corridors not named keep the base rule.
+    """
+    path = DATA / "transit.json"
+    if not path.exists():
+        return 0
+    spec = json.load(open(path))
+    n = 0
+    for o in spec.get("overrides", []):
+        p, d = o.get("passport"), o.get("destination")
+        if not p or not d:
+            continue
+        cur.execute(
+            "UPDATE visa_rules SET transit = ?, transit_note = ?"
+            " WHERE passport = ? AND destination = ?",
+            (o.get("transit"), o.get("note"), p, d),
+        )
+        n += cur.rowcount
+    if n:
+        print(f"transit overrides applied: {n}")
+    return n
+
+
 def write_sqlite(dataset, matrix, passports, overrides, extra_names=None) -> pathlib.Path:
     """Write the 6-table SQLite form: meta, countries, visa_rules, corrections,
     visa_holdings, visa_benefits."""
@@ -274,8 +306,9 @@ def write_sqlite(dataset, matrix, passports, overrides, extra_names=None) -> pat
             dispute     TEXT,
             note        TEXT,
             -- transit axis: separate from the entry `type` ladder (not a visa
-            -- status). Values: free | required | unknown. Empty/unknown until a
-            -- curated transit overlay is populated (see data/transit.json).
+            -- status). Values: free | required | unknown. Base rule (set in the
+            -- insert): free for visa-free / freedom-of-movement, unknown
+            -- otherwise; cited overrides from data/transit.json.
             transit      TEXT,
             transit_note TEXT,
             PRIMARY KEY (passport, destination)
@@ -318,7 +351,7 @@ def write_sqlite(dataset, matrix, passports, overrides, extra_names=None) -> pat
     meta = dataset["meta"]
     for k in ("name", "version", "generated", "passport_count", "corridor_count",
               "primary_source", "cross_check", "limited_recognition",
-              "visa_benefits", "attribution", "license", "disclaimer"):
+              "visa_benefits", "transit", "attribution", "license", "disclaimer"):
         if k in meta:
             cur.execute("INSERT INTO meta(key, value) VALUES (?, ?)", (k, str(meta[k])))
 
@@ -336,14 +369,22 @@ def write_sqlite(dataset, matrix, passports, overrides, extra_names=None) -> pat
         for dest in sorted(matrix[nat]):
             c = matrix[nat][dest]
             dispute = c.get("dispute")
+            # base transit rule (computed, not scraped): airside transit is
+            # strictly less privileged than entry, so a visa-free /
+            # freedom-of-movement corridor is transit-free; every other
+            # corridor is unknown until a cited override confirms otherwise.
+            transit = "free" if c["type"] in ("visa-free", "freedom-of-movement") else "unknown"
             cur.execute(
                 "INSERT INTO visa_rules(passport, destination, type, days, confidence,"
-                " source, checked, dispute, note) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                " source, checked, dispute, note, transit, transit_note)"
+                " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 (nat, dest, c["type"], c.get("days"), c.get("confidence"),
                  c.get("source"), c.get("checked"),
                  json.dumps(dispute, ensure_ascii=False) if dispute else None,
-                 c.get("note") or None),
+                 c.get("note") or None, transit, None),
             )
+
+    merge_transit(cur)
 
     for o in overrides:
         cur.execute(
@@ -496,6 +537,17 @@ def build(build_date: str):
                 "(the destination's 'Visa policy of X' Wikipedia page; "
                 "Schengen states share 'Visa policy of the Schengen Area') "
                 "for one-click re-verification."
+            ),
+            "transit": (
+                "Separate axis on visa_rules (transit, transit_note): free | "
+                "required | unknown. Base rule — computed, not scraped — sets "
+                "transit=free wherever the entry type is visa-free or "
+                "freedom-of-movement (airside transit is strictly less "
+                "privileged than entry) and unknown for every other corridor; "
+                "cited exceptions live in data/transit.json and are applied by "
+                "merge_transit(). Distinct from the entry ladder: a visa-free "
+                "corridor is always transit-free, but a visa-required corridor "
+                "may allow airside transit or may require a transit visa."
             ),
             "attribution": "xpressmike/visa-matrix (CC BY-SA 4.0)",
             "license": "GPLv3 — VisaDB fork of visa-matrix; see LICENSE and NOTICE",
