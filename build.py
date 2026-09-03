@@ -252,34 +252,60 @@ def merge_visa_benefits(cur, known_iso2):
 def merge_transit(cur):
     """Apply the curated, cited transit rules from data/transit.json.
 
-    Two forms, each hand-curated with a citation:
-      * 'policies'  -- a uniform rule (one transit value + note) applied to the
-        cross product of a set of passports and a set of destinations, e.g. the
-        Schengen airport-transit-visa nationality list. A policy only fills
-        corridors the base rule left 'unknown'; it never overrides a
-        visa-free-entry 'free' (you can enter, so airside is trivially fine).
-      * 'overrides' -- explicit per-corridor rules, the most specific form,
-        applied last so they always win on the same corridor.
+    Three forms, each hand-curated with a citation:
+      * 'policies' (kind: list)    -- a uniform rule (one transit value + note)
+        applied to the cross product of a passport set and a destination set,
+        e.g. the Schengen airport-transit-visa nationality list.
+      * 'policies' (kind: default) -- a per-destination rule: fill every
+        'unknown' corridor of one destination (optionally limited to certain
+        entry types) with a default value, then override a set of 'exempt'
+        passports with a different value, e.g. the UK Direct Airside Transit
+        visa (DATV) regime.
+      * 'overrides'                -- explicit per-corridor rules, the most
+        specific form, applied last so they always win on the same corridor.
+    A policy or default never overrides a base-rule 'free' (a visa-free /
+    freedom-of-movement entry): you can enter, so airside is trivially fine.
     The base rule (free for visa-free / freedom-of-movement, else unknown) is
-    already set on each visa_rules row during the insert; unnamed corridors
-    keep it.
+    set on each visa_rules row during the insert; unnamed corridors keep it.
     """
     path = DATA / "transit.json"
     if not path.exists():
         return 0
     spec = json.load(open(path))
     n = 0
-    # Policies first: fill 'unknown' gaps only (never a base-rule 'free').
+    # Policies first.
     for pol in spec.get("policies", []):
-        transit, note = pol.get("transit"), pol.get("note")
-        for p in pol.get("passports", []):
-            for d in pol.get("destinations", []):
+        if pol.get("kind") == "default":
+            d = pol.get("destination")
+            types = pol.get("applies_to_types", ["visa-required"])
+            ph = ",".join("?" * len(types))
+            # default: fill the 'unknown' corridors of the given entry types.
+            cur.execute(
+                "UPDATE visa_rules SET transit = ?, transit_note = ?"
+                f" WHERE destination = ? AND type IN ({ph}) AND transit = 'unknown'",
+                [pol.get("default"), pol.get("default_note"), d, *types],
+            )
+            n += cur.rowcount
+            # exempt: override those passports. Runs after the default (so no
+            # 'unknown' guard -- it must win over the default); scoped to the
+            # same entry types so visa-free / eta corridors are never touched.
+            for p in pol.get("exempt", []):
                 cur.execute(
                     "UPDATE visa_rules SET transit = ?, transit_note = ?"
-                    " WHERE passport = ? AND destination = ? AND transit = 'unknown'",
-                    (transit, note, p, d),
+                    f" WHERE passport = ? AND destination = ? AND type IN ({ph})",
+                    [pol.get("exempt_transit"), pol.get("exempt_note"), p, d, *types],
                 )
                 n += cur.rowcount
+        else:  # kind: list -- uniform rule over a passport x destination grid
+            transit, note = pol.get("transit"), pol.get("note")
+            for p in pol.get("passports", []):
+                for d in pol.get("destinations", []):
+                    cur.execute(
+                        "UPDATE visa_rules SET transit = ?, transit_note = ?"
+                        " WHERE passport = ? AND destination = ? AND transit = 'unknown'",
+                        (transit, note, p, d),
+                    )
+                    n += cur.rowcount
     # Then explicit per-corridor overrides: most specific, always win.
     for o in spec.get("overrides", []):
         p, d = o.get("passport"), o.get("destination")

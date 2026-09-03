@@ -16,6 +16,19 @@
       "note": "Airport transit visa (ATV) required to transit airside through any Schengen airport (or Cyprus), even without leaving the international transit area (EU common list, Visa Code Reg. 810/2009). Not required if you hold a valid EU/EEA/CA/JP/US visa or residence permit.",
       "source_page": "Schengen visa",
       "source_url": "https://en.wikipedia.org/wiki/Schengen_visa"
+    },
+    {
+      "name": "uk_datv",
+      "kind": "default",
+      "destination": "GB",
+      "applies_to_types": ["visa-required", "e-visa"],
+      "default": "required",
+      "default_note": "Direct Airside Transit visa (DATV) required to transit airside through the UK -- airside transit is available only at London Heathrow and Manchester -- when you need a visa to enter and are not on the exempt list.",
+      "exempt": ["AM","AZ","BJ","BT","BO","BA","BF","KH","CV","CF","TD","KM","CU","DJ","DO","EC","GQ","FJ","GA","HT","ID","KZ","KG","LA","MG","ML","MR","ME","MA","MZ","NE","KP","PH","ST","SR","TW","TJ","TH","TG","TN","TM","UA","UZ","VE","ZM"],
+      "exempt_transit": "free",
+      "exempt_note": "No DATV needed for these nationalities (airside transit at LHR/MAN). Taiwan: non-PIN passports only; Venezuela: biometric passports only. Also exempt if you hold a valid AU/CA/NZ/US visa or an EEA/UK residence permit.",
+      "source_page": "Visa policy of the United Kingdom",
+      "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_United_Kingdom"
     }
   ],
   "overrides": [
