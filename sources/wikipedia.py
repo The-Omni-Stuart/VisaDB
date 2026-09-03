@@ -23,9 +23,12 @@ UA = {
 DATA = pathlib.Path(__file__).parent.parent / "data"
 
 # Titles that are about documents/groups, not a country's ordinary passport.
+# (Fork divergence: "israeli" is skipped too — IL is excluded from the dataset
+# entirely and its passport page is never fetched; see EXCLUDED in build.py.)
 SKIP_TITLES = re.compile(
     r"crew members|non-citizens|refugees|stateless|diplomatic|official passport"
-    r"|British Nationals? \(Overseas\)|British Overseas|travel document|holders of",
+    r"|British Nationals? \(Overseas\)|British Overseas|travel document|holders of"
+    r"|israeli",
     re.I,
 )
 
