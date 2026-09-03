@@ -23,12 +23,9 @@ UA = {
 DATA = pathlib.Path(__file__).parent.parent / "data"
 
 # Titles that are about documents/groups, not a country's ordinary passport.
-# (Fork divergence: "israeli" is skipped too — IL is excluded from the dataset
-# entirely and its passport page is never fetched; see EXCLUDED in build.py.)
 SKIP_TITLES = re.compile(
     r"crew members|non-citizens|refugees|stateless|diplomatic|official passport"
-    r"|British Nationals? \(Overseas\)|British Overseas|travel document|holders of"
-    r"|israeli",
+    r"|British Nationals? \(Overseas\)|British Overseas|travel document|holders of",
     re.I,
 )
 
@@ -184,9 +181,15 @@ def parse_page(wt: str) -> dict:
     return out
 
 
-def collect() -> dict:
-    """passport iso2 -> {destination name -> cell} for every discoverable page."""
-    pages = discover_pages()
+def collect(exclude=frozenset()) -> dict:
+    """passport iso2 -> {destination name -> cell} for every discoverable page.
+
+    `exclude` (a set of iso2 codes) is dropped *before* fetching, so an
+    excluded passport's page is never even downloaded. build.py passes its
+    EXCLUDED set here, making that one set the single source of truth for
+    "don't collect / don't carry this country".
+    """
+    pages = {iso2: t for iso2, t in discover_pages().items() if iso2 not in exclude}
     texts = fetch_many(sorted(pages.values()))
     result = {}
     missing = []

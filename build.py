@@ -402,7 +402,7 @@ def write_sqlite(dataset, matrix, passports, overrides, extra_names=None) -> pat
 
 
 def build(build_date: str):
-    wiki = wikipedia.collect()
+    wiki = wikipedia.collect(exclude=EXCLUDED)
     pindex = passportindex.collect_all()
     # Full index: every passport either source knows about, minus excluded.
     passports = sorted((set(pindex) | set(wiki)) - EXCLUDED)
