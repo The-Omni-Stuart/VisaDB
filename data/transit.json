@@ -6,7 +6,18 @@
     "required",
     "unknown"
   ],
-  "note": "This file holds ONLY the curated exceptions to the base rule, each backed by a cited source (source_page + source_url). 'required' = a transit visa is needed even for an airside connection (the high-value safety case). 'free' = no transit visa is needed despite a non-visa-free entry requirement. It is curated by hand, one corridor at a time, because the Wikipedia transit notes are inconsistent (mostly yellow-fever health notes and Galapagos transit cards); the two largest transit-visa hubs (the United States and the United Kingdom) are not in the captured page set and their rules are conditional on holdings/exemptions, so they are deferred (see 'deferred').",
+  "note": "Two curated, cited forms. 'policies' is a uniform rule (one transit value + note) applied to the cross product of a passport set and a destination set -- e.g. the Schengen airport-transit-visa nationality list -- and only fills corridors the base rule left 'unknown' (it never overrides a visa-free-entry 'free'). 'overrides' is explicit per-corridor rules, the most specific form. 'required' = a transit visa is needed even for an airside connection (the high-value safety case); 'free' = no transit visa is needed despite a non-visa-free entry requirement. Each entry carries source_page + source_url. The UK (DATV), US (C-1/VWP) and China (TWOV) hubs are deferred (see 'deferred').",
+  "policies": [
+    {
+      "name": "schengen_atv_core",
+      "transit": "required",
+      "passports": ["AF","BD","CD","ER","ET","GH","IR","IQ","NG","PK","SO","LK"],
+      "destinations": ["AT","BE","BG","CZ","DK","EE","FI","FR","DE","GR","HR","HU","IS","IT","LV","LT","LU","MT","NL","NO","PL","PT","RO","SK","SI","ES","SE","CH","CY"],
+      "note": "Airport transit visa (ATV) required to transit airside through any Schengen airport (or Cyprus), even without leaving the international transit area (EU common list, Visa Code Reg. 810/2009). Not required if you hold a valid EU/EEA/CA/JP/US visa or residence permit.",
+      "source_page": "Schengen visa",
+      "source_url": "https://en.wikipedia.org/wiki/Schengen_visa"
+    }
+  ],
   "overrides": [
     {
       "passport": "EG",

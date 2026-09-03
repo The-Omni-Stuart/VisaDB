@@ -250,18 +250,37 @@ def merge_visa_benefits(cur, known_iso2):
 
 
 def merge_transit(cur):
-    """Apply the curated, cited transit overrides from data/transit.json.
+    """Apply the curated, cited transit rules from data/transit.json.
 
+    Two forms, each hand-curated with a citation:
+      * 'policies'  -- a uniform rule (one transit value + note) applied to the
+        cross product of a set of passports and a set of destinations, e.g. the
+        Schengen airport-transit-visa nationality list. A policy only fills
+        corridors the base rule left 'unknown'; it never overrides a
+        visa-free-entry 'free' (you can enter, so airside is trivially fine).
+      * 'overrides' -- explicit per-corridor rules, the most specific form,
+        applied last so they always win on the same corridor.
     The base rule (free for visa-free / freedom-of-movement, else unknown) is
-    already set on each visa_rules row during the insert; this only overrides
-    the corridors named in data/transit.json (a confirmed 'free' or 'required'
-    with a note). Corridors not named keep the base rule.
+    already set on each visa_rules row during the insert; unnamed corridors
+    keep it.
     """
     path = DATA / "transit.json"
     if not path.exists():
         return 0
     spec = json.load(open(path))
     n = 0
+    # Policies first: fill 'unknown' gaps only (never a base-rule 'free').
+    for pol in spec.get("policies", []):
+        transit, note = pol.get("transit"), pol.get("note")
+        for p in pol.get("passports", []):
+            for d in pol.get("destinations", []):
+                cur.execute(
+                    "UPDATE visa_rules SET transit = ?, transit_note = ?"
+                    " WHERE passport = ? AND destination = ? AND transit = 'unknown'",
+                    (transit, note, p, d),
+                )
+                n += cur.rowcount
+    # Then explicit per-corridor overrides: most specific, always win.
     for o in spec.get("overrides", []):
         p, d = o.get("passport"), o.get("destination")
         if not p or not d:
@@ -273,7 +292,7 @@ def merge_transit(cur):
         )
         n += cur.rowcount
     if n:
-        print(f"transit overrides applied: {n}")
+        print(f"transit rules applied: {n}")
     return n
 
 
