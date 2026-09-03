@@ -368,9 +368,11 @@ def write_sqlite(dataset, matrix, passports, overrides, extra_names=None) -> pat
             dispute     TEXT,
             note        TEXT,
             -- transit axis: separate from the entry `type` ladder (not a visa
-            -- status). Values: free | required | unknown. Base rule (set in the
-            -- insert): free for visa-free / freedom-of-movement, unknown
-            -- otherwise; cited overrides from data/transit.json.
+            -- status). Values: free | required | conditional | unknown.
+            -- Base rule (set in the insert): free for visa-free /
+            -- freedom-of-movement, unknown otherwise; cited overrides from
+            -- data/transit.json. 'conditional' = permitted but only with booked,
+            -- legally-approved onward travel to a third country (China TWOV).
             transit      TEXT,
             transit_note TEXT,
             PRIMARY KEY (passport, destination)
@@ -602,14 +604,15 @@ def build(build_date: str):
             ),
             "transit": (
                 "Separate axis on visa_rules (transit, transit_note): free | "
-                "required | unknown. Base rule — computed, not scraped — sets "
-                "transit=free wherever the entry type is visa-free or "
-                "freedom-of-movement (airside transit is strictly less "
-                "privileged than entry) and unknown for every other corridor; "
-                "cited exceptions live in data/transit.json and are applied by "
-                "merge_transit(). Distinct from the entry ladder: a visa-free "
-                "corridor is always transit-free, but a visa-required corridor "
-                "may allow airside transit or may require a transit visa."
+                "required | conditional | unknown. Base rule — computed, not "
+                "scraped — sets transit=free wherever the entry type is "
+                "visa-free or freedom-of-movement (airside transit is strictly "
+                "less privileged than entry) and unknown for every other "
+                "corridor; cited exceptions live in data/transit.json and are "
+                "applied by merge_transit(). Distinct from the entry ladder: a "
+                "visa-free corridor is always transit-free, but a visa-required "
+                "corridor may allow airside transit, require a transit visa, or "
+                "be conditional on booked onward travel (China TWOV)."
             ),
             "attribution": "xpressmike/visa-matrix (CC BY-SA 4.0)",
             "license": "GPLv3 — VisaDB fork of visa-matrix; see LICENSE and NOTICE",

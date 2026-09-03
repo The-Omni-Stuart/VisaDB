@@ -214,7 +214,7 @@
   "cross_check": "imorte/passport-index-data (scraped from passportindex.org)",
   "limited_recognition": "Abkhazia (AB), South Ossetia (OS), Transnistria (TS) and Northern Cyprus (NC) plus the SADR passport (EH, not a destination — no visa policy page exists) are hand-curated from Wikipedia stub pages in data/limited-recognition.json. A de facto passport is refused where it is not accepted as a travel document; accepted-but-undocumented regimes are marked assumed visa-required. Single-source: confidence=medium.",
   "visa_benefits": "visa_holdings + visa_benefits (from data/visa-benefits.json) are a permit layer: 13 common foreign visa/residency holdings (US green card, US visa, Schengen visa/residence, UK BRP, Canada PR/visa, Australia PR, UAE residence, Japan visa, GCC residence, Singapore permit, APEC card) and the destinations each one unlocks. Curated from VisaCheck and verified against the destination's own Wikipedia row (a note in another country's row is that other country's policy, not the destination's — several VisaCheck entries were dropped or corrected on that basis). confidence=high means the destination's row documents it; medium means it fits the 'foreign visa/residence accepted' pattern but is not row-documented. A benefit only RELAXES the underlying passport rule (passport + admissibility still required); the app re-merges each against the passport result and keeps the better outcome. Each row carries source_page + source_url (the destination's 'Visa policy of X' Wikipedia page; Schengen states share 'Visa policy of the Schengen Area') for one-click re-verification.",
-  "transit": "Separate axis on visa_rules (transit, transit_note): free | required | unknown. Base rule — computed, not scraped — sets transit=free wherever the entry type is visa-free or freedom-of-movement (airside transit is strictly less privileged than entry) and unknown for every other corridor; cited exceptions live in data/transit.json and are applied by merge_transit(). Distinct from the entry ladder: a visa-free corridor is always transit-free, but a visa-required corridor may allow airside transit or may require a transit visa.",
+  "transit": "Separate axis on visa_rules (transit, transit_note): free | required | conditional | unknown. Base rule — computed, not scraped — sets transit=free wherever the entry type is visa-free or freedom-of-movement (airside transit is strictly less privileged than entry) and unknown for every other corridor; cited exceptions live in data/transit.json and are applied by merge_transit(). Distinct from the entry ladder: a visa-free corridor is always transit-free, but a visa-required corridor may allow airside transit, require a transit visa, or be conditional on booked onward travel (China TWOV).",
   "attribution": "xpressmike/visa-matrix (CC BY-SA 4.0)",
   "license": "GPLv3 — VisaDB fork of visa-matrix; see LICENSE and NOTICE",
   "disclaimer": "General information, not legal advice. Rules change; always verify with the destination's official government source before booking."
@@ -64207,15 +64207,11 @@
     "confidence": "high"
    },
    "DJ": {
-    "type": "e-visa",
+    "type": "visa-on-arrival",
     "days": 90,
     "source": "wikipedia",
     "checked": "2026-09-03",
-    "confidence": "disputed",
-    "dispute": {
-     "wikipedia": "e-visa",
-     "passport-index": "visa-on-arrival"
-    }
+    "confidence": "high"
    },
    "DK": {
     "type": "freedom-of-movement",

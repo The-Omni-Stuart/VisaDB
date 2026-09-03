@@ -4,9 +4,10 @@
   "values": [
     "free",
     "required",
+    "conditional",
     "unknown"
   ],
-  "note": "Three curated, cited forms. 'policies' has two kinds: (a) a list -- one uniform transit value + note over the cross product of a passport set and a destination set (e.g. the Schengen airport-transit-visa lists) -- and (b) a default -- fill every 'unknown' corridor of one or more destinations (optionally limited to certain entry types) with a value, then override 'exempt' passports (e.g. the UK DATV and US C-1 regimes). Both only fill corridors the base rule left 'unknown'; policy order in the array sets precedence over those 'unknown' corridors, and neither overrides a visa-free-entry 'free'. 'overrides' are explicit per-corridor rules, the most specific form, applied last so they always win. 'required' = a transit visa is needed even for an airside connection (the high-value safety case); 'free' = no transit visa is needed despite a non-visa-free entry requirement (e.g. the Schengen airside transit privilege). Each entry carries source_page + source_url. The China (TWOV) hub is deferred (see 'deferred').",
+  "note": "Curated, cited rules. 'policies' has two kinds: (a) a list -- one uniform transit value + note over the cross product of a passport set and a destination set (e.g. the Schengen airport-transit-visa lists) -- and (b) a default -- fill every 'unknown' corridor of one or more destinations (optionally limited to certain entry types) with a value, then override 'exempt' passports (e.g. the UK DATV, US C-1 and China TWOV regimes). Both only fill corridors the base rule left 'unknown'; policy order in the array sets precedence over those 'unknown' corridors, and neither overrides a visa-free-entry 'free'. 'overrides' are explicit per-corridor rules, the most specific form, applied last so they always win. Transit values: 'required' = a transit visa is needed even for an airside connection (the high-value safety case); 'free' = no transit visa is needed despite a non-visa-free entry requirement (e.g. the Schengen airside transit privilege); 'conditional' = transit is permitted but only with booked, legally-approved onward travel to a third country (e.g. China 24h / 240h TWOV). Each entry carries source_page + source_url.",
   "policies": [
     {
       "name": "schengen_atv_core",
@@ -508,6 +509,80 @@
       "default_note": "C-1 transit visa required to transit through the United States (immediate and continuous transit en route to another country) when you need a visa to enter. VWP (visa-free) nationals do not need a C-1 -- they use ESTA.",
       "source_page": "Visa policy of the United States",
       "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_United_States"
+    },
+    {
+      "name": "cn_twov",
+      "kind": "default",
+      "destination": "CN",
+      "applies_to_types": [
+        "visa-required",
+        "visa-on-arrival"
+      ],
+      "default": "conditional",
+      "default_note": "24-hour transit without visa (TWOV): transit through mainland China without a visa for up to 24 hours -- arrive by air, cruise ship or rail with a confirmed (not standby) onward ticket to a third country departing within 24 hours; passport valid 3+ months. Available to most nationalities at most ports, especially for airside connections.",
+      "exempt": [
+        "AT",
+        "BE",
+        "BG",
+        "HR",
+        "CY",
+        "CZ",
+        "DK",
+        "EE",
+        "FI",
+        "FR",
+        "DE",
+        "GR",
+        "HU",
+        "IE",
+        "IT",
+        "LV",
+        "LT",
+        "LU",
+        "MT",
+        "NL",
+        "PL",
+        "PT",
+        "RO",
+        "SK",
+        "SI",
+        "ES",
+        "SE",
+        "AL",
+        "AR",
+        "AU",
+        "BY",
+        "BA",
+        "BR",
+        "BN",
+        "CA",
+        "CL",
+        "IS",
+        "ID",
+        "JP",
+        "KG",
+        "MX",
+        "MC",
+        "ME",
+        "NZ",
+        "MK",
+        "NO",
+        "QA",
+        "RU",
+        "RS",
+        "SG",
+        "KR",
+        "CH",
+        "UA",
+        "AE",
+        "GB",
+        "US",
+        "VN"
+      ],
+      "exempt_transit": "conditional",
+      "exempt_note": "240-hour (10-day) visa-free transit (TWOV): these 57 nationalities may transit through mainland China without a visa for up to 10 days via the 47 designated airports plus sea/rail/land ports, moving within 24 eligible provinces/municipalities, continuing to a third country (arrival and onward destinations must differ); passport valid 3+ months and onward ticket/visa required. China's longest transit exemption.",
+      "source_page": "Visa policy of mainland China",
+      "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_mainland_China"
     }
   ],
   "overrides": [
@@ -608,7 +683,5 @@
       "source_url": "https://en.wikipedia.org/wiki/Visa_requirements_for_Omani_citizens"
     }
   ],
-  "deferred": [
-    "China (CN): 24/48-hour transit-visa-free scheme for holders of specific third-country visas -- conditional on holdings; messiest of the remaining hubs (designated ports, 57-country list, conditional on onward third-country visa)."
-  ]
+  "deferred": []
 }
