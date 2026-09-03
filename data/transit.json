@@ -583,6 +583,336 @@
       "exempt_note": "240-hour (10-day) visa-free transit (TWOV): these 57 nationalities may transit through mainland China without a visa for up to 10 days via the 47 designated airports plus sea/rail/land ports, moving within 24 eligible provinces/municipalities, continuing to a third country (arrival and onward destinations must differ); passport valid 3+ months and onward ticket/visa required. China's longest transit exemption.",
       "source_page": "Visa policy of mainland China",
       "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_mainland_China"
+    },
+    {
+      "name": "ae_airside",
+      "kind": "default",
+      "destination": "AE",
+      "applies_to_types": [
+        "visa-required",
+        "e-visa",
+        "eta",
+        "visa-on-arrival"
+      ],
+      "default": "free",
+      "default_note": "Airside transit through the UAE requires no transit visa -- you may remain in the international transit area (all travellers are exempt from entry fees for the first 48 hours). A 96-hour transit visa is issued at the airport if you leave the transit area or your layover exceeds 48 hours (hotel booking required for some nationalities). Nationals of Iran are refused entry and transit (2026).",
+      "source_page": "Visa policy of the United Arab Emirates",
+      "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_United_Arab_Emirates"
+    },
+    {
+      "name": "qa_airside",
+      "kind": "default",
+      "destination": "QA",
+      "applies_to_types": [
+        "visa-required",
+        "e-visa",
+        "eta",
+        "visa-on-arrival"
+      ],
+      "default": "free",
+      "default_note": "Airside transit through Hamad International Airport requires no transit visa regardless of nationality if you depart within 24 hours. Qatar Airways passengers with layovers of 5 to 96 hours can obtain a free transit visa to leave the airport.",
+      "source_page": "Visa policy of Qatar",
+      "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Qatar"
+    },
+    {
+      "name": "om_airside",
+      "kind": "default",
+      "destination": "OM",
+      "applies_to_types": [
+        "visa-required",
+        "e-visa",
+        "eta",
+        "visa-on-arrival"
+      ],
+      "default": "free",
+      "default_note": "Airside transit through Oman without a visa for up to 6 hours is allowed for any nationality proceeding by the same flight with an onward ticket.",
+      "source_page": "Visa policy of Oman",
+      "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Oman"
+    },
+    {
+      "name": "br_airside",
+      "kind": "default",
+      "destination": "BR",
+      "applies_to_types": [
+        "visa-required",
+        "e-visa",
+        "eta",
+        "visa-on-arrival"
+      ],
+      "default": "free",
+      "default_note": "No visa is required for airport transit from any nationality, as long as you do not leave the international transit area.",
+      "source_page": "Visa policy of Brazil",
+      "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Brazil"
+    },
+    {
+      "name": "ru_airside",
+      "kind": "default",
+      "destination": "RU",
+      "applies_to_types": [
+        "visa-required",
+        "e-visa",
+        "eta",
+        "visa-on-arrival"
+      ],
+      "default": "free",
+      "default_note": "Airside transit of less than 24 hours requires no visa in most circumstances, provided you hold a confirmed onward ticket and remain in the international transit area without clearing passport control. A number of Russian airports have no international transit area, so a transit visa is required to change planes there.",
+      "source_page": "Visa policy of Russia",
+      "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Russia"
+    },
+    {
+      "name": "sg_airside",
+      "kind": "default",
+      "destination": "SG",
+      "applies_to_types": [
+        "visa-required",
+        "e-visa",
+        "eta",
+        "visa-on-arrival"
+      ],
+      "default": "free",
+      "default_note": "Airside transit through Changi Airport requires no visa if you hold an onward ticket, remain in the transit area, keep luggage checked to your final destination and do not clear immigration (not available on low-cost carriers other than Scoot-thru and Jetstar). Separately, the 96-hour Visa-Free Transit Facility lets nationals of China and India (and CIS, Georgia, Moldova, Turkmenistan, Ukraine) ENTER Singapore for up to 96 hours when transiting to or from a third country with a qualifying visa.",
+      "source_page": "Visa policy of Singapore",
+      "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Singapore"
+    },
+    {
+      "name": "kr_airside",
+      "kind": "default",
+      "destination": "KR",
+      "applies_to_types": [
+        "visa-required",
+        "e-visa",
+        "eta",
+        "visa-on-arrival"
+      ],
+      "default": "free",
+      "default_note": "Airside transit through South Korea requires no visa for less than 24 hours at Incheon (or the same calendar day at other airports), as long as you stay within the transit area. Non-visa-exempt nationals may also qualify for a 30-day transit visa exemption if they hold a visa or residence permit from Australia, Canada and other listed states and meet the routing rules.",
+      "source_page": "Visa policy of South Korea",
+      "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_South_Korea"
+    },
+    {
+      "name": "jp_airside",
+      "kind": "default",
+      "destination": "JP",
+      "applies_to_types": [
+        "visa-required",
+        "e-visa",
+        "eta",
+        "visa-on-arrival"
+      ],
+      "default": "free",
+      "default_note": "Airside transit through Japan requires no visa while you remain in the transit area. The 72-hour transit-without-visa (TWOV) additionally allows entry for up to 72 hours (sightseeing, rest) when you are transiting to a third country and obtain a transit or shore pass from the carrier.",
+      "source_page": "Visa policy of Japan",
+      "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Japan"
+    },
+    {
+      "name": "tr_airside",
+      "kind": "default",
+      "destination": "TR",
+      "applies_to_types": [
+        "visa-required",
+        "e-visa",
+        "eta",
+        "visa-on-arrival"
+      ],
+      "default": "free",
+      "default_note": "Airside transit privilege: transiting airside through a single Turkish airport, staying in the international transit area and under one day, requires no visa for most nationalities (the transfer must be possible without leaving the transit area). Landside transit always requires a visa for visa nationals; a small number of nationalities still need a transit visa even for airside transit depending on the final destination, and travellers bound for Northern Cyprus need a double airport transit visa.",
+      "source_page": "Visa policy of Turkey",
+      "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Turkey"
+    },
+    {
+      "name": "au_transit",
+      "kind": "default",
+      "destination": "AU",
+      "applies_to_types": [
+        "visa-required",
+        "e-visa",
+        "visa-on-arrival"
+      ],
+      "default": "required",
+      "default_note": "Transit visa (subclass 771) required to transit airside through Australia unless you are on the transit-without-visa list or you depart by air within 8 hours of arrival with a confirmed onward booking and remain in the transit lounge. A Transit visa is always required for Gold Coast airport, and for Cairns and Sydney if staying overnight.",
+      "exempt": [
+        "AT",
+        "BE",
+        "BG",
+        "HR",
+        "CY",
+        "CZ",
+        "DK",
+        "EE",
+        "FI",
+        "FR",
+        "DE",
+        "GR",
+        "HU",
+        "IE",
+        "IT",
+        "LV",
+        "LT",
+        "LU",
+        "MT",
+        "NL",
+        "PL",
+        "PT",
+        "RO",
+        "SK",
+        "SI",
+        "ES",
+        "SE",
+        "IS",
+        "LI",
+        "NO",
+        "CH",
+        "AD",
+        "AR",
+        "BN",
+        "CA",
+        "CL",
+        "FJ",
+        "HK",
+        "ID",
+        "JP",
+        "KI",
+        "MY",
+        "MH",
+        "MX",
+        "FM",
+        "MC",
+        "NR",
+        "NZ",
+        "OM",
+        "PW",
+        "PG",
+        "PH",
+        "QA",
+        "WS",
+        "SM",
+        "SG",
+        "SB",
+        "ZA",
+        "KR",
+        "TW",
+        "TH",
+        "TO",
+        "TV",
+        "AE",
+        "GB",
+        "US",
+        "UY",
+        "VU",
+        "VA"
+      ],
+      "exempt_transit": "free",
+      "exempt_note": "On Australia's transit-without-visa list -- no Transit visa (771) needed for airside connections under the 8-hour rule; an electronic travel declaration (ETA/e600) may still be required to board.",
+      "source_page": "Visa policy of Australia",
+      "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Australia"
+    },
+    {
+      "name": "ca_transit",
+      "kind": "default",
+      "destination": "CA",
+      "applies_to_types": [
+        "visa-required",
+        "e-visa",
+        "visa-on-arrival"
+      ],
+      "default": "required",
+      "default_note": "A transit visa is required to transit through Canada when you need a visa or eTA to enter. Narrow exemption: the Transit Without Visa (TWOV) and China Transit Program (CTP) allow certain nationals -- Indonesia, the Philippines, Taiwan and Thailand (TWOV), and Chinese passport holders via CTP -- to transit airside without a transit visa if they hold a valid U.S. visa, use a participating airport (Vancouver, Calgary, Winnipeg, Toronto P.E. Trudeau, or Montreal for CTP), and leave within 24 hours staying in the sterile international transit area.",
+      "source_page": "Visa policy of Canada",
+      "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Canada"
+    },
+    {
+      "name": "nz_transit",
+      "kind": "default",
+      "destination": "NZ",
+      "applies_to_types": [
+        "visa-required",
+        "e-visa",
+        "visa-on-arrival"
+      ],
+      "default": "required",
+      "default_note": "A Transit Visa is required to transit through New Zealand (airside, Auckland Airport only, up to 24 hours) when you are not a visa-waiver national and are not on the transit visa waiver list.",
+      "exempt": [
+        "BS",
+        "BM",
+        "BO",
+        "CN",
+        "CO",
+        "CR",
+        "EC",
+        "FM",
+        "FJ",
+        "ID",
+        "KI",
+        "NR",
+        "PW",
+        "PA",
+        "PG",
+        "PY",
+        "PE",
+        "PH",
+        "MH",
+        "WS",
+        "SB",
+        "TH",
+        "TO",
+        "TV",
+        "VU",
+        "VE"
+      ],
+      "exempt_transit": "free",
+      "exempt_note": "On New Zealand's transit visa waiver list -- no Transit Visa needed (a transit eTA is required), airside at Auckland Airport only, up to 24 hours.",
+      "source_page": "Visa policy of New Zealand",
+      "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_New_Zealand"
+    },
+    {
+      "name": "in_transit",
+      "kind": "default",
+      "destination": "IN",
+      "applies_to_types": [
+        "visa-required",
+        "e-visa",
+        "visa-on-arrival"
+      ],
+      "default": "required",
+      "default_note": "India requires a transit visa (15 days, single or double entry, onward ticket needed) or a transit e-Visa (30 days) to transit through the country; apply before travel. Some short airside connections may be exempt -- verify with your airline or the Bureau of Immigration.",
+      "source_page": "Visa policy of India",
+      "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_India"
+    },
+    {
+      "name": "au_eta_airside",
+      "kind": "default",
+      "destination": "AU",
+      "applies_to_types": [
+        "eta"
+      ],
+      "default": "free",
+      "default_note": "Visa-exempt (ETA) nationals can transit airside through Australia without a Transit visa (771); an electronic travel declaration (ETA/e600) may still be required to board.",
+      "source_page": "Visa policy of Australia",
+      "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Australia"
+    },
+    {
+      "name": "ca_eta_airside",
+      "kind": "default",
+      "destination": "CA",
+      "applies_to_types": [
+        "eta"
+      ],
+      "default": "free",
+      "default_note": "Visa-exempt (eTA) nationals can transit airside through Canada without a transit visa.",
+      "source_page": "Visa policy of Canada",
+      "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Canada"
+    },
+    {
+      "name": "nz_eta_airside",
+      "kind": "default",
+      "destination": "NZ",
+      "applies_to_types": [
+        "eta"
+      ],
+      "default": "free",
+      "default_note": "Visa-waiver (nZeTA) nationals can transit airside through New Zealand without a Transit Visa (a transit eTA is required), Auckland Airport only, up to 24 hours.",
+      "source_page": "Visa policy of New Zealand",
+      "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_New_Zealand"
     }
   ],
   "overrides": [
