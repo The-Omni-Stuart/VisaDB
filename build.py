@@ -39,7 +39,15 @@ destination's). Written to the visa_holdings + visa_benefits tables by
 merge_visa_benefits() after the scrape and overrides. A benefit only ever
 RELAXES the underlying passport rule — it never removes the need for a valid
 passport or normal admissibility checks — so the app still merges each benefit
-against the passport result and keeps the better outcome.
+against the passport result and keeps the better outcome. Every benefit row also
+carries its own source_page + source_url — the destination's "Visa policy of X"
+Wikipedia page (Schengen states share the "Visa policy of the Schengen Area"
+page) — so any row can be re-verified with one click.
+
+Transit: a separate axis stored on visa_rules (transit, transit_note) with
+values free | required | unknown. It is distinct from the entry status ladder —
+"no visa to enter" does not imply "no visa to transit" and vice versa — and is
+left unknown until a curated transit overlay (data/transit.json) is populated.
 """
 
 from __future__ import annotations
@@ -225,10 +233,12 @@ def merge_visa_benefits(cur, known_iso2):
             src = "wikipedia" if b.get("confidence") == "high" else "visa-check"
             cur.execute(
                 "INSERT OR REPLACE INTO visa_benefits"
-                "(holding, destination, type, days, confidence, source, checked, note)"
-                " VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+                "(holding, destination, type, days, confidence, source, checked, note,"
+                " source_page, source_url)"
+                " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 (holding, dest, b["type"], b.get("days"), b.get("confidence"),
-                 src, checked, b.get("note")),
+                 src, checked, b.get("note"),
+                 b.get("source_page"), b.get("source_url")),
             )
             n_benefits += 1
     print(f"visa holdings: {n_holdings}  visa benefits: {n_benefits}")
@@ -263,6 +273,11 @@ def write_sqlite(dataset, matrix, passports, overrides, extra_names=None) -> pat
             checked     TEXT,
             dispute     TEXT,
             note        TEXT,
+            -- transit axis: separate from the entry `type` ladder (not a visa
+            -- status). Values: free | required | unknown. Empty/unknown until a
+            -- curated transit overlay is populated (see data/transit.json).
+            transit      TEXT,
+            transit_note TEXT,
             PRIMARY KEY (passport, destination)
         );
         CREATE TABLE corrections (
@@ -290,6 +305,8 @@ def write_sqlite(dataset, matrix, passports, overrides, extra_names=None) -> pat
             source      TEXT,
             checked     TEXT,
             note        TEXT,
+            source_page TEXT,
+            source_url  TEXT,
             PRIMARY KEY (holding, destination)
         );
         CREATE INDEX idx_visa_rules_destination  ON visa_rules(destination);
@@ -475,7 +492,10 @@ def build(build_date: str):
                 "documented. A benefit only RELAXES the underlying passport "
                 "rule (passport + admissibility still required); the app "
                 "re-merges each against the passport result and keeps the "
-                "better outcome."
+                "better outcome. Each row carries source_page + source_url "
+                "(the destination's 'Visa policy of X' Wikipedia page; "
+                "Schengen states share 'Visa policy of the Schengen Area') "
+                "for one-click re-verification."
             ),
             "attribution": "xpressmike/visa-matrix (CC BY-SA 4.0)",
             "license": "GPLv3 — VisaDB fork of visa-matrix; see LICENSE and NOTICE",

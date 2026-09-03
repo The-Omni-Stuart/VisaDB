@@ -1,11 +1,11 @@
 {
- "source": "Curated from VisaCheck (jasurshukurov/Passport-Power-Index-Visa-Checker, visaBenefits.ts, 13 holdings / 250 entries, single 2026-02-15 commit, co-authored with an LLM — no per-entry provenance) and verified against English Wikipedia 'Visa requirements for X citizens' pages. The destination's own table row is the authoritative note (a note in another country's row is that other country's policy, not the destination's).",
+ "source": "Curated from VisaCheck (jasurshukurov/Passport-Power-Index-Visa-Checker, visaBenefits.ts, 13 holdings, single 2026-02-15 commit, co-authored with an LLM — no per-entry provenance) and row-aware verified against English Wikipedia. Each (holding, destination) benefit was checked against the DESTINATION's own policy: a note in another country's row is that other country's policy, not the destination's — several VisaCheck entries were dropped or corrected on that basis. Each row carries source_page + source_url (the destination's 'Visa policy of X' Wikipedia page) for one-click re-verification.",
  "checked": "2026-09-02",
  "confidence_key": {
-  "high": "destination's own Wikipedia row documents the benefit (may still override VisaCheck's day count where Wikipedia is more current)",
+  "high": "destination's own policy documents the benefit (may still override VisaCheck's day count where Wikipedia is more current)",
   "medium": "fits the known 'foreign visa/residence accepted' pattern but is not row-documented, or Wikipedia rows conflict — kept at a conservative value"
  },
- "golden_rule": "The passport still matters. These holdings relax (never eliminate) the underlying passport rule: the traveller must still hold a valid passport, meet normal admissibility checks, and the holding only helps where the destination's own row documents it.",
+ "golden_rule": "The passport still matters. These holdings relax (never eliminate) the underlying passport rule: the traveller must still hold a valid passport, meet normal admissibility checks, and the holding only helps where the destination's own policy documents it.",
  "holdings": [
   {
    "id": "us-green-card",
@@ -106,196 +106,252 @@
     "type": "visa-free",
     "days": 180,
     "confidence": "high",
-    "note": "FMM tourist card on arrival; US permanent residence accepted"
+    "note": "FMM tourist card on arrival; US permanent residence accepted",
+    "source_page": "Visa policy of Mexico",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Mexico"
    },
    {
     "destination": "CA",
     "type": "visa-free",
     "days": 180,
     "confidence": "high",
-    "note": "US LPRs enter Canada visa-free; up to 6 months at officer discretion"
+    "note": "US LPRs enter Canada visa-free; up to 6 months at officer discretion",
+    "source_page": "Visa policy of Canada",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Canada"
    },
    {
     "destination": "CR",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Wikipedia: 90 days for US permanent residence permit (VisaCheck lists 30)"
+    "note": "Wikipedia: 90 days for US permanent residence permit (VisaCheck lists 30)",
+    "source_page": "Visa policy of Costa Rica",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Costa_Rica"
    },
    {
     "destination": "PA",
     "type": "visa-free",
     "days": 30,
     "confidence": "medium",
-    "note": "Valid US residency document required (unverified)"
+    "note": "Valid US residency document required (unverified)",
+    "source_page": "Visa policy of Panama",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Panama"
    },
    {
     "destination": "BS",
     "type": "visa-free",
     "days": 30,
     "confidence": "high",
-    "note": "Valid passport and green card required"
+    "note": "Valid passport and green card required",
+    "source_page": "Visa policy of the Bahamas",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Bahamas"
    },
    {
     "destination": "BZ",
     "type": "visa-free",
     "days": 30,
     "confidence": "medium",
-    "note": "Wikipedia rows conflict (visa-free 30 vs visa-on-arrival); verify"
+    "note": "Wikipedia rows conflict (visa-free 30 vs visa-on-arrival); verify",
+    "source_page": "Visa policy of Belize",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Belize"
    },
    {
     "destination": "SV",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid passport and green card"
+    "note": "Valid passport and green card",
+    "source_page": "Visa policy of El Salvador",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_El_Salvador"
    },
    {
     "destination": "GT",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "CA-4 Central American agreement; 90 days shared with HN/SV/NI"
+    "note": "CA-4 Central American agreement; 90 days shared with HN/SV/NI",
+    "source_page": "Visa policy of Guatemala",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Guatemala"
    },
    {
     "destination": "HN",
     "type": "visa-free",
     "days": 90,
     "confidence": "medium",
-    "note": "CA-4 Central American agreement; 90 days shared with GT/SV/NI (unverified)"
+    "note": "CA-4 Central American agreement; 90 days shared with GT/SV/NI (unverified)",
+    "source_page": "Visa policy of Honduras",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Honduras"
    },
    {
     "destination": "NI",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "CA-4 Central American agreement"
+    "note": "CA-4 Central American agreement",
+    "source_page": "Visa policy of Nicaragua",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Nicaragua"
    },
    {
     "destination": "JM",
     "type": "visa-free",
     "days": 30,
     "confidence": "high",
-    "note": "Valid passport and return ticket required"
+    "note": "Valid passport and return ticket required",
+    "source_page": "Visa policy of Jamaica",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Jamaica"
    },
    {
     "destination": "AG",
     "type": "visa-free",
     "days": 30,
     "confidence": "high",
-    "note": "Valid passport required"
+    "note": "Valid passport required",
+    "source_page": "Visa policy of Antigua and Barbuda",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Antigua_and_Barbuda"
    },
    {
     "destination": "GE",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid green card must be presented"
+    "note": "Valid green card must be presented",
+    "source_page": "Visa policy of Georgia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Georgia"
    },
    {
     "destination": "AL",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Multiple-entry green card qualifies"
+    "note": "Multiple-entry green card qualifies",
+    "source_page": "Visa policy of Albania",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Albania"
    },
    {
     "destination": "BA",
     "type": "visa-free",
     "days": 30,
     "confidence": "medium",
-    "note": "Wikipedia: 15 days (ID page) vs 30 days; valid green card required"
+    "note": "Wikipedia: 15 days (ID page) vs 30 days; valid green card required",
+    "source_page": "Visa policy of Bosnia and Herzegovina",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Bosnia_and_Herzegovina"
    },
    {
     "destination": "ME",
     "type": "visa-free",
     "days": 30,
     "confidence": "medium",
-    "note": "Valid green card required (unverified)"
+    "note": "Valid green card required (unverified)",
+    "source_page": "Visa policy of Montenegro",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Montenegro"
    },
    {
     "destination": "RS",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid green card required"
+    "note": "Valid green card required",
+    "source_page": "Visa policy of Serbia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Serbia"
    },
    {
     "destination": "TR",
     "type": "e-visa",
     "days": 30,
     "confidence": "high",
-    "note": "Simplified e-visa for US permanent residence"
+    "note": "Simplified e-visa for US permanent residence",
+    "source_page": "Visa policy of Turkey",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Turkey"
    },
    {
     "destination": "MA",
     "type": "e-visa",
     "days": 30,
     "confidence": "high",
-    "note": "Wikipedia: e-Visa 30 days (VisaCheck lists visa-free 90)"
+    "note": "Wikipedia: e-Visa 30 days (VisaCheck lists visa-free 90)",
+    "source_page": "Visa policy of Morocco",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Morocco"
    },
    {
     "destination": "TW",
     "type": "visa-free",
     "days": 14,
     "confidence": "high",
-    "note": "Wikipedia: ETA form gives 14 days visa-free (VisaCheck lists 30)"
+    "note": "Wikipedia: ETA form gives 14 days visa-free (VisaCheck lists 30)",
+    "source_page": "Visa policy of Taiwan",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Taiwan"
    },
    {
     "destination": "SG",
     "type": "e-visa",
     "days": null,
     "confidence": "medium",
-    "note": "Not visa-free: e-Service via local sponsor/agent required; also 96h visa-free transit"
+    "note": "Not visa-free: e-Service via local sponsor/agent required; also 96h visa-free transit",
+    "source_page": "Visa policy of Singapore",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Singapore"
    },
    {
     "destination": "MY",
     "type": "visa-free",
     "days": 30,
     "confidence": "medium",
-    "note": "Valid green card and passport required (not documented on Wikipedia)"
+    "note": "Valid green card and passport required (not documented on Wikipedia)",
+    "source_page": "Visa policy of Malaysia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Malaysia"
    },
    {
     "destination": "AM",
     "type": "visa-on-arrival",
     "days": 120,
     "confidence": "high",
-    "note": "Wikipedia: VoA 120 days for US permanent resident permit (VisaCheck lists visa-free 180)"
+    "note": "Wikipedia: VoA 120 days for US permanent resident permit (VisaCheck lists visa-free 180)",
+    "source_page": "Visa policy of Armenia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Armenia"
    },
    {
     "destination": "BH",
     "type": "visa-on-arrival",
     "days": 14,
     "confidence": "high",
-    "note": "US green card among accepted documents for VoA"
+    "note": "US green card among accepted documents for VoA",
+    "source_page": "Visa policy of Bahrain",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Bahrain"
    },
    {
     "destination": "QA",
     "type": "visa-on-arrival",
     "days": 30,
     "confidence": "medium",
-    "note": "Valid green card required (not documented on Wikipedia)"
+    "note": "Valid green card required (not documented on Wikipedia)",
+    "source_page": "Visa policy of Qatar",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Qatar"
    },
    {
     "destination": "OM",
     "type": "visa-on-arrival",
     "days": 14,
     "confidence": "medium",
-    "note": "14-day e-Visa / VoA for US residence (Wikipedia rows vary 14 visa-free vs e-Visa)"
+    "note": "14-day e-Visa / VoA for US residence (Wikipedia rows vary 14 visa-free vs e-Visa)",
+    "source_page": "Visa policy of Oman",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Oman"
    },
    {
     "destination": "AE",
     "type": "visa-on-arrival",
     "days": 14,
     "confidence": "high",
-    "note": "Wikipedia: VoA 14 days (100 AED) + 14-day extension, or 60-day option (VisaCheck lists visa-free 30)"
+    "note": "Wikipedia: VoA 14 days (100 AED) + 14-day extension, or 60-day option (VisaCheck lists visa-free 30)",
+    "source_page": "Visa policy of the United Arab Emirates",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_United_Arab_Emirates"
    },
    {
     "destination": "CL",
     "type": "visa-free",
     "days": 90,
     "confidence": "medium",
-    "note": "Green card substitutes the Chilean national visa (6+ months validity)"
+    "note": "Green card substitutes the Chilean national visa (6+ months validity)",
+    "source_page": "Visa policy of Chile",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Chile"
    }
   ],
   "us-visa": [
@@ -304,133 +360,171 @@
     "type": "visa-free",
     "days": 180,
     "confidence": "high",
-    "note": "Used/unused multiple-entry US visas accepted; FMM tourist card required"
+    "note": "Used/unused multiple-entry US visas accepted; FMM tourist card required",
+    "source_page": "Visa policy of Mexico",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Mexico"
    },
    {
     "destination": "CA",
     "type": "eta",
     "days": 180,
     "confidence": "high",
-    "note": "eTA required by air (US non-immigrant B/F/M/J/H/L visa); visa required by land/sea"
+    "note": "eTA required by air (US non-immigrant B/F/M/J/H/L visa); visa required by land/sea",
+    "source_page": "Visa policy of Canada",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Canada"
    },
    {
     "destination": "PA",
     "type": "visa-free",
     "days": 30,
     "confidence": "high",
-    "note": "Valid US visa with 2+ prior US entries"
+    "note": "Valid US visa with 2+ prior US entries",
+    "source_page": "Visa policy of Panama",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Panama"
    },
    {
     "destination": "CR",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Wikipedia: 90 days for multiple-entry US visa (VisaCheck lists 30)"
+    "note": "Wikipedia: 90 days for multiple-entry US visa (VisaCheck lists 30)",
+    "source_page": "Visa policy of Costa Rica",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Costa_Rica"
    },
    {
     "destination": "AL",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Multiple-entry US visa used at least once before arrival"
+    "note": "Multiple-entry US visa used at least once before arrival",
+    "source_page": "Visa policy of Albania",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Albania"
    },
    {
     "destination": "GE",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid US visa required"
+    "note": "Valid US visa required",
+    "source_page": "Visa policy of Georgia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Georgia"
    },
    {
     "destination": "TR",
     "type": "e-visa",
     "days": 30,
     "confidence": "high",
-    "note": "E-visa available online for valid US visa"
+    "note": "E-visa available online for valid US visa",
+    "source_page": "Visa policy of Turkey",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Turkey"
    },
    {
     "destination": "CO",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "US visa substitutes the Colombian national visa"
+    "note": "US visa substitutes the Colombian national visa",
+    "source_page": "Visa policy of Colombia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Colombia"
    },
    {
     "destination": "GT",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "CA-4 agreement; valid US visa required"
+    "note": "CA-4 agreement; valid US visa required",
+    "source_page": "Visa policy of Guatemala",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Guatemala"
    },
    {
     "destination": "HN",
     "type": "visa-free",
     "days": 90,
     "confidence": "medium",
-    "note": "CA-4 agreement; valid US visa required (unverified)"
+    "note": "CA-4 agreement; valid US visa required (unverified)",
+    "source_page": "Visa policy of Honduras",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Honduras"
    },
    {
     "destination": "SV",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "CA-4 agreement; valid US visa required"
+    "note": "CA-4 agreement; valid US visa required",
+    "source_page": "Visa policy of El Salvador",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_El_Salvador"
    },
    {
     "destination": "NI",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "CA-4 agreement; valid US visa required"
+    "note": "CA-4 agreement; valid US visa required",
+    "source_page": "Visa policy of Nicaragua",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Nicaragua"
    },
    {
     "destination": "BS",
     "type": "visa-free",
     "days": 30,
     "confidence": "medium",
-    "note": "Valid US visa required (unverified)"
+    "note": "Valid US visa required (unverified)",
+    "source_page": "Visa policy of the Bahamas",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Bahamas"
    },
    {
     "destination": "BA",
     "type": "visa-free",
     "days": 30,
     "confidence": "medium",
-    "note": "Wikipedia: 15 days (ID page) vs 30 days; multiple-entry US visa required"
+    "note": "Wikipedia: 15 days (ID page) vs 30 days; multiple-entry US visa required",
+    "source_page": "Visa policy of Bosnia and Herzegovina",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Bosnia_and_Herzegovina"
    },
    {
     "destination": "ME",
     "type": "visa-free",
     "days": 30,
     "confidence": "high",
-    "note": "Valid US visa required"
+    "note": "Valid US visa required",
+    "source_page": "Visa policy of Montenegro",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Montenegro"
    },
    {
     "destination": "RS",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid US visa required"
+    "note": "Valid US visa required",
+    "source_page": "Visa policy of Serbia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Serbia"
    },
    {
     "destination": "MK",
     "type": "visa-free",
     "days": 15,
     "confidence": "medium",
-    "note": "Multiple-entry US visa required (unverified)"
+    "note": "Multiple-entry US visa required (unverified)",
+    "source_page": "Visa policy of North Macedonia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_North_Macedonia"
    },
    {
     "destination": "AE",
     "type": "visa-on-arrival",
     "days": 14,
     "confidence": "high",
-    "note": "Wikipedia: VoA 14 days (or 60-day option) for US visa; nationality restrictions apply"
+    "note": "Wikipedia: VoA 14 days (or 60-day option) for US visa; nationality restrictions apply",
+    "source_page": "Visa policy of the United Arab Emirates",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_United_Arab_Emirates"
    },
    {
     "destination": "SG",
     "type": "transit-free",
     "days": 4,
     "confidence": "high",
-    "note": "96-hour Visa Free Transit Facility (Chinese/Indian nationals transiting by air with US visa)"
+    "note": "96-hour Visa Free Transit Facility (Chinese/Indian nationals transiting by air with US visa)",
+    "source_page": "Visa policy of Singapore",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Singapore"
    }
   ],
   "schengen-visa": [
@@ -439,294 +533,378 @@
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Within the 90/180-day rule"
+    "note": "Within the 90/180-day rule",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "BE",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Within the 90/180-day rule"
+    "note": "Within the 90/180-day rule",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "BG",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Within the 90/180-day rule"
+    "note": "Within the 90/180-day rule",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "HR",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Within the 90/180-day rule"
+    "note": "Within the 90/180-day rule",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "CZ",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Within the 90/180-day rule"
+    "note": "Within the 90/180-day rule",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "DK",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Within the 90/180-day rule"
+    "note": "Within the 90/180-day rule",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "EE",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Within the 90/180-day rule"
+    "note": "Within the 90/180-day rule",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "FI",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Within the 90/180-day rule"
+    "note": "Within the 90/180-day rule",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "FR",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Within the 90/180-day rule"
+    "note": "Within the 90/180-day rule",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "DE",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Within the 90/180-day rule"
+    "note": "Within the 90/180-day rule",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "GR",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Within the 90/180-day rule"
+    "note": "Within the 90/180-day rule",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "HU",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Within the 90/180-day rule"
+    "note": "Within the 90/180-day rule",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "IS",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Within the 90/180-day rule"
+    "note": "Within the 90/180-day rule",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "IT",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Within the 90/180-day rule"
+    "note": "Within the 90/180-day rule",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "LV",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Within the 90/180-day rule"
+    "note": "Within the 90/180-day rule",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "LT",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Within the 90/180-day rule"
+    "note": "Within the 90/180-day rule",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "LU",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Within the 90/180-day rule"
+    "note": "Within the 90/180-day rule",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "MT",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Within the 90/180-day rule"
+    "note": "Within the 90/180-day rule",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "NL",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Within the 90/180-day rule"
+    "note": "Within the 90/180-day rule",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "NO",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Within the 90/180-day rule"
+    "note": "Within the 90/180-day rule",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "PL",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Within the 90/180-day rule"
+    "note": "Within the 90/180-day rule",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "PT",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Within the 90/180-day rule"
+    "note": "Within the 90/180-day rule",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "RO",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Within the 90/180-day rule"
+    "note": "Within the 90/180-day rule",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "SK",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Within the 90/180-day rule"
+    "note": "Within the 90/180-day rule",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "SI",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Within the 90/180-day rule"
+    "note": "Within the 90/180-day rule",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "ES",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Within the 90/180-day rule"
+    "note": "Within the 90/180-day rule",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "SE",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Within the 90/180-day rule"
+    "note": "Within the 90/180-day rule",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "CH",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Within the 90/180-day rule"
+    "note": "Within the 90/180-day rule",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "LI",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Within the 90/180-day rule"
+    "note": "Within the 90/180-day rule",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "AL",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Multiple-entry Schengen visa used at least once in Schengen before arrival"
+    "note": "Multiple-entry Schengen visa used at least once in Schengen before arrival",
+    "source_page": "Visa policy of Albania",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Albania"
    },
    {
     "destination": "BA",
     "type": "visa-free",
     "days": 30,
     "confidence": "medium",
-    "note": "Wikipedia: 15 days (ID page) vs 30 days; multiple-entry Schengen visa required"
+    "note": "Wikipedia: 15 days (ID page) vs 30 days; multiple-entry Schengen visa required",
+    "source_page": "Visa policy of Bosnia and Herzegovina",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Bosnia_and_Herzegovina"
    },
    {
     "destination": "ME",
     "type": "visa-free",
     "days": 30,
     "confidence": "high",
-    "note": "Valid Schengen visa required"
+    "note": "Valid Schengen visa required",
+    "source_page": "Visa policy of Montenegro",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Montenegro"
    },
    {
     "destination": "MK",
     "type": "visa-free",
     "days": 15,
     "confidence": "high",
-    "note": "Valid Schengen visa required"
+    "note": "Valid Schengen visa required",
+    "source_page": "Visa policy of North Macedonia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_North_Macedonia"
    },
    {
     "destination": "RS",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid Schengen visa required"
+    "note": "Valid Schengen visa required",
+    "source_page": "Visa policy of Serbia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Serbia"
    },
    {
     "destination": "XK",
     "type": "visa-free",
     "days": 15,
     "confidence": "high",
-    "note": "Valid Schengen visa required"
+    "note": "Valid Schengen visa required",
+    "source_page": "Visa policy of Kosovo",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Kosovo"
    },
    {
     "destination": "GE",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid Schengen visa or residence permit required"
+    "note": "Valid Schengen visa or residence permit required",
+    "source_page": "Visa policy of Georgia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Georgia"
    },
    {
     "destination": "TR",
     "type": "e-visa",
     "days": 30,
     "confidence": "high",
-    "note": "E-visa available online; valid Schengen visa simplifies it"
+    "note": "E-visa available online; valid Schengen visa simplifies it",
+    "source_page": "Visa policy of Turkey",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Turkey"
    },
    {
     "destination": "CO",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Schengen visa with 180+ days validity on arrival"
+    "note": "Schengen visa with 180+ days validity on arrival",
+    "source_page": "Visa policy of Colombia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Colombia"
    },
    {
     "destination": "PA",
     "type": "visa-free",
     "days": 30,
     "confidence": "high",
-    "note": "Valid Schengen visa required"
+    "note": "Valid Schengen visa required",
+    "source_page": "Visa policy of Panama",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Panama"
    },
    {
     "destination": "CR",
     "type": "visa-free",
     "days": 30,
     "confidence": "medium",
-    "note": "Valid multiple-entry Schengen visa required (unverified)"
+    "note": "Valid multiple-entry Schengen visa required (unverified)",
+    "source_page": "Visa policy of Costa Rica",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Costa_Rica"
    },
    {
     "destination": "CY",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Cyprus (EU, non-Schengen) accepts multiple-entry Schengen visa; does not count against 90/180"
+    "note": "Cyprus (EU, non-Schengen) accepts multiple-entry Schengen visa; does not count against 90/180",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "AM",
     "type": "visa-on-arrival",
     "days": 120,
     "confidence": "high",
-    "note": "Wikipedia: VoA 120 days for valid Schengen visa (VisaCheck lists visa-free 180)"
+    "note": "Wikipedia: VoA 120 days for valid Schengen visa (VisaCheck lists visa-free 180)",
+    "source_page": "Visa policy of Armenia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Armenia"
    }
   ],
   "schengen-residence": [
@@ -735,301 +913,387 @@
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "BE",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "BG",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "HR",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "CZ",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "DK",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "EE",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "FI",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "FR",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "DE",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "GR",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "HU",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "IS",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "IT",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "LV",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "LT",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "LU",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "MT",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "NL",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "NO",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "PL",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "PT",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "RO",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "SK",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "SI",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "ES",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "SE",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "CH",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "LI",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel"
+    "note": "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "AL",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid Schengen residence permit required"
+    "note": "Valid Schengen residence permit required",
+    "source_page": "Visa policy of Albania",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Albania"
    },
    {
     "destination": "BA",
     "type": "visa-free",
     "days": 30,
     "confidence": "medium",
-    "note": "Wikipedia: 15 days (ID page) vs 30 days; valid Schengen residence permit required"
+    "note": "Wikipedia: 15 days (ID page) vs 30 days; valid Schengen residence permit required",
+    "source_page": "Visa policy of Bosnia and Herzegovina",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Bosnia_and_Herzegovina"
    },
    {
     "destination": "ME",
     "type": "visa-free",
     "days": 30,
     "confidence": "high",
-    "note": "Valid Schengen residence permit required"
+    "note": "Valid Schengen residence permit required",
+    "source_page": "Visa policy of Montenegro",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Montenegro"
    },
    {
     "destination": "RS",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid Schengen residence permit required"
+    "note": "Valid Schengen residence permit required",
+    "source_page": "Visa policy of Serbia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Serbia"
    },
    {
     "destination": "MK",
     "type": "visa-free",
     "days": 15,
     "confidence": "high",
-    "note": "Valid Schengen residence permit required"
+    "note": "Valid Schengen residence permit required",
+    "source_page": "Visa policy of North Macedonia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_North_Macedonia"
    },
    {
     "destination": "GE",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid Schengen residence permit required"
+    "note": "Valid Schengen residence permit required",
+    "source_page": "Visa policy of Georgia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Georgia"
    },
    {
     "destination": "CO",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Accepts both temporary and permanent Schengen residence permits"
+    "note": "Accepts both temporary and permanent Schengen residence permits",
+    "source_page": "Visa policy of Colombia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Colombia"
    },
    {
     "destination": "MX",
     "type": "visa-free",
     "days": 180,
     "confidence": "high",
-    "note": "Wikipedia: 180 days for PERMANENT residence permits only (temporary permits may be refused)"
+    "note": "Wikipedia: 180 days for PERMANENT residence permits only (temporary permits may be refused)",
+    "source_page": "Visa policy of Mexico",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Mexico"
    },
    {
     "destination": "TR",
     "type": "e-visa",
     "days": 30,
     "confidence": "high",
-    "note": "E-visa available online with valid Schengen residence permit"
+    "note": "E-visa available online with valid Schengen residence permit",
+    "source_page": "Visa policy of Turkey",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Turkey"
    },
    {
     "destination": "PA",
     "type": "visa-free",
     "days": 30,
     "confidence": "medium",
-    "note": "Valid Schengen residence permit required (unverified)"
+    "note": "Valid Schengen residence permit required (unverified)",
+    "source_page": "Visa policy of Panama",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Panama"
    },
    {
     "destination": "CR",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Wikipedia: 90 days for residence permits (VisaCheck lists 30)"
+    "note": "Wikipedia: 90 days for residence permits (VisaCheck lists 30)",
+    "source_page": "Visa policy of Costa Rica",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Costa_Rica"
    },
    {
     "destination": "CY",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Cyprus (EU, non-Schengen) accepts EU/Schengen residence permits"
+    "note": "Cyprus (EU, non-Schengen) accepts EU/Schengen residence permits",
+    "source_page": "Visa policy of the Schengen Area",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
    },
    {
     "destination": "AM",
     "type": "visa-on-arrival",
     "days": 120,
     "confidence": "high",
-    "note": "Wikipedia: VoA 120 days for Schengen/EU residence permit (VisaCheck lists visa-free 180)"
+    "note": "Wikipedia: VoA 120 days for Schengen/EU residence permit (VisaCheck lists visa-free 180)",
+    "source_page": "Visa policy of Armenia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Armenia"
    },
    {
     "destination": "IE",
     "type": "visa-free",
     "days": 90,
     "confidence": "medium",
-    "note": "Ireland Short Stay Visa Waiver for some nationalities with EU residence (not row-documented; verify)"
+    "note": "Ireland Short Stay Visa Waiver for some nationalities with EU residence (not row-documented; verify)",
+    "source_page": "Visa policy of Ireland",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Ireland"
    }
   ],
   "uk-visa": [
@@ -1038,112 +1302,144 @@
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "UK visa used once in issuing country before arrival"
+    "note": "UK visa used once in issuing country before arrival",
+    "source_page": "Visa policy of Albania",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Albania"
    },
    {
     "destination": "GE",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid UK visa / residence permit required"
+    "note": "Valid UK visa / residence permit required",
+    "source_page": "Visa policy of Georgia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Georgia"
    },
    {
     "destination": "ME",
     "type": "visa-free",
     "days": 90,
     "confidence": "medium",
-    "note": "Valid UK BRP / eVisa required (unverified)"
+    "note": "Valid UK BRP / eVisa required (unverified)",
+    "source_page": "Visa policy of Montenegro",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Montenegro"
    },
    {
     "destination": "RS",
     "type": "visa-free",
     "days": 90,
     "confidence": "medium",
-    "note": "Valid UK BRP / eVisa required (unverified)"
+    "note": "Valid UK BRP / eVisa required (unverified)",
+    "source_page": "Visa policy of Serbia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Serbia"
    },
    {
     "destination": "MK",
     "type": "visa-free",
     "days": 15,
     "confidence": "medium",
-    "note": "Valid UK BRP / eVisa required (unverified)"
+    "note": "Valid UK BRP / eVisa required (unverified)",
+    "source_page": "Visa policy of North Macedonia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_North_Macedonia"
    },
    {
     "destination": "MX",
     "type": "visa-free",
     "days": 180,
     "confidence": "high",
-    "note": "FMM form required; one of the longest visa-free stays"
+    "note": "FMM form required; one of the longest visa-free stays",
+    "source_page": "Visa policy of Mexico",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Mexico"
    },
    {
     "destination": "PA",
     "type": "visa-free",
     "days": 90,
     "confidence": "medium",
-    "note": "Valid UK BRP / eVisa required (unverified)"
+    "note": "Valid UK BRP / eVisa required (unverified)",
+    "source_page": "Visa policy of Panama",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Panama"
    },
    {
     "destination": "BB",
     "type": "visa-free",
     "days": 180,
     "confidence": "medium",
-    "note": "Tourism only (unverified)"
+    "note": "Tourism only (unverified)",
+    "source_page": "Visa policy of Barbados",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Barbados"
    },
    {
     "destination": "AG",
     "type": "visa-free",
     "days": 30,
     "confidence": "medium",
-    "note": "Tourism only; proof of accommodation required (unverified)"
+    "note": "Tourism only; proof of accommodation required (unverified)",
+    "source_page": "Visa policy of Antigua and Barbuda",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Antigua_and_Barbuda"
    },
    {
     "destination": "BS",
     "type": "visa-free",
     "days": 90,
     "confidence": "medium",
-    "note": "Tourism/business; return ticket required (unverified)"
+    "note": "Tourism/business; return ticket required (unverified)",
+    "source_page": "Visa policy of the Bahamas",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Bahamas"
    },
    {
     "destination": "JM",
     "type": "visa-free",
     "days": 90,
     "confidence": "medium",
-    "note": "Tourism only; return ticket required (unverified)"
+    "note": "Tourism only; return ticket required (unverified)",
+    "source_page": "Visa policy of Jamaica",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Jamaica"
    },
    {
     "destination": "AM",
     "type": "visa-on-arrival",
     "days": 120,
     "confidence": "medium",
-    "note": "Wikipedia: VoA 120 days (UK in the accepted list); nationality must not separately require a visa"
+    "note": "Wikipedia: VoA 120 days (UK in the accepted list); nationality must not separately require a visa",
+    "source_page": "Visa policy of Armenia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Armenia"
    },
    {
     "destination": "TR",
     "type": "e-visa",
     "days": 30,
     "confidence": "high",
-    "note": "E-visa required; apply online"
+    "note": "E-visa required; apply online",
+    "source_page": "Visa policy of Turkey",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Turkey"
    },
    {
     "destination": "BH",
     "type": "e-visa",
     "days": 14,
     "confidence": "high",
-    "note": "e-Visa for UK visa holders (VisaCheck lists 14 days)"
+    "note": "e-Visa for UK visa holders (VisaCheck lists 14 days)",
+    "source_page": "Visa policy of Bahrain",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Bahrain"
    },
    {
     "destination": "AE",
     "type": "visa-on-arrival",
     "days": 14,
     "confidence": "high",
-    "note": "Wikipedia: VoA 14 days (or 60-day option) for UK visa; some nationalities excluded"
+    "note": "Wikipedia: VoA 14 days (or 60-day option) for UK visa; some nationalities excluded",
+    "source_page": "Visa policy of the United Arab Emirates",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_United_Arab_Emirates"
    },
    {
     "destination": "IE",
     "type": "visa-free",
     "days": 90,
     "confidence": "medium",
-    "note": "British-Irish Visa Scheme (BIVS) — select nationalities"
+    "note": "British-Irish Visa Scheme (BIVS) — select nationalities",
+    "source_page": "Visa policy of Ireland",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Ireland"
    }
   ],
   "ca-pr": [
@@ -1152,63 +1448,81 @@
     "type": "visa-free",
     "days": 180,
     "confidence": "high",
-    "note": "FMM tourist card required; valid Canadian PR card and passport"
+    "note": "FMM tourist card required; valid Canadian PR card and passport",
+    "source_page": "Visa policy of Mexico",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Mexico"
    },
    {
     "destination": "CR",
     "type": "visa-free",
     "days": 90,
     "confidence": "medium",
-    "note": "Wikipedia: 90 days for residence permits (VisaCheck lists 30)"
+    "note": "Wikipedia: 90 days for residence permits (VisaCheck lists 30)",
+    "source_page": "Visa policy of Costa Rica",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Costa_Rica"
    },
    {
     "destination": "PA",
     "type": "visa-free",
     "days": 30,
     "confidence": "medium",
-    "note": "Valid Canadian PR card required (unverified)"
+    "note": "Valid Canadian PR card required (unverified)",
+    "source_page": "Visa policy of Panama",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Panama"
    },
    {
     "destination": "BS",
     "type": "visa-free",
     "days": 30,
     "confidence": "high",
-    "note": "Valid passport and PR card"
+    "note": "Valid passport and PR card",
+    "source_page": "Visa policy of the Bahamas",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Bahamas"
    },
    {
     "destination": "AG",
     "type": "visa-free",
     "days": 30,
     "confidence": "high",
-    "note": "Valid passport and PR card"
+    "note": "Valid passport and PR card",
+    "source_page": "Visa policy of Antigua and Barbuda",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Antigua_and_Barbuda"
    },
    {
     "destination": "BZ",
     "type": "visa-free",
     "days": 30,
     "confidence": "medium",
-    "note": "Valid passport and PR card (unverified)"
+    "note": "Valid passport and PR card (unverified)",
+    "source_page": "Visa policy of Belize",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Belize"
    },
    {
     "destination": "AM",
     "type": "visa-on-arrival",
     "days": 120,
     "confidence": "high",
-    "note": "Wikipedia: VoA 120 days for Canadian permanent resident permit (VisaCheck lists visa-free 90)"
+    "note": "Wikipedia: VoA 120 days for Canadian permanent resident permit (VisaCheck lists visa-free 90)",
+    "source_page": "Visa policy of Armenia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Armenia"
    },
    {
     "destination": "GE",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid Canadian PR card required"
+    "note": "Valid Canadian PR card required",
+    "source_page": "Visa policy of Georgia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Georgia"
    },
    {
     "destination": "MD",
     "type": "visa-free",
     "days": 90,
     "confidence": "medium",
-    "note": "Valid Canadian PR card required (unverified)"
+    "note": "Valid Canadian PR card required (unverified)",
+    "source_page": "Visa policy of Moldova",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Moldova"
    }
   ],
   "ca-visa": [
@@ -1217,70 +1531,90 @@
     "type": "visa-free",
     "days": 180,
     "confidence": "high",
-    "note": "Valid Canadian visa"
+    "note": "Valid Canadian visa",
+    "source_page": "Visa policy of Mexico",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Mexico"
    },
    {
     "destination": "CR",
     "type": "visa-free",
     "days": 30,
     "confidence": "medium",
-    "note": "Valid Canadian visa (unverified)"
+    "note": "Valid Canadian visa (unverified)",
+    "source_page": "Visa policy of Costa Rica",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Costa_Rica"
    },
    {
     "destination": "PA",
     "type": "visa-free",
     "days": 30,
     "confidence": "high",
-    "note": "Valid Canadian visa"
+    "note": "Valid Canadian visa",
+    "source_page": "Visa policy of Panama",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Panama"
    },
    {
     "destination": "GE",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Valid Canadian visa"
+    "note": "Valid Canadian visa",
+    "source_page": "Visa policy of Georgia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Georgia"
    },
    {
     "destination": "GT",
     "type": "visa-free",
     "days": 90,
     "confidence": "medium",
-    "note": "CA-4 agreement; valid Canadian visa (unverified)"
+    "note": "CA-4 agreement; valid Canadian visa (unverified)",
+    "source_page": "Visa policy of Guatemala",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Guatemala"
    },
    {
     "destination": "HN",
     "type": "visa-free",
     "days": 90,
     "confidence": "medium",
-    "note": "CA-4 agreement; valid Canadian visa (unverified)"
+    "note": "CA-4 agreement; valid Canadian visa (unverified)",
+    "source_page": "Visa policy of Honduras",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Honduras"
    },
    {
     "destination": "SV",
     "type": "visa-free",
     "days": 90,
     "confidence": "medium",
-    "note": "CA-4 agreement; valid Canadian visa (unverified)"
+    "note": "CA-4 agreement; valid Canadian visa (unverified)",
+    "source_page": "Visa policy of El Salvador",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_El_Salvador"
    },
    {
     "destination": "NI",
     "type": "visa-free",
     "days": 90,
     "confidence": "medium",
-    "note": "CA-4 agreement; valid Canadian visa (unverified)"
+    "note": "CA-4 agreement; valid Canadian visa (unverified)",
+    "source_page": "Visa policy of Nicaragua",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Nicaragua"
    },
    {
     "destination": "AL",
     "type": "visa-free",
     "days": 90,
     "confidence": "medium",
-    "note": "Valid Canadian visa (unverified)"
+    "note": "Valid Canadian visa (unverified)",
+    "source_page": "Visa policy of Albania",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Albania"
    },
    {
     "destination": "DO",
     "type": "visa-free",
     "days": 30,
     "confidence": "medium",
-    "note": "Valid Canadian visa (not row-documented; verify)"
+    "note": "Valid Canadian visa (not row-documented; verify)",
+    "source_page": "Visa policy of the Dominican Republic",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Dominican_Republic"
    }
   ],
   "au-pr": [
@@ -1289,42 +1623,54 @@
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Trans-Tasman: NZ Resident Visa on arrival possible; NZeTA required for non-Australian passports"
+    "note": "Trans-Tasman: NZ Resident Visa on arrival possible; NZeTA required for non-Australian passports",
+    "source_page": "Visa policy of New Zealand",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_New_Zealand"
    },
    {
     "destination": "SG",
     "type": "transit-free",
     "days": 4,
     "confidence": "high",
-    "note": "96-hour Visa Free Transit Facility (Chinese/Indian nationals with Australian visa, transiting by air)"
+    "note": "96-hour Visa Free Transit Facility (Chinese/Indian nationals with Australian visa, transiting by air)",
+    "source_page": "Visa policy of Singapore",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Singapore"
    },
    {
     "destination": "AL",
     "type": "visa-free",
     "days": 90,
     "confidence": "medium",
-    "note": "Multiple-entry Australian visa used at least once (unverified)"
+    "note": "Multiple-entry Australian visa used at least once (unverified)",
+    "source_page": "Visa policy of Albania",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Albania"
    },
    {
     "destination": "GE",
     "type": "visa-free",
     "days": 90,
     "confidence": "medium",
-    "note": "Valid Australian visa or residence permit required (unverified)"
+    "note": "Valid Australian visa or residence permit required (unverified)",
+    "source_page": "Visa policy of Georgia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Georgia"
    },
    {
     "destination": "TR",
     "type": "e-visa",
     "days": 30,
     "confidence": "medium",
-    "note": "E-visa available for valid Australian visa (unverified)"
+    "note": "E-visa available for valid Australian visa (unverified)",
+    "source_page": "Visa policy of Turkey",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Turkey"
    },
    {
     "destination": "MX",
     "type": "visa-free",
     "days": 180,
     "confidence": "medium",
-    "note": "Valid Australian PR accepted; FMM tourist card required (unverified)"
+    "note": "Valid Australian PR accepted; FMM tourist card required (unverified)",
+    "source_page": "Visa policy of Mexico",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Mexico"
    }
   ],
   "uae-residence": [
@@ -1333,91 +1679,117 @@
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Multiple-entry UAE residence permit valid 1+ year on entry (stricter rules from May 2025)"
+    "note": "Multiple-entry UAE residence permit valid 1+ year on entry (stricter rules from May 2025)",
+    "source_page": "Visa policy of Georgia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Georgia"
    },
    {
     "destination": "OM",
     "type": "visa-free",
     "days": 14,
     "confidence": "high",
-    "note": "GCC member — UAE residents enter Oman visa-free"
+    "note": "GCC member — UAE residents enter Oman visa-free",
+    "source_page": "Visa policy of Oman",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Oman"
    },
    {
     "destination": "TR",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "UAE residents enjoy visa-free access, 90/180"
+    "note": "UAE residents enjoy visa-free access, 90/180",
+    "source_page": "Visa policy of Turkey",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Turkey"
    },
    {
     "destination": "AL",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Wikipedia: 90 days for 10-year UAE residence permit"
+    "note": "Wikipedia: 90 days for 10-year UAE residence permit",
+    "source_page": "Visa policy of Albania",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Albania"
    },
    {
     "destination": "BA",
     "type": "visa-free",
     "days": 30,
     "confidence": "medium",
-    "note": "Valid UAE residence permit required (unverified)"
+    "note": "Valid UAE residence permit required (unverified)",
+    "source_page": "Visa policy of Bosnia and Herzegovina",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Bosnia_and_Herzegovina"
    },
    {
     "destination": "RS",
     "type": "visa-free",
     "days": 30,
     "confidence": "medium",
-    "note": "Valid UAE residence permit required (unverified)"
+    "note": "Valid UAE residence permit required (unverified)",
+    "source_page": "Visa policy of Serbia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Serbia"
    },
    {
     "destination": "ME",
     "type": "visa-free",
     "days": 10,
     "confidence": "medium",
-    "note": "Wikipedia: 10 days for UAE residence (VisaCheck lists 30)"
+    "note": "Wikipedia: 10 days for UAE residence (VisaCheck lists 30)",
+    "source_page": "Visa policy of Montenegro",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Montenegro"
    },
    {
     "destination": "AM",
     "type": "visa-on-arrival",
     "days": 120,
     "confidence": "high",
-    "note": "Wikipedia: VoA 120 days for GCC/UAE residence permit (VisaCheck lists visa-free 90)"
+    "note": "Wikipedia: VoA 120 days for GCC/UAE residence permit (VisaCheck lists visa-free 90)",
+    "source_page": "Visa policy of Armenia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Armenia"
    },
    {
     "destination": "AZ",
     "type": "visa-on-arrival",
     "days": 30,
     "confidence": "high",
-    "note": "Wikipedia: 30-day tourist visa on arrival for UAE residents"
+    "note": "Wikipedia: 30-day tourist visa on arrival for UAE residents",
+    "source_page": "Visa policy of Azerbaijan",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Azerbaijan"
    },
    {
     "destination": "BH",
     "type": "visa-free",
     "days": 14,
     "confidence": "high",
-    "note": "GCC member — inter-GCC travel facilitated"
+    "note": "GCC member — inter-GCC travel facilitated",
+    "source_page": "Visa policy of Bahrain",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Bahrain"
    },
    {
     "destination": "KW",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "GCC member — some profession restrictions may apply"
+    "note": "GCC member — some profession restrictions may apply",
+    "source_page": "Visa policy of Kuwait",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Kuwait"
    },
    {
     "destination": "QA",
     "type": "visa-free",
     "days": 30,
     "confidence": "high",
-    "note": "GCC member — inter-GCC travel facilitated"
+    "note": "GCC member — inter-GCC travel facilitated",
+    "source_page": "Visa policy of Qatar",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Qatar"
    },
    {
     "destination": "SA",
     "type": "e-visa",
     "days": 90,
     "confidence": "high",
-    "note": "GCC member — e-Visa available for GCC residents"
+    "note": "GCC member — e-Visa available for GCC residents",
+    "source_page": "Visa policy of Saudi Arabia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Saudi_Arabia"
    }
   ],
   "jp-visa": [
@@ -1426,28 +1798,36 @@
     "type": "visa-free",
     "days": 90,
     "confidence": "medium",
-    "note": "Multiple-entry Japan visa used at least once (unverified)"
+    "note": "Multiple-entry Japan visa used at least once (unverified)",
+    "source_page": "Visa policy of Albania",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Albania"
    },
    {
     "destination": "GE",
     "type": "visa-free",
     "days": 90,
     "confidence": "medium",
-    "note": "Valid Japan visa or residence permit required (unverified)"
+    "note": "Valid Japan visa or residence permit required (unverified)",
+    "source_page": "Visa policy of Georgia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Georgia"
    },
    {
     "destination": "TR",
     "type": "e-visa",
     "days": 30,
     "confidence": "medium",
-    "note": "E-visa available for Japan visa holders (unverified)"
+    "note": "E-visa available for Japan visa holders (unverified)",
+    "source_page": "Visa policy of Turkey",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Turkey"
    },
    {
     "destination": "SG",
     "type": "transit-free",
     "days": 4,
     "confidence": "high",
-    "note": "96-hour Visa Free Transit Facility (Chinese/Indian nationals with Japan visa, transiting by air)"
+    "note": "96-hour Visa Free Transit Facility (Chinese/Indian nationals with Japan visa, transiting by air)",
+    "source_page": "Visa policy of Singapore",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Singapore"
    }
   ],
   "gcc-residence": [
@@ -1456,77 +1836,99 @@
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Wikipedia: 90 days for GCC residence valid 1+ year (VisaCheck lists 365)"
+    "note": "Wikipedia: 90 days for GCC residence valid 1+ year (VisaCheck lists 365)",
+    "source_page": "Visa policy of Georgia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Georgia"
    },
    {
     "destination": "TR",
     "type": "e-visa",
     "days": 30,
     "confidence": "high",
-    "note": "E-visa available online for GCC residents"
+    "note": "E-visa available online for GCC residents",
+    "source_page": "Visa policy of Turkey",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Turkey"
    },
    {
     "destination": "AL",
     "type": "visa-free",
     "days": 90,
     "confidence": "medium",
-    "note": "Valid GCC residence permit required; must have been used (unverified)"
+    "note": "Valid GCC residence permit required; must have been used (unverified)",
+    "source_page": "Visa policy of Albania",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Albania"
    },
    {
     "destination": "BA",
     "type": "visa-free",
     "days": 30,
     "confidence": "medium",
-    "note": "Valid GCC residence permit required (unverified)"
+    "note": "Valid GCC residence permit required (unverified)",
+    "source_page": "Visa policy of Bosnia and Herzegovina",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Bosnia_and_Herzegovina"
    },
    {
     "destination": "AE",
     "type": "visa-free",
     "days": 30,
     "confidence": "high",
-    "note": "Inter-GCC travel — GCC residents from other GCC states can enter"
+    "note": "Inter-GCC travel — GCC residents from other GCC states can enter",
+    "source_page": "Visa policy of the United Arab Emirates",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_United_Arab_Emirates"
    },
    {
     "destination": "BH",
     "type": "visa-free",
     "days": 14,
     "confidence": "high",
-    "note": "Inter-GCC travel facilitated"
+    "note": "Inter-GCC travel facilitated",
+    "source_page": "Visa policy of Bahrain",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Bahrain"
    },
    {
     "destination": "KW",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Inter-GCC travel; some profession restrictions"
+    "note": "Inter-GCC travel; some profession restrictions",
+    "source_page": "Visa policy of Kuwait",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Kuwait"
    },
    {
     "destination": "OM",
     "type": "visa-free",
     "days": 14,
     "confidence": "medium",
-    "note": "Inter-GCC travel; approved-professions list may apply"
+    "note": "Inter-GCC travel; approved-professions list may apply",
+    "source_page": "Visa policy of Oman",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Oman"
    },
    {
     "destination": "QA",
     "type": "visa-free",
     "days": 30,
     "confidence": "high",
-    "note": "Inter-GCC travel facilitated"
+    "note": "Inter-GCC travel facilitated",
+    "source_page": "Visa policy of Qatar",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Qatar"
    },
    {
     "destination": "SA",
     "type": "e-visa",
     "days": 90,
     "confidence": "high",
-    "note": "Inter-GCC travel; e-Visa available (profession/salary requirements may apply)"
+    "note": "Inter-GCC travel; e-Visa available (profession/salary requirements may apply)",
+    "source_page": "Visa policy of Saudi Arabia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Saudi_Arabia"
    },
    {
     "destination": "EG",
     "type": "visa-on-arrival",
     "days": 30,
     "confidence": "medium",
-    "note": "Wikipedia: VoA 30 days for GCC residents (VisaCheck lists 30)"
+    "note": "Wikipedia: VoA 30 days for GCC residents (VisaCheck lists 30)",
+    "source_page": "Visa policy of Egypt",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Egypt"
    }
   ],
   "sg-visa": [
@@ -1535,21 +1937,27 @@
     "type": "transit-free",
     "days": 30,
     "confidence": "medium",
-    "note": "Transit with Singapore work permit (unverified)"
+    "note": "Transit with Singapore work permit (unverified)",
+    "source_page": "Visa policy of South Korea",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_South_Korea"
    },
    {
     "destination": "GE",
     "type": "visa-free",
     "days": 90,
     "confidence": "medium",
-    "note": "Singapore residence permit (unverified)"
+    "note": "Singapore residence permit (unverified)",
+    "source_page": "Visa policy of Georgia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Georgia"
    },
    {
     "destination": "TR",
     "type": "e-visa",
     "days": 30,
     "confidence": "medium",
-    "note": "Singapore permit enables e-Visa (unverified)"
+    "note": "Singapore permit enables e-Visa (unverified)",
+    "source_page": "Visa policy of Turkey",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Turkey"
    }
   ],
   "apec-card": [
@@ -1558,133 +1966,171 @@
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Pre-cleared ABTC holders; business purposes; fast-track lanes"
+    "note": "Pre-cleared ABTC holders; business purposes; fast-track lanes",
+    "source_page": "Visa policy of Australia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Australia"
    },
    {
     "destination": "BN",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Pre-cleared ABTC holders; business purposes"
+    "note": "Pre-cleared ABTC holders; business purposes",
+    "source_page": "Visa policy of Brunei",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Brunei"
    },
    {
     "destination": "CL",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Pre-cleared ABTC holders; business purposes (not row-documented)"
+    "note": "Pre-cleared ABTC holders; business purposes (not row-documented)",
+    "source_page": "Visa policy of Chile",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Chile"
    },
    {
     "destination": "CN",
     "type": "visa-free",
     "days": 60,
     "confidence": "high",
-    "note": "Pre-cleared ABTC holders; business purposes"
+    "note": "Pre-cleared ABTC holders; business purposes",
+    "source_page": "Visa policy of mainland China",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_mainland_China"
    },
    {
     "destination": "HK",
     "type": "visa-free",
     "days": 60,
     "confidence": "high",
-    "note": "Pre-cleared ABTC holders; business purposes (not row-documented)"
+    "note": "Pre-cleared ABTC holders; business purposes (not row-documented)",
+    "source_page": "Visa policy of Hong Kong",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Hong_Kong"
    },
    {
     "destination": "ID",
     "type": "visa-free",
     "days": 60,
     "confidence": "high",
-    "note": "Pre-cleared ABTC holders; business purposes"
+    "note": "Pre-cleared ABTC holders; business purposes",
+    "source_page": "Visa policy of Indonesia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Indonesia"
    },
    {
     "destination": "JP",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Pre-cleared ABTC holders; fast-track lanes (not row-documented)"
+    "note": "Pre-cleared ABTC holders; fast-track lanes (not row-documented)",
+    "source_page": "Visa policy of Japan",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Japan"
    },
    {
     "destination": "KR",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Pre-cleared ABTC holders; business purposes (not row-documented)"
+    "note": "Pre-cleared ABTC holders; business purposes (not row-documented)",
+    "source_page": "Visa policy of South Korea",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_South_Korea"
    },
    {
     "destination": "MY",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Wikipedia: up to 90 days for ABTC with pre-clearance (VisaCheck lists 60)"
+    "note": "Wikipedia: up to 90 days for ABTC with pre-clearance (VisaCheck lists 60)",
+    "source_page": "Visa policy of Malaysia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Malaysia"
    },
    {
     "destination": "MX",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Pre-cleared ABTC holders; business purposes"
+    "note": "Pre-cleared ABTC holders; business purposes",
+    "source_page": "Visa policy of Mexico",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Mexico"
    },
    {
     "destination": "NZ",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Pre-cleared ABTC holders; business purposes (not row-documented)"
+    "note": "Pre-cleared ABTC holders; business purposes (not row-documented)",
+    "source_page": "Visa policy of New Zealand",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_New_Zealand"
    },
    {
     "destination": "PG",
     "type": "visa-free",
     "days": 60,
     "confidence": "high",
-    "note": "Pre-cleared ABTC holders; business purposes"
+    "note": "Pre-cleared ABTC holders; business purposes",
+    "source_page": "Visa policy of Papua New Guinea",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Papua_New_Guinea"
    },
    {
     "destination": "PE",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Pre-cleared ABTC holders; business purposes (not row-documented)"
+    "note": "Pre-cleared ABTC holders; business purposes (not row-documented)",
+    "source_page": "Visa policy of Peru",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Peru"
    },
    {
     "destination": "PH",
     "type": "visa-free",
     "days": 59,
     "confidence": "high",
-    "note": "Pre-cleared ABTC holders; business purposes (not row-documented)"
+    "note": "Pre-cleared ABTC holders; business purposes (not row-documented)",
+    "source_page": "Visa policy of the Philippines",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Philippines"
    },
    {
     "destination": "RU",
     "type": "visa-free",
     "days": 90,
     "confidence": "medium",
-    "note": "Pre-cleared ABTC holders; participation may be affected by sanctions — verify current status"
+    "note": "Pre-cleared ABTC holders; participation may be affected by sanctions — verify current status",
+    "source_page": "Visa policy of Russia",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Russia"
    },
    {
     "destination": "SG",
     "type": "visa-free",
     "days": 60,
     "confidence": "high",
-    "note": "Wikipedia: up to 60 days for ABTC with pre-clearance"
+    "note": "Wikipedia: up to 60 days for ABTC with pre-clearance",
+    "source_page": "Visa policy of Singapore",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Singapore"
    },
    {
     "destination": "TW",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Wikipedia: up to 90 days for ABTC with pre-clearance"
+    "note": "Wikipedia: up to 90 days for ABTC with pre-clearance",
+    "source_page": "Visa policy of Taiwan",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Taiwan"
    },
    {
     "destination": "TH",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Pre-cleared ABTC holders; business purposes"
+    "note": "Pre-cleared ABTC holders; business purposes",
+    "source_page": "Visa policy of Thailand",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Thailand"
    },
    {
     "destination": "VN",
     "type": "visa-free",
     "days": 90,
     "confidence": "high",
-    "note": "Wikipedia: up to 90 days for ABTC with pre-clearance (VisaCheck lists 60)"
+    "note": "Wikipedia: up to 90 days for ABTC with pre-clearance (VisaCheck lists 60)",
+    "source_page": "Visa policy of Vietnam",
+    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Vietnam"
    }
   ]
  }
