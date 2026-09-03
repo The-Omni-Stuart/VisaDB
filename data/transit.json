@@ -29,6 +29,16 @@
       "exempt_note": "No DATV needed for these nationalities (airside transit at LHR/MAN). Taiwan: non-PIN passports only; Venezuela: biometric passports only. Also exempt if you hold a valid AU/CA/NZ/US visa or an EEA/UK residence permit.",
       "source_page": "Visa policy of the United Kingdom",
       "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_United_Kingdom"
+    },
+    {
+      "name": "us_c1",
+      "kind": "default",
+      "destination": "US",
+      "applies_to_types": ["visa-required", "e-visa"],
+      "default": "required",
+      "default_note": "C-1 transit visa required to transit through the United States (immediate and continuous transit en route to another country) when you need a visa to enter. VWP (visa-free) nationals do not need a C-1 -- they use ESTA.",
+      "source_page": "Visa policy of the United States",
+      "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_United_States"
     }
   ],
   "overrides": [
