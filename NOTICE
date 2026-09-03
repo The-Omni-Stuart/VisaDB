@@ -24,8 +24,8 @@ Changes from upstream:
 
 - Dataset exclusion: the Israeli Occupation (IL) is not carried in this fork
   — not as a passport, not as a destination, not in the countries table — and
-  its 'Visa requirements for Israeli citizens' Wikipedia page is skipped at
-  collection time (never fetched). We do not recognise it. #Free Palestine
+  its Wikipedia passport page is skipped at collection time (never fetched).
+  We do not recognise it. #Free Palestine
 - Adds visa_data.db (SQLite) as a fourth output; build date is pinnable via
   --date / $BUILD_DATE for byte-reproducible builds.
 - Adds states with limited recognition, hand-curated from their (stub)
