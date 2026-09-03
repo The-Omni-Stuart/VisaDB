@@ -1,11 +1,114 @@
 {
- "source": "Transit axis. The base rule is COMPUTED in build.py (not stored here): transit is 'free' wherever the entry type is visa-free or freedom-of-movement, because airside transit is strictly less privileged than entry — if you can enter a country without a visa, you can always remain in its international transit area. Every other corridor defaults to 'unknown'.",
- "checked": "2026-09-03",
- "values": [
-  "free",
-  "required",
-  "unknown"
- ],
- "note": "This file holds ONLY the exceptions to the base rule: corridors where a cited source confirms transit is 'free' despite a non-visa-free entry requirement, or 'required' (a transit visa is needed even for airside connections). It is curated by hand, one corridor at a time, because the Wikipedia transit notes are inconsistent — mostly yellow-fever health notes, and the two largest transit-visa hubs (the United States and the United Kingdom) are not in the captured page set — so a bulk scrape is not reliable. Each override must carry a source_page + source_url citation.",
- "overrides": []
+  "source": "Transit axis. The base rule is COMPUTED in build.py (not stored here): transit is 'free' wherever the entry type is visa-free or freedom-of-movement, because airside transit is strictly less privileged than entry — if you can enter a country without a visa, you can always remain in its international transit area. Every other corridor defaults to 'unknown'.",
+  "checked": "2026-09-03",
+  "values": [
+    "free",
+    "required",
+    "unknown"
+  ],
+  "note": "This file holds ONLY the curated exceptions to the base rule, each backed by a cited source (source_page + source_url). 'required' = a transit visa is needed even for an airside connection (the high-value safety case). 'free' = no transit visa is needed despite a non-visa-free entry requirement. It is curated by hand, one corridor at a time, because the Wikipedia transit notes are inconsistent (mostly yellow-fever health notes and Galapagos transit cards); the two largest transit-visa hubs (the United States and the United Kingdom) are not in the captured page set and their rules are conditional on holdings/exemptions, so they are deferred (see 'deferred').",
+  "overrides": [
+    {
+      "passport": "EG",
+      "destination": "AU",
+      "transit": "required",
+      "note": "Transit visa required even when remaining airside.",
+      "source_page": "Visa requirements for Egyptian citizens",
+      "source_url": "https://en.wikipedia.org/wiki/Visa_requirements_for_Egyptian_citizens"
+    },
+    {
+      "passport": "EG",
+      "destination": "CA",
+      "transit": "required",
+      "note": "Transit visa required even when remaining airside.",
+      "source_page": "Visa requirements for Egyptian citizens",
+      "source_url": "https://en.wikipedia.org/wiki/Visa_requirements_for_Egyptian_citizens"
+    },
+    {
+      "passport": "EG",
+      "destination": "NZ",
+      "transit": "required",
+      "note": "Transit visa required even when remaining airside.",
+      "source_page": "Visa requirements for Egyptian citizens",
+      "source_url": "https://en.wikipedia.org/wiki/Visa_requirements_for_Egyptian_citizens"
+    },
+    {
+      "passport": "EG",
+      "destination": "US",
+      "transit": "required",
+      "note": "Transit visa required even when remaining airside.",
+      "source_page": "Visa requirements for Egyptian citizens",
+      "source_url": "https://en.wikipedia.org/wiki/Visa_requirements_for_Egyptian_citizens"
+    },
+    {
+      "passport": "EG",
+      "destination": "GB",
+      "transit": "required",
+      "note": "Transit visa required even when remaining airside.",
+      "source_page": "Visa requirements for Egyptian citizens",
+      "source_url": "https://en.wikipedia.org/wiki/Visa_requirements_for_Egyptian_citizens"
+    },
+    {
+      "passport": "EG",
+      "destination": "CZ",
+      "transit": "required",
+      "note": "Transit visa required even when remaining airside (minority of European states).",
+      "source_page": "Visa requirements for Egyptian citizens",
+      "source_url": "https://en.wikipedia.org/wiki/Visa_requirements_for_Egyptian_citizens"
+    },
+    {
+      "passport": "EG",
+      "destination": "PL",
+      "transit": "required",
+      "note": "Transit visa required even when remaining airside (minority of European states).",
+      "source_page": "Visa requirements for Egyptian citizens",
+      "source_url": "https://en.wikipedia.org/wiki/Visa_requirements_for_Egyptian_citizens"
+    },
+    {
+      "passport": "EG",
+      "destination": "RO",
+      "transit": "required",
+      "note": "Transit visa required even when remaining airside (minority of European states).",
+      "source_page": "Visa requirements for Egyptian citizens",
+      "source_url": "https://en.wikipedia.org/wiki/Visa_requirements_for_Egyptian_citizens"
+    },
+    {
+      "passport": "EG",
+      "destination": "ES",
+      "transit": "required",
+      "note": "Transit visa required even when remaining airside (minority of European states).",
+      "source_page": "Visa requirements for Egyptian citizens",
+      "source_url": "https://en.wikipedia.org/wiki/Visa_requirements_for_Egyptian_citizens"
+    },
+    {
+      "passport": "CL",
+      "destination": "AU",
+      "transit": "free",
+      "note": "No transit visa required for airside connections, but an electronic travel declaration (ETA/e600) is still required to board.",
+      "source_page": "Visa requirements for Chilean citizens",
+      "source_url": "https://en.wikipedia.org/wiki/Visa_requirements_for_Chilean_citizens"
+    },
+    {
+      "passport": "ID",
+      "destination": "AU",
+      "transit": "free",
+      "note": "No transit visa required for airside connections, but an electronic travel declaration (ETA/e600) is still required to board.",
+      "source_page": "Visa requirements for Indonesian citizens",
+      "source_url": "https://en.wikipedia.org/wiki/Visa_requirements_for_Indonesian_citizens"
+    },
+    {
+      "passport": "OM",
+      "destination": "AU",
+      "transit": "free",
+      "note": "No transit visa required for airside connections, but an electronic travel declaration (ETA/e600) is still required to board.",
+      "source_page": "Visa requirements for Omani citizens",
+      "source_url": "https://en.wikipedia.org/wiki/Visa_requirements_for_Omani_citizens"
+    }
+  ],
+  "deferred": [
+    "United Kingdom (GB): Direct Airside Transit Visa (DATV) regime — needed by most nationalities, with a long exemption list and further waivers for holders of US/CA/AU/NZ visas. Conditional on holdings; needs the destination visa-policy page, not in the captured set.",
+    "United States (US): C-1 transit visa regime — needed by most nationalities except Visa Waiver Program citizens and existing US visa holders. Conditional on holdings; needs the destination visa-policy page, not in the captured set.",
+    "Schengen Area: airport-transit-visa (ATV) list — a specific set of nationalities needs an ATV even airside; the rest may transit airside without one. Destination-level rule; needs a clean citable list before encoding per-corridor.",
+    "China (CN): 24/48-hour transit-visa-free scheme for holders of specific third-country visas — conditional on holdings."
+  ]
 }
