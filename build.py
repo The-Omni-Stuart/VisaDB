@@ -276,26 +276,43 @@ def merge_transit(cur):
     # Policies first.
     for pol in spec.get("policies", []):
         if pol.get("kind") == "default":
-            d = pol.get("destination")
-            types = pol.get("applies_to_types", ["visa-required"])
-            ph = ",".join("?" * len(types))
-            # default: fill the 'unknown' corridors of the given entry types.
-            cur.execute(
-                "UPDATE visa_rules SET transit = ?, transit_note = ?"
-                f" WHERE destination = ? AND type IN ({ph}) AND transit = 'unknown'",
-                [pol.get("default"), pol.get("default_note"), d, *types],
-            )
-            n += cur.rowcount
-            # exempt: override those passports. Runs after the default (so no
-            # 'unknown' guard -- it must win over the default); scoped to the
-            # same entry types so visa-free / eta corridors are never touched.
-            for p in pol.get("exempt", []):
-                cur.execute(
-                    "UPDATE visa_rules SET transit = ?, transit_note = ?"
-                    f" WHERE passport = ? AND destination = ? AND type IN ({ph})",
-                    [pol.get("exempt_transit"), pol.get("exempt_note"), p, d, *types],
-                )
+            # One destination ('destination') or many ('destinations').
+            dests = pol.get("destinations") or [pol.get("destination")]
+            # Optional entry-type scope: omit to apply across all entry types.
+            types = pol.get("applies_to_types")
+            default, dnote = pol.get("default"), pol.get("default_note")
+            for d in dests:
+                if types:
+                    ph = ",".join("?" * len(types))
+                    cur.execute(
+                        "UPDATE visa_rules SET transit = ?, transit_note = ?"
+                        f" WHERE destination = ? AND type IN ({ph}) AND transit = 'unknown'",
+                        [default, dnote, d, *types],
+                    )
+                else:
+                    cur.execute(
+                        "UPDATE visa_rules SET transit = ?, transit_note = ?"
+                        " WHERE destination = ? AND transit = 'unknown'",
+                        [default, dnote, d],
+                    )
                 n += cur.rowcount
+                # exempt: override those passports. Runs after the default (no
+                # 'unknown' guard -- it must win over the default); scoped to the
+                # same entry types (or all of them) so other corridors are safe.
+                for p in pol.get("exempt", []):
+                    if types:
+                        cur.execute(
+                            "UPDATE visa_rules SET transit = ?, transit_note = ?"
+                            f" WHERE passport = ? AND destination = ? AND type IN ({ph})",
+                            [pol.get("exempt_transit"), pol.get("exempt_note"), p, d, *types],
+                        )
+                    else:
+                        cur.execute(
+                            "UPDATE visa_rules SET transit = ?, transit_note = ?"
+                            " WHERE passport = ? AND destination = ?",
+                            [pol.get("exempt_transit"), pol.get("exempt_note"), p, d],
+                        )
+                    n += cur.rowcount
         else:  # kind: list -- uniform rule over a passport x destination grid
             transit, note = pol.get("transit"), pol.get("note")
             for p in pol.get("passports", []):

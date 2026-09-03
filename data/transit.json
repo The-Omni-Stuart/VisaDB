@@ -6,14 +6,431 @@
     "required",
     "unknown"
   ],
-  "note": "Two curated, cited forms. 'policies' is a uniform rule (one transit value + note) applied to the cross product of a passport set and a destination set -- e.g. the Schengen airport-transit-visa nationality list -- and only fills corridors the base rule left 'unknown' (it never overrides a visa-free-entry 'free'). 'overrides' is explicit per-corridor rules, the most specific form. 'required' = a transit visa is needed even for an airside connection (the high-value safety case); 'free' = no transit visa is needed despite a non-visa-free entry requirement. Each entry carries source_page + source_url. The UK (DATV), US (C-1/VWP) and China (TWOV) hubs are deferred (see 'deferred').",
+  "note": "Three curated, cited forms. 'policies' has two kinds: (a) a list -- one uniform transit value + note over the cross product of a passport set and a destination set (e.g. the Schengen airport-transit-visa lists) -- and (b) a default -- fill every 'unknown' corridor of one or more destinations (optionally limited to certain entry types) with a value, then override 'exempt' passports (e.g. the UK DATV and US C-1 regimes). Both only fill corridors the base rule left 'unknown'; policy order in the array sets precedence over those 'unknown' corridors, and neither overrides a visa-free-entry 'free'. 'overrides' are explicit per-corridor rules, the most specific form, applied last so they always win. 'required' = a transit visa is needed even for an airside connection (the high-value safety case); 'free' = no transit visa is needed despite a non-visa-free entry requirement (e.g. the Schengen airside transit privilege). Each entry carries source_page + source_url. The China (TWOV) hub is deferred (see 'deferred').",
   "policies": [
     {
       "name": "schengen_atv_core",
       "transit": "required",
-      "passports": ["AF","BD","CD","ER","ET","GH","IR","IQ","NG","PK","SO","LK"],
-      "destinations": ["AT","BE","BG","CZ","DK","EE","FI","FR","DE","GR","HR","HU","IS","IT","LV","LT","LU","MT","NL","NO","PL","PT","RO","SK","SI","ES","SE","CH","CY"],
+      "passports": [
+        "AF",
+        "BD",
+        "CD",
+        "ER",
+        "ET",
+        "GH",
+        "IR",
+        "IQ",
+        "NG",
+        "PK",
+        "SO",
+        "LK"
+      ],
+      "destinations": [
+        "AT",
+        "BE",
+        "BG",
+        "CZ",
+        "DK",
+        "EE",
+        "FI",
+        "FR",
+        "DE",
+        "GR",
+        "HR",
+        "HU",
+        "IS",
+        "IT",
+        "LV",
+        "LT",
+        "LU",
+        "MT",
+        "NL",
+        "NO",
+        "PL",
+        "PT",
+        "RO",
+        "SK",
+        "SI",
+        "ES",
+        "SE",
+        "CH",
+        "CY"
+      ],
       "note": "Airport transit visa (ATV) required to transit airside through any Schengen airport (or Cyprus), even without leaving the international transit area (EU common list, Visa Code Reg. 810/2009). Not required if you hold a valid EU/EEA/CA/JP/US visa or residence permit.",
+      "source_page": "Schengen visa",
+      "source_url": "https://en.wikipedia.org/wiki/Schengen_visa"
+    },
+    {
+      "name": "schengen_atv_AT",
+      "transit": "required",
+      "passports": [
+        "SY"
+      ],
+      "destinations": [
+        "AT"
+      ],
+      "note": "Additional airport-transit-visa nationalities for Austria (beyond the 12-country EU common list).",
+      "source_page": "Schengen visa",
+      "source_url": "https://en.wikipedia.org/wiki/Schengen_visa"
+    },
+    {
+      "name": "schengen_atv_BE",
+      "transit": "required",
+      "passports": [
+        "BI",
+        "DO",
+        "GN",
+        "GW",
+        "HT",
+        "NP",
+        "PS",
+        "SS",
+        "SD",
+        "SY",
+        "TJ",
+        "TR",
+        "UZ",
+        "YE"
+      ],
+      "destinations": [
+        "BE"
+      ],
+      "note": "Additional airport-transit-visa nationalities for Belgium (beyond the 12-country EU common list).",
+      "source_page": "Schengen visa",
+      "source_url": "https://en.wikipedia.org/wiki/Schengen_visa"
+    },
+    {
+      "name": "schengen_atv_CY",
+      "transit": "required",
+      "passports": [
+        "CM",
+        "SD",
+        "TR"
+      ],
+      "destinations": [
+        "CY"
+      ],
+      "note": "Additional airport-transit-visa nationalities for Cyprus (beyond the 12-country EU common list).",
+      "source_page": "Schengen visa",
+      "source_url": "https://en.wikipedia.org/wiki/Schengen_visa"
+    },
+    {
+      "name": "schengen_atv_CZ",
+      "transit": "required",
+      "passports": [
+        "DZ",
+        "AM",
+        "TD",
+        "CU",
+        "EG",
+        "IN",
+        "LB",
+        "LY",
+        "ML",
+        "MR",
+        "NE",
+        "PS",
+        "RU",
+        "SS",
+        "SD",
+        "SY",
+        "TR",
+        "YE"
+      ],
+      "destinations": [
+        "CZ"
+      ],
+      "note": "Additional airport-transit-visa nationalities for Czech Republic (beyond the 12-country EU common list).",
+      "source_page": "Schengen visa",
+      "source_url": "https://en.wikipedia.org/wiki/Schengen_visa"
+    },
+    {
+      "name": "schengen_atv_DK",
+      "transit": "required",
+      "passports": [
+        "SY"
+      ],
+      "destinations": [
+        "DK"
+      ],
+      "note": "Additional airport-transit-visa nationalities for Denmark (beyond the 12-country EU common list).",
+      "source_page": "Schengen visa",
+      "source_url": "https://en.wikipedia.org/wiki/Schengen_visa"
+    },
+    {
+      "name": "schengen_atv_FR",
+      "transit": "required",
+      "passports": [
+        "AO",
+        "BO",
+        "CM",
+        "CF",
+        "TD",
+        "CG",
+        "CU",
+        "DO",
+        "GN",
+        "HT",
+        "CI",
+        "ML",
+        "MR",
+        "NP",
+        "PS",
+        "PH",
+        "RU",
+        "SN",
+        "SL",
+        "SS",
+        "SD",
+        "SY",
+        "TG",
+        "TR",
+        "UZ"
+      ],
+      "destinations": [
+        "FR"
+      ],
+      "note": "Additional airport-transit-visa nationalities for France (beyond the 12-country EU common list).",
+      "source_page": "Schengen visa",
+      "source_url": "https://en.wikipedia.org/wiki/Schengen_visa"
+    },
+    {
+      "name": "schengen_atv_DE",
+      "transit": "required",
+      "passports": [
+        "CU",
+        "JO",
+        "LB",
+        "ML",
+        "SS",
+        "SD",
+        "SY",
+        "TR"
+      ],
+      "destinations": [
+        "DE"
+      ],
+      "note": "Additional airport-transit-visa nationalities for Germany (beyond the 12-country EU common list).",
+      "source_page": "Schengen visa",
+      "source_url": "https://en.wikipedia.org/wiki/Schengen_visa"
+    },
+    {
+      "name": "schengen_atv_GR",
+      "transit": "required",
+      "passports": [
+        "CM",
+        "CG",
+        "SD",
+        "SY"
+      ],
+      "destinations": [
+        "GR"
+      ],
+      "note": "Additional airport-transit-visa nationalities for Greece (beyond the 12-country EU common list).",
+      "source_page": "Schengen visa",
+      "source_url": "https://en.wikipedia.org/wiki/Schengen_visa"
+    },
+    {
+      "name": "schengen_atv_IT",
+      "transit": "required",
+      "passports": [
+        "SN",
+        "SY",
+        "TJ",
+        "UZ"
+      ],
+      "destinations": [
+        "IT"
+      ],
+      "note": "Additional airport-transit-visa nationalities for Italy (beyond the 12-country EU common list).",
+      "source_page": "Schengen visa",
+      "source_url": "https://en.wikipedia.org/wiki/Schengen_visa"
+    },
+    {
+      "name": "schengen_atv_NL",
+      "transit": "required",
+      "passports": [
+        "CF",
+        "TD",
+        "CU",
+        "GN",
+        "GW",
+        "MR",
+        "NP",
+        "SN",
+        "SL",
+        "SS",
+        "SD",
+        "SY",
+        "TR",
+        "YE"
+      ],
+      "destinations": [
+        "NL"
+      ],
+      "note": "Additional airport-transit-visa nationalities for Netherlands (beyond the 12-country EU common list).",
+      "source_page": "Schengen visa",
+      "source_url": "https://en.wikipedia.org/wiki/Schengen_visa"
+    },
+    {
+      "name": "schengen_atv_NO",
+      "transit": "required",
+      "passports": [
+        "SY",
+        "TR"
+      ],
+      "destinations": [
+        "NO"
+      ],
+      "note": "Additional airport-transit-visa nationalities for Norway (beyond the 12-country EU common list).",
+      "source_page": "Schengen visa",
+      "source_url": "https://en.wikipedia.org/wiki/Schengen_visa"
+    },
+    {
+      "name": "schengen_atv_PL",
+      "transit": "required",
+      "passports": [
+        "AM",
+        "CU",
+        "EG"
+      ],
+      "destinations": [
+        "PL"
+      ],
+      "note": "Additional airport-transit-visa nationalities for Poland (beyond the 12-country EU common list).",
+      "source_page": "Schengen visa",
+      "source_url": "https://en.wikipedia.org/wiki/Schengen_visa"
+    },
+    {
+      "name": "schengen_atv_PT",
+      "transit": "required",
+      "passports": [
+        "GN",
+        "SN",
+        "UZ"
+      ],
+      "destinations": [
+        "PT"
+      ],
+      "note": "Additional airport-transit-visa nationalities for Portugal (beyond the 12-country EU common list).",
+      "source_page": "Schengen visa",
+      "source_url": "https://en.wikipedia.org/wiki/Schengen_visa"
+    },
+    {
+      "name": "schengen_atv_RO",
+      "transit": "required",
+      "passports": [
+        "EG",
+        "IN",
+        "LB",
+        "MA",
+        "NP",
+        "PS",
+        "SY",
+        "TJ",
+        "TN",
+        "UZ",
+        "YE"
+      ],
+      "destinations": [
+        "RO"
+      ],
+      "note": "Additional airport-transit-visa nationalities for Romania (beyond the 12-country EU common list).",
+      "source_page": "Schengen visa",
+      "source_url": "https://en.wikipedia.org/wiki/Schengen_visa"
+    },
+    {
+      "name": "schengen_atv_ES",
+      "transit": "required",
+      "passports": [
+        "BF",
+        "CM",
+        "CF",
+        "TD",
+        "CG",
+        "CU",
+        "DJ",
+        "EG",
+        "GM",
+        "GN",
+        "GW",
+        "HT",
+        "CI",
+        "KE",
+        "LR",
+        "ML",
+        "MR",
+        "NP",
+        "PS",
+        "RU",
+        "SN",
+        "SL",
+        "SD",
+        "SY",
+        "TJ",
+        "TG",
+        "TR",
+        "UZ",
+        "YE"
+      ],
+      "destinations": [
+        "ES"
+      ],
+      "note": "Additional airport-transit-visa nationalities for Spain (beyond the 12-country EU common list).",
+      "source_page": "Schengen visa",
+      "source_url": "https://en.wikipedia.org/wiki/Schengen_visa"
+    },
+    {
+      "name": "schengen_atv_CH",
+      "transit": "required",
+      "passports": [
+        "CU",
+        "SY",
+        "TR"
+      ],
+      "destinations": [
+        "CH"
+      ],
+      "note": "Additional airport-transit-visa nationalities for Switzerland (beyond the 12-country EU common list).",
+      "source_page": "Schengen visa",
+      "source_url": "https://en.wikipedia.org/wiki/Schengen_visa"
+    },
+    {
+      "name": "schengen_transit_privilege",
+      "kind": "default",
+      "destinations": [
+        "AT",
+        "BE",
+        "BG",
+        "CZ",
+        "DK",
+        "EE",
+        "FI",
+        "FR",
+        "DE",
+        "GR",
+        "HR",
+        "HU",
+        "IS",
+        "IT",
+        "LV",
+        "LT",
+        "LU",
+        "MT",
+        "NL",
+        "NO",
+        "PL",
+        "PT",
+        "RO",
+        "SK",
+        "SI",
+        "ES",
+        "SE",
+        "CH",
+        "CY"
+      ],
+      "default": "free",
+      "default_note": "Airside transit privilege: transiting airside through a Schengen (or Cyprus) airport -- without leaving the international transit area, single airport, under one day -- requires no transit visa for any nationality.",
       "source_page": "Schengen visa",
       "source_url": "https://en.wikipedia.org/wiki/Schengen_visa"
     },
@@ -21,10 +438,59 @@
       "name": "uk_datv",
       "kind": "default",
       "destination": "GB",
-      "applies_to_types": ["visa-required", "e-visa"],
+      "applies_to_types": [
+        "visa-required",
+        "e-visa"
+      ],
       "default": "required",
       "default_note": "Direct Airside Transit visa (DATV) required to transit airside through the UK -- airside transit is available only at London Heathrow and Manchester -- when you need a visa to enter and are not on the exempt list.",
-      "exempt": ["AM","AZ","BJ","BT","BO","BA","BF","KH","CV","CF","TD","KM","CU","DJ","DO","EC","GQ","FJ","GA","HT","ID","KZ","KG","LA","MG","ML","MR","ME","MA","MZ","NE","KP","PH","ST","SR","TW","TJ","TH","TG","TN","TM","UA","UZ","VE","ZM"],
+      "exempt": [
+        "AM",
+        "AZ",
+        "BJ",
+        "BT",
+        "BO",
+        "BA",
+        "BF",
+        "KH",
+        "CV",
+        "CF",
+        "TD",
+        "KM",
+        "CU",
+        "DJ",
+        "DO",
+        "EC",
+        "GQ",
+        "FJ",
+        "GA",
+        "HT",
+        "ID",
+        "KZ",
+        "KG",
+        "LA",
+        "MG",
+        "ML",
+        "MR",
+        "ME",
+        "MA",
+        "MZ",
+        "NE",
+        "KP",
+        "PH",
+        "ST",
+        "SR",
+        "TW",
+        "TJ",
+        "TH",
+        "TG",
+        "TN",
+        "TM",
+        "UA",
+        "UZ",
+        "VE",
+        "ZM"
+      ],
       "exempt_transit": "free",
       "exempt_note": "No DATV needed for these nationalities (airside transit at LHR/MAN). Taiwan: non-PIN passports only; Venezuela: biometric passports only. Also exempt if you hold a valid AU/CA/NZ/US visa or an EEA/UK residence permit.",
       "source_page": "Visa policy of the United Kingdom",
@@ -34,7 +500,10 @@
       "name": "us_c1",
       "kind": "default",
       "destination": "US",
-      "applies_to_types": ["visa-required", "e-visa"],
+      "applies_to_types": [
+        "visa-required",
+        "e-visa"
+      ],
       "default": "required",
       "default_note": "C-1 transit visa required to transit through the United States (immediate and continuous transit en route to another country) when you need a visa to enter. VWP (visa-free) nationals do not need a C-1 -- they use ESTA.",
       "source_page": "Visa policy of the United States",
@@ -140,9 +609,6 @@
     }
   ],
   "deferred": [
-    "United Kingdom (GB): Direct Airside Transit Visa (DATV) regime — needed by most nationalities, with a long exemption list and further waivers for holders of US/CA/AU/NZ visas. Conditional on holdings; needs the destination visa-policy page, not in the captured set.",
-    "United States (US): C-1 transit visa regime — needed by most nationalities except Visa Waiver Program citizens and existing US visa holders. Conditional on holdings; needs the destination visa-policy page, not in the captured set.",
-    "Schengen Area: airport-transit-visa (ATV) list — a specific set of nationalities needs an ATV even airside; the rest may transit airside without one. Destination-level rule; needs a clean citable list before encoding per-corridor.",
-    "China (CN): 24/48-hour transit-visa-free scheme for holders of specific third-country visas — conditional on holdings."
+    "China (CN): 24/48-hour transit-visa-free scheme for holders of specific third-country visas -- conditional on holdings; messiest of the remaining hubs (designated ports, 57-country list, conditional on onward third-country visa)."
   ]
 }
