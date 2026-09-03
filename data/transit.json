@@ -886,7 +886,7 @@
         "eta"
       ],
       "default": "free",
-      "default_note": "Visa-exempt (ETA) nationals can transit airside through Australia without a Transit visa (771); an electronic travel declaration (ETA/e600) may still be required to board.",
+      "default_note": "No Transit visa (771) is needed (you are visa-exempt). An ETA/e600 is required only if you leave the international transit area; a strictly airside connection -- same or separate ticket -- needs no authorization as long as you do not clear immigration or re-check baggage outside the transit area.",
       "source_page": "Visa policy of Australia",
       "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Australia"
     },
@@ -898,7 +898,7 @@
         "eta"
       ],
       "default": "free",
-      "default_note": "Visa-exempt (eTA) nationals can transit airside through Canada without a transit visa.",
+      "default_note": "No transit visa is needed (you are visa-exempt). An eTA is required only if you leave the international transit area; a strictly airside connection -- same or separate ticket -- needs no authorization as long as you do not clear immigration.",
       "source_page": "Visa policy of Canada",
       "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Canada"
     },
@@ -910,7 +910,7 @@
         "eta"
       ],
       "default": "free",
-      "default_note": "Visa-waiver (nZeTA) nationals can transit airside through New Zealand without a Transit Visa (a transit eTA is required), Auckland Airport only, up to 24 hours.",
+      "default_note": "No Transit Visa is needed for a strictly airside connection (visa-waiver national), Auckland Airport only, up to 24 hours -- same or separate ticket, staying in the transit area; a transit nZeTA is required only if you leave the international transit area.",
       "source_page": "Visa policy of New Zealand",
       "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_New_Zealand"
     }
