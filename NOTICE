@@ -6,6 +6,11 @@ VisaDB is a fork of visa-matrix, created and maintained by xpressmike.
   Author:    xpressmike
   License:   CC BY-SA 4.0 (original text kept in LICENSE-CC-BY-SA-4.0.txt)
 
+Fork (this repository):
+  Maintainer: cbk-res
+  Copyright (C) 2026 cbk-res (VisaDB fork)
+  License:   GNU GPL v3 (see LICENSE)
+
 Thanks to xpressmike for building and openly sharing visa-matrix — the
 provenance-tracked, every-passport × every-destination visa-requirements
 dataset that this project starts from.
@@ -39,3 +44,15 @@ Changes from upstream:
   that basis (wrong direction, non-matrix territories, duplicates). A benefit
   only relaxes the underlying passport rule — it never waives a valid passport
   or the destination's normal admissibility checks.
+- Adds per-row source provenance to visa_benefits: every benefit row carries
+  source_page + source_url pointing at the destination's own 'Visa policy of X'
+  English Wikipedia page (the 29 Schengen members plus Cyprus share the single
+  'Visa policy of the Schengen Area' page) so each holding is one click away
+  from re-verification. The 13 holdings / 223 rows are generated from
+  gen_benefits.py, the single source of truth for data/visa-benefits.json.
+- Adds a transit axis on visa_rules (transit, transit_note): free | required |
+  unknown, separate from the entry status ladder. The base rule is computed,
+  not scraped — transit is 'free' wherever the entry type is visa-free or
+  freedom-of-movement (airside transit is strictly less privileged than entry)
+  and 'unknown' otherwise; cited exceptions live in data/transit.json and are
+  applied by merge_transit().
