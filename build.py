@@ -12,12 +12,12 @@ so out loud instead of silently picking one.
 
 Outputs (in data/):
    visa_data.db            canonical SQLite form the app consumes (meta, countries,
-                           visa_rules, corrections, visa_holdings, visa_benefits,
-                           mobility_regimes)
+                            visa_rules, corrections, visa_holdings, visa_benefits,
+                            mobility_regimes, stay_rules)
    visa_data.json          canonical nested text form: the matrix (entry status +
-                           transit per corridor) plus countries / corrections /
-                           holdings / benefits / mobility_regimes as top-level
-                           lists — for diffing
+                            transit per corridor) plus countries / corrections /
+                            holdings / benefits / mobility_regimes / stay_rules as
+                            top-level lists — for diffing
   visa-matrix-iso2.csv    opt-in, --export matrix: wide grid, entry status only
   visa-matrix-tidy.csv    opt-in, --export tidy: long form, entry status only
 
@@ -66,6 +66,15 @@ is visa-free / freedom-of-movement. It never changes the per-corridor entry
 status. 'members' + 'associates' are active; 'deactivated' are bloc members
 that do not currently exercise the right. Curated in
 data/mobility-regimes.json and merged by merge_mobility_regimes().
+
+Stay rules: a separate layer (the stay_rules table) storing nationality-scoped
+stay-allowance FACTS — window type (rolling vs per-entry), window size (X/Y),
+whether the allowance is a shared pool/zone (Schengen 27-state pool, CA-4 pool),
+extension caps, multiple-entry, the applicable nationalities, and valid_from /
+valid_to. It is the DB half of the stay-rules feature: the DB records the facts,
+and the APP computes "how many days do I have left" from those facts plus the
+user's own travel history (never stored). It never changes the per-corridor
+entry status. Curated in data/stay-rules.json and merged by merge_stay_rules().
 """
 
 from __future__ import annotations
@@ -301,6 +310,62 @@ def merge_mobility_regimes(cur, known_iso2):
     return n
 
 
+def merge_stay_rules(cur, known_iso2):
+    """Load the curated stay-rule facts from data/stay-rules.json into the
+    stay_rules table.
+
+    DB half of the stay-rules feature: stores nationality-scoped stay
+    allowances (window type/size, shared pool/zone, extension caps,
+    multiple-entry, applicable nationalities, validity). The "how many days do
+    I have left" computation is app logic (it needs the user's travel history,
+    never stored here). Never changes per-corridor visa_rules entry status.
+
+    countries are real ISO2 (dropped if absent from this build). nationalities
+    may hold sentinels '*' / 'EU-EEA' (non-ISO2, kept verbatim); real ISO2 are
+    dropped if absent from this build.
+    """
+    path = DATA / "stay-rules.json"
+    if not path.exists():
+        return 0
+    spec = json.load(open(path))
+
+    def is_iso2(c):
+        return len(c) == 2 and c.isalpha() and c.isupper()
+
+    def keep_countries(codes):
+        return sorted(set(codes) & known_iso2)
+
+    def keep_nationalities(codes):
+        out = []
+        for c in codes:
+            if is_iso2(c):
+                if c in known_iso2:
+                    out.append(c)
+            else:  # sentinel ('*', 'EU-EEA', ...) kept verbatim
+                out.append(c)
+        return sorted(set(out))
+
+    n = 0
+    for r in spec.get("rules", []):
+        cur.execute(
+            "INSERT OR REPLACE INTO stay_rules"
+            "(id, zone, zone_name, countries, window_type, window_days,"
+            " window_period_days, extension, multiple_entry, nationalities,"
+            " valid_from, valid_to, source, note)"
+            " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+            (r["id"], r.get("zone"), r.get("zone_name"),
+             json.dumps(keep_countries(r.get("countries", []))),
+             r["window_type"], r.get("window_days"), r.get("window_period_days"),
+             r.get("extension"), int(r.get("multiple_entry", 0)),
+             json.dumps(keep_nationalities(r.get("nationalities", []))),
+             r.get("valid_from"), r.get("valid_to"), r.get("source"),
+             r.get("note")),
+        )
+        n += 1
+    print(f"stay rules: {n}")
+    return n
+
+
 def merge_transit(cur):
     """Apply the curated, cited transit rules from data/transit.json.
 
@@ -393,7 +458,7 @@ def merge_transit(cur):
 
 def write_sqlite(dataset, matrix, passports, overrides, extra_names=None) -> pathlib.Path:
     """Write the SQLite form: meta, countries, visa_rules, corrections,
-    visa_holdings, visa_benefits, mobility_regimes."""
+    visa_holdings, visa_benefits, mobility_regimes, stay_rules."""
     db_path = DATA / "visa_data.db"
     if db_path.exists():
         db_path.unlink()
@@ -473,18 +538,42 @@ def write_sqlite(dataset, matrix, passports, overrides, extra_names=None) -> pat
             source_url  TEXT,
             note        TEXT
         );
+        CREATE TABLE stay_rules (
+            -- Stay-rule FACTS layer (DB half; the app computes the balance).
+            -- window_type: per-entry | rolling. window_days = X; window_period_days
+            -- = Y (rolling only). zone: shared pool id — rows sharing a zone pool
+            -- their allowance (Schengen 27-state, CA-4). countries / nationalities
+            -- are JSON arrays of ISO2; nationalities may hold the sentinels
+            -- '*' (all visa-exempt) and 'EU' (EU/EEA). valid_from/valid_to bound
+            -- when the grant applies.
+            id                 TEXT PRIMARY KEY,
+            zone               TEXT,
+            zone_name          TEXT,
+            countries          TEXT NOT NULL,
+            window_type        TEXT NOT NULL,
+            window_days        INTEGER,
+            window_period_days INTEGER,
+            extension          INTEGER,
+            multiple_entry     INTEGER NOT NULL DEFAULT 0,
+            nationalities      TEXT NOT NULL,
+            valid_from         TEXT,
+            valid_to           TEXT,
+            source             TEXT,
+            note               TEXT
+        );
         CREATE INDEX idx_visa_rules_destination  ON visa_rules(destination);
         CREATE INDEX idx_visa_rules_type         ON visa_rules(type);
         CREATE INDEX idx_visa_benefits_holding   ON visa_benefits(holding);
         CREATE INDEX idx_visa_benefits_dest      ON visa_benefits(destination);
         CREATE INDEX idx_mobility_regimes_level  ON mobility_regimes(level);
+        CREATE INDEX idx_stay_rules_zone         ON stay_rules(zone);
     """)
 
     meta = dataset["meta"]
     for k in ("name", "version", "generated", "passport_count", "corridor_count",
               "primary_source", "cross_check", "limited_recognition",
-              "visa_benefits", "transit", "mobility_regimes", "attribution",
-              "license", "disclaimer"):
+              "visa_benefits", "transit", "mobility_regimes", "stay_rules",
+              "attribution", "license", "disclaimer"):
         if k in meta:
             cur.execute("INSERT INTO meta(key, value) VALUES (?, ?)", (k, str(meta[k])))
 
@@ -529,6 +618,7 @@ def write_sqlite(dataset, matrix, passports, overrides, extra_names=None) -> pat
 
     merge_visa_benefits(cur, iso2s)
     merge_mobility_regimes(cur, iso2s)
+    merge_stay_rules(cur, iso2s)
 
     con.commit()
     con.close()
@@ -561,6 +651,14 @@ def write_full_json(db_path, matrix, dataset) -> pathlib.Path:
         mrec["members"] = json.loads(mrec["members"])
         mrec["associates"] = json.loads(mrec["associates"])
         mrec["deactivated"] = json.loads(mrec["deactivated"])
+    stay = [dict(r) for r in con.execute(
+        "SELECT id, zone, zone_name, countries, window_type, window_days,"
+        " window_period_days, extension, multiple_entry, nationalities,"
+        " valid_from, valid_to, source, note"
+        " FROM stay_rules ORDER BY id")]
+    for srec in stay:
+        srec["countries"] = json.loads(srec["countries"])
+        srec["nationalities"] = json.loads(srec["nationalities"])
     m = {}
     for r in con.execute(
             "SELECT passport, destination, type, days, confidence, source,"
@@ -591,7 +689,7 @@ def write_full_json(db_path, matrix, dataset) -> pathlib.Path:
         json.dump(
             {"meta": dataset["meta"], "countries": countries, "matrix": m,
              "corrections": corrections, "holdings": holdings, "benefits": benefits,
-             "mobility_regimes": mobility},
+             "mobility_regimes": mobility, "stay_rules": stay},
             f, ensure_ascii=False, indent=1)
     return out
 
@@ -794,6 +892,23 @@ def build(build_date: str, exports: frozenset = frozenset()):
                 "level: freedom-of-movement (enter + reside + work) or "
                 "visa-free (enter without a visa, no automatic residence/work). "
                 "Curated from the Wikipedia 'Freedom of movement' article."
+            ),
+            "stay_rules": (
+                "Separate FACTS layer (stay_rules table, from data/stay-rules."
+                "json): nationality-scoped stay allowances. The DB half of the "
+                "stay-rules feature — it stores the facts, the app computes 'how "
+                "many days do I have left' from these facts plus the user's own "
+                "travel history (never stored). It never changes the per-"
+                "corridor visa_rules entry status. window_type: per-entry (up to "
+                "window_days each entry) or rolling (up to window_days in any "
+                "window_period_days). zone: shared pool id — rows sharing a zone "
+                "pool their allowance (Schengen: one 90/180 pool across 27 "
+                "states; CA-4: one pool across GT/SV/HN/NI with per-country "
+                "allowances), so 'time in one bloc country' is explicit. "
+                "countries are real ISO2; nationalities may hold the sentinels "
+                "'*' (all visa-exempt nationals) and 'EU-EEA' (EU/EEA nationals), "
+                "resolved by the app. valid_from/valid_to bound when the grant "
+                "applies. Phase-1 seed; re-verify per rule in phase 2."
             ),
             "attribution": "xpressmike/visa-matrix (CC BY-SA 4.0)",
             "license": "GPLv3 — VisaDB fork of visa-matrix; see LICENSE and NOTICE",

@@ -1,0 +1,501 @@
+{
+  "source": "Stay-rule FACTS layer (a `stay_rules` table). Stores the nationality-scoped stay allowances: window type (rolling vs per-entry), window size (X/Y), whether the allowance is a shared pool/zone, extension caps, multiple-entry, which nationalities it applies to, and valid_from/valid_to. The 'how many days do I have left' computation is APP logic (needs the user's travel history), never stored here. Phase-1 seed curated from docs/stay-rules-verified.md; re-verify in phase 2 before relying on a rule.",
+  "checked": "2026-09-04",
+  "note": "window_type: 'per-entry' (up to window_days each entry) or 'rolling' (up to window_days in any window_period_days). zone: shared pool id — rows sharing a zone pool their allowances (Schengen: one 90/180 pool across 27 states; CA-4: one pool across GT/SV/HN/NI with per-country allowances). nationalities may contain the sentinels '*' (all visa-exempt nationals) and 'EU-EEA' (EU/EEA nationals); the app resolves them. valid_from/valid_to bound when the grant applies. DB stores facts; the app computes the balance.",
+  "rules": [
+    {
+      "id": "schengen",
+      "zone": "schengen",
+      "zone_name": "Schengen Area",
+      "countries": [
+        "AT",
+        "BE",
+        "HR",
+        "CZ",
+        "DK",
+        "EE",
+        "FI",
+        "FR",
+        "DE",
+        "HU",
+        "IS",
+        "IT",
+        "LV",
+        "LI",
+        "LT",
+        "LU",
+        "MT",
+        "NL",
+        "NO",
+        "PL",
+        "PT",
+        "RO",
+        "SK",
+        "SI",
+        "ES",
+        "SE",
+        "CH"
+      ],
+      "window_type": "rolling",
+      "window_days": 90,
+      "window_period_days": 180,
+      "extension": null,
+      "multiple_entry": 1,
+      "nationalities": [
+        "*"
+      ],
+      "valid_from": null,
+      "valid_to": null,
+      "source": "Schengen Area (Visa policy of the Schengen Area)",
+      "note": "90 days in any 180-day period (rolling). The 90 days are a single shared pool across all 27 member states: time spent in one member counts against the same allowance as in another."
+    },
+    {
+      "id": "ca4-gt",
+      "zone": "ca4",
+      "zone_name": "CA-4 (Central America)",
+      "countries": [
+        "GT"
+      ],
+      "window_type": "per-entry",
+      "window_days": 90,
+      "window_period_days": null,
+      "extension": null,
+      "multiple_entry": 0,
+      "nationalities": [
+        "*"
+      ],
+      "valid_from": null,
+      "valid_to": null,
+      "source": "CA-4 Border Control Agreement (Guatemala)",
+      "note": "CA-4: the allowance is shared across all four countries (GT/SV/HN/NI); total time in the zone counts against one pool."
+    },
+    {
+      "id": "ca4-ni",
+      "zone": "ca4",
+      "zone_name": "CA-4 (Central America)",
+      "countries": [
+        "NI"
+      ],
+      "window_type": "per-entry",
+      "window_days": 90,
+      "window_period_days": null,
+      "extension": null,
+      "multiple_entry": 0,
+      "nationalities": [
+        "*"
+      ],
+      "valid_from": null,
+      "valid_to": null,
+      "source": "CA-4 Border Control Agreement (Nicaragua)",
+      "note": "CA-4: shared pool (GT/SV/HN/NI)."
+    },
+    {
+      "id": "ca4-sv",
+      "zone": "ca4",
+      "zone_name": "CA-4 (Central America)",
+      "countries": [
+        "SV"
+      ],
+      "window_type": "per-entry",
+      "window_days": 180,
+      "window_period_days": null,
+      "extension": null,
+      "multiple_entry": 0,
+      "nationalities": [
+        "GB",
+        "US",
+        "EU-EEA",
+        "RU"
+      ],
+      "valid_from": null,
+      "valid_to": null,
+      "source": "CA-4 Border Control Agreement (El Salvador)",
+      "note": "CA-4: 180 days (UK/US/EU/RU nationals); shared pool (GT/SV/HN/NI)."
+    },
+    {
+      "id": "ca4-hn",
+      "zone": "ca4",
+      "zone_name": "CA-4 (Central America)",
+      "countries": [
+        "HN"
+      ],
+      "window_type": "per-entry",
+      "window_days": 90,
+      "window_period_days": null,
+      "extension": null,
+      "multiple_entry": 0,
+      "nationalities": [
+        "US"
+      ],
+      "valid_from": null,
+      "valid_to": null,
+      "source": "CA-4 Border Control Agreement (Honduras)",
+      "note": "CA-4: 90 days (US nationals); GB requires a visa since Aug 2024; shared pool (GT/SV/HN/NI)."
+    },
+    {
+      "id": "gb",
+      "zone": null,
+      "zone_name": null,
+      "countries": [
+        "GB"
+      ],
+      "window_type": "per-entry",
+      "window_days": 180,
+      "window_period_days": null,
+      "extension": null,
+      "multiple_entry": 0,
+      "nationalities": [
+        "*"
+      ],
+      "valid_from": null,
+      "valid_to": null,
+      "source": "Visa policy of the United Kingdom (Standard Visitor)",
+      "note": "Up to 180 days per entry (Standard Visitor)."
+    },
+    {
+      "id": "western-balkans",
+      "zone": null,
+      "zone_name": null,
+      "countries": [
+        "BA",
+        "ME",
+        "MK",
+        "RS"
+      ],
+      "window_type": "rolling",
+      "window_days": 90,
+      "window_period_days": 180,
+      "extension": null,
+      "multiple_entry": 0,
+      "nationalities": [
+        "*"
+      ],
+      "valid_from": null,
+      "valid_to": null,
+      "source": "Visa policy of Bosnia & Herzegovina / Montenegro / North Macedonia / Serbia",
+      "note": "90 days in any 180-day period (rolling). The same rule for all four Western Balkan states; this is NOT a shared pool (unlike CA-4/Schengen). Montenegro will require a visa for Russian nationals from 2026-11-01."
+    },
+    {
+      "id": "ua",
+      "zone": null,
+      "zone_name": null,
+      "countries": [
+        "UA"
+      ],
+      "window_type": "rolling",
+      "window_days": 90,
+      "window_period_days": 180,
+      "extension": null,
+      "multiple_entry": 0,
+      "nationalities": [
+        "*"
+      ],
+      "valid_from": null,
+      "valid_to": null,
+      "source": "Visa policy of Ukraine",
+      "note": "90 days in any 180-day period (rolling)."
+    },
+    {
+      "id": "md",
+      "zone": null,
+      "zone_name": null,
+      "countries": [
+        "MD"
+      ],
+      "window_type": "rolling",
+      "window_days": 90,
+      "window_period_days": 180,
+      "extension": null,
+      "multiple_entry": 0,
+      "nationalities": [
+        "*"
+      ],
+      "valid_from": null,
+      "valid_to": null,
+      "source": "Visa policy of Moldova",
+      "note": "90 days in any 180-day period (rolling)."
+    },
+    {
+      "id": "ge",
+      "zone": null,
+      "zone_name": null,
+      "countries": [
+        "GE"
+      ],
+      "window_type": "per-entry",
+      "window_days": 365,
+      "window_period_days": null,
+      "extension": null,
+      "multiple_entry": 0,
+      "nationalities": [
+        "*"
+      ],
+      "valid_from": null,
+      "valid_to": null,
+      "source": "Visa policy of Georgia",
+      "note": "365 days per entry for ~95 nationalities; travel insurance mandatory from 2026-01-01."
+    },
+    {
+      "id": "al-90180",
+      "zone": null,
+      "zone_name": null,
+      "countries": [
+        "AL"
+      ],
+      "window_type": "rolling",
+      "window_days": 90,
+      "window_period_days": 180,
+      "extension": null,
+      "multiple_entry": 0,
+      "nationalities": [
+        "GB",
+        "EU-EEA"
+      ],
+      "valid_from": null,
+      "valid_to": null,
+      "source": "Visa policy of Albania",
+      "note": "UK/EU: 90 days in any 180-day period."
+    },
+    {
+      "id": "al-us-365",
+      "zone": null,
+      "zone_name": null,
+      "countries": [
+        "AL"
+      ],
+      "window_type": "per-entry",
+      "window_days": 365,
+      "window_period_days": null,
+      "extension": null,
+      "multiple_entry": 0,
+      "nationalities": [
+        "US"
+      ],
+      "valid_from": null,
+      "valid_to": null,
+      "source": "Visa policy of Albania",
+      "note": "US: 365 days."
+    },
+    {
+      "id": "tr",
+      "zone": null,
+      "zone_name": null,
+      "countries": [
+        "TR"
+      ],
+      "window_type": "rolling",
+      "window_days": 90,
+      "window_period_days": 180,
+      "extension": null,
+      "multiple_entry": 0,
+      "nationalities": [
+        "*"
+      ],
+      "valid_from": null,
+      "valid_to": null,
+      "source": "Visa policy of Turkiye",
+      "note": "90 days in any 180-day period (rolling)."
+    },
+    {
+      "id": "us",
+      "zone": null,
+      "zone_name": null,
+      "countries": [
+        "US"
+      ],
+      "window_type": "per-entry",
+      "window_days": 90,
+      "window_period_days": null,
+      "extension": 90,
+      "multiple_entry": 0,
+      "nationalities": [
+        "*"
+      ],
+      "valid_from": null,
+      "valid_to": null,
+      "source": "Visa Waiver Programme (United States)",
+      "note": "90 days (VWP B-1/B-2); extensions up to 180 days at CBP officer discretion."
+    },
+    {
+      "id": "mx",
+      "zone": null,
+      "zone_name": null,
+      "countries": [
+        "MX"
+      ],
+      "window_type": "per-entry",
+      "window_days": 180,
+      "window_period_days": null,
+      "extension": null,
+      "multiple_entry": 0,
+      "nationalities": [
+        "*"
+      ],
+      "valid_from": null,
+      "valid_to": null,
+      "source": "Visa policy of Mexico (FMM)",
+      "note": "Up to 180 days per entry (FMM)."
+    },
+    {
+      "id": "cr",
+      "zone": null,
+      "zone_name": null,
+      "countries": [
+        "CR"
+      ],
+      "window_type": "per-entry",
+      "window_days": 180,
+      "window_period_days": null,
+      "extension": null,
+      "multiple_entry": 0,
+      "nationalities": [
+        "*"
+      ],
+      "valid_from": null,
+      "valid_to": null,
+      "source": "Visa policy of Costa Rica",
+      "note": "Up to 180 days at officer discretion (Group 1). Not part of CA-4."
+    },
+    {
+      "id": "pa",
+      "zone": null,
+      "zone_name": null,
+      "countries": [
+        "PA"
+      ],
+      "window_type": "per-entry",
+      "window_days": 90,
+      "window_period_days": null,
+      "extension": null,
+      "multiple_entry": 0,
+      "nationalities": [
+        "*"
+      ],
+      "valid_from": null,
+      "valid_to": null,
+      "source": "Visa policy of Panama",
+      "note": "90 days per entry. Not part of CA-4."
+    },
+    {
+      "id": "co",
+      "zone": null,
+      "zone_name": null,
+      "countries": [
+        "CO"
+      ],
+      "window_type": "per-entry",
+      "window_days": 90,
+      "window_period_days": null,
+      "extension": 90,
+      "multiple_entry": 0,
+      "nationalities": [
+        "*"
+      ],
+      "valid_from": null,
+      "valid_to": null,
+      "source": "Visa policy of Colombia",
+      "note": "90 days per entry, extendable by +90; cap 180 days in any 12 months."
+    },
+    {
+      "id": "pe",
+      "zone": null,
+      "zone_name": null,
+      "countries": [
+        "PE"
+      ],
+      "window_type": "per-entry",
+      "window_days": 90,
+      "window_period_days": null,
+      "extension": null,
+      "multiple_entry": 0,
+      "nationalities": [
+        "*"
+      ],
+      "valid_from": null,
+      "valid_to": null,
+      "source": "Visa policy of Peru",
+      "note": "90 days per entry, extendable; cap 183 days in a rolling 365-day period."
+    },
+    {
+      "id": "jp",
+      "zone": null,
+      "zone_name": null,
+      "countries": [
+        "JP"
+      ],
+      "window_type": "per-entry",
+      "window_days": 90,
+      "window_period_days": null,
+      "extension": 90,
+      "multiple_entry": 1,
+      "nationalities": [
+        "*"
+      ],
+      "valid_from": null,
+      "valid_to": null,
+      "source": "Visa policy of Japan",
+      "note": "90 days per entry; multiple entry; extendable by +90 (UK nationals)."
+    },
+    {
+      "id": "kr",
+      "zone": null,
+      "zone_name": null,
+      "countries": [
+        "KR"
+      ],
+      "window_type": "per-entry",
+      "window_days": 90,
+      "window_period_days": null,
+      "extension": null,
+      "multiple_entry": 0,
+      "nationalities": [
+        "*"
+      ],
+      "valid_from": null,
+      "valid_to": null,
+      "source": "Visa policy of South Korea",
+      "note": "90 days per entry. K-ETA exemption for GB/US/etc. nationals expires 2026-12-31 (an entry requirement, not a stay cap)."
+    },
+    {
+      "id": "cn-gb-ar",
+      "zone": null,
+      "zone_name": null,
+      "countries": [
+        "CN"
+      ],
+      "window_type": "per-entry",
+      "window_days": 30,
+      "window_period_days": null,
+      "extension": null,
+      "multiple_entry": 0,
+      "nationalities": [
+        "GB",
+        "AR"
+      ],
+      "valid_from": null,
+      "valid_to": "2026-12-31",
+      "source": "Visa policy of China",
+      "note": "30-day visa-free for GB & AR, until 2026-12-31."
+    },
+    {
+      "id": "cn-ru",
+      "zone": null,
+      "zone_name": null,
+      "countries": [
+        "CN"
+      ],
+      "window_type": "per-entry",
+      "window_days": 30,
+      "window_period_days": null,
+      "extension": null,
+      "multiple_entry": 0,
+      "nationalities": [
+        "RU"
+      ],
+      "valid_from": null,
+      "valid_to": "2027-12-31",
+      "source": "Visa policy of China",
+      "note": "30-day visa-free for RU, until 2027-12-31."
+    }
+  ]
+}
