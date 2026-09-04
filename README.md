@@ -146,9 +146,6 @@ Two things to remember:
   passport result and the better outcome wins — a green card can't make a `refused`
   corridor enterable.
 
-The app's best-of merge (passport + holdings + transit) is specified in the
-Visa Vole app's `docs/app-merge-logic.md`.
-
 `data/visa-benefits.json` is produced by `gen_benefits.py` (stdlib only); the
 curated holdings/benefits live in that script as the single source of truth.
 `build.py` loads it into the two tables.
