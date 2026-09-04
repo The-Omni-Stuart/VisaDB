@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the visa-matrix dataset: Wikipedia primary + passport-index cross-check.
+"""Build the VisaDB dataset: Wikipedia primary + passport-index cross-check.
 
 Every cell records where its value came from and whether an independent source
 agrees. The dataset never invents a number: when sources disagree the cell says
@@ -11,11 +11,13 @@ so out loud instead of silently picking one.
   confidence "disputed"  — sources disagree; `dispute` shows both claims
 
 Outputs (in data/):
-  visa-matrix.json        canonical nested form with provenance
-  visa-matrix-iso2.csv    matrix form  (passports x destinations)
-  visa-matrix-tidy.csv    long form    (passport,destination,type,days,confidence)
-  visa_data.db            SQLite form  (meta, countries, visa_rules, corrections,
-                                        visa_holdings, visa_benefits)
+  visa_data.db            canonical SQLite form the app consumes (meta, countries,
+                          visa_rules, corrections, visa_holdings, visa_benefits)
+  visa_data.json          canonical nested text form: the matrix (entry status +
+                          transit per corridor) plus countries / corrections /
+                          holdings / benefits as top-level lists — for diffing
+  visa-matrix-iso2.csv    opt-in, --export matrix: wide grid, entry status only
+  visa-matrix-tidy.csv    opt-in, --export tidy: long form, entry status only
 
 Determinism: pass --date YYYY-MM-DD (or set BUILD_DATE) to pin `checked` and
 `generated`; the same inputs and date reproduce byte-identical output. Without
@@ -45,7 +47,7 @@ Wikipedia page (Schengen states share the "Visa policy of the Schengen Area"
 page) — so any row can be re-verified with one click.
 
 Transit: a separate axis stored on visa_rules (transit, transit_note) with
-values free | required | unknown. It is distinct from the entry status ladder —
+values free | required | conditional | unknown. It is distinct from the entry status ladder —
 a visa-free corridor is always transit-free, but a visa-required corridor may
 allow airside transit or require a transit visa. The base rule is computed, not
 scraped: transit is "free" wherever the entry type is visa-free or
@@ -465,7 +467,96 @@ def write_sqlite(dataset, matrix, passports, overrides, extra_names=None) -> pat
     return db_path
 
 
-def build(build_date: str):
+def write_full_json(db_path, matrix, dataset) -> pathlib.Path:
+    """Write data/visa_data.json — the canonical nested text form of the full
+    multi-axis dataset, rendered from the SQLite form so it always matches the
+    DB: the matrix carries entry status + transit per corridor, and countries /
+    corrections / holdings / benefits become top-level lists."""
+    con = sqlite3.connect(db_path)
+    con.row_factory = sqlite3.Row
+    countries = [dict(r) for r in con.execute(
+        "SELECT iso2, name, region FROM countries ORDER BY iso2")]
+    corrections = [dict(r) for r in con.execute(
+        "SELECT passport, destination, type, days, since, note"
+        " FROM corrections ORDER BY passport, destination")]
+    holdings = [dict(r) for r in con.execute(
+        "SELECT id, name, category, issuing_country, note"
+        " FROM visa_holdings ORDER BY id")]
+    benefits = [dict(r) for r in con.execute(
+        "SELECT holding, destination, type, days, confidence, source, checked,"
+        " note, source_page, source_url"
+        " FROM visa_benefits ORDER BY holding, destination")]
+    m = {}
+    for r in con.execute(
+            "SELECT passport, destination, type, days, confidence, source,"
+            " checked, dispute, note, transit, transit_note"
+            " FROM visa_rules ORDER BY passport, destination"):
+        cell = {
+            "type": r["type"], "days": r["days"],
+            "confidence": r["confidence"], "source": r["source"],
+            "checked": r["checked"],
+        }
+        if r["dispute"]:
+            cell["dispute"] = json.loads(r["dispute"])
+        if r["note"]:
+            cell["note"] = r["note"]
+        if r["transit"]:
+            cell["transit"] = r["transit"]
+        if r["transit_note"]:
+            cell["transit_note"] = r["transit_note"]
+        # days_source (which source supplied the day count) is not in the DB;
+        # carry it over so the JSON stays the fuller provenance form.
+        ds = matrix.get(r["passport"], {}).get(r["destination"], {}).get("days_source")
+        if ds:
+            cell["days_source"] = ds
+        m.setdefault(r["passport"], {})[r["destination"]] = cell
+    con.close()
+    out = DATA / "visa_data.json"
+    with open(out, "w") as f:
+        json.dump(
+            {"meta": dataset["meta"], "countries": countries, "matrix": m,
+             "corrections": corrections, "holdings": holdings, "benefits": benefits},
+            f, ensure_ascii=False, indent=1)
+    return out
+
+
+def write_matrix_csv(matrix, passports) -> pathlib.Path:
+    """Opt-in export (--export matrix): data/visa-matrix-iso2.csv — wide grid,
+    one row per passport, one column per destination, entry status only (a
+    visa-free cell shows its day count)."""
+    dests = sorted({d for cells in matrix.values() for d in cells})
+    out = DATA / "visa-matrix-iso2.csv"
+    with open(out, "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["Passport"] + dests)
+        for nat in passports:
+            row = [nat]
+            for d in dests:
+                c = matrix.get(nat, {}).get(d)
+                if not c:
+                    row.append("")
+                elif c["type"] == "visa-free" and c["days"]:
+                    row.append(str(c["days"]))
+                else:
+                    row.append(c["type"])
+            w.writerow(row)
+    return out
+
+
+def write_tidy_csv(matrix, passports) -> pathlib.Path:
+    """Opt-in export (--export tidy): data/visa-matrix-tidy.csv — long form, one
+    row per corridor, entry status only."""
+    out = DATA / "visa-matrix-tidy.csv"
+    with open(out, "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["passport", "destination", "type", "days", "confidence"])
+        for nat in passports:
+            for d, c in matrix.get(nat, {}).items():
+                w.writerow([nat, d, c["type"], c["days"] or "", c["confidence"]])
+    return out
+
+
+def build(build_date: str, exports: frozenset = frozenset()):
     wiki = wikipedia.collect(exclude=EXCLUDED)
     pindex = passportindex.collect_all()
     # Full index: every passport either source knows about, minus excluded.
@@ -560,7 +651,7 @@ def build(build_date: str):
     total_corridors = sum(len(c) for c in matrix.values())
     dataset = {
         "meta": {
-            "name": "visa-matrix",
+            "name": "visadb",
             "version": "1",
             "generated": today,
             "passports": passports,
@@ -626,48 +717,39 @@ def build(build_date: str):
     }
 
     DATA.mkdir(exist_ok=True)
-    with open(DATA / "visa-matrix.json", "w") as f:
-        json.dump(dataset, f, ensure_ascii=False, indent=1)
 
-    # Matrix CSV: one row per passport, one column per destination.
-    dests = sorted({d for cells in matrix.values() for d in cells})
-    with open(DATA / "visa-matrix-iso2.csv", "w", newline="") as f:
-        w = csv.writer(f)
-        w.writerow(["Passport"] + dests)
-        for nat in passports:
-            row = [nat]
-            for d in dests:
-                c = matrix.get(nat, {}).get(d)
-                if not c:
-                    row.append("")
-                elif c["type"] == "visa-free" and c["days"]:
-                    row.append(str(c["days"]))
-                else:
-                    row.append(c["type"])
-            w.writerow(row)
+    # Canonical outputs (always written): the full multi-axis dataset in the two
+    # forms that matter — SQLite for the app, nested JSON for diffing/inspection.
+    db_path = write_sqlite(dataset, matrix, passports, overrides, lr_names)
+    json_path = write_full_json(db_path, matrix, dataset)
 
-    # Tidy CSV: one row per corridor.
-    with open(DATA / "visa-matrix-tidy.csv", "w", newline="") as f:
-        w = csv.writer(f)
-        w.writerow(["passport", "destination", "type", "days", "confidence"])
-        for nat in passports:
-            for d, c in matrix.get(nat, {}).items():
-                w.writerow([nat, d, c["type"], c["days"] or "", c["confidence"]])
-
-    # SQLite: the machine-readable form the app consumes.
-    write_sqlite(dataset, matrix, passports, overrides, lr_names)
+    # Opt-in export formats (lossy, entry-grid convenience views).
+    if "matrix" in exports:
+        write_matrix_csv(matrix, passports)
+    if "tidy" in exports:
+        write_tidy_csv(matrix, passports)
 
     print(f"passports: {len(passports)}  corridors: {total_corridors}  disputed: {disputes}")
-    print(f"wrote {DATA / 'visa_data.db'}")
+    print(f"wrote {db_path}")
+    print(f"wrote {json_path}")
+    if exports:
+        print(f"exports: {', '.join(sorted(exports))}")
     return dataset
 
 
 def parse_args():
-    p = argparse.ArgumentParser(description="Build the visa-matrix dataset.")
+    p = argparse.ArgumentParser(description="Build the VisaDB dataset.")
     p.add_argument(
         "--date",
         help="pin `checked`/`generated` to this date (YYYY-MM-DD); "
              "defaults to $BUILD_DATE, then today",
+    )
+    p.add_argument(
+        "--export", nargs="*", choices=["matrix", "tidy", "all"], default=[],
+        metavar="FMT",
+        help="also write opt-in export formats: matrix (wide-grid CSV), "
+             "tidy (long-form CSV), all (both). The canonical visa_data.db and "
+             "visa_data.json are always written.",
     )
     return p.parse_args()
 
@@ -678,5 +760,14 @@ def resolve_build_date(args) -> str:
     return raw
 
 
+def parse_exports(items) -> frozenset:
+    ex = set(items or [])
+    if "all" in ex:
+        ex |= {"matrix", "tidy"}
+    ex.discard("all")
+    return frozenset(ex)
+
+
 if __name__ == "__main__":
-    build(resolve_build_date(parse_args()))
+    _args = parse_args()
+    build(resolve_build_date(_args), parse_exports(_args.export))

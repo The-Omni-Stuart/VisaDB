@@ -1,3 +1,9 @@
+# Python transients
 __pycache__/
 *.pyc
 .DS_Store
+
+# Opt-in export formats (build.py --export matrix/tidy). Regenerated on demand;
+# the canonical product is visa_data.db + visa_data.json (both committed).
+data/visa-matrix-iso2.csv
+data/visa-matrix-tidy.csv

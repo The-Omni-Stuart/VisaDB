@@ -10,8 +10,8 @@ split and the rules the app must apply. **Revisit before launch.**
 - `visa_rules(passport, destination)` → one atomic row: `type`, `days`,
   `confidence`, `dispute`, `transit`, `transit_note`.
   - `type` ∈ `refused | visa-required | e-visa | visa-on-arrival | eta | visa-free | freedom-of-movement`.
-  - `transit` ∈ `free | required | unknown` (base rule already applied: `free`
-    wherever `type` is `visa-free`/`freedom-of-movement`).
+   - `transit` ∈ `free | required | conditional | unknown` (base rule already
+     applied: `free` wherever `type` is `visa-free`/`freedom-of-movement`).
 - `visa_holdings` → the 13 known foreign holdings (`id`, `name`, `country`).
 - `visa_benefits(holding, destination)` → for one holding, the *relaxed* `type`
   + `days` it confers at the destination (+ `source_page`/`source_url`).

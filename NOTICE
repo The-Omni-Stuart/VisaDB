@@ -26,8 +26,11 @@ Changes from upstream:
   — not as a passport, not as a destination, not in the countries table — and
   its Wikipedia passport page is skipped at collection time (never fetched).
   We do not recognise it. #Free Palestine
-- Adds visa_data.db (SQLite) as a fourth output; build date is pinnable via
-  --date / $BUILD_DATE for byte-reproducible builds.
+- Restructures the outputs around the database: the canonical product is
+  data/visa_data.db (SQLite) plus a nested text mirror, data/visa_data.json, so
+  changes show up as a readable diff. The old single-axis visa-matrix.json is
+  retired and the two CSV exports are opt-in (build.py --export). Build date is
+  pinnable via --date / $BUILD_DATE for byte-reproducible builds.
 - Adds states with limited recognition, hand-curated from their (stub)
   Wikipedia pages into data/limited-recognition.json: Abkhazia (AB),
   South Ossetia (OS), Transnistria (TS) and Northern Cyprus (NC) as both
@@ -52,8 +55,8 @@ Changes from upstream:
   from re-verification. The 13 holdings / 223 rows are generated from
   gen_benefits.py, the single source of truth for data/visa-benefits.json.
 - Adds a transit axis on visa_rules (transit, transit_note): free | required |
-  unknown, separate from the entry status ladder. The base rule is computed,
-  not scraped — transit is 'free' wherever the entry type is visa-free or
-  freedom-of-movement (airside transit is strictly less privileged than entry)
+  conditional | unknown, separate from the entry status ladder. The base rule is
+  computed, not scraped — transit is 'free' wherever the entry type is visa-free
+  or freedom-of-movement (airside transit is strictly less privileged than entry)
   and 'unknown' otherwise; cited exceptions live in data/transit.json and are
   applied by merge_transit().
