@@ -135,6 +135,60 @@ def classify(cell: str):
     return None
 
 
+MONTHS = {
+    "jan": 1, "feb": 2, "mar": 3, "apr": 4, "may": 5, "jun": 6,
+    "jul": 7, "aug": 8, "sep": 9, "oct": 10, "nov": 11, "dec": 12,
+}
+
+
+def find_window_period(plain, days):
+    """The rolling-window period (e.g. 180 in '90 days in 180' / '90/180').
+
+    Returns int or None. Wikipedia usually omits the period (it writes '90
+    days' and leaves 90/180 to convention), so this fires only where the cell
+    states it explicitly — a low-yield but exact signal.
+    """
+    cands = []
+    m = re.search(r"\bin\s+(?:any\s+)?(\d{2,4})\s*-?\s*day", plain, re.I)
+    if m:
+        cands.append(int(m.group(1)))
+    m = re.search(r"(\d+)\s*/\s*(\d+)", plain)
+    if m:
+        cands.append(int(m.group(2)))
+    m = re.search(r"(\d+)\s*days?\s*in\s+(\d{2,4})\b", plain, re.I)
+    if m:
+        cands.append(int(m.group(2)))
+    for p in cands:
+        if p > 60 and (days is None or p > days):
+            return p
+    return None
+
+
+def find_valid_to(plain):
+    """An expiry date stated in the cell ('until 31 December 2026' -> '2026-12-31').
+
+    Returns a YYYY-MM-DD string or None. build.py drops dates already in the
+    past: a lapsed 'until …' is a historical note about a former rule, not a
+    live expiry of the current status, so only forward-looking dates are kept.
+    """
+    m = re.search(r"\buntil\s+(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})", plain, re.I)
+    if m:
+        d, mon, y = int(m.group(1)), m.group(2).lower()[:3], int(m.group(3))
+        if mon in MONTHS:
+            return f"{y:04d}-{MONTHS[mon]:02d}-{d:02d}"
+    m = re.search(r"\buntil\s+([A-Za-z]+)\s+(\d{4})", plain, re.I)
+    if m:
+        mon, y = m.group(1).lower()[:3], int(m.group(2))
+        if mon in MONTHS and 2020 <= y <= 2035:
+            return f"{y:04d}-{MONTHS[mon]:02d}-01"
+    m = re.search(r"\buntil\s+(\d{4})\b", plain)
+    if m:
+        y = int(m.group(1))
+        if 2020 <= y <= 2035:
+            return f"{y:04d}-12-31"
+    return None
+
+
 def parse_page(wt: str) -> dict:
     """wikitext of one page -> {destination country name: {type, days}}"""
     out: dict = {}
@@ -177,7 +231,13 @@ def parse_page(wt: str) -> dict:
             if ym:
                 days = int(ym.group(1)) * 365
                 break
-        out[country] = {"type": status, "days": days}
+        rest_plain = " ".join(strip_markup(c) for c in rest.split("\n|"))
+        out[country] = {
+            "type": status,
+            "days": days,
+            "window_period_days": find_window_period(rest_plain, days),
+            "valid_to": find_valid_to(rest_plain),
+        }
     return out
 
 

@@ -479,6 +479,16 @@ def write_sqlite(dataset, matrix, passports, overrides, extra_names=None) -> pat
             destination TEXT NOT NULL,
             type        TEXT NOT NULL,
             days        INTEGER,
+            -- stay axis (phase-2, auto-sourced from Wikipedia; see meta.stay):
+            -- window_period_days = Y when the cell states a rolling window
+            -- ('90 days in 180'); NULL where Wikipedia omits it (the common
+            -- case — the 90/180 convention is left implied). valid_to = expiry
+            -- date of THIS entry status (a visa-free that lapses); NULL = no
+            -- stated expiry. Only forward-dated values are kept: a lapsed
+            -- 'until …' is a historical note about a former rule, not a live
+            -- expiry, so past dates are dropped at build time.
+            window_period_days INTEGER,
+            valid_to           TEXT,
             confidence  TEXT,
             source      TEXT,
             checked     TEXT,
@@ -573,7 +583,7 @@ def write_sqlite(dataset, matrix, passports, overrides, extra_names=None) -> pat
     for k in ("name", "version", "generated", "passport_count", "corridor_count",
               "primary_source", "cross_check", "limited_recognition",
               "visa_benefits", "transit", "mobility_regimes", "stay_rules",
-              "attribution", "license", "disclaimer"):
+              "stay_axis", "attribution", "license", "disclaimer"):
         if k in meta:
             cur.execute("INSERT INTO meta(key, value) VALUES (?, ?)", (k, str(meta[k])))
 
@@ -597,10 +607,12 @@ def write_sqlite(dataset, matrix, passports, overrides, extra_names=None) -> pat
             # corridor is unknown until a cited override confirms otherwise.
             transit = "free" if c["type"] in ("visa-free", "freedom-of-movement") else "unknown"
             cur.execute(
-                "INSERT INTO visa_rules(passport, destination, type, days, confidence,"
+                "INSERT INTO visa_rules(passport, destination, type, days,"
+                " window_period_days, valid_to, confidence,"
                 " source, checked, dispute, note, transit, transit_note)"
-                " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-                (nat, dest, c["type"], c.get("days"), c.get("confidence"),
+                " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                (nat, dest, c["type"], c.get("days"),
+                 c.get("window_period_days"), c.get("valid_to"), c.get("confidence"),
                  c.get("source"), c.get("checked"),
                  json.dumps(dispute, ensure_ascii=False) if dispute else None,
                  c.get("note") or None, transit, None),
@@ -661,7 +673,8 @@ def write_full_json(db_path, matrix, dataset) -> pathlib.Path:
         srec["nationalities"] = json.loads(srec["nationalities"])
     m = {}
     for r in con.execute(
-            "SELECT passport, destination, type, days, confidence, source,"
+            "SELECT passport, destination, type, days,"
+            " window_period_days, valid_to, confidence, source,"
             " checked, dispute, note, transit, transit_note"
             " FROM visa_rules ORDER BY passport, destination"):
         cell = {
@@ -669,6 +682,10 @@ def write_full_json(db_path, matrix, dataset) -> pathlib.Path:
             "confidence": r["confidence"], "source": r["source"],
             "checked": r["checked"],
         }
+        if r["window_period_days"]:
+            cell["window_period_days"] = r["window_period_days"]
+        if r["valid_to"]:
+            cell["valid_to"] = r["valid_to"]
         if r["dispute"]:
             cell["dispute"] = json.loads(r["dispute"])
         if r["note"]:
@@ -756,9 +773,17 @@ def build(build_date: str, exports: frozenset = frozenset()):
             if p and p["type"] == "unknown":
                 p = None
             if w:  # Wikipedia is primary where it covers the corridor
+                # valid_to is kept only while it is still in the future: an
+                # 'until …' date already past is a historical note about a
+                # former rule (Wikipedia lags policy changes), not a live
+                # expiry of the current status. Both are ISO dates, so this is
+                # a plain string compare.
+                raw_to = w.get("valid_to")
                 cell = {
                     "type": w["type"],
                     "days": sanitise_days(w["type"], w["days"]),
+                    "window_period_days": w.get("window_period_days"),
+                    "valid_to": raw_to if (raw_to and raw_to >= today) else None,
                     "source": "wikipedia",
                     "checked": today,
                 }
@@ -909,6 +934,23 @@ def build(build_date: str, exports: frozenset = frozenset()):
                 "'*' (all visa-exempt nationals) and 'EU-EEA' (EU/EEA nationals), "
                 "resolved by the app. valid_from/valid_to bound when the grant "
                 "applies. Phase-1 seed; re-verify per rule in phase 2."
+            ),
+            "stay_axis": (
+                "Per-corridor stay axis on visa_rules (phase-2, auto-sourced from "
+                "the same Wikipedia scrape; see also the curated stay_rules layer "
+                "above for shared pools). window_period_days = Y when a cell "
+                "states a rolling window ('90 days in 180') — NULL where "
+                "Wikipedia omits it, which is the common case (it writes '90 days' "
+                "and leaves 90/180 to convention), so most corridors have no "
+                "stated period and the app should treat a bare day count as 'up to "
+                "N days, window type unknown'. valid_to = the expiry date of THIS "
+                "entry status (T6: a visa-free that lapses, e.g. a time-boxed "
+                "agreement), kept only while it is still in the future relative to "
+                "'generated' — a lapsed 'until …' is a stale historical note, not a "
+                "live expiry. Both are single-source (Wikipedia); cross-check "
+                "before relying on a specific date. The app: if valid_to is set "
+                "and the planned stay is after it, the grant has lapsed and the "
+                "underlying visa status applies."
             ),
             "attribution": "xpressmike/visa-matrix (CC BY-SA 4.0)",
             "license": "GPLv3 — VisaDB fork of visa-matrix; see LICENSE and NOTICE",

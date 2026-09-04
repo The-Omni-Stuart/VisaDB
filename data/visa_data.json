@@ -217,6 +217,7 @@
   "transit": "Separate axis on visa_rules (transit, transit_note): free | required | conditional | unknown. Base rule — computed, not scraped — sets transit=free wherever the entry type is visa-free or freedom-of-movement (airside transit is strictly less privileged than entry) and unknown for every other corridor; cited exceptions live in data/transit.json and are applied by merge_transit(). Distinct from the entry ladder: a visa-free corridor is always transit-free, but a visa-required corridor may allow airside transit, require a transit visa, or be conditional on booked onward travel (China TWOV).",
   "mobility_regimes": "Separate EXPLANATORY layer (mobility_regimes table, from data/mobility-regimes.json): the multilateral freedom-of-movement / free-movement blocs and which members currently exercise each right, so the app can explain WHY a corridor is visa-free / freedom-of-movement. It never changes the per-corridor visa_rules entry status. 'members' + 'associates' are active (a country counts as active in a regime if it is in either); 'deactivated' are bloc members that currently do NOT exercise the right (kept for reference, must not show). level: freedom-of-movement (enter + reside + work) or visa-free (enter without a visa, no automatic residence/work). Curated from the Wikipedia 'Freedom of movement' article.",
   "stay_rules": "Separate FACTS layer (stay_rules table, from data/stay-rules.json): nationality-scoped stay allowances. The DB half of the stay-rules feature — it stores the facts, the app computes 'how many days do I have left' from these facts plus the user's own travel history (never stored). It never changes the per-corridor visa_rules entry status. window_type: per-entry (up to window_days each entry) or rolling (up to window_days in any window_period_days). zone: shared pool id — rows sharing a zone pool their allowance (Schengen: one 90/180 pool across 27 states; CA-4: one pool across GT/SV/HN/NI with per-country allowances), so 'time in one bloc country' is explicit. countries are real ISO2; nationalities may hold the sentinels '*' (all visa-exempt nationals) and 'EU-EEA' (EU/EEA nationals), resolved by the app. valid_from/valid_to bound when the grant applies. Phase-1 seed; re-verify per rule in phase 2.",
+  "stay_axis": "Per-corridor stay axis on visa_rules (phase-2, auto-sourced from the same Wikipedia scrape; see also the curated stay_rules layer above for shared pools). window_period_days = Y when a cell states a rolling window ('90 days in 180') — NULL where Wikipedia omits it, which is the common case (it writes '90 days' and leaves 90/180 to convention), so most corridors have no stated period and the app should treat a bare day count as 'up to N days, window type unknown'. valid_to = the expiry date of THIS entry status (T6: a visa-free that lapses, e.g. a time-boxed agreement), kept only while it is still in the future relative to 'generated' — a lapsed 'until …' is a stale historical note, not a live expiry. Both are single-source (Wikipedia); cross-check before relying on a specific date. The app: if valid_to is set and the planned stay is after it, the grant has lapsed and the underlying visa status applies.",
   "attribution": "xpressmike/visa-matrix (CC BY-SA 4.0)",
   "license": "GPLv3 — VisaDB fork of visa-matrix; see LICENSE and NOTICE",
   "disclaimer": "General information, not legal advice. Rules change; always verify with the destination's official government source before booking."
@@ -22056,6 +22057,7 @@
     "confidence": "high",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "valid_to": "2026-12-31",
     "transit": "free"
    },
    "BZ": {
@@ -38752,6 +38754,7 @@
     "confidence": "high",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "valid_to": "2027-07-31",
     "transit": "free"
    },
    "TZ": {
@@ -41133,6 +41136,7 @@
     "confidence": "high",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "valid_to": "2027-01-31",
     "transit": "free"
    },
    "GA": {
@@ -48164,6 +48168,7 @@
     "confidence": "high",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "valid_to": "2026-10-01",
     "transit": "unknown"
    },
    "IN": {
@@ -59411,6 +59416,7 @@
     "confidence": "high",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "valid_to": "2028-08-14",
     "transit": "free"
    },
    "VU": {
@@ -64793,6 +64799,7 @@
     "confidence": "disputed",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "valid_to": "2026-12-31",
     "dispute": {
      "wikipedia": "visa-free",
      "passport-index": "visa-required"
@@ -64947,6 +64954,7 @@
     "confidence": "high",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "window_period_days": 180,
     "transit": "free",
     "transit_note": "Airside transit privilege: transiting airside through a Schengen (or Cyprus) airport -- without leaving the international transit area, single airport, under one day -- requires no transit visa for any nationality."
    },
@@ -65916,6 +65924,7 @@
     "confidence": "high",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "valid_to": "2027-12-31",
     "transit": "free"
    },
    "RW": {
@@ -73425,6 +73434,7 @@
     "confidence": "high",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "valid_to": "2026-12-31",
     "transit": "free"
    },
    "BZ": {
@@ -76758,6 +76768,7 @@
     "confidence": "high",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "valid_to": "2026-12-31",
     "transit": "free"
    },
    "BZ": {
@@ -90745,6 +90756,7 @@
     "confidence": "high",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "window_period_days": 180,
     "transit": "unknown"
    },
    "GH": {
@@ -119818,6 +119830,7 @@
     "confidence": "high",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "valid_to": "2026-12-31",
     "transit": "free"
    },
    "BZ": {
@@ -135598,6 +135611,7 @@
     "confidence": "high",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "window_period_days": 180,
     "transit": "unknown"
    },
    "GH": {
@@ -136028,6 +136042,7 @@
     "confidence": "high",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "window_period_days": 180,
     "transit": "unknown"
    },
    "ML": {
@@ -137100,6 +137115,7 @@
     "confidence": "high",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "valid_to": "2026-12-31",
     "transit": "free"
    },
    "CO": {
@@ -139035,6 +139051,7 @@
     "confidence": "disputed",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "window_period_days": 180,
     "dispute": {
      "wikipedia": "e-visa",
      "passport-index": "visa-required"
@@ -139433,6 +139450,7 @@
     "confidence": "disputed",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "window_period_days": 270,
     "dispute": {
      "wikipedia": "visa-required",
      "passport-index": "e-visa"
@@ -146257,6 +146275,7 @@
     "confidence": "high",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "valid_to": "2026-12-31",
     "transit": "free"
    },
    "KW": {
@@ -166933,6 +166952,7 @@
     "confidence": "high",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "window_period_days": 180,
     "transit": "free",
     "transit_note": "Airside transit privilege: transiting airside through a Schengen (or Cyprus) airport -- without leaving the international transit area, single airport, under one day -- requires no transit visa for any nationality."
    },
@@ -200268,6 +200288,7 @@
     "confidence": "high",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "valid_to": "2030-03-31",
     "transit": "free"
    },
    "TZ": {
@@ -209338,6 +209359,7 @@
     "confidence": "high",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "valid_to": "2026-12-31",
     "transit": "free"
    },
    "BZ": {
@@ -216731,6 +216753,7 @@
     "confidence": "high",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "valid_to": "2026-12-31",
     "transit": "free",
     "transit_note": "Airside transit through South Korea requires no visa for less than 24 hours at Incheon (or the same calendar day at other airports), as long as you stay within the transit area. Non-visa-exempt nationals may also qualify for a 30-day transit visa exemption if they hold a visa or residence permit from Australia, Canada and other listed states and meet the routing rules."
    },
@@ -225001,6 +225024,7 @@
     "confidence": "high",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "window_period_days": 180,
     "transit": "free",
     "transit_note": "Airside transit privilege: transiting airside through a Schengen (or Cyprus) airport -- without leaving the international transit area, single airport, under one day -- requires no transit visa for any nationality."
    },
@@ -230052,6 +230076,7 @@
     "confidence": "high",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "valid_to": "2026-12-31",
     "transit": "free"
    },
    "BZ": {
@@ -238337,6 +238362,7 @@
     "confidence": "disputed",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "valid_to": "2026-12-31",
     "dispute": {
      "wikipedia": "e-visa",
      "passport-index": "visa-free"
@@ -243883,6 +243909,7 @@
     "confidence": "high",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "valid_to": "2026-12-31",
     "transit": "free"
    },
    "CO": {
@@ -252507,6 +252534,7 @@
     "confidence": "high",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "window_period_days": 180,
     "transit": "free",
     "transit_note": "Airside transit privilege: transiting airside through a Schengen (or Cyprus) airport -- without leaving the international transit area, single airport, under one day -- requires no transit visa for any nationality."
    },
@@ -258957,6 +258985,7 @@
     "confidence": "high",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "valid_to": "2026-12-31",
     "transit": "free"
    },
    "AM": {
@@ -263450,6 +263479,7 @@
     "confidence": "high",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "window_period_days": 180,
     "transit": "free"
    },
    "PG": {
@@ -272956,6 +272986,7 @@
     "confidence": "high",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "window_period_days": 180,
     "transit": "required",
     "transit_note": "Additional airport-transit-visa nationalities for Cyprus (beyond the 12-country EU common list)."
    },
@@ -274574,6 +274605,7 @@
     "confidence": "high",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "valid_to": "2026-12-31",
     "transit": "free"
    },
    "BZ": {
@@ -295352,6 +295384,7 @@
     "confidence": "high",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "window_period_days": 180,
     "transit": "unknown"
    },
    "GH": {
@@ -303303,6 +303336,7 @@
     "confidence": "high",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "valid_to": "2027-07-31",
     "transit": "free"
    },
    "TZ": {
@@ -322626,11 +322660,15 @@
     "transit": "free"
    },
    "AO": {
-    "type": "visa-required",
+    "type": "e-visa",
     "days": null,
-    "confidence": "high",
+    "confidence": "disputed",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "dispute": {
+     "wikipedia": "e-visa",
+     "passport-index": "visa-required"
+    },
     "transit": "unknown"
    },
    "AR": {
@@ -322747,11 +322785,15 @@
     "transit": "free"
    },
    "BO": {
-    "type": "e-visa",
+    "type": "visa-required",
     "days": null,
-    "confidence": "medium",
-    "source": "passport-index",
+    "confidence": "disputed",
+    "source": "wikipedia",
     "checked": "2026-09-04",
+    "dispute": {
+     "wikipedia": "visa-required",
+     "passport-index": "e-visa"
+    },
     "transit": "unknown"
    },
    "BR": {
@@ -328005,6 +328047,7 @@
     "confidence": "high",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "valid_to": "2026-12-31",
     "transit": "free"
    },
    "CO": {
@@ -337247,6 +337290,7 @@
     "confidence": "high",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "window_period_days": 180,
     "transit": "unknown"
    },
    "ML": {
@@ -345303,6 +345347,7 @@
     "confidence": "high",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "window_period_days": 180,
     "transit": "free",
     "transit_note": "Airside transit privilege: transiting airside through a Schengen (or Cyprus) airport -- without leaving the international transit area, single airport, under one day -- requires no transit visa for any nationality."
    },
@@ -348948,6 +348993,7 @@
     "confidence": "high",
     "source": "wikipedia",
     "checked": "2026-09-04",
+    "window_period_days": 180,
     "transit": "unknown"
    },
    "GH": {
