@@ -1,0 +1,222 @@
+"""Generate data/mobility-regimes.json — the curated freedom-of-movement /
+free-movement regime overlay. Source of truth (like transit.json). Run:
+    python3 gen_mobility.py
+"""
+import json
+import pathlib
+
+DATA = pathlib.Path(__file__).parent / "data"
+
+REGIMES = [
+    {
+        "id": "eu-eea-efta",
+        "name": "European Union / EEA / EFTA",
+        "level": "freedom-of-movement",
+        "members": ["AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR",
+                    "DE", "GR", "HU", "IE", "IT", "LV", "LT", "LU", "MT", "NL",
+                    "PL", "PT", "RO", "SK", "SI", "ES", "SE",
+                    "IS", "LI", "NO", "CH"],
+        "associates": [],
+        "deactivated": [],
+        "source_url": "https://en.wikipedia.org/wiki/Freedom_of_movement#European_Union",
+        "note": ("EU internal free movement (enter, reside, work, study). "
+                 "Extended to Iceland, Liechtenstein and Norway via the EEA, and "
+                 "to Switzerland (EFTA) via the EU-Switzerland Agreement on the "
+                 "Free Movement of Persons. The Nordic Passport Union (Denmark, "
+                 "Finland, Iceland, Norway, Sweden) is subsumed here; its extra "
+                 "territories - the Faroe Islands (an NPU member) and Greenland "
+                 "(open border with the Nordics) - are not tracked in VisaDB."),
+    },
+    {
+        "id": "eaeu",
+        "name": "Eurasian Economic Union",
+        "level": "freedom-of-movement",
+        "members": ["RU", "BY", "AM", "KZ", "KG"],
+        "associates": [],
+        "deactivated": [],
+        "source_url": "https://en.wikipedia.org/wiki/Freedom_of_movement#Eurasian_Economic_Union",
+        "note": ("Single market: free movement of labour without work permits "
+                 "since 2012; a national ID/internal passport is valid within "
+                 "the union. The deeper 5-state core inside the CIS."),
+    },
+    {
+        "id": "union-state",
+        "name": "Union State of Russia and Belarus",
+        "level": "freedom-of-movement",
+        "members": ["RU", "BY"],
+        "associates": [],
+        "deactivated": [],
+        "source_url": "https://en.wikipedia.org/wiki/Freedom_of_movement#Union_State_of_Russia_and_Belarus",
+        "note": ("Deepest integration: equal rights to freedom of movement and "
+                 "choice of place of residence between Russia and Belarus."),
+    },
+    {
+        "id": "mercosur",
+        "name": "Mercosur",
+        "level": "freedom-of-movement",
+        "members": ["AR", "BO", "BR", "PY", "UY"],
+        "associates": ["CL", "CO", "EC", "PE"],
+        "deactivated": ["VE"],
+        "source_url": "https://en.wikipedia.org/wiki/Freedom_of_movement#Mercosur",
+        "note": ("No passport required to travel between members; freedom of "
+                 "movement also extends to associate states (Chile, Colombia, "
+                 "Ecuador, Peru). Venezuela is suspended."),
+    },
+    {
+        "id": "gcc",
+        "name": "Gulf Cooperation Council",
+        "level": "freedom-of-movement",
+        "members": ["SA", "AE", "KW", "QA", "BH", "OM"],
+        "associates": [],
+        "deactivated": [],
+        "source_url": "https://en.wikipedia.org/wiki/Freedom_of_movement#Gulf_Cooperation_Council",
+        "note": "GCC citizens may live, work and reside freely in the other GCC states.",
+    },
+    {
+        "id": "trans-tasman",
+        "name": "Trans-Tasman Travel Arrangement",
+        "level": "freedom-of-movement",
+        "members": ["AU", "NZ"],
+        "associates": [],
+        "deactivated": [],
+        "source_url": "https://en.wikipedia.org/wiki/Trans-Tasman_Travel_Arrangement",
+        "note": ("Australian and New Zealand citizens may live, work and study "
+                 "in each other's country (reciprocal resident-class rights), "
+                 "beyond simple visa-free entry."),
+    },
+    {
+        "id": "common-travel-area",
+        "name": "Common Travel Area",
+        "level": "freedom-of-movement",
+        "members": ["GB", "IE"],
+        "associates": [],
+        "deactivated": [],
+        "source_url": ("https://en.wikipedia.org/wiki/Freedom_of_movement"
+                       "#United_Kingdom,_Ireland,_Isle_of_Man_and_Channel_Islands"),
+        "note": ("The UK, Ireland and the Crown Dependencies (Isle of Man, "
+                 "Jersey, Guernsey - not in VisaDB) share a Common Travel Area "
+                 "with no routine border controls on people."),
+    },
+    {
+        "id": "india-nepal",
+        "name": "India-Nepal open border",
+        "level": "freedom-of-movement",
+        "members": ["IN", "NP"],
+        "associates": [],
+        "deactivated": [],
+        "source_url": "https://en.wikipedia.org/wiki/Freedom_of_movement#India_and_Nepal",
+        "note": ("Under the 1950 Treaty of Peace and Friendship, Indian and "
+                 "Nepali citizens may live, work, own property and trade in "
+                 "each other's country; the border is open."),
+    },
+    {
+        "id": "cofa",
+        "name": "Compact of Free Association",
+        "level": "freedom-of-movement",
+        "members": ["US", "FM", "MH", "PW"],
+        "associates": [],
+        "deactivated": [],
+        "source_url": ("https://en.wikipedia.org/wiki/Freedom_of_movement"
+                       "#United_States,_Federated_States_of_Micronesia,_Marshall_Islands,_and_Palau"),
+        "note": ("Citizens of the Federated States of Micronesia, the Marshall "
+                 "Islands and Palau may enter, reside, study and work in the "
+                 "United States indefinitely without a visa."),
+    },
+    {
+        "id": "oecs",
+        "name": "Organisation of Eastern Caribbean States (OECS)",
+        "level": "freedom-of-movement",
+        "members": ["AG", "DM", "GD", "KN", "LC", "VC"],
+        "associates": [],
+        "deactivated": [],
+        "source_url": ("https://en.wikipedia.org/wiki/Freedom_of_movement"
+                       "#Organisation_of_Eastern_Caribbean_States_(OECS)"),
+        "note": ("OECS citizens may enter, reside, study and work in each "
+                 "member state indefinitely without a visa."),
+    },
+    {
+        "id": "caricom",
+        "name": "Caribbean Community (CARICOM)",
+        "level": "freedom-of-movement",
+        "members": ["BB", "BZ", "DM", "VC"],
+        "associates": [],
+        "deactivated": ["AG", "BS", "GD", "GY", "JM", "KN", "LC", "SR", "TT"],
+        "source_url": "https://en.wikipedia.org/wiki/Freedom_of_movement#CARICOM",
+        "note": ("Full free movement (live + work, no time limits) is "
+                 "implemented among Barbados, Belize, Dominica and St Vincent "
+                 "and the Grenadines since 1 Oct 2025. The other CARICOM members "
+                 "are visa-free only and are marked deactivated so they do not "
+                 "show."),
+    },
+    {
+        "id": "cis",
+        "name": "Commonwealth of Independent States",
+        "level": "visa-free",
+        "members": ["AM", "AZ", "BY", "KG", "KZ", "MD", "RU", "TJ", "UZ"],
+        "associates": [],
+        "deactivated": [],
+        "source_url": "https://en.wikipedia.org/wiki/Freedom_of_movement#Commonwealth_of_Independent_States",
+        "note": ("CIS mobility agreements: visa-free travel, document "
+                 "recognition and labour cooperation among members - a common "
+                 "market, shallower than the EAEU single market, so no full "
+                 "freedom of movement. Ukraine's participation is suspended; "
+                 "Turkmenistan is an associate member."),
+    },
+    {
+        "id": "ca4",
+        "name": "Central America-4",
+        "level": "visa-free",
+        "members": ["SV", "GT", "HN", "NI"],
+        "associates": [],
+        "deactivated": [],
+        "source_url": "https://en.wikipedia.org/wiki/Freedom_of_movement#Central_America",
+        "note": ("The CA-4 Border Control Agreement (2006) abolished land "
+                 "border checks among El Salvador, Guatemala, Honduras and "
+                 "Nicaragua, with a harmonised external border (open-border "
+                 "for land travel; kept as visa-free)."),
+    },
+    {
+        "id": "india-bhutan",
+        "name": "India-Bhutan",
+        "level": "visa-free",
+        "members": ["IN", "BT"],
+        "associates": [],
+        "deactivated": [],
+        "source_url": "https://en.wikipedia.org/wiki/Freedom_of_movement#India_and_Bhutan",
+        "note": ("Indian and Bhutanese citizens may cross the border with no "
+                 "passport (a long-standing open-border arrangement); kept as "
+                 "visa-free."),
+    },
+]
+
+doc = {
+    "source": ("Freedom-of-movement / free-movement regime overlay. A separate "
+               "EXPLANATORY layer on top of the per-corridor visa_rules matrix: "
+               "it records the multilateral mobility blocs and which members "
+               "currently exercise each right, so the app can explain WHY a "
+               "corridor is visa-free / freedom-of-movement. It never changes "
+               "the visa_rules entry status. 'members' are active (full "
+               "members), 'associates' are associate states that DO exercise "
+               "the right (treated as active), and 'deactivated' are bloc "
+               "members that currently do NOT exercise the right (kept for "
+               "reference but must not show). Curated from the Wikipedia "
+               "'Freedom of movement' article (Examples of free movement "
+               "arrangements) plus the regime's own article."),
+    "checked": "2026-09-04",
+    "values": ["freedom-of-movement", "visa-free"],
+    "note": ("level: 'freedom-of-movement' = enter + reside + work (no "
+             "passport/ID in practice); 'visa-free' = enter without a visa but "
+             "no automatic long-term residence/work. A country counts as active "
+             "in a regime if it is in members or associates (NOT in "
+             "deactivated). The app answers 'does passport X and destination Y "
+             "share a mobility regime?' by finding a regime where both are "
+             "active; the corridor's own type/days remain authoritative for "
+             "the entry answer."),
+    "regimes": REGIMES,
+}
+
+out = DATA / "mobility-regimes.json"
+with open(out, "w") as f:
+    json.dump(doc, f, ensure_ascii=False, indent=2)
+    f.write("\n")
+print(f"wrote {out} ({len(REGIMES)} regimes)")

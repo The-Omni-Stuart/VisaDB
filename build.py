@@ -11,11 +11,13 @@ so out loud instead of silently picking one.
   confidence "disputed"  — sources disagree; `dispute` shows both claims
 
 Outputs (in data/):
-  visa_data.db            canonical SQLite form the app consumes (meta, countries,
-                          visa_rules, corrections, visa_holdings, visa_benefits)
-  visa_data.json          canonical nested text form: the matrix (entry status +
-                          transit per corridor) plus countries / corrections /
-                          holdings / benefits as top-level lists — for diffing
+   visa_data.db            canonical SQLite form the app consumes (meta, countries,
+                           visa_rules, corrections, visa_holdings, visa_benefits,
+                           mobility_regimes)
+   visa_data.json          canonical nested text form: the matrix (entry status +
+                           transit per corridor) plus countries / corrections /
+                           holdings / benefits / mobility_regimes as top-level
+                           lists — for diffing
   visa-matrix-iso2.csv    opt-in, --export matrix: wide grid, entry status only
   visa-matrix-tidy.csv    opt-in, --export tidy: long form, entry status only
 
@@ -54,6 +56,16 @@ scraped: transit is "free" wherever the entry type is visa-free or
 freedom-of-movement (airside transit is strictly less privileged than entry)
 and "unknown" otherwise; cited exceptions live in data/transit.json and are
 applied by merge_transit().
+
+Freedom-of-movement regimes: a separate EXPLANATORY layer (the
+mobility_regimes table) recording the multilateral free-movement blocs
+(EU/EEA/EFTA, EAEU, Union State, GCC, Mercosur, CARICOM, Trans-Tasman, COFA,
+OECS, CIS, CA-4, India-Nepal, India-Bhutan, Common Travel Area) and which
+members currently exercise each right, so the app can explain WHY a corridor
+is visa-free / freedom-of-movement. It never changes the per-corridor entry
+status. 'members' + 'associates' are active; 'deactivated' are bloc members
+that do not currently exercise the right. Curated in
+data/mobility-regimes.json and merged by merge_mobility_regimes().
 """
 
 from __future__ import annotations
@@ -251,6 +263,44 @@ def merge_visa_benefits(cur, known_iso2):
     return n_holdings, n_benefits
 
 
+def merge_mobility_regimes(cur, known_iso2):
+    """Load the curated freedom-of-movement regime overlay from
+    data/mobility-regimes.json into the mobility_regimes table.
+
+    This is an EXPLANATORY layer on top of the per-corridor visa_rules matrix:
+    it records the multilateral mobility blocs and which members currently
+    exercise each right, so the app can explain WHY a corridor is visa-free /
+    freedom-of-movement. It never changes the visa_rules entry status.
+
+    'members' + 'associates' are the countries that actively exercise a
+    regime's right (the app counts a country as active if it is in either);
+    'deactivated' are bloc members that currently do NOT exercise it (kept for
+    reference, must not show). Countries absent from this build are dropped
+    from every list so the table only references real VisaDB ISO2 codes.
+    """
+    path = DATA / "mobility-regimes.json"
+    if not path.exists():
+        return 0
+    spec = json.load(open(path))
+    def keep(codes):
+        return sorted(set(codes) & known_iso2)
+    n = 0
+    for r in spec.get("regimes", []):
+        cur.execute(
+            "INSERT OR REPLACE INTO mobility_regimes"
+            "(id, name, level, members, associates, deactivated, source_url, note)"
+            " VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+            (r["id"], r["name"], r["level"],
+             json.dumps(keep(r.get("members", []))),
+             json.dumps(keep(r.get("associates", []))),
+             json.dumps(keep(r.get("deactivated", []))),
+             r.get("source_url"), r.get("note")),
+        )
+        n += 1
+    print(f"mobility regimes: {n}")
+    return n
+
+
 def merge_transit(cur):
     """Apply the curated, cited transit rules from data/transit.json.
 
@@ -342,8 +392,8 @@ def merge_transit(cur):
 
 
 def write_sqlite(dataset, matrix, passports, overrides, extra_names=None) -> pathlib.Path:
-    """Write the 6-table SQLite form: meta, countries, visa_rules, corrections,
-    visa_holdings, visa_benefits."""
+    """Write the SQLite form: meta, countries, visa_rules, corrections,
+    visa_holdings, visa_benefits, mobility_regimes."""
     db_path = DATA / "visa_data.db"
     if db_path.exists():
         db_path.unlink()
@@ -408,16 +458,33 @@ def write_sqlite(dataset, matrix, passports, overrides, extra_names=None) -> pat
             source_url  TEXT,
             PRIMARY KEY (holding, destination)
         );
+        CREATE TABLE mobility_regimes (
+            -- EXPLANATORY overlay on top of visa_rules (never changes entry
+            -- status). One row per free-movement bloc. members + associates
+            -- are the countries that actively exercise the right; deactivated
+            -- are bloc members that currently do not (kept, must not show).
+            -- members / associates / deactivated are JSON arrays of ISO2.
+            id          TEXT PRIMARY KEY,
+            name        TEXT NOT NULL,
+            level       TEXT NOT NULL,
+            members     TEXT NOT NULL,
+            associates  TEXT NOT NULL,
+            deactivated TEXT NOT NULL,
+            source_url  TEXT,
+            note        TEXT
+        );
         CREATE INDEX idx_visa_rules_destination  ON visa_rules(destination);
         CREATE INDEX idx_visa_rules_type         ON visa_rules(type);
         CREATE INDEX idx_visa_benefits_holding   ON visa_benefits(holding);
         CREATE INDEX idx_visa_benefits_dest      ON visa_benefits(destination);
+        CREATE INDEX idx_mobility_regimes_level  ON mobility_regimes(level);
     """)
 
     meta = dataset["meta"]
     for k in ("name", "version", "generated", "passport_count", "corridor_count",
               "primary_source", "cross_check", "limited_recognition",
-              "visa_benefits", "transit", "attribution", "license", "disclaimer"):
+              "visa_benefits", "transit", "mobility_regimes", "attribution",
+              "license", "disclaimer"):
         if k in meta:
             cur.execute("INSERT INTO meta(key, value) VALUES (?, ?)", (k, str(meta[k])))
 
@@ -461,6 +528,7 @@ def write_sqlite(dataset, matrix, passports, overrides, extra_names=None) -> pat
         )
 
     merge_visa_benefits(cur, iso2s)
+    merge_mobility_regimes(cur, iso2s)
 
     con.commit()
     con.close()
@@ -486,6 +554,13 @@ def write_full_json(db_path, matrix, dataset) -> pathlib.Path:
         "SELECT holding, destination, type, days, confidence, source, checked,"
         " note, source_page, source_url"
         " FROM visa_benefits ORDER BY holding, destination")]
+    mobility = [dict(r) for r in con.execute(
+        "SELECT id, name, level, members, associates, deactivated, source_url, note"
+        " FROM mobility_regimes ORDER BY id")]
+    for mrec in mobility:
+        mrec["members"] = json.loads(mrec["members"])
+        mrec["associates"] = json.loads(mrec["associates"])
+        mrec["deactivated"] = json.loads(mrec["deactivated"])
     m = {}
     for r in con.execute(
             "SELECT passport, destination, type, days, confidence, source,"
@@ -515,7 +590,8 @@ def write_full_json(db_path, matrix, dataset) -> pathlib.Path:
     with open(out, "w") as f:
         json.dump(
             {"meta": dataset["meta"], "countries": countries, "matrix": m,
-             "corrections": corrections, "holdings": holdings, "benefits": benefits},
+             "corrections": corrections, "holdings": holdings, "benefits": benefits,
+             "mobility_regimes": mobility},
             f, ensure_ascii=False, indent=1)
     return out
 
@@ -703,7 +779,21 @@ def build(build_date: str, exports: frozenset = frozenset()):
                 "applied by merge_transit(). Distinct from the entry ladder: a "
                 "visa-free corridor is always transit-free, but a visa-required "
                 "corridor may allow airside transit, require a transit visa, or "
-                "be conditional on booked onward travel (China TWOV)."
+                 "be conditional on booked onward travel (China TWOV)."
+            ),
+            "mobility_regimes": (
+                "Separate EXPLANATORY layer (mobility_regimes table, from "
+                "data/mobility-regimes.json): the multilateral freedom-of-"
+                "movement / free-movement blocs and which members currently "
+                "exercise each right, so the app can explain WHY a corridor is "
+                "visa-free / freedom-of-movement. It never changes the per-"
+                "corridor visa_rules entry status. 'members' + 'associates' "
+                "are active (a country counts as active in a regime if it is "
+                "in either); 'deactivated' are bloc members that currently do "
+                "NOT exercise the right (kept for reference, must not show). "
+                "level: freedom-of-movement (enter + reside + work) or "
+                "visa-free (enter without a visa, no automatic residence/work). "
+                "Curated from the Wikipedia 'Freedom of movement' article."
             ),
             "attribution": "xpressmike/visa-matrix (CC BY-SA 4.0)",
             "license": "GPLv3 — VisaDB fork of visa-matrix; see LICENSE and NOTICE",

@@ -215,6 +215,7 @@
   "limited_recognition": "Abkhazia (AB), South Ossetia (OS), Transnistria (TS) and Northern Cyprus (NC) plus the SADR passport (EH, not a destination — no visa policy page exists) are hand-curated from Wikipedia stub pages in data/limited-recognition.json. A de facto passport is refused where it is not accepted as a travel document; accepted-but-undocumented regimes are marked assumed visa-required. Single-source: confidence=medium.",
   "visa_benefits": "visa_holdings + visa_benefits (from data/visa-benefits.json) are a permit layer: 13 common foreign visa/residency holdings (US green card, US visa, Schengen visa/residence, UK BRP, Canada PR/visa, Australia PR, UAE residence, Japan visa, GCC residence, Singapore permit, APEC card) and the destinations each one unlocks. Curated from VisaCheck and verified against the destination's own Wikipedia row (a note in another country's row is that other country's policy, not the destination's — several VisaCheck entries were dropped or corrected on that basis). confidence=high means the destination's row documents it; medium means it fits the 'foreign visa/residence accepted' pattern but is not row-documented. A benefit only RELAXES the underlying passport rule (passport + admissibility still required); the app re-merges each against the passport result and keeps the better outcome. Each row carries source_page + source_url (the destination's 'Visa policy of X' Wikipedia page; Schengen states share 'Visa policy of the Schengen Area') for one-click re-verification.",
   "transit": "Separate axis on visa_rules (transit, transit_note): free | required | conditional | unknown. Base rule — computed, not scraped — sets transit=free wherever the entry type is visa-free or freedom-of-movement (airside transit is strictly less privileged than entry) and unknown for every other corridor; cited exceptions live in data/transit.json and are applied by merge_transit(). Distinct from the entry ladder: a visa-free corridor is always transit-free, but a visa-required corridor may allow airside transit, require a transit visa, or be conditional on booked onward travel (China TWOV).",
+  "mobility_regimes": "Separate EXPLANATORY layer (mobility_regimes table, from data/mobility-regimes.json): the multilateral freedom-of-movement / free-movement blocs and which members currently exercise each right, so the app can explain WHY a corridor is visa-free / freedom-of-movement. It never changes the per-corridor visa_rules entry status. 'members' + 'associates' are active (a country counts as active in a regime if it is in either); 'deactivated' are bloc members that currently do NOT exercise the right (kept for reference, must not show). level: freedom-of-movement (enter + reside + work) or visa-free (enter without a visa, no automatic residence/work). Curated from the Wikipedia 'Freedom of movement' article.",
   "attribution": "xpressmike/visa-matrix (CC BY-SA 4.0)",
   "license": "GPLv3 — VisaDB fork of visa-matrix; see LICENSE and NOTICE",
   "disclaimer": "General information, not legal advice. Rules change; always verify with the destination's official government source before booking."
@@ -352962,6 +352963,263 @@
    "note": "E-visa available online for valid US visa",
    "source_page": "Visa policy of Turkey",
    "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Turkey"
+  }
+ ],
+ "mobility_regimes": [
+  {
+   "id": "ca4",
+   "name": "Central America-4",
+   "level": "visa-free",
+   "members": [
+    "GT",
+    "HN",
+    "NI",
+    "SV"
+   ],
+   "associates": [],
+   "deactivated": [],
+   "source_url": "https://en.wikipedia.org/wiki/Freedom_of_movement#Central_America",
+   "note": "The CA-4 Border Control Agreement (2006) abolished land border checks among El Salvador, Guatemala, Honduras and Nicaragua, with a harmonised external border (open-border for land travel; kept as visa-free)."
+  },
+  {
+   "id": "caricom",
+   "name": "Caribbean Community (CARICOM)",
+   "level": "freedom-of-movement",
+   "members": [
+    "BB",
+    "BZ",
+    "DM",
+    "VC"
+   ],
+   "associates": [],
+   "deactivated": [
+    "AG",
+    "BS",
+    "GD",
+    "GY",
+    "JM",
+    "KN",
+    "LC",
+    "SR",
+    "TT"
+   ],
+   "source_url": "https://en.wikipedia.org/wiki/Freedom_of_movement#CARICOM",
+   "note": "Full free movement (live + work, no time limits) is implemented among Barbados, Belize, Dominica and St Vincent and the Grenadines since 1 Oct 2025. The other CARICOM members are visa-free only and are marked deactivated so they do not show."
+  },
+  {
+   "id": "cis",
+   "name": "Commonwealth of Independent States",
+   "level": "visa-free",
+   "members": [
+    "AM",
+    "AZ",
+    "BY",
+    "KG",
+    "KZ",
+    "MD",
+    "RU",
+    "TJ",
+    "UZ"
+   ],
+   "associates": [],
+   "deactivated": [],
+   "source_url": "https://en.wikipedia.org/wiki/Freedom_of_movement#Commonwealth_of_Independent_States",
+   "note": "CIS mobility agreements: visa-free travel, document recognition and labour cooperation among members - a common market, shallower than the EAEU single market, so no full freedom of movement. Ukraine's participation is suspended; Turkmenistan is an associate member."
+  },
+  {
+   "id": "cofa",
+   "name": "Compact of Free Association",
+   "level": "freedom-of-movement",
+   "members": [
+    "FM",
+    "MH",
+    "PW",
+    "US"
+   ],
+   "associates": [],
+   "deactivated": [],
+   "source_url": "https://en.wikipedia.org/wiki/Freedom_of_movement#United_States,_Federated_States_of_Micronesia,_Marshall_Islands,_and_Palau",
+   "note": "Citizens of the Federated States of Micronesia, the Marshall Islands and Palau may enter, reside, study and work in the United States indefinitely without a visa."
+  },
+  {
+   "id": "common-travel-area",
+   "name": "Common Travel Area",
+   "level": "freedom-of-movement",
+   "members": [
+    "GB",
+    "IE"
+   ],
+   "associates": [],
+   "deactivated": [],
+   "source_url": "https://en.wikipedia.org/wiki/Freedom_of_movement#United_Kingdom,_Ireland,_Isle_of_Man_and_Channel_Islands",
+   "note": "The UK, Ireland and the Crown Dependencies (Isle of Man, Jersey, Guernsey - not in VisaDB) share a Common Travel Area with no routine border controls on people."
+  },
+  {
+   "id": "eaeu",
+   "name": "Eurasian Economic Union",
+   "level": "freedom-of-movement",
+   "members": [
+    "AM",
+    "BY",
+    "KG",
+    "KZ",
+    "RU"
+   ],
+   "associates": [],
+   "deactivated": [],
+   "source_url": "https://en.wikipedia.org/wiki/Freedom_of_movement#Eurasian_Economic_Union",
+   "note": "Single market: free movement of labour without work permits since 2012; a national ID/internal passport is valid within the union. The deeper 5-state core inside the CIS."
+  },
+  {
+   "id": "eu-eea-efta",
+   "name": "European Union / EEA / EFTA",
+   "level": "freedom-of-movement",
+   "members": [
+    "AT",
+    "BE",
+    "BG",
+    "CH",
+    "CY",
+    "CZ",
+    "DE",
+    "DK",
+    "EE",
+    "ES",
+    "FI",
+    "FR",
+    "GR",
+    "HR",
+    "HU",
+    "IE",
+    "IS",
+    "IT",
+    "LI",
+    "LT",
+    "LU",
+    "LV",
+    "MT",
+    "NL",
+    "NO",
+    "PL",
+    "PT",
+    "RO",
+    "SE",
+    "SI",
+    "SK"
+   ],
+   "associates": [],
+   "deactivated": [],
+   "source_url": "https://en.wikipedia.org/wiki/Freedom_of_movement#European_Union",
+   "note": "EU internal free movement (enter, reside, work, study). Extended to Iceland, Liechtenstein and Norway via the EEA, and to Switzerland (EFTA) via the EU-Switzerland Agreement on the Free Movement of Persons. The Nordic Passport Union (Denmark, Finland, Iceland, Norway, Sweden) is subsumed here; its extra territories - the Faroe Islands (an NPU member) and Greenland (open border with the Nordics) - are not tracked in VisaDB."
+  },
+  {
+   "id": "gcc",
+   "name": "Gulf Cooperation Council",
+   "level": "freedom-of-movement",
+   "members": [
+    "AE",
+    "BH",
+    "KW",
+    "OM",
+    "QA",
+    "SA"
+   ],
+   "associates": [],
+   "deactivated": [],
+   "source_url": "https://en.wikipedia.org/wiki/Freedom_of_movement#Gulf_Cooperation_Council",
+   "note": "GCC citizens may live, work and reside freely in the other GCC states."
+  },
+  {
+   "id": "india-bhutan",
+   "name": "India-Bhutan",
+   "level": "visa-free",
+   "members": [
+    "BT",
+    "IN"
+   ],
+   "associates": [],
+   "deactivated": [],
+   "source_url": "https://en.wikipedia.org/wiki/Freedom_of_movement#India_and_Bhutan",
+   "note": "Indian and Bhutanese citizens may cross the border with no passport (a long-standing open-border arrangement); kept as visa-free."
+  },
+  {
+   "id": "india-nepal",
+   "name": "India-Nepal open border",
+   "level": "freedom-of-movement",
+   "members": [
+    "IN",
+    "NP"
+   ],
+   "associates": [],
+   "deactivated": [],
+   "source_url": "https://en.wikipedia.org/wiki/Freedom_of_movement#India_and_Nepal",
+   "note": "Under the 1950 Treaty of Peace and Friendship, Indian and Nepali citizens may live, work, own property and trade in each other's country; the border is open."
+  },
+  {
+   "id": "mercosur",
+   "name": "Mercosur",
+   "level": "freedom-of-movement",
+   "members": [
+    "AR",
+    "BO",
+    "BR",
+    "PY",
+    "UY"
+   ],
+   "associates": [
+    "CL",
+    "CO",
+    "EC",
+    "PE"
+   ],
+   "deactivated": [
+    "VE"
+   ],
+   "source_url": "https://en.wikipedia.org/wiki/Freedom_of_movement#Mercosur",
+   "note": "No passport required to travel between members; freedom of movement also extends to associate states (Chile, Colombia, Ecuador, Peru). Venezuela is suspended."
+  },
+  {
+   "id": "oecs",
+   "name": "Organisation of Eastern Caribbean States (OECS)",
+   "level": "freedom-of-movement",
+   "members": [
+    "AG",
+    "DM",
+    "GD",
+    "KN",
+    "LC",
+    "VC"
+   ],
+   "associates": [],
+   "deactivated": [],
+   "source_url": "https://en.wikipedia.org/wiki/Freedom_of_movement#Organisation_of_Eastern_Caribbean_States_(OECS)",
+   "note": "OECS citizens may enter, reside, study and work in each member state indefinitely without a visa."
+  },
+  {
+   "id": "trans-tasman",
+   "name": "Trans-Tasman Travel Arrangement",
+   "level": "freedom-of-movement",
+   "members": [
+    "AU",
+    "NZ"
+   ],
+   "associates": [],
+   "deactivated": [],
+   "source_url": "https://en.wikipedia.org/wiki/Trans-Tasman_Travel_Arrangement",
+   "note": "Australian and New Zealand citizens may live, work and study in each other's country (reciprocal resident-class rights), beyond simple visa-free entry."
+  },
+  {
+   "id": "union-state",
+   "name": "Union State of Russia and Belarus",
+   "level": "freedom-of-movement",
+   "members": [
+    "BY",
+    "RU"
+   ],
+   "associates": [],
+   "deactivated": [],
+   "source_url": "https://en.wikipedia.org/wiki/Freedom_of_movement#Union_State_of_Russia_and_Belarus",
+   "note": "Deepest integration: equal rights to freedom of movement and choice of place of residence between Russia and Belarus."
   }
  ]
 }
