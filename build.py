@@ -11,13 +11,13 @@ so out loud instead of silently picking one.
   confidence "disputed"  — sources disagree; `dispute` shows both claims
 
 Outputs (in data/):
-   visa_data.db            canonical SQLite form the app consumes (meta, countries,
-                            visa_rules, corrections, visa_holdings, visa_benefits,
-                            mobility_regimes, stay_rules)
-   visa_data.json          canonical nested text form: the matrix (entry status +
-                            transit per corridor) plus countries / corrections /
-                            holdings / benefits / mobility_regimes / stay_rules as
-                            top-level lists — for diffing
+    visa_data.db            canonical SQLite form the app consumes (meta, countries,
+                             visa_rules, corrections, visa_holdings, visa_benefits,
+                             mobility_regimes, stay_rules, transit_benefits)
+    visa_data.json          canonical nested text form: the matrix (entry status +
+                             transit per corridor) plus countries / corrections /
+                             holdings / benefits / mobility_regimes / stay_rules /
+                             transit_benefits as top-level lists — for diffing
   visa-matrix-iso2.csv    opt-in, --export matrix: wide grid, entry status only
   visa-matrix-tidy.csv    opt-in, --export tidy: long form, entry status only
 
@@ -456,6 +456,38 @@ def merge_transit(cur):
     return n
 
 
+def merge_transit_benefits(cur, known_holdings):
+    """Load the curated transit-benefit rows (T4) from data/transit-benefits.json
+    into the transit_benefits table.
+
+    A holding conferring transit (airside) rights at a hub. Parallel to
+    visa_benefits (which relaxes ENTRY); this relaxes the TRANSIT axis. Rows
+    whose holding is not in visa_holdings (this build) are dropped so the table
+    only references real holdings. A missing (holding, hub) row means no
+    documented benefit — the base corridor transit rule applies.
+    """
+    path = DATA / "transit-benefits.json"
+    if not path.exists():
+        return 0
+    spec = json.load(open(path))
+    n = 0
+    for r in spec.get("benefits", []):
+        holding = r["holding"]
+        if holding not in known_holdings:
+            print(f"transit benefit dropped (unknown holding): {holding}@{r['hub']}")
+            continue
+        cur.execute(
+            "INSERT OR REPLACE INTO transit_benefits"
+            "(holding, hub, transit_type, note, source_url)"
+            " VALUES (?, ?, ?, ?, ?)",
+            (holding, r["hub"], r["transit_type"],
+             r.get("note"), r.get("source_url")),
+        )
+        n += 1
+    print(f"transit benefits: {n}")
+    return n
+
+
 def write_sqlite(dataset, matrix, passports, overrides, extra_names=None) -> pathlib.Path:
     """Write the SQLite form: meta, countries, visa_rules, corrections,
     visa_holdings, visa_benefits, mobility_regimes, stay_rules."""
@@ -571,19 +603,42 @@ def write_sqlite(dataset, matrix, passports, overrides, extra_names=None) -> pat
             source             TEXT,
             note               TEXT
         );
+        CREATE TABLE transit_benefits (
+            -- T4: a foreign holding conferring transit (airside) rights at a
+            -- hub. Parallel to visa_benefits (which relaxes ENTRY); this relaxes
+            -- the TRANSIT axis (visa_rules.transit) — e.g. a US green card
+            -- waives the Schengen airport transit visa for a passport that
+            -- would otherwise need one. hub is a transit-regime id, not a
+            -- country ('schengen' = airport-transit-visa regime; 'uk' = Direct
+            -- Airside Transit regime); the app resolves a transit airport to a
+            -- regime before querying. transit_type shares the visa_rules.transit
+            -- vocabulary (free | required | conditional | unknown): 'free' = the
+            -- holding waives the transit visa (airside); 'conditional' = waived
+            -- only under the stated conditions (the visa-based Schengen
+            -- exemptions need travel to/from the issuing country). A MISSING row
+            -- = no documented benefit (base corridor transit rule applies) — not
+            -- a confirmed 'required'. Verified from official sources (source_url).
+            holding      TEXT NOT NULL,
+            hub          TEXT NOT NULL,
+            transit_type TEXT NOT NULL,
+            note         TEXT,
+            source_url   TEXT,
+            PRIMARY KEY (holding, hub)
+        );
         CREATE INDEX idx_visa_rules_destination  ON visa_rules(destination);
         CREATE INDEX idx_visa_rules_type         ON visa_rules(type);
         CREATE INDEX idx_visa_benefits_holding   ON visa_benefits(holding);
         CREATE INDEX idx_visa_benefits_dest      ON visa_benefits(destination);
         CREATE INDEX idx_mobility_regimes_level  ON mobility_regimes(level);
         CREATE INDEX idx_stay_rules_zone         ON stay_rules(zone);
+        CREATE INDEX idx_transit_benefits_hub    ON transit_benefits(hub);
     """)
 
     meta = dataset["meta"]
     for k in ("name", "version", "generated", "passport_count", "corridor_count",
               "primary_source", "cross_check", "limited_recognition",
               "visa_benefits", "transit", "mobility_regimes", "stay_rules",
-              "stay_axis", "attribution", "license", "disclaimer"):
+              "stay_axis", "transit_benefits", "attribution", "license", "disclaimer"):
         if k in meta:
             cur.execute("INSERT INTO meta(key, value) VALUES (?, ?)", (k, str(meta[k])))
 
@@ -631,6 +686,8 @@ def write_sqlite(dataset, matrix, passports, overrides, extra_names=None) -> pat
     merge_visa_benefits(cur, iso2s)
     merge_mobility_regimes(cur, iso2s)
     merge_stay_rules(cur, iso2s)
+    merge_transit_benefits(
+        cur, {r[0] for r in cur.execute("SELECT id FROM visa_holdings")})
 
     con.commit()
     con.close()
@@ -671,6 +728,9 @@ def write_full_json(db_path, matrix, dataset) -> pathlib.Path:
     for srec in stay:
         srec["countries"] = json.loads(srec["countries"])
         srec["nationalities"] = json.loads(srec["nationalities"])
+    transit_benefits = [dict(r) for r in con.execute(
+        "SELECT holding, hub, transit_type, note, source_url"
+        " FROM transit_benefits ORDER BY holding, hub")]
     m = {}
     for r in con.execute(
             "SELECT passport, destination, type, days,"
@@ -706,7 +766,8 @@ def write_full_json(db_path, matrix, dataset) -> pathlib.Path:
         json.dump(
             {"meta": dataset["meta"], "countries": countries, "matrix": m,
              "corrections": corrections, "holdings": holdings, "benefits": benefits,
-             "mobility_regimes": mobility, "stay_rules": stay},
+             "mobility_regimes": mobility, "stay_rules": stay,
+             "transit_benefits": transit_benefits},
             f, ensure_ascii=False, indent=1)
     return out
 
@@ -933,9 +994,28 @@ def build(build_date: str, exports: frozenset = frozenset()):
                 "countries are real ISO2; nationalities may hold the sentinels "
                 "'*' (all visa-exempt nationals) and 'EU-EEA' (EU/EEA nationals), "
                 "resolved by the app. valid_from/valid_to bound when the grant "
-                "applies. Phase-1 seed; re-verify per rule in phase 2."
-            ),
-            "stay_axis": (
+                 "applies. Phase-1 seed; re-verify per rule in phase 2."
+             ),
+             "transit_benefits": (
+                 "Separate BENEFIT layer (transit_benefits table, from data/"
+                 "transit-benefits.json; T4): a foreign holding conferring "
+                 "transit (airside) rights at a hub, parallel to visa_benefits "
+                 "(which relaxes the ENTRY ladder). hub is a transit-regime id, "
+                 "not a country ('schengen' = airport-transit-visa regime; 'uk' "
+                 "= Direct Airside Transit regime); the app resolves a transit "
+                 "airport to a regime before querying. transit_type shares the "
+                 "visa_rules.transit vocabulary: 'free' = the holding waives the "
+                 "transit visa (airside), 'conditional' = waived only under the "
+                 "stated conditions (the visa-based Schengen exemptions require "
+                 "travel to/from the issuing country or the immediate return "
+                 "leg). Only VERIFIED benefits are stored, each with a "
+                 "source_url; a MISSING (holding, hub) row means 'no documented "
+                 "transit benefit from that holding at that hub' (the base "
+                 "corridor transit rule applies) — NOT a confirmed 'required'. "
+                 "Verified 2026-09-04 against the EU Visa Code + C(2024) 4319 "
+                 "Handbook + Germany AA + France-Visas, and gov.uk."
+             ),
+             "stay_axis": (
                 "Per-corridor stay axis on visa_rules (phase-2, auto-sourced from "
                 "the same Wikipedia scrape; see also the curated stay_rules layer "
                 "above for shared pools). window_period_days = Y when a cell "

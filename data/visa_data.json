@@ -217,6 +217,7 @@
   "transit": "Separate axis on visa_rules (transit, transit_note): free | required | conditional | unknown. Base rule — computed, not scraped — sets transit=free wherever the entry type is visa-free or freedom-of-movement (airside transit is strictly less privileged than entry) and unknown for every other corridor; cited exceptions live in data/transit.json and are applied by merge_transit(). Distinct from the entry ladder: a visa-free corridor is always transit-free, but a visa-required corridor may allow airside transit, require a transit visa, or be conditional on booked onward travel (China TWOV).",
   "mobility_regimes": "Separate EXPLANATORY layer (mobility_regimes table, from data/mobility-regimes.json): the multilateral freedom-of-movement / free-movement blocs and which members currently exercise each right, so the app can explain WHY a corridor is visa-free / freedom-of-movement. It never changes the per-corridor visa_rules entry status. 'members' + 'associates' are active (a country counts as active in a regime if it is in either); 'deactivated' are bloc members that currently do NOT exercise the right (kept for reference, must not show). level: freedom-of-movement (enter + reside + work) or visa-free (enter without a visa, no automatic residence/work). Curated from the Wikipedia 'Freedom of movement' article.",
   "stay_rules": "Separate FACTS layer (stay_rules table, from data/stay-rules.json): nationality-scoped stay allowances. The DB half of the stay-rules feature — it stores the facts, the app computes 'how many days do I have left' from these facts plus the user's own travel history (never stored). It never changes the per-corridor visa_rules entry status. window_type: per-entry (up to window_days each entry) or rolling (up to window_days in any window_period_days). zone: shared pool id — rows sharing a zone pool their allowance (Schengen: one 90/180 pool across 27 states; CA-4: one pool across GT/SV/HN/NI with per-country allowances), so 'time in one bloc country' is explicit. countries are real ISO2; nationalities may hold the sentinels '*' (all visa-exempt nationals) and 'EU-EEA' (EU/EEA nationals), resolved by the app. valid_from/valid_to bound when the grant applies. Phase-1 seed; re-verify per rule in phase 2.",
+  "transit_benefits": "Separate BENEFIT layer (transit_benefits table, from data/transit-benefits.json; T4): a foreign holding conferring transit (airside) rights at a hub, parallel to visa_benefits (which relaxes the ENTRY ladder). hub is a transit-regime id, not a country ('schengen' = airport-transit-visa regime; 'uk' = Direct Airside Transit regime); the app resolves a transit airport to a regime before querying. transit_type shares the visa_rules.transit vocabulary: 'free' = the holding waives the transit visa (airside), 'conditional' = waived only under the stated conditions (the visa-based Schengen exemptions require travel to/from the issuing country or the immediate return leg). Only VERIFIED benefits are stored, each with a source_url; a MISSING (holding, hub) row means 'no documented transit benefit from that holding at that hub' (the base corridor transit rule applies) — NOT a confirmed 'required'. Verified 2026-09-04 against the EU Visa Code + C(2024) 4319 Handbook + Germany AA + France-Visas, and gov.uk.",
   "stay_axis": "Per-corridor stay axis on visa_rules (phase-2, auto-sourced from the same Wikipedia scrape; see also the curated stay_rules layer above for shared pools). window_period_days = Y when a cell states a rolling window ('90 days in 180') — NULL where Wikipedia omits it, which is the common case (it writes '90 days' and leaves 90/180 to convention), so most corridors have no stated period and the app should treat a bare day count as 'up to N days, window type unknown'. valid_to = the expiry date of THIS entry status (T6: a visa-free that lapses, e.g. a time-boxed agreement), kept only while it is still in the future relative to 'generated' — a lapsed 'until …' is a stale historical note, not a live expiry. Both are single-source (Wikipedia); cross-check before relying on a specific date. The app: if valid_to is set and the planned stay is after it, the grant has lapsed and the underlying visa status applies.",
   "attribution": "xpressmike/visa-matrix (CC BY-SA 4.0)",
   "license": "GPLv3 — VisaDB fork of visa-matrix; see LICENSE and NOTICE",
@@ -353763,6 +353764,71 @@
    "valid_to": null,
    "source": "Visa policy of Bosnia & Herzegovina / Montenegro / North Macedonia / Serbia",
    "note": "90 days in any 180-day period (rolling). The same rule for all four Western Balkan states; this is NOT a shared pool (unlike CA-4/Schengen). Montenegro will require a visa for Russian nationals from 2026-11-01."
+  }
+ ],
+ "transit_benefits": [
+  {
+   "holding": "ca-pr",
+   "hub": "schengen",
+   "transit_type": "free",
+   "note": "A valid Canadian permanent resident card guarantees unconditional readmission, so no Schengen airport transit visa is needed for airside transit. Airside only.",
+   "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32009R0810"
+  },
+  {
+   "holding": "ca-visa",
+   "hub": "schengen",
+   "transit_type": "conditional",
+   "note": "A valid Canadian visa exempts from the Schengen airport transit visa, but only when travelling to/from Canada (or to another third country, or returning from Canada immediately after using the visa). Airside only.",
+   "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32009R0810"
+  },
+  {
+   "holding": "jp-visa",
+   "hub": "schengen",
+   "transit_type": "conditional",
+   "note": "A valid Japanese visa exempts from the Schengen airport transit visa, but only when travelling to/from Japan (or to another third country, or returning from Japan immediately after using the visa). Airside only.",
+   "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32009R0810"
+  },
+  {
+   "holding": "schengen-residence",
+   "hub": "schengen",
+   "transit_type": "free",
+   "note": "A valid residence permit issued by a Schengen/EU Member State — no airport transit visa needed.",
+   "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32009R0810"
+  },
+  {
+   "holding": "schengen-visa",
+   "hub": "schengen",
+   "transit_type": "free",
+   "note": "A valid Schengen (uniform) visa, national long-stay visa, or residence permit issued by a Member State — no airport transit visa needed (full Schengen access includes transit).",
+   "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32009R0810"
+  },
+  {
+   "holding": "uk-visa",
+   "hub": "schengen",
+   "transit_type": "conditional",
+   "note": "DISCREPANCY: a valid UK residence permit (BRP/ILR) is listed as a Schengen airport-transit-visa exemption in the 2024 EU Visa Code Handbook (point (c)) and French practice (must guarantee unconditional readmission), but is NOT listed in the 2019 Visa Code Annex V or Germany's FAQ. Applies to the residence permit only — NOT a UK visitor visa. Airside only. Verify with the specific transit state before travel.",
+   "source_url": "https://home-affairs.ec.europa.eu/policies/schengen/visa-policy/applying-schengen-visa_en"
+  },
+  {
+   "holding": "uk-visa",
+   "hub": "uk",
+   "transit_type": "free",
+   "note": "A valid UK Standard Visitor visa is explicitly listed on gov.uk as exempt from the UK Direct Airside Transit visa (DATV). Airside only. A UK residence permit (BRP/ILR) holder has leave to remain and can enter the UK, so a DATV is not the applicable route. Note: the status of most OTHER foreign holdings for the DATV is currently UNVERIFIED (the UK rules were restructured and the relevant appendix is unpublished), so no rows are written for them.",
+   "source_url": "https://www.gov.uk/transit-visa/direct-airside-transit-visa"
+  },
+  {
+   "holding": "us-green-card",
+   "hub": "schengen",
+   "transit_type": "free",
+   "note": "A valid US permanent resident card (green card / I-551) guarantees unconditional readmission, so no Schengen airport transit visa is needed for airside transit. Airside only — leaving the international transit area needs a Schengen short-stay visa.",
+   "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32009R0810"
+  },
+  {
+   "holding": "us-visa",
+   "hub": "schengen",
+   "transit_type": "conditional",
+   "note": "A valid US visa exempts from the Schengen airport transit visa, but only when travelling to/from the US (or to another third country, or returning from the US immediately after using the visa). Airside only.",
+   "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32009R0810"
   }
  ]
 }

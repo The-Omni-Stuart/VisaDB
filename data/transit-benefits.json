@@ -1,0 +1,70 @@
+{
+  "source": "Transit-benefit layer (a `transit_benefits` table). T4: a foreign holding conferring transit (airside) rights at a hub, parallel to visa_benefits (which relaxes the entry ladder). Only verified benefits are stored, each with source_url; a missing row means 'no documented transit benefit from that holding at that hub'. Hubs are transit-regime ids ('schengen' = airport-transit-visa regime, 'uk' = Direct Airside Transit regime). Verified 2026-09-04 against the EU Visa Code + C(2024) 4319 Handbook + Germany AA + France-Visas and gov.uk.",
+  "checked": "2026-09-04",
+  "note": "hub: transit-regime id (the app resolves a transit airport to a regime before querying). transit_type shares the visa_rules.transit vocabulary: 'free' = the holding waives the transit visa (airside), 'conditional' = waived only under the stated conditions (the visa-based Schengen exemptions require travel to/from the issuing country or the immediate return leg). A missing (holding, hub) row = no documented benefit (base corridor transit rule applies), NOT a confirmed 'required'.",
+  "benefits": [
+    {
+      "holding": "schengen-visa",
+      "hub": "schengen",
+      "transit_type": "free",
+      "note": "A valid Schengen (uniform) visa, national long-stay visa, or residence permit issued by a Member State — no airport transit visa needed (full Schengen access includes transit).",
+      "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32009R0810"
+    },
+    {
+      "holding": "schengen-residence",
+      "hub": "schengen",
+      "transit_type": "free",
+      "note": "A valid residence permit issued by a Schengen/EU Member State — no airport transit visa needed.",
+      "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32009R0810"
+    },
+    {
+      "holding": "us-green-card",
+      "hub": "schengen",
+      "transit_type": "free",
+      "note": "A valid US permanent resident card (green card / I-551) guarantees unconditional readmission, so no Schengen airport transit visa is needed for airside transit. Airside only — leaving the international transit area needs a Schengen short-stay visa.",
+      "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32009R0810"
+    },
+    {
+      "holding": "ca-pr",
+      "hub": "schengen",
+      "transit_type": "free",
+      "note": "A valid Canadian permanent resident card guarantees unconditional readmission, so no Schengen airport transit visa is needed for airside transit. Airside only.",
+      "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32009R0810"
+    },
+    {
+      "holding": "us-visa",
+      "hub": "schengen",
+      "transit_type": "conditional",
+      "note": "A valid US visa exempts from the Schengen airport transit visa, but only when travelling to/from the US (or to another third country, or returning from the US immediately after using the visa). Airside only.",
+      "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32009R0810"
+    },
+    {
+      "holding": "ca-visa",
+      "hub": "schengen",
+      "transit_type": "conditional",
+      "note": "A valid Canadian visa exempts from the Schengen airport transit visa, but only when travelling to/from Canada (or to another third country, or returning from Canada immediately after using the visa). Airside only.",
+      "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32009R0810"
+    },
+    {
+      "holding": "jp-visa",
+      "hub": "schengen",
+      "transit_type": "conditional",
+      "note": "A valid Japanese visa exempts from the Schengen airport transit visa, but only when travelling to/from Japan (or to another third country, or returning from Japan immediately after using the visa). Airside only.",
+      "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32009R0810"
+    },
+    {
+      "holding": "uk-visa",
+      "hub": "schengen",
+      "transit_type": "conditional",
+      "note": "DISCREPANCY: a valid UK residence permit (BRP/ILR) is listed as a Schengen airport-transit-visa exemption in the 2024 EU Visa Code Handbook (point (c)) and French practice (must guarantee unconditional readmission), but is NOT listed in the 2019 Visa Code Annex V or Germany's FAQ. Applies to the residence permit only — NOT a UK visitor visa. Airside only. Verify with the specific transit state before travel.",
+      "source_url": "https://home-affairs.ec.europa.eu/policies/schengen/visa-policy/applying-schengen-visa_en"
+    },
+    {
+      "holding": "uk-visa",
+      "hub": "uk",
+      "transit_type": "free",
+      "note": "A valid UK Standard Visitor visa is explicitly listed on gov.uk as exempt from the UK Direct Airside Transit visa (DATV). Airside only. A UK residence permit (BRP/ILR) holder has leave to remain and can enter the UK, so a DATV is not the applicable route. Note: the status of most OTHER foreign holdings for the DATV is currently UNVERIFIED (the UK rules were restructured and the relevant appendix is unpublished), so no rows are written for them.",
+      "source_url": "https://www.gov.uk/transit-visa/direct-airside-transit-visa"
+    }
+  ]
+}
