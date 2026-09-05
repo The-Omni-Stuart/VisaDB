@@ -22,6 +22,12 @@ jobs:
       - name: Rebuild dataset
         run: python3 build.py
 
+      # Fail the refresh (no PR) if the rebuilt data violates any invariant —
+      # e.g. a collector starts emitting a visa-free corridor that isn't
+      # transit-free, or an orphan holding appears in a benefits table.
+      - name: Run invariant tests
+        run: python3 test_visadb.py
+
       # Data changes land as a PR, never a silent push: every rule change
       # gets a human look (and disputes especially need one).
       - name: Open PR if the data changed
