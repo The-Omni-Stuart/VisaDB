@@ -228,6 +228,59 @@ RULES = [
         "source": "Visa policy of China",
         "note": "30-day visa-free for RU, until 2027-12-31.",
     },
+    # --- phase-2 expansions (verified against official sources 2026-09-05) ----
+    # EAC: a shared pool (the unique value of this layer) — a single 90-day
+    # (3-month) tourist-visa validity, multiple entry, shared across KE/UG/RW.
+    {
+        "id": "eac", "zone": "eac", "zone_name": "East African Community (EATV)",
+        "countries": ["KE", "UG", "RW"], "window_type": "rolling",
+        "window_days": 90, "window_period_days": 90, "extension": None,
+        "multiple_entry": 1, "nationalities": ["*"], "valid_from": None,
+        "valid_to": None,
+        "source": "East African Tourist Visa (Uganda NCIC)",
+        "note": ("East African Tourist Visa (EATV): a single 90-day / 3-month "
+                 "validity from date of issue, shared across KE/UG/RW — time in "
+                 "one state counts against the same allowance as another. "
+                 "Multiple entry, tourism only (employment prohibited), not "
+                 "extendable, not renewable, ~USD 100. Visa-based (a paid "
+                 "tourist visa), so it applies to nationalities that otherwise "
+                 "require a visa; the issuing country should be the first "
+                 "entry point."),
+    },
+    # Thailand: the 60-day visa-exemption (revised 2024-07-15) is non-trivial
+    # because it carries a +30 extension and a specific effective date.
+    {
+        "id": "th", "zone": None, "zone_name": None,
+        "countries": ["TH"], "window_type": "per-entry", "window_days": 60,
+        "window_period_days": None, "extension": 30, "multiple_entry": 0,
+        "nationalities": ["*"], "valid_from": "2024-07-15", "valid_to": None,
+        "source": "Thailand MFA visa-exemption (revised 16 Jul 2024)",
+        "note": ("60 days per entry (visa exemption), extendable by +30 days at "
+                 "immigration discretion; rule revised effective 2024-07-15 "
+                 "(widely applicable — 93+ nationalities)."),
+    },
+    # Brazil for EU/EEA: a rolling 90/180 window (non-trivial vs a bare count).
+    {
+        "id": "br-eu-90180", "zone": None, "zone_name": None,
+        "countries": ["BR"], "window_type": "rolling", "window_days": 90,
+        "window_period_days": 180, "extension": None, "multiple_entry": 0,
+        "nationalities": ["EU-EEA"], "valid_from": None, "valid_to": None,
+        "source": "Visa policy of Brazil (MRE)",
+        "note": "EU/EEA nationals: 90 days in any 180-day period (visa-exempt "
+                "visitor stay).",
+    },
+    # Argentina for IN: nationality-scoped bilateral with multiple-entry + a
+    # multi-year visa validity (non-trivial structure).
+    {
+        "id": "ar-in-bilateral", "zone": None, "zone_name": None,
+        "countries": ["AR"], "window_type": "per-entry", "window_days": 90,
+        "window_period_days": None, "extension": None, "multiple_entry": 1,
+        "nationalities": ["IN"], "valid_from": None, "valid_to": None,
+        "source": "Visa policy of Argentina (Cancillería, AR-IN bilateral)",
+        "note": "Indian nationals: 90 days per entry under the Argentina-India "
+                "bilateral tourist/business agreement; multiple-entry visa "
+                "valid up to 5 years.",
+    },
 ]
 
 doc = {
@@ -238,9 +291,10 @@ doc = {
                "applies to, and valid_from/valid_to. The 'how many days do I have "
                "left' computation is APP logic (needs the user's travel history), "
                "never stored here. Phase-1 seed curated from "
-               "docs/stay-rules-verified.md; re-verify in phase 2 before relying "
-               "on a rule."),
-    "checked": "2026-09-04",
+               "docs/stay-rules-verified.md; phase-2 additions (EAC shared pool, "
+               "Thailand, Brazil-EU, Argentina-India) verified against official "
+               "sources 2026-09-05. Re-verify per rule before relying on it."),
+    "checked": "2026-09-05",
     "note": ("window_type: 'per-entry' (up to window_days each entry) or "
              "'rolling' (up to window_days in any window_period_days). zone: "
              "shared pool id — rows sharing a zone pool their allowances "

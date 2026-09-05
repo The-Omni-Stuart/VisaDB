@@ -353313,6 +353313,46 @@
    "note": "US: 365 days."
   },
   {
+   "id": "ar-in-bilateral",
+   "zone": null,
+   "zone_name": null,
+   "countries": [
+    "AR"
+   ],
+   "window_type": "per-entry",
+   "window_days": 90,
+   "window_period_days": null,
+   "extension": null,
+   "multiple_entry": 1,
+   "nationalities": [
+    "IN"
+   ],
+   "valid_from": null,
+   "valid_to": null,
+   "source": "Visa policy of Argentina (Cancillería, AR-IN bilateral)",
+   "note": "Indian nationals: 90 days per entry under the Argentina-India bilateral tourist/business agreement; multiple-entry visa valid up to 5 years."
+  },
+  {
+   "id": "br-eu-90180",
+   "zone": null,
+   "zone_name": null,
+   "countries": [
+    "BR"
+   ],
+   "window_type": "rolling",
+   "window_days": 90,
+   "window_period_days": 180,
+   "extension": null,
+   "multiple_entry": 0,
+   "nationalities": [
+    "EU-EEA"
+   ],
+   "valid_from": null,
+   "valid_to": null,
+   "source": "Visa policy of Brazil (MRE)",
+   "note": "EU/EEA nationals: 90 days in any 180-day period (visa-exempt visitor stay)."
+  },
+  {
    "id": "ca4-gt",
    "zone": "ca4",
    "zone_name": "CA-4 (Central America)",
@@ -353475,6 +353515,28 @@
    "valid_to": null,
    "source": "Visa policy of Costa Rica",
    "note": "Up to 180 days at officer discretion (Group 1). Not part of CA-4."
+  },
+  {
+   "id": "eac",
+   "zone": "eac",
+   "zone_name": "East African Community (EATV)",
+   "countries": [
+    "KE",
+    "RW",
+    "UG"
+   ],
+   "window_type": "rolling",
+   "window_days": 90,
+   "window_period_days": 90,
+   "extension": null,
+   "multiple_entry": 1,
+   "nationalities": [
+    "*"
+   ],
+   "valid_from": null,
+   "valid_to": null,
+   "source": "East African Tourist Visa (Uganda NCIC)",
+   "note": "East African Tourist Visa (EATV): a single 90-day / 3-month validity from date of issue, shared across KE/UG/RW — time in one state counts against the same allowance as another. Multiple entry, tourism only (employment prohibited), not extendable, not renewable, ~USD 100. Visa-based (a paid tourist visa), so it applies to nationalities that otherwise require a visa; the issuing country should be the first entry point."
   },
   {
    "id": "gb",
@@ -353681,6 +353743,26 @@
    "valid_to": null,
    "source": "Schengen Area (Visa policy of the Schengen Area)",
    "note": "90 days in any 180-day period (rolling). The 90 days are a single shared pool across all 27 member states: time spent in one member counts against the same allowance as in another."
+  },
+  {
+   "id": "th",
+   "zone": null,
+   "zone_name": null,
+   "countries": [
+    "TH"
+   ],
+   "window_type": "per-entry",
+   "window_days": 60,
+   "window_period_days": null,
+   "extension": 30,
+   "multiple_entry": 0,
+   "nationalities": [
+    "*"
+   ],
+   "valid_from": "2024-07-15",
+   "valid_to": null,
+   "source": "Thailand MFA visa-exemption (revised 16 Jul 2024)",
+   "note": "60 days per entry (visa exemption), extendable by +30 days at immigration discretion; rule revised effective 2024-07-15 (widely applicable — 93+ nationalities)."
   },
   {
    "id": "tr",
