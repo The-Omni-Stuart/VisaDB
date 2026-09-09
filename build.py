@@ -268,12 +268,12 @@ def merge_visa_benefits(cur, known_iso2):
             src = "wikipedia" if b.get("confidence") == "high" else "visa-check"
             cur.execute(
                 "INSERT OR REPLACE INTO visa_benefits"
-                "(holding, destination, type, days, confidence, source, checked, note,"
-                " source_page, source_url)"
-                " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-                (holding, dest, b["type"], b.get("days"), b.get("confidence"),
-                 src, checked, b.get("note"),
-                 b.get("source_page"), b.get("source_url")),
+                "(holding, destination, type, days, entry_type, confidence, source, checked,"
+                " note, source_page, source_url)"
+                " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                (holding, dest, b["type"], b.get("days"), b.get("entry_type"),
+                  b.get("confidence"), src, checked, b.get("note"),
+                  b.get("source_page"), b.get("source_url")),
             )
             n_benefits += 1
     print(f"visa holdings: {n_holdings}  visa benefits: {n_benefits}")
@@ -565,6 +565,10 @@ def write_sqlite(dataset, matrix, passports, overrides, extra_names=None) -> pat
             destination TEXT NOT NULL,
             type        TEXT NOT NULL,
             days        INTEGER,
+            -- Comma list of entry types this benefit applies to (e.g. "double,multiple").
+            -- NULL = applies to every entry type. Lets a grant depend on the document's
+            -- entry type (e.g. Cyprus only via a double/multiple-entry Schengen visa).
+            entry_type  TEXT,
             confidence  TEXT,
             source      TEXT,
             checked     TEXT,
@@ -718,8 +722,8 @@ def write_full_json(db_path, matrix, dataset) -> pathlib.Path:
         "SELECT id, name, category, issuing_country, note"
         " FROM visa_holdings ORDER BY id")]
     benefits = [dict(r) for r in con.execute(
-        "SELECT holding, destination, type, days, confidence, source, checked,"
-        " note, source_page, source_url"
+        "SELECT holding, destination, type, days, entry_type, confidence, source,"
+        " checked, note, source_page, source_url"
         " FROM visa_benefits ORDER BY holding, destination")]
     mobility = [dict(r) for r in con.execute(
         "SELECT id, name, level, members, associates, deactivated, source_url, note"
