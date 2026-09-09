@@ -232,12 +232,19 @@ def parse_page(wt: str) -> dict:
                 days = int(ym.group(1)) * 365
                 break
         rest_plain = " ".join(strip_markup(c) for c in rest.split("\n|"))
-        out[country] = {
-            "type": status,
-            "days": days,
-            "window_period_days": find_window_period(rest_plain, days),
-            "valid_to": find_valid_to(rest_plain),
-        }
+        # First occurrence wins: a country's main row (its general status)
+        # always precedes any sub-territory exception rows that reuse the same
+        # flag (e.g. Wikipedia's Kish Island row reuses {{flag|Iran}} to list a
+        # visa-free island off a visa-required country). Letting a later sub-row
+        # overwrite the main row silently flipped whole corridors (GB->IR was
+        # scraped as visa-free because of its Kish Island exception row).
+        if country not in out:
+            out[country] = {
+                "type": status,
+                "days": days,
+                "window_period_days": find_window_period(rest_plain, days),
+                "valid_to": find_valid_to(rest_plain),
+            }
     return out
 
 

@@ -159,6 +159,14 @@ def canonical_country_names() -> dict[str, str]:
             out[iso2] = names[0]
         else:
             out[iso2] = sorted(names)[0]
+    # Display-name overrides: the scrape alias in countries-iso2.json must stay
+    # stable (it drives table matching), but the user-facing name can differ.
+    display_override = {
+        "PS": "Occupied Palestine",
+    }
+    for iso2, name in display_override.items():
+        if iso2 in out:
+            out[iso2] = name
     return out
 
 

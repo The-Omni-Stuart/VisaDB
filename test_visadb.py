@@ -232,6 +232,37 @@ def test_merge_reference():
     con.close()
 
 
+def test_parser_subrow():
+    # C. Parser — a sub-territory exception row that reuses the parent's flag
+    # must NOT overwrite the parent's main status row. Regression for GB->IR,
+    # which was scraped as visa-free because Wikipedia's "Kish Island" row
+    # (a visa-free island off Iran) reuses {{flagicon|Iran}} and used to clobber
+    # Iran's main "Visa required" row.
+    from sources.wikipedia import parse_page
+    wt = (
+        "| {{flag|Austria}}\n"
+        "| {{yes|Visa not required}}\n"
+        "|-\n"
+        "| {{flag|Iran}}\n"
+        "| {{no|Visa required}}<ref>{{Timatic|nationality=GB|destination=IR}}</ref>\n"
+        "| style=\"background:#FFC7C7;|\n"
+        "* British citizens must have their visa stamped in their passport in "
+        "advance of arrival in Iran.\n"
+        "|-\n"
+        "| {{flagicon|Iran}} [[Kish Island]]\n"
+        "| {{yes|Visa not required}}\n"
+        "| Tourists for [[Kish Island]] do not require a visa.\n"
+        "|-\n"
+    )
+    rows = parse_page(wt)
+    check("C1 main status row wins over a sub-territory exception row",
+          rows.get("Iran", {}).get("type") == "visa-required",
+          f"Iran={rows.get('Iran')}")
+    check("C2 an ordinary (single-row) country still parses",
+          rows.get("Austria", {}).get("type") == "visa-free",
+          f"Austria={rows.get('Austria')}")
+
+
 def main():
     if not DB.exists():
         print(f"FAIL: {DB} not found — run `python3 build.py` first.", file=sys.stderr)
@@ -241,6 +272,7 @@ def main():
     test_data_integrity(con)
     test_json_mirror(con)
     test_merge_reference()
+    test_parser_subrow()
     con.close()
 
     passed = sum(1 for _, ok, _ in _RESULTS if ok)

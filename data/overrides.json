@@ -26,6 +26,14 @@
       "note": "British citizens get a 30-day visa-free stay in Belarus (dataset previously said 10). The waiver is time-limited: valid until 2026-12-31. Note: UK FCDO advises against travel to Belarus on safety grounds. Sources: Timatic GB->BY; UK gov.uk 'Belarus: entry requirements'; Wikipedia 'Visa requirements for British citizens'."
     },
     {
+      "nat": "GB",
+      "dest": "IR",
+      "type": "visa-required",
+      "days": null,
+      "since": null,
+      "note": "British citizens need a visa for Iran (stamped in the passport before arrival) - NOT visa-free. The 2026-09-04 build mis-scraped this: Wikipedia's 'Visa requirements for British citizens' lists Kish Island (a visa-free Iranian island) as a sub-row reusing the Iran flag, and the parser let that exception overwrite Iran's main 'Visa required' status (parser now fixed: the main row wins). Timatic GB->IR and passport-index both say visa-required. Sources: Wikipedia 'Visa requirements for British citizens' (Iran row + Timatic GB->IR); passportindex.org."
+    },
+    {
       "nat": "RU",
       "dest": "AU",
       "type": "visa-required",
