@@ -353713,6 +353713,7 @@
       "countries": [
         "AT",
         "BE",
+        "BG",
         "CH",
         "CZ",
         "DE",
@@ -353750,7 +353751,7 @@
       "valid_from": null,
       "valid_to": null,
       "source": "Schengen Area (Visa policy of the Schengen Area)",
-      "note": "90 days in any 180-day period (rolling). The 90 days are a single shared pool across all 27 member states: time spent in one member counts against the same allowance as in another."
+      "note": "90 days in any 180-day period (rolling). The 90 days are a single shared pool across the 28 Schengen-area states (27 full members + Bulgaria, in the Schengen air/sea zone since 2025-03-31): time spent in one member counts against the same allowance as in another."
     },
     {
       "id": "th",

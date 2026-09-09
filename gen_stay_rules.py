@@ -27,7 +27,7 @@ RULES = [
         "id": "schengen",
         "zone": "schengen",
         "zone_name": "Schengen Area",
-        "countries": ["AT", "BE", "HR", "CZ", "DK", "EE", "FI", "FR", "DE", "HU",
+        "countries": ["AT", "BE", "BG", "HR", "CZ", "DK", "EE", "FI", "FR", "DE", "HU",
                       "IS", "IT", "LV", "LI", "LT", "LU", "MT", "NL", "NO", "PL",
                       "PT", "RO", "SK", "SI", "ES", "SE", "CH"],
         "window_type": "rolling",
@@ -40,8 +40,10 @@ RULES = [
         "valid_to": None,
         "source": "Schengen Area (Visa policy of the Schengen Area)",
         "note": ("90 days in any 180-day period (rolling). The 90 days are a "
-                 "single shared pool across all 27 member states: time spent in "
-                 "one member counts against the same allowance as in another."),
+                 "single shared pool across the 28 Schengen-area states "
+                 "(27 full members + Bulgaria, in the Schengen air/sea zone "
+                 "since 2025-03-31): time spent in one member counts against "
+                 "the same allowance as in another."),
     },
     # CA-4: a shared pool, but each member grants a different per-entry allowance.
     {
@@ -298,7 +300,7 @@ doc = {
     "note": ("window_type: 'per-entry' (up to window_days each entry) or "
              "'rolling' (up to window_days in any window_period_days). zone: "
              "shared pool id — rows sharing a zone pool their allowances "
-             "(Schengen: one 90/180 pool across 27 states; CA-4: one pool across "
+             "(Schengen: one 90/180 pool across 28 states; CA-4: one pool across "
              "GT/SV/HN/NI with per-country allowances). nationalities may contain "
              "the sentinels '*' (all visa-exempt nationals) and 'EU-EEA' "
               "(EU/EEA nationals); the app resolves them. valid_from/valid_to "

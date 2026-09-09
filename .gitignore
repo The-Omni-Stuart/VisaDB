@@ -7,3 +7,6 @@ __pycache__/
 # the canonical product is visa_data.db + visa_data.json (both committed).
 data/visa-matrix-iso2.csv
 data/visa-matrix-tidy.csv
+
+# Local working notes / bug tracker (not part of the canonical product)
+issues.md
