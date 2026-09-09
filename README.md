@@ -39,7 +39,7 @@ The canonical form is a SQLite database with all three axes in one file; a neste
 | `visa_rules` | one row per corridor (40,804): entry `type` / `days` / `confidence` / `source` / `checked`, the `dispute` claims, and the transit axis (`transit` + `transit_note`) |
 | `corrections` | manual overrides applied after the scrape (policy changes the sources still lag) |
 | `visa_holdings` | the 13 foreign travel documents the permit layer models |
-| `visa_benefits` | one row per (holding, destination): what that document grants there (223) |
+| `visa_benefits` | one row per (holding, destination): what that document grants there (222) |
 
 `data/visa_data.json` is the same data as a nested grid — matrix cells carry both
 the entry status and the transit axis, with `countries` / `corrections` /
@@ -88,7 +88,7 @@ The base rule is *computed*, not stored: transit is `free` wherever entry is `vi
 A passport is not the only travel document that changes what you can enter. If you hold a US green card, a UK BRP, an APEC Business Travel Card, GCC residence, etc. — several destinations let you in on that alone, or relax the rule your bare passport would get.
 
 - `visa_holdings` — the 13 holdings (`us-green-card`, `us-visa`, `schengen-visa`, `schengen-residence`, `uk-visa`, `ca-pr`, `ca-visa`, `au-pr`, `uae-residence`, `jp-visa`, `gcc-residence`, `sg-visa`, `apec-card`), each with a `category`  (residency / short_term_visa / long_term_visa / special_permit) and `issuing_country`.
-- `visa_benefits` — one row per (holding, destination): `type`, `days`, `confidence`, `source`, `checked`, a `note` with the Wikipedia quote that backs it, and `source_page` + `source_url` — the destination's own "Visa policy of X"  Wikipedia page (the 29 Schengen states plus Cyprus share the single "Visa policy of the Schengen Area" page) — so any row re-verifies with one click.
+- `visa_benefits` — one row per (holding, destination): `type`, `days`, optional `entry_type` (comma list; absent = all entry types), `confidence`, `source`, `checked` (top-level bulk date or row-level re-check date), a `note` with the Wikipedia quote that backs it, and `source_page` + `source_url` — the destination's own "Visa policy of X"  Wikipedia page (the 29 Schengen states plus Cyprus share the single "Visa policy of the Schengen Area" page) — so any row re-verifies with one click.
 
 The holdings were seeded from the list compiled by jasurshukurov for their [Visa-Checker application](https://github.com/jasurshukurov/Passport-Power-Index-Visa-Checker) (250 entries) and **verified against the destination's own Wikipedia row** before being kept: a note in another country's row (e.g. the "US citizens" row) is that other country's policy, not the destination's, so an entry is only `confidence: "high"` when the destination's row documents it. This investigation dropped ~27 Visa-Check entries (wrong direction, non-matrix territories, duplicates) and corrected the rest.
 

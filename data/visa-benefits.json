@@ -803,10 +803,11 @@
         "type": "visa-free",
         "days": 30,
         "confidence": "medium",
+        "checked": "2026-09-09",
+        "entry_type": "multiple",
         "note": "Multiple-entry Schengen visa required; max 30 days per entry, max 90 days within any 6-month period; not applicable to Kosovo passport",
         "source_page": "Visa policy of Bosnia and Herzegovina",
-        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Bosnia_and_Herzegovina",
-        "entry_type": "multiple"
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Bosnia_and_Herzegovina"
       },
       {
         "destination": "ME",
@@ -831,20 +832,22 @@
         "type": "visa-free",
         "days": 90,
         "confidence": "high",
+        "checked": "2026-09-09",
+        "entry_type": "multiple",
         "note": "Multiple-entry Schengen visa required; 90 days within any 180-day period; visa must remain valid for the entire stay",
         "source_page": "Visa policy of Serbia",
-        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Serbia",
-        "entry_type": "multiple"
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Serbia"
       },
       {
         "destination": "XK",
         "type": "visa-free",
         "days": 15,
         "confidence": "high",
+        "checked": "2026-09-09",
+        "entry_type": "multiple",
         "note": "Multiple-entry Schengen visa required; up to 15 days",
         "source_page": "Visa policy of Kosovo",
-        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Kosovo",
-        "entry_type": "multiple"
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Kosovo"
       },
       {
         "destination": "GE",
@@ -892,15 +895,6 @@
         "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Costa_Rica"
       },
       {
-        "destination": "AM",
-        "type": "visa-on-arrival",
-        "days": 120,
-        "confidence": "high",
-        "note": "Wikipedia: VoA 120 days for valid Schengen visa (VisaCheck lists visa-free 180)",
-        "source_page": "Visa policy of Armenia",
-        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Armenia"
-      },
-      {
         "destination": "CY",
         "type": "visa-free",
         "days": 90,
@@ -909,6 +903,15 @@
         "note": "Cyprus: only via a double- or multiple-entry Schengen visa",
         "source_page": "Visa policy of the Schengen Area",
         "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
+      },
+      {
+        "destination": "AM",
+        "type": "visa-on-arrival",
+        "days": 120,
+        "confidence": "high",
+        "note": "Wikipedia: VoA 120 days for valid Schengen visa (VisaCheck lists visa-free 180)",
+        "source_page": "Visa policy of Armenia",
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Armenia"
       }
     ],
     "schengen-residence": [
@@ -1187,6 +1190,7 @@
         "type": "visa-free",
         "days": 30,
         "confidence": "medium",
+        "checked": "2026-09-09",
         "note": "Schengen residence permit required; max 30 days per entry, max 90 days within any 6-month period; not applicable to Kosovo passport",
         "source_page": "Visa policy of Bosnia and Herzegovina",
         "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Bosnia_and_Herzegovina"
@@ -1205,6 +1209,7 @@
         "type": "visa-free",
         "days": 90,
         "confidence": "high",
+        "checked": "2026-09-09",
         "note": "Schengen residence permit required; 90 days within any 180-day period",
         "source_page": "Visa policy of Serbia",
         "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Serbia"
@@ -1286,6 +1291,7 @@
         "type": "visa-free",
         "days": 15,
         "confidence": "high",
+        "checked": "2026-09-09",
         "note": "Schengen residence permit required; up to 15 days",
         "source_page": "Visa policy of Kosovo",
         "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Kosovo"

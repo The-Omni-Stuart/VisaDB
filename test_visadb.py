@@ -147,6 +147,62 @@ def test_json_mirror(con):
         check(f"B-mirror {label}: JSON == DB count", len(j[key]) == dbn, f"json={len(j[key])} db={dbn}")
 
 
+def test_benefits_generator_drift(con):
+    # D. Generator drift — data/visa-benefits.json is produced by
+    # gen_benefits.py, and the DB must stay in step with that curated source.
+    source = json.loads((ROOT / "data" / "visa-benefits.json").read_text())
+    import gen_benefits
+    check("D1 gen_benefits payload matches data/visa-benefits.json",
+          gen_benefits.build_payload() == source,
+          "run `python3 gen_benefits.py` after editing the curated benefit rows")
+
+    iso2 = {r["iso2"] for r in con.execute("SELECT iso2 FROM countries")}
+    holdings = {r["id"] for r in con.execute("SELECT id FROM visa_holdings")}
+    top_checked = source.get("checked")
+    src_rows, skipped = {}, []
+    for holding, rows in source.get("benefits", {}).items():
+        for row in rows:
+            key = (holding, row["destination"])
+            if holding not in holdings or row["destination"] not in iso2:
+                skipped.append(key)
+                continue
+            src_rows[key] = row
+    db_rows = {
+        (r["holding"], r["destination"]): dict(r)
+        for r in con.execute(
+            "SELECT holding, destination, type, days, entry_type, confidence,"
+            " source, checked, note, source_page, source_url FROM visa_benefits")
+    }
+    check("D2a no visa-benefits source row is silently skipped",
+          not skipped, ", ".join(str(s) for s in sorted(skipped)[:5]) or "ok")
+    check("D2b visa_benefits DB and source have the same rows",
+          set(src_rows) == set(db_rows), f"src={len(src_rows)} db={len(db_rows)}")
+    mismatch, details = 0, []
+    for key, s in src_rows.items():
+        d = db_rows.get(key)
+        if d is None:
+            mismatch += 1
+            details.append(f"{key[0]}/{key[1]} missing in DB")
+            continue
+        expected = {
+            "type": s["type"],
+            "days": s.get("days"),
+            "entry_type": s.get("entry_type"),
+            "confidence": s.get("confidence"),
+            "source": "wikipedia" if s.get("confidence") == "high" else "visa-check",
+            "checked": s.get("checked", top_checked),
+            "note": s.get("note"),
+            "source_page": s.get("source_page"),
+            "source_url": s.get("source_url"),
+        }
+        actual = {k: d[k] for k in expected}
+        if actual != expected:
+            mismatch += 1
+            details.append(f"{key[0]}/{key[1]} differs")
+    check("D2c visa_benefits DB rows match the curated source",
+          mismatch == 0, "; ".join(details[:3]) or "ok")
+
+
 # --------------------------------------------------------------------------
 # B. Merge-logic reference (the app spec, as a pure function)
 # --------------------------------------------------------------------------
@@ -271,6 +327,7 @@ def main():
     con.row_factory = sqlite3.Row
     test_data_integrity(con)
     test_json_mirror(con)
+    test_benefits_generator_drift(con)
     test_merge_reference()
     test_parser_subrow()
     con.close()

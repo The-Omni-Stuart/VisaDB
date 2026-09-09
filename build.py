@@ -272,7 +272,7 @@ def merge_visa_benefits(cur, known_iso2):
                 " note, source_page, source_url)"
                 " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 (holding, dest, b["type"], b.get("days"), b.get("entry_type"),
-                  b.get("confidence"), src, checked, b.get("note"),
+                  b.get("confidence"), src, b.get("checked", checked), b.get("note"),
                   b.get("source_page"), b.get("source_url")),
             )
             n_benefits += 1

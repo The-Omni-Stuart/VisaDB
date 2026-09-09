@@ -6,7 +6,10 @@ visaBenefits.ts) seeded and then row-aware verified against English Wikipedia.
 Each (holding, destination) benefit was checked against the DESTINATION's own
 Wikipedia policy — a note in another country's row is that other country's
 policy, not the destination's — so several VisaCheck entries were dropped or
-corrected. The result is 13 holdings / 223 benefit rows.
+corrected. The result is 13 holdings / 222 benefit rows. A row
+individually re-verified after the bulk check carries a row-level `checked`;
+`entry_type` (a comma list, absent = all entry types) restricts a benefit to
+the entry types that qualify for it.
 
 confidence:
   high   -> the destination's own policy documents the benefit
@@ -123,12 +126,17 @@ def _fallback_page(dest: str) -> str:
     return "Visa policy of " + inv.get(dest, dest)
 
 
-def e(dest, typ, days, conf, note=None):
+def e(dest, typ, days, conf, note=None, entry_type=None, checked=None):
     page = VISAPOLICY.get(dest) or _fallback_page(dest)
-    return {"destination": dest, "type": typ, "days": days, "confidence": conf,
-            "note": note,
-            "source_page": page,
-            "source_url": "https://en.wikipedia.org/wiki/" + page.replace(" ", "_")}
+    row = {"destination": dest, "type": typ, "days": days, "confidence": conf}
+    if checked:
+        row["checked"] = checked
+    if entry_type:
+        row["entry_type"] = entry_type
+    row["note"] = note
+    row["source_page"] = page
+    row["source_url"] = "https://en.wikipedia.org/wiki/" + page.replace(" ", "_")
+    return row
 
 
 HOLDINGS = [
@@ -225,28 +233,43 @@ B["schengen-visa"] = [
     e(s, "visa-free", 90, "high", "Within the 90/180-day rule") for s in SCHENGEN
 ] + [
     e("AL", "visa-free", 90, "high", "Multiple-entry Schengen visa used at least once in Schengen before arrival"),
-    e("BA", "visa-free", 30, "medium", "Wikipedia: 15 days (ID page) vs 30 days; multiple-entry Schengen visa required"),
+    e("BA", "visa-free", 30, "medium",
+      "Multiple-entry Schengen visa required; max 30 days per entry, max 90 days "
+      "within any 6-month period; not applicable to Kosovo passport",
+      entry_type="multiple", checked="2026-09-09"),
     e("ME", "visa-free", 30, "high", "Valid Schengen visa required"),
     e("MK", "visa-free", 15, "high", "Valid Schengen visa required"),
-    e("RS", "visa-free", 90, "high", "Valid Schengen visa required"),
-    e("XK", "visa-free", 15, "high", "Valid Schengen visa required"),
+    e("RS", "visa-free", 90, "high",
+      "Multiple-entry Schengen visa required; 90 days within any 180-day period; "
+      "visa must remain valid for the entire stay",
+      entry_type="multiple", checked="2026-09-09"),
+    e("XK", "visa-free", 15, "high",
+      "Multiple-entry Schengen visa required; up to 15 days",
+      entry_type="multiple", checked="2026-09-09"),
     e("GE", "visa-free", 90, "high", "Valid Schengen visa or residence permit required"),
     e("TR", "e-visa", 30, "high", "E-visa available online; valid Schengen visa simplifies it"),
     e("CO", "visa-free", 90, "high", "Schengen visa with 180+ days validity on arrival"),
     e("PA", "visa-free", 30, "high", "Valid Schengen visa required"),
     e("CR", "visa-free", 30, "medium", "Valid multiple-entry Schengen visa required (unverified)"),
-    e("CY", "visa-free", 90, "high", "Cyprus (EU, non-Schengen) accepts multiple-entry Schengen visa; does not count against 90/180"),
+    e("CY", "visa-free", 90, "high",
+      "Cyprus: only via a double- or multiple-entry Schengen visa",
+      entry_type="double,multiple"),
     e("AM", "visa-on-arrival", 120, "high", "Wikipedia: VoA 120 days for valid Schengen visa (VisaCheck lists visa-free 180)"),
 ]
 
-# ── schengen-residence (43 kept; none dropped) ──
+# ── schengen-residence (42 kept; CY/IE dropped — not a Schengen-area benefit) ──
 B["schengen-residence"] = [
     e(s, "visa-free", 90, "high", "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel") for s in SCHENGEN
 ] + [
     e("AL", "visa-free", 90, "high", "Valid Schengen residence permit required"),
-    e("BA", "visa-free", 30, "medium", "Wikipedia: 15 days (ID page) vs 30 days; valid Schengen residence permit required"),
+    e("BA", "visa-free", 30, "medium",
+      "Schengen residence permit required; max 30 days per entry, max 90 days "
+      "within any 6-month period; not applicable to Kosovo passport",
+      checked="2026-09-09"),
     e("ME", "visa-free", 30, "high", "Valid Schengen residence permit required"),
-    e("RS", "visa-free", 90, "high", "Valid Schengen residence permit required"),
+    e("RS", "visa-free", 90, "high",
+      "Schengen residence permit required; 90 days within any 180-day period",
+      checked="2026-09-09"),
     e("MK", "visa-free", 15, "high", "Valid Schengen residence permit required"),
     e("GE", "visa-free", 90, "high", "Valid Schengen residence permit required"),
     e("CO", "visa-free", 90, "high", "Accepts both temporary and permanent Schengen residence permits"),
@@ -254,9 +277,10 @@ B["schengen-residence"] = [
     e("TR", "e-visa", 30, "high", "E-visa available online with valid Schengen residence permit"),
     e("PA", "visa-free", 30, "medium", "Valid Schengen residence permit required (unverified)"),
     e("CR", "visa-free", 90, "high", "Wikipedia: 90 days for residence permits (VisaCheck lists 30)"),
-    e("CY", "visa-free", 90, "high", "Cyprus (EU, non-Schengen) accepts EU/Schengen residence permits"),
     e("AM", "visa-on-arrival", 120, "high", "Wikipedia: VoA 120 days for Schengen/EU residence permit (VisaCheck lists visa-free 180)"),
-    e("IE", "visa-free", 90, "medium", "Ireland Short Stay Visa Waiver for some nationalities with EU residence (not row-documented; verify)"),
+    e("XK", "visa-free", 15, "high",
+      "Schengen residence permit required; up to 15 days",
+      checked="2026-09-09"),
 ]
 
 # ── uk-visa (16 kept; dropped GI AI AW BM) ──
@@ -387,8 +411,8 @@ B["apec-card"] = [
 ]
 
 
-def build():
-    out = {
+def build_payload():
+    return {
         "source": ("Curated from VisaCheck (jasurshukurov/Passport-Power-Index-Visa-Checker, "
                    "visaBenefits.ts, 13 holdings, single 2026-02-15 commit, co-authored with an "
                    "LLM — no per-entry provenance) and row-aware verified against English Wikipedia. "
@@ -414,10 +438,15 @@ def build():
         ],
         "benefits": B,
     }
+
+
+def build():
+    out = build_payload()
     DATA.mkdir(parents=True, exist_ok=True)
     path = DATA / "visa-benefits.json"
     with open(path, "w") as f:
-        json.dump(out, f, ensure_ascii=False, indent=1)
+        json.dump(out, f, ensure_ascii=False, indent=2)
+        f.write("\n")
     total = sum(len(v) for v in B.values())
     print(f"wrote {path}")
     print(f"holdings: {len(HOLDINGS)}  total benefit entries: {total}")
