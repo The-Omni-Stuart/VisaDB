@@ -6,7 +6,7 @@ visaBenefits.ts) seeded and then row-aware verified against English Wikipedia.
 Each (holding, destination) benefit was checked against the DESTINATION's own
 Wikipedia policy — a note in another country's row is that other country's
 policy, not the destination's — so several VisaCheck entries were dropped or
-corrected. The result is 13 holdings / 222 benefit rows. A row
+corrected. The result is 13 holdings / 223 benefit rows. A row
 individually re-verified after the bulk check carries a row-level `checked`;
 `entry_type` (a comma list, absent = all entry types) restricts a benefit to
 the entry types that qualify for it.
@@ -259,7 +259,7 @@ B["schengen-visa"] = [
     e("AM", "visa-on-arrival", 120, "high", "Wikipedia: VoA 120 days for valid Schengen visa (VisaCheck lists visa-free 180)"),
 ]
 
-# ── schengen-residence (42 kept; CY/IE dropped — not a Schengen-area benefit) ──
+# ── schengen-residence (43 kept; IE dropped — not a Schengen-area benefit; CY added) ──
 B["schengen-residence"] = [
     e(s, "visa-free", 90, "high", "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel") for s in SCHENGEN
 ] + [
@@ -279,6 +279,10 @@ B["schengen-residence"] = [
     e("TR", "e-visa", 30, "high", "E-visa available online with valid Schengen residence permit"),
     e("PA", "visa-free", 30, "medium", "Valid Schengen residence permit required (unverified)"),
     e("CR", "visa-free", 90, "high", "Wikipedia: 90 days for residence permits (VisaCheck lists 30)"),
+    e("CY", "visa-free", 90, "high",
+      "Cyprus: via a Schengen residence permit; 90 days in any 180-day period; "
+      "Turkish and Azerbaijani nationals still need a Cypriot visa",
+      checked="2026-09-10"),
     e("AM", "visa-on-arrival", 120, "high", "Wikipedia: VoA 120 days for Schengen/EU residence permit (VisaCheck lists visa-free 180)"),
     e("XK", "visa-free", 15, "high",
       "Schengen residence permit required; up to 15 days",

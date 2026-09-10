@@ -1279,6 +1279,16 @@
         "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Costa_Rica"
       },
       {
+        "destination": "CY",
+        "type": "visa-free",
+        "days": 90,
+        "confidence": "high",
+        "checked": "2026-09-10",
+        "note": "Cyprus: via a Schengen residence permit; 90 days in any 180-day period; Turkish and Azerbaijani nationals still need a Cypriot visa",
+        "source_page": "Visa policy of the Schengen Area",
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
+      },
+      {
         "destination": "AM",
         "type": "visa-on-arrival",
         "days": 120,

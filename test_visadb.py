@@ -232,6 +232,14 @@ def test_benefits_generator_drift(con):
     check("D5 schengen-visa does not carry the residence-only MX benefit",
           con.execute("SELECT COUNT(*) FROM visa_benefits WHERE holding='schengen-visa' AND destination='MX'").fetchone()[0] == 0)
 
+    cy = con.execute(
+        "SELECT type, days, entry_type, residence_min FROM visa_benefits"
+        " WHERE holding='schengen-residence' AND destination='CY'").fetchone()
+    check("D6 schengen-residence grants Cyprus visa-free for 90 days",
+          cy is not None and cy["type"] == "visa-free" and cy["days"] == 90
+          and cy["entry_type"] is None and cy["residence_min"] is None,
+          f"row={dict(cy) if cy else None}")
+
 
 # --------------------------------------------------------------------------
 # B. Merge-logic reference (the app spec, as a pure function)
