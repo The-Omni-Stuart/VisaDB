@@ -29,6 +29,7 @@ VALID_TRANSIT = ("free", "required", "conditional", "unknown")
 # visa_benefits carries BOTH entry benefits (entry-type values) and transit
 # benefits ("transit-free"); they share one table, distinguished by `type`.
 VALID_BENEFIT_TYPES = tuple(VALID_TYPES) + ("transit-free",)
+VALID_RESIDENCE_MIN = ("long_term", "permanent")
 NAT_SENTINELS = {"*", "EU-EEA"}
 
 _RESULTS = []
@@ -129,6 +130,11 @@ def test_data_integrity(con):
     keys = {r["key"] for r in con.execute("SELECT key FROM meta")}
     need = {"generated", "passport_count", "corridor_count", "visa_benefits", "stay_rules", "transit_benefits"}
     check("A22 meta has required keys", need <= keys, ", ".join(sorted(need - keys)) or "ok")
+    ph, args = _in(VALID_RESIDENCE_MIN)
+    check("A23 visa_benefits.residence_min in domain",
+          con.execute(
+              f"SELECT COUNT(*) FROM visa_benefits WHERE residence_min IS NOT NULL AND residence_min NOT IN ({ph})",
+              args).fetchone()[0] == 0)
 
 
 def test_json_mirror(con):
@@ -170,8 +176,8 @@ def test_benefits_generator_drift(con):
     db_rows = {
         (r["holding"], r["destination"]): dict(r)
         for r in con.execute(
-            "SELECT holding, destination, type, days, entry_type, confidence,"
-            " source, checked, note, source_page, source_url FROM visa_benefits")
+            "SELECT holding, destination, type, days, entry_type, residence_min,"
+            " confidence, source, checked, note, source_page, source_url FROM visa_benefits")
     }
     check("D2a no visa-benefits source row is silently skipped",
           not skipped, ", ".join(str(s) for s in sorted(skipped)[:5]) or "ok")
@@ -188,6 +194,7 @@ def test_benefits_generator_drift(con):
             "type": s["type"],
             "days": s.get("days"),
             "entry_type": s.get("entry_type"),
+            "residence_min": s.get("residence_min"),
             "confidence": s.get("confidence"),
             "source": "wikipedia" if s.get("confidence") == "high" else "visa-check",
             "checked": s.get("checked", top_checked),
@@ -201,6 +208,29 @@ def test_benefits_generator_drift(con):
             details.append(f"{key[0]}/{key[1]} differs")
     check("D2c visa_benefits DB rows match the curated source",
           mismatch == 0, "; ".join(details[:3]) or "ok")
+
+    expected_residence_min = {
+        ("schengen-residence", "MX"): "permanent",
+        ("schengen-residence", "CO"): None,
+        ("uae-residence", "GE"): "long_term",
+        ("uae-residence", "AL"): "long_term",
+        ("gcc-residence", "GE"): "long_term",
+    }
+    actual_residence_min = {
+        (r["holding"], r["destination"]): r["residence_min"]
+        for r in con.execute(
+            "SELECT holding, destination, residence_min FROM visa_benefits"
+            " WHERE (holding, destination) IN"
+            " (('schengen-residence','MX'),('schengen-residence','CO'),"
+            " ('uae-residence','GE'),('uae-residence','AL'),('gcc-residence','GE'))")
+    }
+    check("D3 residence_min carries the known residence-class exceptions",
+          actual_residence_min == expected_residence_min,
+          f"actual={actual_residence_min}")
+    check("D4 schengen-visa rows carry no residence minimum",
+          con.execute("SELECT COUNT(*) FROM visa_benefits WHERE holding='schengen-visa' AND residence_min IS NOT NULL").fetchone()[0] == 0)
+    check("D5 schengen-visa does not carry the residence-only MX benefit",
+          con.execute("SELECT COUNT(*) FROM visa_benefits WHERE holding='schengen-visa' AND destination='MX'").fetchone()[0] == 0)
 
 
 # --------------------------------------------------------------------------

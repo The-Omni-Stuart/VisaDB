@@ -1246,6 +1246,7 @@
         "type": "visa-free",
         "days": 180,
         "confidence": "high",
+        "residence_min": "permanent",
         "note": "Wikipedia: 180 days for PERMANENT residence permits only (temporary permits may be refused)",
         "source_page": "Visa policy of Mexico",
         "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Mexico"
@@ -1680,6 +1681,7 @@
         "type": "visa-free",
         "days": 90,
         "confidence": "high",
+        "residence_min": "long_term",
         "note": "Multiple-entry UAE residence permit valid 1+ year on entry (stricter rules from May 2025)",
         "source_page": "Visa policy of Georgia",
         "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Georgia"
@@ -1707,6 +1709,7 @@
         "type": "visa-free",
         "days": 90,
         "confidence": "high",
+        "residence_min": "long_term",
         "note": "Wikipedia: 90 days for 10-year UAE residence permit",
         "source_page": "Visa policy of Albania",
         "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Albania"
@@ -1837,6 +1840,7 @@
         "type": "visa-free",
         "days": 90,
         "confidence": "high",
+        "residence_min": "long_term",
         "note": "Wikipedia: 90 days for GCC residence valid 1+ year (VisaCheck lists 365)",
         "source_page": "Visa policy of Georgia",
         "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Georgia"

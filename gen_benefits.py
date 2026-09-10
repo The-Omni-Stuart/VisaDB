@@ -126,13 +126,15 @@ def _fallback_page(dest: str) -> str:
     return "Visa policy of " + inv.get(dest, dest)
 
 
-def e(dest, typ, days, conf, note=None, entry_type=None, checked=None):
+def e(dest, typ, days, conf, note=None, entry_type=None, residence_min=None, checked=None):
     page = VISAPOLICY.get(dest) or _fallback_page(dest)
     row = {"destination": dest, "type": typ, "days": days, "confidence": conf}
     if checked:
         row["checked"] = checked
     if entry_type:
         row["entry_type"] = entry_type
+    if residence_min:
+        row["residence_min"] = residence_min
     row["note"] = note
     row["source_page"] = page
     row["source_url"] = "https://en.wikipedia.org/wiki/" + page.replace(" ", "_")
@@ -273,7 +275,7 @@ B["schengen-residence"] = [
     e("MK", "visa-free", 15, "high", "Valid Schengen residence permit required"),
     e("GE", "visa-free", 90, "high", "Valid Schengen residence permit required"),
     e("CO", "visa-free", 90, "high", "Accepts both temporary and permanent Schengen residence permits"),
-    e("MX", "visa-free", 180, "high", "Wikipedia: 180 days for PERMANENT residence permits only (temporary permits may be refused)"),
+    e("MX", "visa-free", 180, "high", "Wikipedia: 180 days for PERMANENT residence permits only (temporary permits may be refused)", residence_min="permanent"),
     e("TR", "e-visa", 30, "high", "E-visa available online with valid Schengen residence permit"),
     e("PA", "visa-free", 30, "medium", "Valid Schengen residence permit required (unverified)"),
     e("CR", "visa-free", 90, "high", "Wikipedia: 90 days for residence permits (VisaCheck lists 30)"),
@@ -342,10 +344,10 @@ B["au-pr"] = [
 
 # ── uae-residence (13 kept; none dropped) ──
 B["uae-residence"] = [
-    e("GE", "visa-free", 90, "high", "Multiple-entry UAE residence permit valid 1+ year on entry (stricter rules from May 2025)"),
+    e("GE", "visa-free", 90, "high", "Multiple-entry UAE residence permit valid 1+ year on entry (stricter rules from May 2025)", residence_min="long_term"),
     e("OM", "visa-free", 14, "high", "GCC member — UAE residents enter Oman visa-free"),
     e("TR", "visa-free", 90, "high", "UAE residents enjoy visa-free access, 90/180"),
-    e("AL", "visa-free", 90, "high", "Wikipedia: 90 days for 10-year UAE residence permit"),
+    e("AL", "visa-free", 90, "high", "Wikipedia: 90 days for 10-year UAE residence permit", residence_min="long_term"),
     e("BA", "visa-free", 30, "medium", "Valid UAE residence permit required (unverified)"),
     e("RS", "visa-free", 30, "medium", "Valid UAE residence permit required (unverified)"),
     e("ME", "visa-free", 10, "medium", "Wikipedia: 10 days for UAE residence (VisaCheck lists 30)"),
@@ -367,7 +369,7 @@ B["jp-visa"] = [
 
 # ── gcc-residence (11 kept; none dropped) ──
 B["gcc-residence"] = [
-    e("GE", "visa-free", 90, "high", "Wikipedia: 90 days for GCC residence valid 1+ year (VisaCheck lists 365)"),
+    e("GE", "visa-free", 90, "high", "Wikipedia: 90 days for GCC residence valid 1+ year (VisaCheck lists 365)", residence_min="long_term"),
     e("TR", "e-visa", 30, "high", "E-visa available online for GCC residents"),
     e("AL", "visa-free", 90, "medium", "Valid GCC residence permit required; must have been used (unverified)"),
     e("BA", "visa-free", 30, "medium", "Valid GCC residence permit required (unverified)"),
