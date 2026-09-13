@@ -90,16 +90,15 @@ jobs:
           date="$(date -u +%F)"
           tag="data-${GITHUB_RUN_ID}-${hash}"
           gh release create "${tag}" \
+            data/visa_data.db \
+            data/visa_data.json \
+            dist/SHA256SUMS \
+            dist/build-manifest.json \
+            dist/data-hash.txt \
             --target "${{ github.sha }}" \
             --title "VisaDB data ${date} (${hash:0:12})" \
             --notes-file dist/RELEASE_NOTES.md \
-            --latest \
-            --files \
-              data/visa_data.db \
-              data/visa_data.json \
-              dist/SHA256SUMS \
-              dist/build-manifest.json \
-              dist/data-hash.txt
+            --latest
 
       - name: Upload build artifacts
         if: always()
