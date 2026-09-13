@@ -1,0 +1,114 @@
+name: release
+
+on:
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+
+concurrency:
+  group: release-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    name: Build and release
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set build date
+        id: build_date
+        run: echo "date=$(date -u +%F)" >> "$GITHUB_OUTPUT"
+
+      - name: Build dataset
+        env:
+          BUILD_DATE: ${{ steps.build_date.outputs.date }}
+        run: python3 build.py
+
+      - name: Run invariant tests
+        run: python3 test_visadb.py
+
+      - name: Validate build and compute data hash
+        run: |
+          python3 tools/release_gate.py \
+            --dist dist \
+            --build-date "${{ steps.build_date.outputs.date }}" \
+            --source-commit "${{ github.sha }}" \
+            --source-ref "${{ github.ref_name }}"
+
+      - name: Find latest data release
+        id: latest
+        run: |
+          set -euo pipefail
+          tag="$(gh release list --limit 100 \
+            --json tagName,isDraft,isPrerelease \
+            --jq '[.[] | select((.tagName | startswith("data-")) and (.isDraft | not) and (.isPrerelease | not))][0].tagName // empty')"
+          {
+            echo "tag=${tag}"
+            if [[ -n "${tag}" ]]; then
+              echo "hash=${tag##*-}"
+            else
+              echo "hash="
+            fi
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Decide whether to release
+        id: decide
+        run: |
+          set -euo pipefail
+          new="$(cat dist/data-hash.txt)"
+          old="${{ steps.latest.outputs.hash }}"
+          if [[ -z "${old}" || "${old}" != "${new}" ]]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "Data hash changed: ${old:-<none>} -> ${new}"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Data hash unchanged: ${new}; skipping release."
+          fi
+
+      - name: Create release
+        if: steps.decide.outputs.changed == 'true'
+        run: |
+          set -euo pipefail
+          hash="$(cat dist/data-hash.txt)"
+          date="$(date -u +%F)"
+          tag="data-${GITHUB_RUN_ID}-${hash}"
+          gh release create "${tag}" \
+            --target "${{ github.sha }}" \
+            --title "VisaDB data ${date} (${hash:0:12})" \
+            --notes-file dist/RELEASE_NOTES.md \
+            --latest \
+            --files \
+              data/visa_data.db \
+              data/visa_data.json \
+              dist/SHA256SUMS \
+              dist/build-manifest.json \
+              dist/data-hash.txt
+
+      - name: Upload build artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visadb-build-${{ github.run_id }}
+          path: |
+            data/visa_data.db
+            data/visa_data.json
+            dist/
+          if-no-files-found: ignore
+          retention-days: 14
