@@ -1048,7 +1048,7 @@ def build(build_date: str, exports: frozenset = frozenset()):
                 "underlying visa status applies."
             ),
             "attribution": "xpressmike/visa-matrix (CC BY-SA 4.0)",
-            "license": "GPLv3 — VisaDB fork of visa-matrix; see LICENSE and NOTICE",
+            "license": "GPLv3 — VisaDB fork of visa-matrix; see LICENSE and NOTICE.md",
             "disclaimer": (
                 "General information, not legal advice. Rules change; always "
                 "verify with the destination's official government source "
