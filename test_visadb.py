@@ -240,6 +240,16 @@ def test_benefits_generator_drift(con):
           and cy["entry_type"] is None and cy["residence_min"] is None,
           f"row={dict(cy) if cy else None}")
 
+    # The British-Irish Visa Scheme (BIVS) is nationality-specific, so a UK visa must not carry a
+    # general Ireland benefit — the (uk-visa, IE) row was dropped. GB access for a UK visa holder
+    # comes from the holding's issuing country, not a benefit row.
+    check("D7 uk-visa carries no Ireland (BIVS) benefit",
+          con.execute("SELECT COUNT(*) FROM visa_benefits WHERE holding='uk-visa' AND destination='IE'").fetchone()[0] == 0)
+    uk_issuing = con.execute("SELECT issuing_country FROM visa_holdings WHERE id='uk-visa'").fetchone()
+    check("D8 uk-visa issuing country is GB (GB access via issuing country)",
+          uk_issuing is not None and uk_issuing["issuing_country"] == "GB",
+          f"row={dict(uk_issuing) if uk_issuing else None}")
+
 
 # --------------------------------------------------------------------------
 # B. Merge-logic reference (the app spec, as a pure function)

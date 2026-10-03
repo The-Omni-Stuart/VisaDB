@@ -352328,20 +352328,6 @@
   },
   {
    "holding": "uk-visa",
-   "destination": "IE",
-   "type": "visa-free",
-   "days": 90,
-   "entry_type": null,
-   "residence_min": null,
-   "confidence": "medium",
-   "source": "visa-check",
-   "checked": "2026-09-02",
-   "note": "British-Irish Visa Scheme (BIVS) — select nationalities",
-   "source_page": "Visa policy of Ireland",
-   "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Ireland"
-  },
-  {
-   "holding": "uk-visa",
    "destination": "JM",
    "type": "visa-free",
    "days": 90,

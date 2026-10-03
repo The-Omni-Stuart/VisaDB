@@ -289,7 +289,7 @@ B["schengen-residence"] = [
       checked="2026-09-09"),
 ]
 
-# ── uk-visa (16 kept; dropped GI AI AW BM) ──
+# ── uk-visa (15 kept; dropped GI AI AW BM; IE dropped — BIVS is for select nationalities, not a UK-visa benefit) ──
 B["uk-visa"] = [
     e("AL", "visa-free", 90, "high", "UK visa used once in issuing country before arrival"),
     e("GE", "visa-free", 90, "high", "Valid UK visa / residence permit required"),
@@ -306,7 +306,6 @@ B["uk-visa"] = [
     e("TR", "e-visa", 30, "high", "E-visa required; apply online"),
     e("BH", "e-visa", 14, "high", "e-Visa for UK visa holders (VisaCheck lists 14 days)"),
     e("AE", "visa-on-arrival", 14, "high", "Wikipedia: VoA 14 days (or 60-day option) for UK visa; some nationalities excluded"),
-    e("IE", "visa-free", 90, "medium", "British-Irish Visa Scheme (BIVS) — select nationalities"),
 ]
 
 # ── ca-pr (9 kept; dropped AW CW BQ SX AI BM KY) ──

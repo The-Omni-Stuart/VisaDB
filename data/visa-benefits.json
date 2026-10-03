@@ -1443,15 +1443,6 @@
         "note": "Wikipedia: VoA 14 days (or 60-day option) for UK visa; some nationalities excluded",
         "source_page": "Visa policy of the United Arab Emirates",
         "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_United_Arab_Emirates"
-      },
-      {
-        "destination": "IE",
-        "type": "visa-free",
-        "days": 90,
-        "confidence": "medium",
-        "note": "British-Irish Visa Scheme (BIVS) — select nationalities",
-        "source_page": "Visa policy of Ireland",
-        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Ireland"
       }
     ],
     "ca-pr": [
