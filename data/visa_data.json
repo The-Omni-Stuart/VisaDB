@@ -352328,6 +352328,21 @@
   },
   {
    "holding": "uk-visa",
+   "destination": "IE",
+   "type": "visa-free",
+   "days": 90,
+   "entry_type": null,
+   "residence_min": null,
+   "nationalities": "IN,CN",
+   "confidence": "high",
+   "source": "wikipedia",
+   "checked": "2026-10-03",
+   "note": "British-Irish Visa Scheme: an Indian or Chinese national holding an eligible UK visitor visa (standard visitor, ≤ 6 months) enters Ireland after entering the UK first",
+   "source_page": "Visa policy of Ireland",
+   "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Ireland"
+  },
+  {
+   "holding": "uk-visa",
    "destination": "JM",
    "type": "visa-free",
    "days": 90,

@@ -1310,6 +1310,17 @@
     ],
     "uk-visa": [
       {
+        "destination": "IE",
+        "type": "visa-free",
+        "days": 90,
+        "confidence": "high",
+        "checked": "2026-10-03",
+        "nationalities": "IN,CN",
+        "note": "British-Irish Visa Scheme: an Indian or Chinese national holding an eligible UK visitor visa (standard visitor, ≤ 6 months) enters Ireland after entering the UK first",
+        "source_page": "Visa policy of Ireland",
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Ireland"
+      },
+      {
         "destination": "AL",
         "type": "visa-free",
         "days": 90,

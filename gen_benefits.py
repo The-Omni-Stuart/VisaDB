@@ -126,7 +126,7 @@ def _fallback_page(dest: str) -> str:
     return "Visa policy of " + inv.get(dest, dest)
 
 
-def e(dest, typ, days, conf, note=None, entry_type=None, residence_min=None, checked=None):
+def e(dest, typ, days, conf, note=None, entry_type=None, residence_min=None, checked=None, nationalities=None):
     page = VISAPOLICY.get(dest) or _fallback_page(dest)
     row = {"destination": dest, "type": typ, "days": days, "confidence": conf}
     if checked:
@@ -135,6 +135,8 @@ def e(dest, typ, days, conf, note=None, entry_type=None, residence_min=None, che
         row["entry_type"] = entry_type
     if residence_min:
         row["residence_min"] = residence_min
+    if nationalities:
+        row["nationalities"] = nationalities
     row["note"] = note
     row["source_page"] = page
     row["source_url"] = "https://en.wikipedia.org/wiki/" + page.replace(" ", "_")
@@ -289,8 +291,12 @@ B["schengen-residence"] = [
       checked="2026-09-09"),
 ]
 
-# ── uk-visa (15 kept; dropped GI AI AW BM; IE dropped — BIVS is for select nationalities, not a UK-visa benefit) ──
+# ── uk-visa (16 kept; dropped GI AI AW BM; IE = BIVS, Indian/Chinese nationals only) ──
 B["uk-visa"] = [
+    e("IE", "visa-free", 90, "high",
+      "British-Irish Visa Scheme: an Indian or Chinese national holding an eligible UK "
+      "visitor visa (standard visitor, ≤ 6 months) enters Ireland after entering the UK first",
+      nationalities="IN,CN", checked="2026-10-03"),
     e("AL", "visa-free", 90, "high", "UK visa used once in issuing country before arrival"),
     e("GE", "visa-free", 90, "high", "Valid UK visa / residence permit required"),
     e("ME", "visa-free", 90, "medium", "Valid UK BRP / eVisa required (unverified)"),

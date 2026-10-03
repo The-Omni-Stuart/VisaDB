@@ -269,11 +269,11 @@ def merge_visa_benefits(cur, known_iso2):
             cur.execute(
                 "INSERT OR REPLACE INTO visa_benefits"
                 "(holding, destination, type, days, entry_type, residence_min,"
-                " confidence, source, checked, note, source_page, source_url)"
-                " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                " nationalities, confidence, source, checked, note, source_page, source_url)"
+                " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 (holding, dest, b["type"], b.get("days"), b.get("entry_type"),
-                  b.get("residence_min"), b.get("confidence"), src, b.get("checked", checked),
-                  b.get("note"), b.get("source_page"), b.get("source_url")),
+                  b.get("residence_min"), b.get("nationalities"), b.get("confidence"), src,
+                  b.get("checked", checked), b.get("note"), b.get("source_page"), b.get("source_url")),
             )
             n_benefits += 1
     print(f"visa holdings: {n_holdings}  visa benefits: {n_benefits}")
@@ -572,6 +572,10 @@ def write_sqlite(dataset, matrix, passports, overrides, extra_names=None) -> pat
             -- Minimum residence document class for this benefit. NULL = any
             -- residence/visa document; otherwise long_term or permanent.
             residence_min TEXT CHECK(residence_min IS NULL OR residence_min IN ('long_term','permanent')),
+            -- Comma list of ISO2 nationalities this benefit applies to (e.g. "IN,CN").
+            -- NULL = applies to every nationality. Lets a grant depend on the traveller's
+            -- passport nationality (the British-Irish Visa Scheme only covers Indian/Chinese).
+            nationalities TEXT,
             confidence  TEXT,
             source      TEXT,
             checked     TEXT,
@@ -726,7 +730,7 @@ def write_full_json(db_path, matrix, dataset) -> pathlib.Path:
         " FROM visa_holdings ORDER BY id")]
     benefits = [dict(r) for r in con.execute(
         "SELECT holding, destination, type, days, entry_type, residence_min,"
-        " confidence, source, checked, note, source_page, source_url"
+        " nationalities, confidence, source, checked, note, source_page, source_url"
         " FROM visa_benefits ORDER BY holding, destination")]
     mobility = [dict(r) for r in con.execute(
         "SELECT id, name, level, members, associates, deactivated, source_url, note"
