@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Invariant test suite for the VisaDB build output.
 
-Runs OFFLINE against data/visa_data.db (no network). Two parts:
+Runs OFFLINE against data/visa_data.db and the curated data/*.json sources
+(no network). Two parts:
 
   A. Data integrity — value domains, referential integrity, and the semantic
      invariants the build must guarantee (e.g. a visa-free corridor is always
@@ -14,6 +15,7 @@ Runs OFFLINE against data/visa_data.db (no network). Two parts:
 
 Stdlib only. `python3 test_visadb.py` -> exit 0 if all pass, 1 otherwise.
 """
+import datetime as dt
 import json
 import pathlib
 import sqlite3
@@ -135,6 +137,66 @@ def test_data_integrity(con):
           con.execute(
               f"SELECT COUNT(*) FROM visa_benefits WHERE residence_min IS NOT NULL AND residence_min NOT IN ({ph})",
               args).fetchone()[0] == 0)
+
+    # Curated sources are the build's own claims, so these checks run against
+    # the suite's clock, not meta.generated: a curated date is a live assertion.
+    # A lapsed 60-day Thai exemption shipped once because nothing re-dated it;
+    # build.py now refuses such dates at build time and these keep honest the
+    # sources that guard can't see.
+    today = dt.date.today().isoformat()
+    stay_src = json.loads((ROOT / "data" / "stay-rules.json").read_text())
+    lapsed = [r["id"] for r in stay_src["rules"]
+              if r.get("valid_to") and r["valid_to"] < today]
+    check("A24 curated stay_rules carry no lapsed dates", not lapsed, ", ".join(lapsed))
+
+    # The app resolves one stay rule per passport+destination, so two rules
+    # sharing a nationality for one country is a contradiction waiting to be
+    # resolved arbitrarily.
+    tiers, overlap = {}, []
+    for r in stay_src["rules"]:
+        for c in r["countries"]:
+            for n in r["nationalities"]:
+                if n in NAT_SENTINELS:
+                    continue
+                if (c, n) in tiers:
+                    overlap.append(f"{n}->{c} in {tiers[(c, n)]} + {r['id']}")
+                tiers[(c, n)] = r["id"]
+    check("A25 one stay rule per destination+nationality", not overlap, "; ".join(overlap[:5]))
+
+    # A nationality a curated rule gives a stay allowance must not be refused
+    # entry to that country (after the overrides that survive every rebuild).
+    refused = {(r["passport"], r["destination"]) for r in
+               con.execute("SELECT passport, destination FROM visa_rules WHERE type IN ('visa-required','refused')")}
+    ov_src = json.loads((ROOT / "data" / "overrides.json").read_text())
+    for o in ov_src["overrides"]:
+        for n in (o.get("nats") or [o.get("nat")]):
+            pair = (n, o["dest"])
+            if o["type"] in ("visa-required", "refused"):
+                refused.add(pair)
+            else:
+                refused.discard(pair)
+    clash = [f"{n}->{c} kept by {tiers[(c, n)]}" for (c, n) in sorted(tiers) if (n, c) in refused]
+    check("A26 stay-rule nationals can enter (corridors + overrides)", not clash, "; ".join(clash[:5]))
+
+    def iso_date(s):
+        try:
+            dt.date.fromisoformat(s)
+            return True
+        except (TypeError, ValueError):
+            return False
+
+    bad_ov = []
+    for o in ov_src["overrides"]:
+        nats = o.get("nats") or [o.get("nat")]
+        if bool(o.get("nats")) == bool(o.get("nat")) or not all(nats):
+            bad_ov.append(f"{o}: exactly one of nat/nats")
+        elif not o.get("dest") or o.get("type") not in VALID_TYPES:
+            bad_ov.append(f"{nats[0]}->{o.get('dest')}: dest/type")
+        elif o["type"] in ("visa-required", "refused") and o.get("days") is not None:
+            bad_ov.append(f"{nats[0]}->{o['dest']}: days must be null")
+        elif any(k in o and o[k] is not None and not iso_date(o[k]) for k in ("since", "valid_to")):
+            bad_ov.append(f"{nats[0]}->{o['dest']}: bad date")
+    check("A27 overrides.json is well-formed", not bad_ov, "; ".join(bad_ov[:5]))
 
 
 def test_json_mirror(con):
