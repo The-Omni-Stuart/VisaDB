@@ -654,7 +654,8 @@ def write_sqlite(dataset, matrix, passports, overrides, extra_names=None) -> pat
     """)
 
     meta = dataset["meta"]
-    for k in ("name", "version", "generated", "passport_count", "corridor_count",
+    for k in ("name", "version", "generated", "rules_verified_at", "next_review",
+              "build_sha", "passport_count", "corridor_count",
               "primary_source", "cross_check", "limited_recognition",
               "visa_benefits", "transit", "mobility_regimes", "stay_rules",
               "stay_axis", "transit_benefits", "attribution", "license", "disclaimer"):
@@ -834,6 +835,31 @@ def write_tidy_csv(matrix, passports) -> pathlib.Path:
 # expiring inside this window is legal but deserves a second look at build time.
 LAPSE_ADVISORY_DAYS = 90
 
+# How often the curated layers deserve a human re-verification pass; the weekly
+# cron keeps the scraped corridors fresh, nothing keeps curated facts fresh.
+CURATED_REVIEW_DAYS = 90
+
+
+def rules_verified_at(today: str) -> str:
+    """Weakest-link `checked` date across the curated data/*.json layers.
+
+    A consumer claiming "facts verified as of X" must not claim more than the
+    oldest curated source supports. Files with no top-level `checked` (the
+    corridor overrides) are excluded: their `since` values are policy-effect
+    dates, not review dates.
+    """
+    dates = []
+    for path in sorted(DATA.glob("*.json")):
+        if path.name == "visa_data.json":  # the generated mirror, not a source
+            continue
+        try:
+            top = json.load(open(path))
+        except (json.JSONDecodeError, OSError):
+            continue
+        if isinstance(top, dict) and isinstance(top.get("checked"), str):
+            dates.append(top["checked"])
+    return min(dates) if dates else today
+
 
 class LapsedGrants(Exception):
     """A dated grant has already expired relative to this build's date."""
@@ -1000,11 +1026,19 @@ def build(build_date: str, exports: frozenset = frozenset()):
         print(f"limited-recognition entities merged: {', '.join(sorted(lr_names))}")
 
     total_corridors = sum(len(c) for c in matrix.values())
+    verified = rules_verified_at(today)
+    next_review = (dt.date.fromisoformat(verified)
+                   + dt.timedelta(days=CURATED_REVIEW_DAYS)).isoformat()
+    if next_review < today:
+        print(f"note: curated facts were last verified {verified}; review horizon "
+              f"{next_review} has passed — re-verify the curated data/*.json sources")
     dataset = {
         "meta": {
             "name": "visadb",
             "version": "1",
             "generated": today,
+            "rules_verified_at": verified,
+            "next_review": next_review,
             "passports": passports,
             "passport_count": len(passports),
             "corridor_count": total_corridors,
@@ -1136,6 +1170,14 @@ def build(build_date: str, exports: frozenset = frozenset()):
 
     # Nothing ships until every dated grant in it is still live for this build.
     validate_ship_dates(matrix, lapsed_scrapes, today, retired)
+
+    # A release tag embeds this dataset's hash, so the tag cannot live inside
+    # the data it hashes; recording the commit it was built from breaks the
+    # circle without touching the hash.
+    sha = os.environ.get("GITHUB_SHA")
+    if sha:
+        dataset["meta"]["build_sha"] = sha[:12]
+    print(f"curated facts verified {verified}, next review {next_review}")
 
     DATA.mkdir(exist_ok=True)
 

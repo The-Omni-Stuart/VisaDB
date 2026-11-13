@@ -198,6 +198,18 @@ def test_data_integrity(con):
             bad_ov.append(f"{nats[0]}->{o['dest']}: bad date")
     check("A27 overrides.json is well-formed", not bad_ov, "; ".join(bad_ov[:5]))
 
+    # A stale review horizon is data, not a build failure: shipping
+    # next_review in the past lets the app say "overdue"; failing CI would
+    # instead strand consumers on an older dataset.
+    vals = {r["key"]: r["value"] for r in con.execute(
+        "SELECT key, value FROM meta WHERE key IN ('generated','rules_verified_at','next_review')")}
+    fresh_ok, why = True, "keys absent (pre-V6 artifact)"
+    if "rules_verified_at" in vals:
+        rv, nv, gen = vals["rules_verified_at"], vals.get("next_review", ""), vals["generated"]
+        fresh_ok = rv <= gen and nv > rv
+        why = f"verified={rv} next_review={nv} generated={gen}"
+    check("A28 meta freshness keys coherent when present", fresh_ok, why)
+
 
 def test_json_mirror(con):
     j = json.loads(JSON.read_text())
