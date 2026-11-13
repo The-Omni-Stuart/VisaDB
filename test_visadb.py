@@ -146,8 +146,10 @@ def test_data_integrity(con):
     today = dt.date.today().isoformat()
     stay_src = json.loads((ROOT / "data" / "stay-rules.json").read_text())
     lapsed = [r["id"] for r in stay_src["rules"]
-              if r.get("valid_to") and r["valid_to"] < today]
-    check("A24 curated stay_rules carry no lapsed dates", not lapsed, ", ".join(lapsed))
+              if r.get("valid_to") and r["valid_to"] < today and not r.get("retired")]
+    check("A24 curated stay_rules carry no lapsed unretired dates", not lapsed, ", ".join(lapsed))
+    undated = [r["id"] for r in stay_src["rules"] if r.get("retired") and not r.get("valid_to")]
+    check("A24b retired stay_rules are dated (something must hide them)", not undated, ", ".join(undated))
 
     # The app resolves one stay rule per passport+destination, so two rules
     # sharing a nationality for one country is a contradiction waiting to be

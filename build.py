@@ -875,6 +875,12 @@ def validate_ship_dates(matrix, lapsed_scrapes, today, retired=frozenset()):
     is how a lapsed 60-day Thai exemption reached consumers. Either way the fix is
     to re-verify the grant against its source, extend the date, or retire it with
     a cited override (an override carrying an explicit valid_to, null included).
+
+    A curated stay rule instead retires by declaring '"retired": true': the row
+    ships with its dates intact — consumers already hide rules past valid_to —
+    so acknowledged history survives without a rebuild deleting it. The marker
+    is a human statement that the lapse was verified, which is exactly what
+    auto-hiding could never assert.
     """
     horizon = (dt.date.fromisoformat(today)
                + dt.timedelta(days=LAPSE_ADVISORY_DAYS)).isoformat()
@@ -884,7 +890,12 @@ def validate_ship_dates(matrix, lapsed_scrapes, today, retired=frozenset()):
         (refused if valid_to < today else soon).append((where, valid_to, source))
 
     for r in json.load(open(DATA / "stay-rules.json")).get("rules", []):
-        if r.get("valid_to"):
+        if r.get("retired"):
+            # Undated retirement ships a rule nothing hides: still a live grant.
+            if not r.get("valid_to"):
+                refused.append((f"stay_rules {r['id']} (retired without valid_to)",
+                                "n/a", r.get("source", "")))
+        elif r.get("valid_to"):
             note("stay_rules " + r["id"], r["valid_to"], r.get("source", ""))
     for nat, cells in matrix.items():
         for dest, c in cells.items():
@@ -1119,7 +1130,9 @@ def build(build_date: str, exports: frozenset = frozenset()):
                 "countries are real ISO2; nationalities may hold the sentinels "
                 "'*' (all visa-exempt nationals) and 'EU-EEA' (EU/EEA nationals), "
                 "resolved by the app. valid_from/valid_to bound when the grant "
-                 "applies. Phase-1 seed; re-verify per rule in phase 2."
+                "applies; a row past valid_to ships only if it declares "
+                "'retired': true — a verified lapse kept as hidden history. "
+                "Phase-1 seed; re-verify per rule in phase 2."
              ),
              "transit_benefits": (
                  "Separate BENEFIT layer (transit_benefits table, from data/"
