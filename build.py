@@ -695,12 +695,15 @@ def write_sqlite(dataset, matrix, passports, overrides, extra_names=None) -> pat
     merge_transit(cur)
 
     for o in overrides:
-        cur.execute(
-            "INSERT OR REPLACE INTO corrections(passport, destination, type, days, since, note)"
-            " VALUES (?, ?, ?, ?, ?, ?)",
-            (o.get("nat"), o.get("dest"), o.get("type"), o.get("days"),
-             o.get("since"), o.get("note")),
-        )
+        for nat in (o.get("nats") or [o.get("nat")]):
+            if not nat:
+                continue
+            cur.execute(
+                "INSERT OR REPLACE INTO corrections(passport, destination, type, days, since, note)"
+                " VALUES (?, ?, ?, ?, ?, ?)",
+                (nat, o.get("dest"), o.get("type"), o.get("days"),
+                 o.get("since"), o.get("note")),
+            )
 
     merge_visa_benefits(cur, iso2s)
     merge_mobility_regimes(cur, iso2s)
@@ -827,6 +830,58 @@ def write_tidy_csv(matrix, passports) -> pathlib.Path:
     return out
 
 
+# How far ahead a dated grant must survive to ship without an advisory: a grant
+# expiring inside this window is legal but deserves a second look at build time.
+LAPSE_ADVISORY_DAYS = 90
+
+
+class LapsedGrants(Exception):
+    """A dated grant has already expired relative to this build's date."""
+
+
+def validate_ship_dates(matrix, lapsed_scrapes, today, retired=frozenset()):
+    """Refuse to ship a grant whose documented expiry has already passed.
+
+    Both dated layers honour meta.stay_axis: a lapsed 'until …' is a stale
+    historical note, not a live expiry. The corridor scrape used to null a past
+    date and keep the grant — turning a time-limited waiver into a permanent one
+    with no signal — and the stay layer passed its dates through untouched, which
+    is how a lapsed 60-day Thai exemption reached consumers. Either way the fix is
+    to re-verify the grant against its source, extend the date, or retire it with
+    a cited override (an override carrying an explicit valid_to, null included).
+    """
+    horizon = (dt.date.fromisoformat(today)
+               + dt.timedelta(days=LAPSE_ADVISORY_DAYS)).isoformat()
+    refused, soon = [], []
+
+    def note(where, valid_to, source):
+        (refused if valid_to < today else soon).append((where, valid_to, source))
+
+    for r in json.load(open(DATA / "stay-rules.json")).get("rules", []):
+        if r.get("valid_to"):
+            note("stay_rules " + r["id"], r["valid_to"], r.get("source", ""))
+    for nat, cells in matrix.items():
+        for dest, c in cells.items():
+            if c.get("valid_to"):
+                note(f"visa_rules {nat}->{dest}", c["valid_to"], c.get("source", ""))
+    for nat, dest, valid_to in lapsed_scrapes:
+        if (nat, dest) not in retired:
+            note(f"visa_rules {nat}->{dest} (scraped date)", valid_to, "wikipedia")
+
+    for where, valid_to, _ in sorted(soon, key=lambda x: x[1]):
+        if valid_to <= horizon:
+            print(f"note: {where} valid_to={valid_to} lapses within "
+                  f"{LAPSE_ADVISORY_DAYS} days of this build")
+    if refused:
+        detail = "\n".join(f"  {w} valid_to={v} source={s}"
+                           for w, v, s in sorted(refused, key=lambda x: x[1]))
+        raise LapsedGrants(
+            f"{len(refused)} dated grant(s) already lapsed relative to "
+            f"generated={today}; re-verify each against its source, then restate "
+            f"the current grant, extend the date, or retire it with a cited "
+            f"override:\n{detail}")
+
+
 def build(build_date: str, exports: frozenset = frozenset()):
     wiki = wikipedia.collect(exclude=EXCLUDED)
     pindex = passportindex.collect_all()
@@ -836,6 +891,7 @@ def build(build_date: str, exports: frozenset = frozenset()):
 
     matrix: dict = {}
     disputes = 0
+    lapsed_scrapes = []
     for nat in passports:
         cells = {}
         # Wikipedia rows (keyed by country display name) -> iso2.
@@ -857,8 +913,11 @@ def build(build_date: str, exports: frozenset = frozenset()):
                 # 'until …' date already past is a historical note about a
                 # former rule (Wikipedia lags policy changes), not a live
                 # expiry of the current status. Both are ISO dates, so this is
-                # a plain string compare.
+                # a plain string compare. Keeping it quiet would renew a lapsed
+                # waiver as a permanent one, so a past date is also reported.
                 raw_to = w.get("valid_to")
+                if raw_to and raw_to < today:
+                    lapsed_scrapes.append((nat, iso2, raw_to))
                 cell = {
                     "type": w["type"],
                     "days": sanitise_days(w["type"], w["days"]),
@@ -905,21 +964,34 @@ def build(build_date: str, exports: frozenset = frozenset()):
     ov_path = DATA / "overrides.json"
     overrides = json.load(open(ov_path)).get("overrides", []) if ov_path.exists() else []
     applied = 0
+    retired = set()
     for o in overrides:
-        nat, dest = o.get("nat"), o.get("dest")
-        if not nat or not dest or nat not in matrix:
+        # 'nats' groups a whole nationality set (one policy change, one note);
+        # 'nat' stays the single-corridor form. Same shape either way downstream.
+        nats = o.get("nats") or ([o["nat"]] if o.get("nat") else [])
+        dest = o.get("dest")
+        if not nats or not dest:
             continue
-        matrix[nat][dest] = {
-            "type": o["type"],
-            "days": o.get("days"),
-            "source": "manual-correction",
-            "checked": today,
-            "confidence": "high",
-            "note": o.get("note", ""),
-        }
-        matrix[nat] = dict(sorted(matrix[nat].items()))
-        applied += 1
-    print(f"overrides applied: {applied}/{len(overrides)}")
+        for nat in nats:
+            if nat not in matrix:
+                continue
+            cell = {
+                "type": o["type"],
+                "days": o.get("days"),
+                "source": "manual-correction",
+                "checked": today,
+                "confidence": "high",
+                "note": o.get("note", ""),
+            }
+            # An explicit valid_to — null included — is a deliberate statement
+            # about the corridor's date, so it also settles a scraped lapsed one.
+            if "valid_to" in o:
+                cell["valid_to"] = o["valid_to"]
+                retired.add((nat, dest))
+            matrix[nat][dest] = cell
+            matrix[nat] = dict(sorted(matrix[nat].items()))
+            applied += 1
+    print(f"overrides applied: {applied} corridors from {len(overrides)} entries")
 
     # States with limited recognition — hand-curated from Wikipedia stub
     # pages; applied after the scrape and overrides (see the module docstring).
@@ -1062,6 +1134,9 @@ def build(build_date: str, exports: frozenset = frozenset()):
         "matrix": matrix,
     }
 
+    # Nothing ships until every dated grant in it is still live for this build.
+    validate_ship_dates(matrix, lapsed_scrapes, today, retired)
+
     DATA.mkdir(exist_ok=True)
 
     # Canonical outputs (always written): the full multi-axis dataset in the two
@@ -1116,4 +1191,8 @@ def parse_exports(items) -> frozenset:
 
 if __name__ == "__main__":
     _args = parse_args()
-    build(resolve_build_date(_args), parse_exports(_args.export))
+    try:
+        build(resolve_build_date(_args), parse_exports(_args.export))
+    except LapsedGrants as e:
+        print(f"REFUSING TO BUILD: {e}", file=sys.stderr)
+        sys.exit(1)
