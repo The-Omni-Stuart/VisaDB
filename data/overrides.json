@@ -210,6 +210,89 @@
       "days": 90,
       "since": null,
       "note": "Bolivia is a CA-4 associated member (one allowance pool with GT/SV/HN/NI, see the ca4-* stay rules) and the mutual Bolivia/Honduras visa waiver grants 90 days (passport-index; Fragomen advisory). Wikipedia's infobox still says visa-required."
+    },
+    {
+      "nats": [
+        "AD",
+        "BE",
+        "CZ",
+        "DK",
+        "EE",
+        "FI",
+        "HR",
+        "IS",
+        "LI",
+        "LU",
+        "MC",
+        "MK",
+        "NO",
+        "SI",
+        "SK",
+        "SM",
+        "VA"
+      ],
+      "dest": "BY",
+      "type": "visa-free",
+      "days": 30,
+      "since": "2025-01-01",
+      "valid_to": "2026-12-31",
+      "note": "Belarus extended its unilateral 30-day visa-free regime for 38 European states to 2026-12-31 (MFA; Fragomen/visasnews advisories). These pages still carry the PREVIOUS extension's end date (2024/2025-12-31); same-programme corridors already ship 2026-12-31 — this entry aligns them and retires the lapsed scraped dates."
+    },
+    {
+      "nats": [
+        "IS",
+        "PT"
+      ],
+      "dest": "KR",
+      "type": "visa-free",
+      "days": 90,
+      "since": "2026-01-01",
+      "valid_to": "2026-12-31",
+      "note": "Korea extended the temporary K-ETA exemption (22 jurisdictions) to 2026-12-31 (MoJ; KPMG/EY alerts). IT/MX already ship 2026-12-31; these pages kept 2025-12-31."
+    },
+    {
+      "nats": [
+        "BE",
+        "CH",
+        "LU",
+        "LV"
+      ],
+      "dest": "GB",
+      "type": "eta",
+      "days": 180,
+      "since": null,
+      "valid_to": null,
+      "note": "Visa-free short-stay visitors under the UK ETA scheme (rolled out 2025-26); the scraped 'until 2021-10-01' predates the scheme — an infobox relic about an unrelated transition. No documented expiry on the grant: retire the date."
+    },
+    {
+      "nats": [
+        "CN",
+        "UZ"
+      ],
+      "dest": "IE",
+      "type": "visa-required",
+      "days": null,
+      "since": null,
+      "valid_to": null,
+      "note": "Ireland requires a visa from these nationalities (the short-stay waiver programme does not list them); the scraped 'until 2021-10-01' is a relic of an ended time-boxed waiver on an otherwise visa-required row. Retire the date."
+    },
+    {
+      "nat": "MN",
+      "dest": "KR",
+      "type": "visa-required",
+      "days": null,
+      "since": null,
+      "valid_to": null,
+      "note": "Visa-required corridor; the scraped 'until 2024-05-01' is a relic of an ended jeju/group-tour waiver experiment. Retire the date."
+    },
+    {
+      "nat": "TH",
+      "dest": "LK",
+      "type": "eta",
+      "days": 30,
+      "since": null,
+      "valid_to": null,
+      "note": "Sri Lanka's FREE-ETA pilot for Thai nationals ended 2024-04-30, but the ordinary 30-day ETA continues; the scraped date belongs to the ended pilot, not the live grant. Retire the date."
     }
   ]
 }
