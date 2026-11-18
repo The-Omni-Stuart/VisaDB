@@ -187,6 +187,30 @@ REGIMES = [
                  "passport (a long-standing open-border arrangement); kept as "
                  "visa-free."),
     },
+    {
+        "id": "schengen",
+        "name": "Schengen Area",
+        "level": "visa-free",
+        "members": [
+            "AT", "BE", "BG", "CH", "CZ", "DE", "DK", "EE", "ES", "FI", "FR",
+            "HR", "HU", "IS", "IT", "LI", "LT", "LU", "LV", "MT", "NL", "NO",
+            "PL", "PT", "RO", "SE", "SI", "SK",
+        ],
+        "associates": [],
+        "deactivated": [],
+        "source_url": "https://en.wikipedia.org/wiki/Schengen_Area",
+        "note": ("Schengen Area short-stay travel zone: 28 states with abolished "
+                 "internal border controls - the EU member states in Schengen "
+                 "plus Iceland, Liechtenstein, Norway and Switzerland (EFTA), "
+                 "Romania and Bulgaria. A valid Schengen short-stay visa or a "
+                 "Schengen/EU residence permit grants 90-in-180-day visa-free "
+                 "travel across these states. Level is 'visa-free' (short-stay "
+                 "entry), NOT freedom-of-movement (no automatic right to "
+                 "reside/work). Excludes EU-but-non-Schengen Ireland and Cyprus. "
+                 "Bulgaria is included per the current product definition of the "
+                 "Schengen travel area; verify its border-control status for a "
+                 "specific travel date."),
+    },
 ]
 
 doc = {
@@ -215,8 +239,13 @@ doc = {
     "regimes": REGIMES,
 }
 
-out = DATA / "mobility-regimes.json"
-with open(out, "w") as f:
-    json.dump(doc, f, ensure_ascii=False, indent=2)
-    f.write("\n")
-print(f"wrote {out} ({len(REGIMES)} regimes)")
+def build_payload():
+    return doc
+
+
+if __name__ == "__main__":
+    out = DATA / "mobility-regimes.json"
+    with open(out, "w") as f:
+        json.dump(doc, f, ensure_ascii=False, indent=2)
+        f.write("\n")
+    print(f"wrote {out} ({len(REGIMES)} regimes)")

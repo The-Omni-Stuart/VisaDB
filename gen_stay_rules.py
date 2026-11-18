@@ -499,25 +499,22 @@ RULES = [
         "zone_name": None,
         "countries": ["TH"],
         "window_type": "per-entry",
-        "window_days": 60,
+        "window_days": 30,
         "window_period_days": None,
         "extension": 30,
         "multiple_entry": 1,
         "nationalities": [
-            "AD", "AE", "AL", "AT", "AU", "BE", "BG", "BH", "BN", "BT",
-            "CA", "CH", "CN", "CO", "CU", "CY", "CZ", "DE", "DK", "DM",
-            "DO", "EC", "EE", "ES", "FI", "FJ", "FR", "GB", "GE", "GR",
-            "GT", "HK", "HR", "HU", "ID", "IE", "IN", "IS", "IT", "JM",
-            "JO", "JP", "KW", "KZ", "LA", "LI", "LK", "LT", "LU", "LV",
-            "MA", "MC", "MN", "MO", "MT", "MU", "MV", "MX", "MY", "NL",
-            "NO", "NZ", "OM", "PA", "PG", "PH", "PL", "PT", "QA", "RO",
-            "RU", "SA", "SE", "SG", "SI", "SK", "SM", "TO", "TR", "TT",
-            "TW", "UA", "US", "UY", "UZ", "VN", "XK", "ZA",
+            "AE", "AT", "AU", "BE", "BG", "BH", "BN", "BT", "CA", "CH",
+            "CY", "CZ", "DE", "DK", "EE", "ES", "FI", "FJ", "FR", "GB",
+            "GE", "GR", "HR", "HU", "ID", "IE", "IL", "IN", "IS", "IT",
+            "JO", "JP", "KG", "KW", "LI", "LT", "LU", "LV", "MT", "MV",
+            "MY", "NL", "NO", "NZ", "OM", "PH", "PL", "PT", "QA", "RO",
+            "SA", "SE", "SG", "SI", "SK", "TR", "TW", "UA", "US", "ZA",
         ],
-        "valid_from": "2024-07-15",
-        "valid_to": "2026-09-14",
-        "source": "Visa policy of Thailand (MFA)",
-        "note": "Thailand: 60-day category with a +30-day extension. The source currently shows 90/60/30/14/7-day categories and reports a 2026 reduction/cancellation of the 60-day scheme; verify the official Thai MFA before publishing.",
+        "valid_from": "2026-09-15",
+        "valid_to": None,
+        "source": "Royal Gazette Vol. 143 Special Issue 207 Ngor (2026-08-31), effective 2026-09-15",
+        "note": "Thailand: 30-day visa exemption with one 30-day in-country extension for 60 nationalities, effective 2026-09-15; replaces the 60-day P.60 scheme (entries on or before 2026-09-14 keep 60 days). Land-border entries capped at 2 per calendar year except MY/BN/ID/SG (cap not modelled). VOA (not exempt): AZ/BY/RS, 15 days.",
     },
     {
         "id": "th-90",
@@ -533,7 +530,7 @@ RULES = [
         "valid_from": None,
         "valid_to": None,
         "source": "Visa policy of Thailand (MFA)",
-        "note": "Thailand: 90-day category. Verify the official Thai MFA; the Wikipedia article reports a 2026 reduction/cancellation of the 60-day scheme.",
+        "note": "Thailand: bilateral 90-day exemption (treaty nationals). Unchanged by the 2026 reform.",
     },
     {
         "id": "th-30",
@@ -545,11 +542,11 @@ RULES = [
         "window_period_days": None,
         "extension": None,
         "multiple_entry": 1,
-        "nationalities": ["TL"],
+        "nationalities": ["CN", "HK", "KZ", "LA", "MN", "MO", "RU", "TL", "VN"],
         "valid_from": None,
         "valid_to": None,
         "source": "Visa policy of Thailand (MFA)",
-        "note": "Thailand: 30-day category. Verify the official Thai MFA.",
+        "note": "Thailand: bilateral 30-day exemption, unchanged by the 2026 reform. The 2026 framework ends the general 60-day scheme; these run on their own treaties.",
     },
     {
         "id": "th-14",
@@ -561,27 +558,27 @@ RULES = [
         "window_period_days": None,
         "extension": None,
         "multiple_entry": 1,
-        "nationalities": ["MM"],
+        "nationalities": ["KH", "MM"],
         "valid_from": None,
         "valid_to": None,
         "source": "Visa policy of Thailand (MFA)",
-        "note": "Thailand: 14-day category. Verify the official Thai MFA.",
+        "note": "Thailand: bilateral 14-day exemption for Cambodia and Myanmar, air arrivals only. Unchanged by the 2026 reform.",
     },
     {
-        "id": "th-7",
+        "id": "th-15",
         "zone": None,
         "zone_name": None,
         "countries": ["TH"],
         "window_type": "per-entry",
-        "window_days": 7,
+        "window_days": 15,
         "window_period_days": None,
         "extension": None,
         "multiple_entry": 1,
-        "nationalities": ["KH"],
-        "valid_from": None,
+        "nationalities": ["MU", "SC"],
+        "valid_from": "2026-09-15",
         "valid_to": None,
-        "source": "Visa policy of Thailand (MFA)",
-        "note": "Thailand: 7-day category. Verify the official Thai MFA.",
+        "source": "Royal Gazette Vol. 143 Special Issue 207 Ngor (2026-08-31), effective 2026-09-15",
+        "note": "Thailand: 15-day visa exemption tier for Mauritius and Seychelles, effective 2026-09-15.",
     },
     {
         "id": "br-eu-90180",
@@ -644,12 +641,19 @@ doc = {
              "the sentinels '*' (all visa-exempt nationals) and 'EU-EEA' "
               "(EU/EEA nationals); the app resolves them. valid_from/valid_to "
               "bound when the grant applies. DB stores facts; the app computes "
-              "the balance."),
+              "the balance. valid_to past requires the row to declare "
+               "\"retired\": true — a verified lapse, shipped with its dates so "
+               "it stays hidden history instead of being deleted."),
     "rules": RULES,
 }
 
-out = DATA / "stay-rules.json"
-with open(out, "w") as f:
-    json.dump(doc, f, ensure_ascii=False, indent=2)
-    f.write("\n")
-print(f"wrote {out} ({len(RULES)} stay-rule grants)")
+def build_payload():
+    return doc
+
+
+if __name__ == "__main__":
+    out = DATA / "stay-rules.json"
+    with open(out, "w") as f:
+        json.dump(doc, f, ensure_ascii=False, indent=2)
+        f.write("\n")
+    print(f"wrote {out} ({len(RULES)} stay-rule grants)")

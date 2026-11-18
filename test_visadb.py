@@ -338,6 +338,22 @@ def test_benefits_generator_drift(con):
 # --------------------------------------------------------------------------
 # B. Merge-logic reference (the app spec, as a pure function)
 # --------------------------------------------------------------------------
+def test_curated_generators_drift(con):
+    # D. gen_mobility.py and gen_stay_rules.py write the JSON that build.py
+    # consumes, and nothing compared them: a fact hand-edited into data/*.json
+    # without back-porting vanished at the next regeneration (and the release
+    # pipeline shipped the loss).
+    import gen_mobility
+    import gen_stay_rules
+    for num, mod, rel in (("D10", gen_mobility, "mobility-regimes.json"),
+                          ("D11", gen_stay_rules, "stay-rules.json")):
+        committed = json.loads((ROOT / "data" / rel).read_text())
+        check(f"{num} {mod.__name__}.py payload matches data/{rel}",
+              mod.build_payload() == committed,
+              f"run `python3 {mod.__name__}.py` — the committed JSON and its "
+              "generator have diverged; whichever is wrong is now on screen")
+
+
 LADDER = list(VALID_TYPES)  # refused ... freedom-of-movement, worst -> best
 RANK = {t: i for i, t in enumerate(LADDER)}
 
@@ -460,6 +476,7 @@ def main():
     test_data_integrity(con)
     test_json_mirror(con)
     test_benefits_generator_drift(con)
+    test_curated_generators_drift(con)
     test_merge_reference()
     test_parser_subrow()
     con.close()
