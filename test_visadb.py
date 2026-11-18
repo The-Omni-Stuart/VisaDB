@@ -16,6 +16,7 @@ Runs OFFLINE against data/visa_data.db and the curated data/*.json sources
 Stdlib only. `python3 test_visadb.py` -> exit 0 if all pass, 1 otherwise.
 """
 import datetime as dt
+import itertools
 import json
 import pathlib
 import sqlite3
@@ -211,6 +212,52 @@ def test_data_integrity(con):
         fresh_ok = rv <= gen and nv > rv
         why = f"verified={rv} next_review={nv} generated={gen}"
     check("A28 meta freshness keys coherent when present", fresh_ok, why)
+
+    # A29 one fact, three copies. stay_rules, mobility_regimes and
+    # gen_benefits each hold a Schengen membership list and nothing compared
+    # them, so all three drifted differently (IE in / HR-IS-NO out; GR missing).
+    schengen_expected = {
+        "AT", "BE", "BG", "CH", "CZ", "DE", "DK", "EE", "ES", "FI", "FR",
+        "GR", "HR", "HU", "IS", "IT", "LI", "LT", "LU", "LV", "MT", "NL",
+        "NO", "PL", "PT", "RO", "SE", "SI", "SK",
+    }  # Commission, "Schengen area": 29 member states, no EU opt-outs left
+    mob_src = json.loads((ROOT / "data" / "mobility-regimes.json").read_text())
+    import gen_benefits
+    schengen_lists = {
+        "stay_rules": {c for r in stay_src["rules"] if r["id"] == "schengen"
+                       for c in r["countries"]},
+        "mobility_regimes": {c for g in mob_src["regimes"] if g["id"] == "schengen"
+                             for c in g["members"]},
+        "gen_benefits": set(gen_benefits.SCHENGEN),
+    }
+    off = [f"{k} off by {sorted(v ^ schengen_expected)}"
+           for k, v in schengen_lists.items() if v != schengen_expected]
+    check("A29 all three Schengen lists are the 29 member states", not off, "; ".join(off))
+
+    # A30 two live rules that can both match one traveller at one destination
+    # leave the app's tie-break to row order. A25 compares literal nationality
+    # sets, so the '*' sentinel bypassed it entirely.
+    eu = {c for g in mob_src["regimes"] if g["id"] == "eu-eea-efta" for c in g["members"]}
+    pool = {c for r in stay_src["rules"] for c in r["countries"]}
+
+    def rule_nationals(rule):
+        out = set()
+        for n in rule["nationalities"]:
+            out |= pool if n == "*" else eu if n == "EU-EEA" else {n}
+        return out
+
+    per_dest = {}
+    for r in stay_src["rules"]:
+        if r.get("retired"):
+            continue
+        for c in r["countries"]:
+            per_dest.setdefault(c, []).append(r)
+    ambiguous = [f"{c}: {a['id']} + {b['id']}"
+                 for c, rs in sorted(per_dest.items())
+                 for a, b in itertools.combinations(rs, 2)
+                 if rule_nationals(a) & rule_nationals(b)]
+    check("A30 one traveller matches at most one stay rule per destination",
+          not ambiguous, "; ".join(ambiguous[:5]))
 
 
 def test_json_mirror(con):

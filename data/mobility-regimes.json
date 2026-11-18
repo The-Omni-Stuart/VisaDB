@@ -1,6 +1,6 @@
 {
   "source": "Freedom-of-movement / free-movement regime overlay. A separate EXPLANATORY layer on top of the per-corridor visa_rules matrix: it records the multilateral mobility blocs and which members currently exercise each right, so the app can explain WHY a corridor is visa-free / freedom-of-movement. It never changes the visa_rules entry status. 'members' are active (full members), 'associates' are associate states that DO exercise the right (treated as active), and 'deactivated' are bloc members that currently do NOT exercise the right (kept for reference but must not show). Curated from the Wikipedia 'Freedom of movement' article (Examples of free movement arrangements) plus the regime's own article.",
-  "checked": "2026-09-04",
+  "checked": "2026-11-18",
   "values": [
     "freedom-of-movement",
     "visa-free"
@@ -278,6 +278,7 @@
         "ES",
         "FI",
         "FR",
+        "GR",
         "HR",
         "HU",
         "IS",
@@ -299,7 +300,7 @@
       "associates": [],
       "deactivated": [],
       "source_url": "https://en.wikipedia.org/wiki/Schengen_Area",
-      "note": "Schengen Area short-stay travel zone: 28 states with abolished internal border controls - the EU member states in Schengen plus Iceland, Liechtenstein, Norway and Switzerland (EFTA), Romania and Bulgaria. A valid Schengen short-stay visa or a Schengen/EU residence permit grants 90-in-180-day visa-free travel across these states. Level is 'visa-free' (short-stay entry), NOT freedom-of-movement (no automatic right to reside/work). Excludes EU-but-non-Schengen Ireland and Cyprus. Bulgaria is included per the current product definition of the Schengen travel area; verify its border-control status for a specific travel date."
+      "note": "Schengen Area short-stay travel zone: 29 states with abolished internal border controls - the EU member states in Schengen plus Iceland, Liechtenstein, Norway and Switzerland (EFTA), Romania and Bulgaria. A valid Schengen short-stay visa or a Schengen/EU residence permit grants 90-in-180-day visa-free travel across these states. Level is 'visa-free' (short-stay entry), NOT freedom-of-movement (no automatic right to reside/work). Excludes EU-but-non-Schengen Ireland and Cyprus. Bulgaria is included per the current product definition of the Schengen travel area; verify its border-control status for a specific travel date."
     }
   ]
 }

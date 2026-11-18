@@ -193,13 +193,13 @@ REGIMES = [
         "level": "visa-free",
         "members": [
             "AT", "BE", "BG", "CH", "CZ", "DE", "DK", "EE", "ES", "FI", "FR",
-            "HR", "HU", "IS", "IT", "LI", "LT", "LU", "LV", "MT", "NL", "NO",
-            "PL", "PT", "RO", "SE", "SI", "SK",
+            "GR", "HR", "HU", "IS", "IT", "LI", "LT", "LU", "LV", "MT", "NL",
+            "NO", "PL", "PT", "RO", "SE", "SI", "SK",
         ],
         "associates": [],
         "deactivated": [],
         "source_url": "https://en.wikipedia.org/wiki/Schengen_Area",
-        "note": ("Schengen Area short-stay travel zone: 28 states with abolished "
+        "note": ("Schengen Area short-stay travel zone: 29 states with abolished "
                  "internal border controls - the EU member states in Schengen "
                  "plus Iceland, Liechtenstein, Norway and Switzerland (EFTA), "
                  "Romania and Bulgaria. A valid Schengen short-stay visa or a "
@@ -226,7 +226,7 @@ doc = {
                "reference but must not show). Curated from the Wikipedia "
                "'Freedom of movement' article (Examples of free movement "
                "arrangements) plus the regime's own article."),
-    "checked": "2026-09-04",
+    "checked": "2026-11-18",
     "values": ["freedom-of-movement", "visa-free"],
     "note": ("level: 'freedom-of-movement' = enter + reside + work (no "
              "passport/ID in practice); 'visa-free' = enter without a visa but "
