@@ -113,7 +113,7 @@ RULES = [
         "zone": "eac",
         "zone_name": "EAC (EATV)",
         "countries": ["KE", "RW", "UG"],
-        "window_type": "per-entry",
+        "window_type": "lifetime",
         "window_days": 90,
         "window_period_days": None,
         "extension": None,
@@ -122,7 +122,7 @@ RULES = [
         "valid_from": None,
         "valid_to": None,
         "source": "EAC Single Visa (East African Community)",
-        "note": "EATV: 90-day visa (single ticket); first use must be the issuing country. One 90-day allowance is shared across KE/RW/UG; no nationality restrictions; non-extendable; multiple-entry. Modelled per-entry, not rolling: the visa grants one consumed 90-day allowance that does not refill as days pass.",
+        "note": "EATV: 90-day visa (single ticket); first use must be the issuing country. One 90-day allowance is shared across KE/RW/UG; no nationality restrictions; non-extendable; multiple-entry. window_type 'lifetime': the days are granted once by the visa and are never returned — not as time passes (that would be rolling) and not at a border (that would be per-entry, and EAC internal movement is open land borders, so per-entry hands back the whole 90 at every crossing).",
     },
     {
         "id": "wb-ba",
@@ -681,8 +681,11 @@ doc = {
                "US-visa/green-card measure, not an ordinary bilateral visa "
                "exemption. Re-verify per rule before relying on it."),
     "checked": "2026-11-18",
-    "note": ("window_type: 'per-entry' (up to window_days each entry) or "
-             "'rolling' (up to window_days in any window_period_days). zone: "
+    "note": ("window_type: 'per-entry' (up to window_days each entry), "
+             "'rolling' (up to window_days in any window_period_days) or "
+             "'lifetime' (window_days granted once, by the visa or issuance, "
+             "pooled across the zone's states and never re-earned by leaving "
+             "and re-entering). zone: "
              "shared pool id — rows sharing a zone pool their allowances "
              "(Schengen: one 90/180 pool across 29 states; CA-4: one pool across "
              "GT/SV/HN/NI with per-country allowances). nationalities may contain "
