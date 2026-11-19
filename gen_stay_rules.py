@@ -109,6 +109,70 @@ RULES = [
         "note": "29 Schengen-area states: the 25 EU members in the area plus Iceland, Liechtenstein, Norway and Switzerland. Croatia fully since 2023-01-01; Bulgaria and Romania air/sea from 2024-03-31 and land from 2025-01-01. 90 days in any rolling 180-day period, shared across the area. Ireland and Cyprus are EU members outside Schengen (Common Travel Area opt-out; Cypriot accession pending) and must NOT be added: an Ireland stay consumes no Schengen days.",
     },
     {
+        "id": "mc",
+        "zone": "schengen",
+        "zone_name": "Schengen Area",
+        "countries": ["MC"],
+        "window_type": "rolling",
+        "window_days": 90,
+        "window_period_days": 180,
+        "extension": None,
+        "multiple_entry": 1,
+        "nationalities": ["*"],
+        "valid_from": None,
+        "valid_to": None,
+        "source": "Schengen Borders Code, applied by enforcement",
+        "note": "Counted in the Schengen pool as enforcement, not statute: there are no entry or exit stamps with France, and the 1963 convention makes France handle Monaco's immigration, so the traveller shows as continuously inside France. So the pool meter treats Monaco as the continuous Schengen stay a border record cannot distinguish. Deliberately the pool's exact window shape: a divergent type or size here would redefine the whole 29-state pool, because the app meters a zone by its tightest rule.",
+    },
+    {
+        "id": "sm",
+        "zone": "schengen",
+        "zone_name": "Schengen Area",
+        "countries": ["SM"],
+        "window_type": "rolling",
+        "window_days": 90,
+        "window_period_days": 180,
+        "extension": None,
+        "multiple_entry": 1,
+        "nationalities": ["*"],
+        "valid_from": None,
+        "valid_to": None,
+        "source": "Schengen Borders Code, applied by enforcement",
+        "note": "Counted in the Schengen pool as enforcement, not statute: the enclave with Italy is uncontrolled, so no border record distinguishes the two. So the pool meter treats San Marino as the continuous Schengen stay a border record cannot distinguish. Deliberately the pool's exact window shape: a divergent type or size here would redefine the whole 29-state pool, because the app meters a zone by its tightest rule.",
+    },
+    {
+        "id": "va",
+        "zone": "schengen",
+        "zone_name": "Schengen Area",
+        "countries": ["VA"],
+        "window_type": "rolling",
+        "window_days": 90,
+        "window_period_days": 180,
+        "extension": None,
+        "multiple_entry": 1,
+        "nationalities": ["*"],
+        "valid_from": None,
+        "valid_to": None,
+        "source": "Schengen Borders Code, applied by enforcement",
+        "note": "Counted in the Schengen pool as enforcement, not statute: the enclave with Italy is uncontrolled, and entry is through Italy. So the pool meter treats Vatican City as the continuous Schengen stay a border record cannot distinguish. Deliberately the pool's exact window shape: a divergent type or size here would redefine the whole 29-state pool, because the app meters a zone by its tightest rule.",
+    },
+    {
+        "id": "ad",
+        "zone": "schengen",
+        "zone_name": "Schengen Area",
+        "countries": ["AD"],
+        "window_type": "rolling",
+        "window_days": 90,
+        "window_period_days": 180,
+        "extension": None,
+        "multiple_entry": 1,
+        "nationalities": ["*"],
+        "valid_from": None,
+        "valid_to": None,
+        "source": "Schengen Borders Code, applied by enforcement",
+        "note": "Counted in the Schengen pool as enforcement, not statute: Andorra is not in the area and has no external-border checks, so nothing records the exit and proving the stay falls on dated receipts. So the pool meter treats Andorra as the continuous Schengen stay a border record cannot distinguish. Deliberately the pool's exact window shape: a divergent type or size here would redefine the whole 29-state pool, because the app meters a zone by its tightest rule.",
+    },
+    {
         "id": "eac",
         "zone": "eac",
         "zone_name": "EAC (EATV)",
@@ -688,7 +752,9 @@ doc = {
              "and re-entering). zone: "
              "shared pool id — rows sharing a zone pool their allowances "
              "(Schengen: one 90/180 pool across 29 states; CA-4: one pool across "
-             "GT/SV/HN/NI with per-country allowances). nationalities may contain "
+             "GT/SV/HN/NI with per-country allowances). Monaco, San Marino, "
+             "Vatican City and Andorra are separate rows pooling into schengen: "
+             "counted for enforcement (no stamps), not by statute. nationalities may contain "
              "the sentinels '*' (all visa-exempt nationals) and 'EU-EEA' "
               "(EU/EEA nationals); the app resolves them. valid_from/valid_to "
               "bound when the grant applies. DB stores facts; the app computes "
