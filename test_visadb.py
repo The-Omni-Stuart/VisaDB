@@ -98,13 +98,26 @@ def test_data_integrity(con):
 
     # stay_rules internal consistency
     check("A15 stay_rules.window_type in domain",
-          con.execute("SELECT COUNT(*) FROM stay_rules WHERE window_type NOT IN ('per-entry','rolling')").fetchone()[0] == 0)
+          con.execute("SELECT COUNT(*) FROM stay_rules WHERE window_type NOT IN ('per-entry','rolling','lifetime')").fetchone()[0] == 0)
     check("A16 rolling stay_rules have both window days set",
           con.execute("SELECT COUNT(*) FROM stay_rules WHERE window_type='rolling' AND (window_days IS NULL OR window_period_days IS NULL)").fetchone()[0] == 0)
     check("A17 per-entry stay_rules carry no window period",
           con.execute("SELECT COUNT(*) FROM stay_rules WHERE window_type='per-entry' AND window_period_days IS NOT NULL").fetchone()[0] == 0)
     check("A18 stay_rules.window_days>0",
           con.execute("SELECT COUNT(*) FROM stay_rules WHERE window_days IS NULL OR window_days <= 0").fetchone()[0] == 0)
+
+    # A lifetime pool has no period to slide over.
+    check("A31 lifetime stay_rules carry no window period",
+          con.execute("SELECT COUNT(*) FROM stay_rules WHERE window_type='lifetime' AND window_period_days IS NOT NULL").fetchone()[0] == 0)
+
+    # Day counts differ per country on purpose (CA-4: Salvador 180, Honduras 90) but a zone's
+    # window type may not: the app meters a whole zone by its tightest rule.
+    types = {}
+    for zone, wtype in con.execute("SELECT zone, window_type FROM stay_rules WHERE zone IS NOT NULL AND zone != ''"):
+        types.setdefault(zone, set()).add(wtype)
+    mixed = sorted(z for z, t in types.items() if len(t) > 1)
+    check("A32 rules pooling into one zone share its window type", not mixed,
+          "; ".join(f"{z}: {sorted(types[z])}" for z in mixed))
 
     # stay_rules references: every country a real ISO2; every nationality an
     # ISO2 or a documented sentinel.
