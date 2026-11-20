@@ -152,6 +152,8 @@ HOLDINGS = [
      "Valid Schengen Area short-stay (Type C) visa"),
     ("schengen-residence", "Schengen/EU Residence Permit", "residency", "EU",
      "Residence permit from a Schengen/EU member state"),
+    ("gibraltar-residence", "Gibraltar Residence Permit", "residency", "GI",
+     "Legal residence issued by the Government of Gibraltar"),
     ("uk-visa", "Valid UK Visa / BRP", "short_term_visa", "GB",
      "Valid UK visa or Biometric Residence Permit"),
     ("ca-pr", "Canadian Permanent Residency", "residency", "CA",
@@ -236,6 +238,7 @@ B["us-visa"] = [
 B["schengen-visa"] = [
     e(s, "visa-free", 90, "high", "Within the 90/180-day rule") for s in SCHENGEN
 ] + [
+    e("GI", "visa-free", 90, "high", "Gibraltar recognises Schengen short-stay visas issued by any member since 2026-07-15"),
     e("AL", "visa-free", 90, "high", "Multiple-entry Schengen visa used at least once in Schengen before arrival"),
     e("BA", "visa-free", 30, "medium",
       "Multiple-entry Schengen visa required; max 30 days per entry, max 90 days "
@@ -265,6 +268,7 @@ B["schengen-visa"] = [
 B["schengen-residence"] = [
     e(s, "visa-free", 90, "high", "Valid EU/Schengen residence permit; 90/180-day rule for Schengen travel") for s in SCHENGEN
 ] + [
+    e("GI", "visa-free", 90, "high", "Gibraltar recognises Schengen residence permits since 2026-07-15"),
     e("AL", "visa-free", 90, "high", "Valid Schengen residence permit required"),
     e("BA", "visa-free", 30, "medium",
       "Schengen residence permit required; max 30 days per entry, max 90 days "
@@ -289,6 +293,12 @@ B["schengen-residence"] = [
     e("XK", "visa-free", 15, "high",
       "Schengen residence permit required; up to 15 days",
       checked="2026-09-09"),
+]
+
+B["gibraltar-residence"] = [
+    e(s, "visa-free", 90, "medium", "Schengen states waive visas for legally Gibraltar-resident third-country nationals") for s in SCHENGEN
+] + [
+    e("GB", "visa-free", 90, "medium", "Gibraltar residents may enter the UK on the CTA-free route"),
 ]
 
 # ── uk-visa (16 kept; dropped GI AI AW BM; IE = BIVS, Indian/Chinese nationals only) ──

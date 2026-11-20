@@ -378,6 +378,26 @@
       "note": "Counted in the Schengen pool as enforcement, not statute: Andorra is not in the area and has no external-border checks, so nothing records the exit and proving the stay falls on dated receipts. So the pool meter treats Andorra as the continuous Schengen stay a border record cannot distinguish. Deliberately the pool's exact window shape: a divergent type or size here would redefine the whole 29-state pool, because the app meters a zone by its tightest rule."
     },
     {
+      "id": "gi",
+      "zone": "schengen",
+      "zone_name": "Schengen Area",
+      "countries": [
+        "GI"
+      ],
+      "window_type": "rolling",
+      "window_days": 90,
+      "window_period_days": 180,
+      "extension": null,
+      "multiple_entry": 1,
+      "nationalities": [
+        "*"
+      ],
+      "valid_from": "2026-07-15",
+      "valid_to": null,
+      "source": "EU-UK Agreement in respect of Gibraltar, provisionally applied 2026-07-15",
+      "note": "Gibraltar reads as UK for immigration but counts as Schengen for days: from 2026-07-15 a non-resident's time counts toward the shared 90/180 pool, Schengen short-stay visas issued by any member are recognised, and UK visa/residence exemptions are abolished. Legally Gibraltar-resident third-country nationals are exempt, modelled by the gibraltar-residence holding. Deliberately the pool's exact window shape so a divergent rule cannot redefine the 29-state pool."
+    },
+    {
       "id": "eac",
       "zone": "eac",
       "zone_name": "EAC (EATV)",

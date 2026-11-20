@@ -36,6 +36,13 @@
       "note": "Residence permit from a Schengen/EU member state"
     },
     {
+      "id": "gibraltar-residence",
+      "name": "Gibraltar Residence Permit",
+      "category": "residency",
+      "issuing_country": "GI",
+      "note": "Legal residence issued by the Government of Gibraltar"
+    },
+    {
       "id": "uk-visa",
       "name": "Valid UK Visa / BRP",
       "category": "short_term_visa",
@@ -790,6 +797,15 @@
         "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
       },
       {
+        "destination": "GI",
+        "type": "visa-free",
+        "days": 90,
+        "confidence": "high",
+        "note": "Gibraltar recognises Schengen short-stay visas issued by any member since 2026-07-15",
+        "source_page": "Visa policy of Gibraltar",
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Gibraltar"
+      },
+      {
         "destination": "AL",
         "type": "visa-free",
         "days": 90,
@@ -1177,6 +1193,15 @@
         "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
       },
       {
+        "destination": "GI",
+        "type": "visa-free",
+        "days": 90,
+        "confidence": "high",
+        "note": "Gibraltar recognises Schengen residence permits since 2026-07-15",
+        "source_page": "Visa policy of Gibraltar",
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Gibraltar"
+      },
+      {
         "destination": "AL",
         "type": "visa-free",
         "days": 90,
@@ -1306,6 +1331,278 @@
         "note": "Schengen residence permit required; up to 15 days",
         "source_page": "Visa policy of Kosovo",
         "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_Kosovo"
+      }
+    ],
+    "gibraltar-residence": [
+      {
+        "destination": "AT",
+        "type": "visa-free",
+        "days": 90,
+        "confidence": "medium",
+        "note": "Schengen states waive visas for legally Gibraltar-resident third-country nationals",
+        "source_page": "Visa policy of the Schengen Area",
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
+      },
+      {
+        "destination": "BE",
+        "type": "visa-free",
+        "days": 90,
+        "confidence": "medium",
+        "note": "Schengen states waive visas for legally Gibraltar-resident third-country nationals",
+        "source_page": "Visa policy of the Schengen Area",
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
+      },
+      {
+        "destination": "BG",
+        "type": "visa-free",
+        "days": 90,
+        "confidence": "medium",
+        "note": "Schengen states waive visas for legally Gibraltar-resident third-country nationals",
+        "source_page": "Visa policy of the Schengen Area",
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
+      },
+      {
+        "destination": "HR",
+        "type": "visa-free",
+        "days": 90,
+        "confidence": "medium",
+        "note": "Schengen states waive visas for legally Gibraltar-resident third-country nationals",
+        "source_page": "Visa policy of the Schengen Area",
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
+      },
+      {
+        "destination": "CZ",
+        "type": "visa-free",
+        "days": 90,
+        "confidence": "medium",
+        "note": "Schengen states waive visas for legally Gibraltar-resident third-country nationals",
+        "source_page": "Visa policy of the Schengen Area",
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
+      },
+      {
+        "destination": "DK",
+        "type": "visa-free",
+        "days": 90,
+        "confidence": "medium",
+        "note": "Schengen states waive visas for legally Gibraltar-resident third-country nationals",
+        "source_page": "Visa policy of the Schengen Area",
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
+      },
+      {
+        "destination": "EE",
+        "type": "visa-free",
+        "days": 90,
+        "confidence": "medium",
+        "note": "Schengen states waive visas for legally Gibraltar-resident third-country nationals",
+        "source_page": "Visa policy of the Schengen Area",
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
+      },
+      {
+        "destination": "FI",
+        "type": "visa-free",
+        "days": 90,
+        "confidence": "medium",
+        "note": "Schengen states waive visas for legally Gibraltar-resident third-country nationals",
+        "source_page": "Visa policy of the Schengen Area",
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
+      },
+      {
+        "destination": "FR",
+        "type": "visa-free",
+        "days": 90,
+        "confidence": "medium",
+        "note": "Schengen states waive visas for legally Gibraltar-resident third-country nationals",
+        "source_page": "Visa policy of the Schengen Area",
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
+      },
+      {
+        "destination": "DE",
+        "type": "visa-free",
+        "days": 90,
+        "confidence": "medium",
+        "note": "Schengen states waive visas for legally Gibraltar-resident third-country nationals",
+        "source_page": "Visa policy of the Schengen Area",
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
+      },
+      {
+        "destination": "GR",
+        "type": "visa-free",
+        "days": 90,
+        "confidence": "medium",
+        "note": "Schengen states waive visas for legally Gibraltar-resident third-country nationals",
+        "source_page": "Visa policy of the Schengen Area",
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
+      },
+      {
+        "destination": "HU",
+        "type": "visa-free",
+        "days": 90,
+        "confidence": "medium",
+        "note": "Schengen states waive visas for legally Gibraltar-resident third-country nationals",
+        "source_page": "Visa policy of the Schengen Area",
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
+      },
+      {
+        "destination": "IS",
+        "type": "visa-free",
+        "days": 90,
+        "confidence": "medium",
+        "note": "Schengen states waive visas for legally Gibraltar-resident third-country nationals",
+        "source_page": "Visa policy of the Schengen Area",
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
+      },
+      {
+        "destination": "IT",
+        "type": "visa-free",
+        "days": 90,
+        "confidence": "medium",
+        "note": "Schengen states waive visas for legally Gibraltar-resident third-country nationals",
+        "source_page": "Visa policy of the Schengen Area",
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
+      },
+      {
+        "destination": "LV",
+        "type": "visa-free",
+        "days": 90,
+        "confidence": "medium",
+        "note": "Schengen states waive visas for legally Gibraltar-resident third-country nationals",
+        "source_page": "Visa policy of the Schengen Area",
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
+      },
+      {
+        "destination": "LT",
+        "type": "visa-free",
+        "days": 90,
+        "confidence": "medium",
+        "note": "Schengen states waive visas for legally Gibraltar-resident third-country nationals",
+        "source_page": "Visa policy of the Schengen Area",
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
+      },
+      {
+        "destination": "LU",
+        "type": "visa-free",
+        "days": 90,
+        "confidence": "medium",
+        "note": "Schengen states waive visas for legally Gibraltar-resident third-country nationals",
+        "source_page": "Visa policy of the Schengen Area",
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
+      },
+      {
+        "destination": "MT",
+        "type": "visa-free",
+        "days": 90,
+        "confidence": "medium",
+        "note": "Schengen states waive visas for legally Gibraltar-resident third-country nationals",
+        "source_page": "Visa policy of the Schengen Area",
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
+      },
+      {
+        "destination": "NL",
+        "type": "visa-free",
+        "days": 90,
+        "confidence": "medium",
+        "note": "Schengen states waive visas for legally Gibraltar-resident third-country nationals",
+        "source_page": "Visa policy of the Schengen Area",
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
+      },
+      {
+        "destination": "NO",
+        "type": "visa-free",
+        "days": 90,
+        "confidence": "medium",
+        "note": "Schengen states waive visas for legally Gibraltar-resident third-country nationals",
+        "source_page": "Visa policy of the Schengen Area",
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
+      },
+      {
+        "destination": "PL",
+        "type": "visa-free",
+        "days": 90,
+        "confidence": "medium",
+        "note": "Schengen states waive visas for legally Gibraltar-resident third-country nationals",
+        "source_page": "Visa policy of the Schengen Area",
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
+      },
+      {
+        "destination": "PT",
+        "type": "visa-free",
+        "days": 90,
+        "confidence": "medium",
+        "note": "Schengen states waive visas for legally Gibraltar-resident third-country nationals",
+        "source_page": "Visa policy of the Schengen Area",
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
+      },
+      {
+        "destination": "RO",
+        "type": "visa-free",
+        "days": 90,
+        "confidence": "medium",
+        "note": "Schengen states waive visas for legally Gibraltar-resident third-country nationals",
+        "source_page": "Visa policy of the Schengen Area",
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
+      },
+      {
+        "destination": "SK",
+        "type": "visa-free",
+        "days": 90,
+        "confidence": "medium",
+        "note": "Schengen states waive visas for legally Gibraltar-resident third-country nationals",
+        "source_page": "Visa policy of the Schengen Area",
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
+      },
+      {
+        "destination": "SI",
+        "type": "visa-free",
+        "days": 90,
+        "confidence": "medium",
+        "note": "Schengen states waive visas for legally Gibraltar-resident third-country nationals",
+        "source_page": "Visa policy of the Schengen Area",
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
+      },
+      {
+        "destination": "ES",
+        "type": "visa-free",
+        "days": 90,
+        "confidence": "medium",
+        "note": "Schengen states waive visas for legally Gibraltar-resident third-country nationals",
+        "source_page": "Visa policy of the Schengen Area",
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
+      },
+      {
+        "destination": "SE",
+        "type": "visa-free",
+        "days": 90,
+        "confidence": "medium",
+        "note": "Schengen states waive visas for legally Gibraltar-resident third-country nationals",
+        "source_page": "Visa policy of the Schengen Area",
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
+      },
+      {
+        "destination": "CH",
+        "type": "visa-free",
+        "days": 90,
+        "confidence": "medium",
+        "note": "Schengen states waive visas for legally Gibraltar-resident third-country nationals",
+        "source_page": "Visa policy of the Schengen Area",
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
+      },
+      {
+        "destination": "LI",
+        "type": "visa-free",
+        "days": 90,
+        "confidence": "medium",
+        "note": "Schengen states waive visas for legally Gibraltar-resident third-country nationals",
+        "source_page": "Visa policy of the Schengen Area",
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area"
+      },
+      {
+        "destination": "GB",
+        "type": "visa-free",
+        "days": 90,
+        "confidence": "medium",
+        "note": "Gibraltar residents may enter the UK on the CTA-free route",
+        "source_page": "Visa policy of United Kingdom",
+        "source_url": "https://en.wikipedia.org/wiki/Visa_policy_of_United_Kingdom"
       }
     ],
     "uk-visa": [

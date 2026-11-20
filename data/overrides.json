@@ -293,6 +293,15 @@
       "since": null,
       "valid_to": null,
       "note": "Sri Lanka's FREE-ETA pilot for Thai nationals ended 2024-04-30, but the ordinary 30-day ETA continues; the scraped date belongs to the ended pilot, not the live grant. Retire the date."
+    },
+    {
+      "nat": "GB",
+      "dest": "GI",
+      "type": "visa-free",
+      "days": null,
+      "since": "2026-07-15",
+      "note": "British citizens enter Gibraltar freely; the EU-UK Gibraltar agreement left UK immigration arrangements in place for British nationals. Source: HMGoG Technical Notice 558/2026.",
+      "source": "manual-correction"
     }
   ]
 }
