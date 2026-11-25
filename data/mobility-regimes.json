@@ -10,6 +10,7 @@
     {
       "id": "eu-eea-efta",
       "name": "European Union / EEA / EFTA",
+      "short": "EU/EEA/EFTA",
       "level": "freedom-of-movement",
       "members": [
         "AT",
@@ -52,6 +53,7 @@
     {
       "id": "eaeu",
       "name": "Eurasian Economic Union",
+      "short": "EAEU",
       "level": "freedom-of-movement",
       "members": [
         "RU",
@@ -68,6 +70,7 @@
     {
       "id": "union-state",
       "name": "Union State of Russia and Belarus",
+      "short": "Union State",
       "level": "freedom-of-movement",
       "members": [
         "RU",
@@ -81,6 +84,7 @@
     {
       "id": "mercosur",
       "name": "Mercosur",
+      "short": "Mercosur",
       "level": "freedom-of-movement",
       "members": [
         "AR",
@@ -104,6 +108,7 @@
     {
       "id": "gcc",
       "name": "Gulf Cooperation Council",
+      "short": "GCC",
       "level": "freedom-of-movement",
       "members": [
         "SA",
@@ -121,6 +126,7 @@
     {
       "id": "trans-tasman",
       "name": "Trans-Tasman Travel Arrangement",
+      "short": "TTTA",
       "level": "freedom-of-movement",
       "members": [
         "AU",
@@ -134,6 +140,7 @@
     {
       "id": "common-travel-area",
       "name": "Common Travel Area",
+      "short": "CTA",
       "level": "freedom-of-movement",
       "members": [
         "GB",
@@ -147,6 +154,7 @@
     {
       "id": "india-nepal",
       "name": "India-Nepal open border",
+      "short": "India-Nepal",
       "level": "freedom-of-movement",
       "members": [
         "IN",
@@ -160,6 +168,7 @@
     {
       "id": "cofa",
       "name": "Compact of Free Association",
+      "short": "COFA",
       "level": "freedom-of-movement",
       "members": [
         "US",
@@ -175,6 +184,7 @@
     {
       "id": "oecs",
       "name": "Organisation of Eastern Caribbean States (OECS)",
+      "short": "OECS",
       "level": "freedom-of-movement",
       "members": [
         "AG",
@@ -192,6 +202,7 @@
     {
       "id": "caricom",
       "name": "Caribbean Community (CARICOM)",
+      "short": "CARICOM",
       "level": "freedom-of-movement",
       "members": [
         "BB",
@@ -217,6 +228,7 @@
     {
       "id": "cis",
       "name": "Commonwealth of Independent States",
+      "short": "CIS",
       "level": "visa-free",
       "members": [
         "AM",
@@ -237,6 +249,7 @@
     {
       "id": "ca4",
       "name": "Central America-4",
+      "short": "CA4",
       "level": "visa-free",
       "members": [
         "SV",
@@ -252,6 +265,7 @@
     {
       "id": "india-bhutan",
       "name": "India-Bhutan",
+      "short": "India-Bhutan",
       "level": "visa-free",
       "members": [
         "IN",
@@ -265,6 +279,7 @@
     {
       "id": "schengen",
       "name": "Schengen Area",
+      "short": "Schengen",
       "level": "visa-free",
       "members": [
         "AT",

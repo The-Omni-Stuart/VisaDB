@@ -137,6 +137,12 @@ def test_data_integrity(con):
     check("A33b transit_benefits hubs are documented regimes",
           hubs <= {"schengen", "uk"}, ", ".join(sorted(hubs - {"schengen", "uk"})))
 
+    # The app shows short_name wherever the full regime name would not fit
+    # (half-width form rows), so an empty one renders as a blank field.
+    no_short = [rid for (rid,) in con.execute(
+        "SELECT id FROM mobility_regimes WHERE short_name = '' ORDER BY id")]
+    check("A34 every mobility regime carries a short_name", not no_short, ", ".join(no_short))
+
     # stay_rules references: every country a real ISO2; every nationality an
     # ISO2 or a documented sentinel.
     bad_country = bad_nat = 0

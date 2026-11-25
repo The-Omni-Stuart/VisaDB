@@ -11,6 +11,7 @@ REGIMES = [
     {
         "id": "eu-eea-efta",
         "name": "European Union / EEA / EFTA",
+        "short": "EU/EEA/EFTA",
         "level": "freedom-of-movement",
         "members": ["AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR",
                     "DE", "GR", "HU", "IE", "IT", "LV", "LT", "LU", "MT", "NL",
@@ -30,6 +31,7 @@ REGIMES = [
     {
         "id": "eaeu",
         "name": "Eurasian Economic Union",
+        "short": "EAEU",
         "level": "freedom-of-movement",
         "members": ["RU", "BY", "AM", "KZ", "KG"],
         "associates": [],
@@ -42,6 +44,7 @@ REGIMES = [
     {
         "id": "union-state",
         "name": "Union State of Russia and Belarus",
+        "short": "Union State",
         "level": "freedom-of-movement",
         "members": ["RU", "BY"],
         "associates": [],
@@ -53,6 +56,7 @@ REGIMES = [
     {
         "id": "mercosur",
         "name": "Mercosur",
+        "short": "Mercosur",
         "level": "freedom-of-movement",
         "members": ["AR", "BO", "BR", "PY", "UY"],
         "associates": ["CL", "CO", "EC", "PE"],
@@ -65,6 +69,7 @@ REGIMES = [
     {
         "id": "gcc",
         "name": "Gulf Cooperation Council",
+        "short": "GCC",
         "level": "freedom-of-movement",
         "members": ["SA", "AE", "KW", "QA", "BH", "OM"],
         "associates": [],
@@ -75,6 +80,7 @@ REGIMES = [
     {
         "id": "trans-tasman",
         "name": "Trans-Tasman Travel Arrangement",
+        "short": "TTTA",
         "level": "freedom-of-movement",
         "members": ["AU", "NZ"],
         "associates": [],
@@ -87,6 +93,7 @@ REGIMES = [
     {
         "id": "common-travel-area",
         "name": "Common Travel Area",
+        "short": "CTA",
         "level": "freedom-of-movement",
         "members": ["GB", "IE"],
         "associates": [],
@@ -100,6 +107,7 @@ REGIMES = [
     {
         "id": "india-nepal",
         "name": "India-Nepal open border",
+        "short": "India-Nepal",
         "level": "freedom-of-movement",
         "members": ["IN", "NP"],
         "associates": [],
@@ -112,6 +120,7 @@ REGIMES = [
     {
         "id": "cofa",
         "name": "Compact of Free Association",
+        "short": "COFA",
         "level": "freedom-of-movement",
         "members": ["US", "FM", "MH", "PW"],
         "associates": [],
@@ -125,6 +134,7 @@ REGIMES = [
     {
         "id": "oecs",
         "name": "Organisation of Eastern Caribbean States (OECS)",
+        "short": "OECS",
         "level": "freedom-of-movement",
         "members": ["AG", "DM", "GD", "KN", "LC", "VC"],
         "associates": [],
@@ -137,6 +147,7 @@ REGIMES = [
     {
         "id": "caricom",
         "name": "Caribbean Community (CARICOM)",
+        "short": "CARICOM",
         "level": "freedom-of-movement",
         "members": ["BB", "BZ", "DM", "VC"],
         "associates": [],
@@ -151,6 +162,7 @@ REGIMES = [
     {
         "id": "cis",
         "name": "Commonwealth of Independent States",
+        "short": "CIS",
         "level": "visa-free",
         "members": ["AM", "AZ", "BY", "KG", "KZ", "MD", "RU", "TJ", "UZ"],
         "associates": [],
@@ -165,6 +177,7 @@ REGIMES = [
     {
         "id": "ca4",
         "name": "Central America-4",
+        "short": "CA4",
         "level": "visa-free",
         "members": ["SV", "GT", "HN", "NI"],
         "associates": [],
@@ -178,6 +191,7 @@ REGIMES = [
     {
         "id": "india-bhutan",
         "name": "India-Bhutan",
+        "short": "India-Bhutan",
         "level": "visa-free",
         "members": ["IN", "BT"],
         "associates": [],
@@ -190,6 +204,7 @@ REGIMES = [
     {
         "id": "schengen",
         "name": "Schengen Area",
+        "short": "Schengen",
         "level": "visa-free",
         "members": [
             "AT", "BE", "BG", "CH", "CZ", "DE", "DK", "EE", "ES", "FI", "FR",

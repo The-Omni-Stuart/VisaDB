@@ -306,9 +306,9 @@ def merge_mobility_regimes(cur, known_iso2):
     for r in spec.get("regimes", []):
         cur.execute(
             "INSERT OR REPLACE INTO mobility_regimes"
-            "(id, name, level, members, associates, deactivated, source_url, note)"
-            " VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
-            (r["id"], r["name"], r["level"],
+            "(id, name, short_name, level, members, associates, deactivated, source_url, note)"
+            " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+            (r["id"], r["name"], r.get("short", ""), r["level"],
              json.dumps(keep(r.get("members", []))),
              json.dumps(keep(r.get("associates", []))),
              json.dumps(keep(r.get("deactivated", []))),
@@ -612,6 +612,9 @@ def write_sqlite(dataset, matrix, passports, overrides, extra_names=None) -> pat
             -- members / associates / deactivated are JSON arrays of ISO2.
             id          TEXT PRIMARY KEY,
             name        TEXT NOT NULL,
+            -- Display abbreviation (CIS, TTA, Schengen...); the app shows it
+            -- where the full name would not fit. Never used for matching.
+            short_name  TEXT NOT NULL DEFAULT '',
             level       TEXT NOT NULL,
             members     TEXT NOT NULL,
             associates  TEXT NOT NULL,
@@ -757,7 +760,7 @@ def write_full_json(db_path, matrix, dataset) -> pathlib.Path:
         " nationalities, confidence, source, checked, note, source_page, source_url"
         " FROM visa_benefits ORDER BY holding, destination")]
     mobility = [dict(r) for r in con.execute(
-        "SELECT id, name, level, members, associates, deactivated, source_url, note"
+        "SELECT id, name, short_name, level, members, associates, deactivated, source_url, note"
         " FROM mobility_regimes ORDER BY id")]
     for mrec in mobility:
         mrec["members"] = json.loads(mrec["members"])
