@@ -70,10 +70,13 @@ def meta_value(con: sqlite3.Connection, key: str) -> str | None:
 
 
 def normalized_hash(con: sqlite3.Connection) -> str:
-    """SHA256 over all DB rows, excluding meta.generated and `checked` columns.
+    """SHA256 over all DB rows, excluding meta.generated, meta.build_sha and
+    `checked` columns.
 
     Row order is normalized away. Any substantive schema or data change alters
-    the hash; a timestamp-only rebuild does not.
+    the hash; a timestamp-only rebuild does not. build_sha is the CI commit —
+    unique per run — so hashing it would make every rebuild look like a data
+    change and defeat the release dedup.
     """
     tables = {
         r[0]
@@ -92,7 +95,7 @@ def normalized_hash(con: sqlite3.Connection) -> str:
             rows = [
                 {"key": k, "value": v}
                 for k, v in con.execute("SELECT key, value FROM meta")
-                if k != "generated"
+                if k not in ("generated", "build_sha")
             ]
         else:
             keep = [c for c in cols if c != "checked"]
@@ -204,6 +207,19 @@ def sanity_checks(con: sqlite3.Connection, json_path: pathlib.Path) -> dict:
             f"({disputed}/{corridor_count} = {disputed / corridor_count:.1%})"
         )
 
+    # A failed Wikipedia scrape leaves passport-index backfilling every cell:
+    # counts stay in bounds while all confidence collapses to medium. Floor the
+    # two-source-agreement ratio so a hollowed-out dataset cannot ship.
+    high = con.execute(
+        "SELECT COUNT(*) FROM visa_rules WHERE confidence = 'high'"
+    ).fetchone()[0]
+    if high < corridor_count * 0.5:
+        fail(
+            "high-confidence ratio is implausibly low "
+            f"({high}/{corridor_count} = {high / corridor_count:.1%}); the "
+            "Wikipedia scrape may have failed, leaving single-source data"
+        )
+
     return {
         "generated": generated,
         "passport_count": passport_count,
@@ -296,8 +312,8 @@ def write_outputs(
         "```",
         "",
         "This release was built automatically. The data hash excludes only the",
-        "build timestamp and per-row `checked` stamps, so timestamp-only rebuilds",
-        "do not create new releases.",
+        "build timestamp, the CI commit stamp, and per-row `checked` stamps, so",
+        "timestamp-only rebuilds do not create new releases.",
     ]
     (dist / "RELEASE_NOTES.md").write_text("\n".join(notes) + "\n", encoding="utf-8")
 

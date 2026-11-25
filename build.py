@@ -189,7 +189,8 @@ def merge_limited_recognition(matrix, passports, build_date):
     path = DATA / "limited-recognition.json"
     if not path.exists():
         return passports, {}
-    spec = json.load(open(path))
+    # Top-level metadata (e.g. "checked") sits beside the entity codes.
+    spec = {k: v for k, v in json.load(open(path)).items() if isinstance(v, dict)}
     today = build_date
 
     def cell(c):
@@ -398,6 +399,25 @@ def merge_transit(cur):
         return 0
     spec = json.load(open(path))
     n = 0
+    # A code absent from this build makes its policy a silent no-op; say so.
+    known_p = {r[0] for r in cur.execute("SELECT DISTINCT passport FROM visa_rules")}
+    known_d = {r[0] for r in cur.execute("SELECT DISTINCT destination FROM visa_rules")}
+    absent = []
+    for pol in spec.get("policies", []):
+        for c in set(pol.get("passports", [])) | set(pol.get("exempt", [])):
+            if c not in known_p:
+                absent.append(f"{pol.get('name', '?')} passport {c}")
+        for c in set(pol.get("destinations", [])) | ({pol["destination"]} if pol.get("destination") else set()):
+            if c not in known_d:
+                absent.append(f"{pol.get('name', '?')} destination {c}")
+    for o in spec.get("overrides", []):
+        if o.get("passport") and o["passport"] not in known_p:
+            absent.append(f"override passport {o['passport']}")
+        if o.get("destination") and o["destination"] not in known_d:
+            absent.append(f"override destination {o['destination']}")
+    if absent:
+        print(f"WARNING: transit rules name codes absent from this build "
+              f"(silent no-ops): {', '.join(sorted(set(absent)))}")
     # Policies first.
     for pol in spec.get("policies", []):
         if pol.get("kind") == "default":
@@ -1002,6 +1022,7 @@ def build(build_date: str, exports: frozenset = frozenset()):
     overrides = json.load(open(ov_path)).get("overrides", []) if ov_path.exists() else []
     applied = 0
     retired = set()
+    unapplied = []
     for o in overrides:
         # 'nats' groups a whole nationality set (one policy change, one note);
         # 'nat' stays the single-corridor form. Same shape either way downstream.
@@ -1011,6 +1032,7 @@ def build(build_date: str, exports: frozenset = frozenset()):
             continue
         for nat in nats:
             if nat not in matrix:
+                unapplied.append(f"{nat}->{dest}")
                 continue
             cell = {
                 "type": o["type"],
@@ -1029,6 +1051,9 @@ def build(build_date: str, exports: frozenset = frozenset()):
             matrix[nat] = dict(sorted(matrix[nat].items()))
             applied += 1
     print(f"overrides applied: {applied} corridors from {len(overrides)} entries")
+    if unapplied:
+        print(f"WARNING: overrides not applied (passport absent from this "
+              f"build): {', '.join(unapplied)}")
 
     # States with limited recognition — hand-curated from Wikipedia stub
     # pages; applied after the scrape and overrides (see the module docstring).

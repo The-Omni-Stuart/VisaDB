@@ -9,10 +9,12 @@ from __future__ import annotations
 
 import csv
 import io
+import time
+import urllib.error
 import urllib.request
 
 UA = {
-    "User-Agent": "visa-matrix/1.0 (open dataset; github.com/xpressmike/visa-matrix)"
+    "User-Agent": "visadb/1.0 (open dataset; https://github.com/The-Omni-Stuart/VisaDB)"
 }
 CSV_URL = (
     "https://raw.githubusercontent.com/imorte/passport-index-data/"
@@ -40,14 +42,35 @@ def normalise(raw: str):
     return {"type": "unknown", "days": None, "raw": raw}
 
 
+def _get_text(url: str) -> str:
+    """One fetch with the same backoff wikipedia._get uses."""
+    for attempt in range(4):
+        try:
+            req = urllib.request.Request(url, headers=UA)
+            return urllib.request.urlopen(req, timeout=60).read().decode("utf-8")
+        except urllib.error.HTTPError as e:
+            if e.code in (429, 503) and attempt < 3:
+                time.sleep(5 * (attempt + 1))
+                continue
+            raise
+        except (urllib.error.URLError, OSError, TimeoutError):
+            if attempt < 3:
+                time.sleep(5 * (attempt + 1))
+                continue
+            raise
+    raise RuntimeError("unreachable")
+
+
 def collect_all() -> dict:
     """Every passport in the matrix: iso2 -> {destination iso2 -> cell}"""
-    req = urllib.request.Request(CSV_URL, headers=UA)
-    text = urllib.request.urlopen(req, timeout=60).read().decode("utf-8")
-    rows = list(csv.reader(io.StringIO(text)))
+    rows = list(csv.reader(io.StringIO(_get_text(CSV_URL))))
     header = rows[0]
     out: dict = {}
     for row in rows[1:]:
+        # An upstream column addition would otherwise IndexError the whole build.
+        if len(row) != len(header):
+            print(f"passport-index: skipping ragged row {row[0]!r}")
+            continue
         cells = {}
         for i, dest in enumerate(header[1:], start=1):
             cell = normalise(row[i])

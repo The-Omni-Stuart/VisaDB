@@ -1,5 +1,6 @@
 # The dataset is the product; don't let generated data drown the language
-# stats, and collapse its diffs in PRs (the weekly refresh rewrites it).
+# stats, and collapse its diffs in PRs (a local rebuild rewrites it; CI
+# releases publish artifacts but never commit the rebuilt data back).
 data/*.csv linguist-generated
 data/*.json linguist-generated
 data/*.db  linguist-generated

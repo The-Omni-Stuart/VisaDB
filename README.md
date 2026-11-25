@@ -195,9 +195,9 @@ Use `--date YYYY-MM-DD`, or set `BUILD_DATE`, to pin the generated/check dates f
 4. Compares the normalised SHA256 data hash with the latest data release.
 5. Creates a GitHub Release only if the data hash changed.
 
-The normalised hash ignores `meta.generated` and the per-row `checked` values, so a rebuild that only changes dates does not create a new release. If the build, tests, or release check fails, the workflow stops and no release is created.
+The normalised hash ignores `meta.generated`, `meta.build_sha` and the per-row `checked` values, so a rebuild that only changes dates and provenance does not create a new release. If the build, tests, or release check fails, the workflow stops and no release is created.
 
-Release assets include `visa_data.db`, `visa_data.json`, `SHA256SUMS`, `build-manifest.json`, and `data-hash.txt`.
+Release assets include `visa_data.db`, `visa_data.json`, `SHA256SUMS`, `build-manifest.json`, and `data-hash.txt`. Releases come from this workflow only: consumers verify `visa_data.db` against `SHA256SUMS`, so a hand-made release without that asset would be downloaded unchecked — do not create or mark-latest manual `data-*` releases.
 
 ## App integration
 

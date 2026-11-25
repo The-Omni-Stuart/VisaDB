@@ -17,7 +17,7 @@ import urllib.parse
 import urllib.request
 
 UA = {
-    "User-Agent": "visa-matrix/1.0 (open dataset; github.com/xpressmike/visa-matrix)"
+    "User-Agent": "visadb/1.0 (open dataset; https://github.com/The-Omni-Stuart/VisaDB)"
 }
 
 DATA = pathlib.Path(__file__).parent.parent / "data"
@@ -40,24 +40,32 @@ def discover_pages():
     """
     demonyms = json.load(open(DATA / "demonyms-iso2.json"))
     countries = json.load(open(DATA / "countries-iso2.json"))
-    url = (
+    base = (
         "https://en.wikipedia.org/w/api.php?action=query&list=categorymembers"
         "&cmtitle=Category:Visa%20requirements%20by%20nationality"
         "&cmlimit=500&format=json&formatversion=2"
     )
-    req = urllib.request.Request(url, headers=UA)
-    r = json.load(urllib.request.urlopen(req, timeout=60))
     pages = {}
-    for m in r["query"]["categorymembers"]:
-        title = m["title"]
-        if not title.startswith("Visa requirements for") or SKIP_TITLES.search(title):
-            continue
-        subject = title.removeprefix("Visa requirements for ").removesuffix(" citizens").strip()
-        subject = subject.removeprefix("citizens of ").strip()
-        iso2 = demonyms.get(subject) or countries.get(subject)
-        if iso2 and iso2 not in pages:
-            pages[iso2] = title
-    return pages
+    cont: dict = {}
+    while True:
+        url = base + "".join(
+            f"&{urllib.parse.quote(k)}={urllib.parse.quote(v)}"
+            for k, v in sorted(cont.items())
+        )
+        r = _get(url)
+        for m in r["query"]["categorymembers"]:
+            title = m["title"]
+            if not title.startswith("Visa requirements for") or SKIP_TITLES.search(title):
+                continue
+            subject = title.removeprefix("Visa requirements for ").removesuffix(" citizens").strip()
+            subject = subject.removeprefix("citizens of ").strip()
+            iso2 = demonyms.get(subject) or countries.get(subject)
+            if iso2 and iso2 not in pages:
+                pages[iso2] = title
+        # The category outgrew one page once; without this the tail is dropped.
+        cont = r.get("continue") or {}
+        if not cont:
+            return pages
 
 STATUS_PATTERNS = [
     (r"freedom of movement", "freedom-of-movement"),
@@ -113,7 +121,7 @@ def fetch_many(titles: list) -> dict:
             content = revs[0].get("slots", {}).get("main", {}).get("content")
             if content:
                 out[page["title"]] = content
-        time.sleep(0.5)
+        time.sleep(2)
     return out
 
 

@@ -146,8 +146,13 @@ doc = {
     "benefits": BENEFITS,
 }
 
-out = DATA / "transit-benefits.json"
-with open(out, "w") as f:
-    json.dump(doc, f, ensure_ascii=False, indent=2)
-    f.write("\n")
-print(f"wrote {out} ({len(BENEFITS)} transit-benefit rows)")
+def build_payload():
+    return doc
+
+
+if __name__ == "__main__":
+    out = DATA / "transit-benefits.json"
+    with open(out, "w") as f:
+        json.dump(doc, f, ensure_ascii=False, indent=2)
+        f.write("\n")
+    print(f"wrote {out} ({len(BENEFITS)} transit-benefit rows)")

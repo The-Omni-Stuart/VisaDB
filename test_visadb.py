@@ -118,6 +118,25 @@ def test_data_integrity(con):
     check("A32 rules pooling into one zone share its window type", not mixed,
           "; ".join(f"{z}: {sorted(types[z])}" for z in mixed))
 
+    # transit.json is applied by blind UPDATE, so a typo'd code is a silent
+    # no-op. Codes that are well-formed but not carried (e.g. BM) are a
+    # coverage decision, not a defect — build.py warns about those at build.
+    tr = json.loads((ROOT / "data" / "transit.json").read_text())
+    tr_codes = set()
+    for pol in tr.get("policies", []):
+        tr_codes |= set(pol.get("passports", [])) | set(pol.get("destinations", []))
+        tr_codes |= set(pol.get("exempt", []))
+        if pol.get("destination"):
+            tr_codes.add(pol["destination"])
+    for o in tr.get("overrides", []):
+        tr_codes |= {o.get("passport"), o.get("destination")}
+    bad_tr = sorted(c for c in tr_codes
+                    if c and not (len(c) == 2 and c.isalpha() and c.isupper()))
+    check("A33 transit.json codes are well-formed ISO2", not bad_tr, ", ".join(bad_tr))
+    hubs = {r["hub"] for r in con.execute("SELECT DISTINCT hub FROM transit_benefits")}
+    check("A33b transit_benefits hubs are documented regimes",
+          hubs <= {"schengen", "uk"}, ", ".join(sorted(hubs - {"schengen", "uk"})))
+
     # stay_rules references: every country a real ISO2; every nationality an
     # ISO2 or a documented sentinel.
     bad_country = bad_nat = 0
@@ -398,14 +417,16 @@ def test_benefits_generator_drift(con):
 # B. Merge-logic reference (the app spec, as a pure function)
 # --------------------------------------------------------------------------
 def test_curated_generators_drift(con):
-    # D. gen_mobility.py and gen_stay_rules.py write the JSON that build.py
-    # consumes, and nothing compared them: a fact hand-edited into data/*.json
-    # without back-porting vanished at the next regeneration (and the release
-    # pipeline shipped the loss).
+    # D. gen_mobility.py, gen_stay_rules.py and gen_transit_benefits.py write
+    # the JSON that build.py consumes, and nothing compared them: a fact
+    # hand-edited into data/*.json without back-porting vanished at the next
+    # regeneration (and the release pipeline shipped the loss).
     import gen_mobility
     import gen_stay_rules
+    import gen_transit_benefits
     for num, mod, rel in (("D10", gen_mobility, "mobility-regimes.json"),
-                          ("D11", gen_stay_rules, "stay-rules.json")):
+                          ("D11", gen_stay_rules, "stay-rules.json"),
+                          ("D12", gen_transit_benefits, "transit-benefits.json")):
         committed = json.loads((ROOT / "data" / rel).read_text())
         check(f"{num} {mod.__name__}.py payload matches data/{rel}",
               mod.build_payload() == committed,
