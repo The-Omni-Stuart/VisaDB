@@ -163,6 +163,9 @@ def canonical_country_names() -> dict[str, str]:
     # stable (it drives table matching), but the user-facing name can differ.
     display_override = {
         "PS": "Occupied Palestine",
+        # The scrape row reads "Chinese citizens of Hong Kong" (the nationality the
+        # Wikipedia table records); as a destination the place is simply Hong Kong.
+        "HK": "Hong Kong",
     }
     for iso2, name in display_override.items():
         if iso2 in out:

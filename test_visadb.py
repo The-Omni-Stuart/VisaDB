@@ -143,6 +143,11 @@ def test_data_integrity(con):
         "SELECT id FROM mobility_regimes WHERE short_name = '' ORDER BY id")]
     check("A34 every mobility regime carries a short_name", not no_short, ", ".join(no_short))
 
+    # The HK scrape row is a nationality ("Chinese citizens of Hong Kong"); the
+    # destination name shown in the app must stay the place name.
+    hk = con.execute("SELECT name FROM countries WHERE iso2='HK'").fetchone()
+    check("A35 HK displays as 'Hong Kong'", hk is not None and hk["name"] == "Hong Kong", str(hk))
+
     # stay_rules references: every country a real ISO2; every nationality an
     # ISO2 or a documented sentinel.
     bad_country = bad_nat = 0
